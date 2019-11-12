@@ -195,11 +195,11 @@ profile:
   social:
     links:
       github: https://github.com/liuxiaoyucc
-      weibo: 404
-      twitter: 404
+      weibo: 暂无
+      twitter: 暂无
       # facebook: /
       # dribbble: /
-      behance: 404
+      behance: 暂无
       rss: atom.xml
     link_tooltip: true # enable the social link tooltip, options: true, false
   # My Skills
@@ -214,10 +214,10 @@ profile:
   # My Personal Links
   links:
     Github: https://github.com/liuxiaoyucc
-    Blog: 404
-    微博: 404
-    花瓣: 404
-    Behance: 404
+    Blog: 暂无
+    微博: 暂无
+    花瓣: 暂无
+    Behance: 暂无
   # My Personal Labels
   labels:
     - 前端
