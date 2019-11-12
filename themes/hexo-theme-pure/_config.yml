@@ -5,8 +5,7 @@ menu:
   Categories: categories  # 分类
   Tags: tags  # 标签
   Repository: repository  # github repositories
-  Books: books  # 豆瓣书单
-  Links: links  # 友链
+  # Links: links  # 友链
   About: about  # 关于
 
 # Enable/Disable menu icons
@@ -17,8 +16,8 @@ menu_icons:
   categories: icon-folder
   tags: icon-tags
   repository: icon-project
-  books: icon-book-fill
-  links: icon-friendship
+  # books: icon-book-fill
+  # links: icon-friendship
   about: icon-cup-fill
 
 # rss
@@ -98,27 +97,27 @@ donate:
 share:
   enable: true  # 是否启用分享
   sites: weibo,qq,wechat,facebook,twitter  # PC端显示的分享图标
-  mobile_sites: weibo,qq,qzone  # 移动端显示的分享图标
+  mobile_sites: wechat,weibo,qq,qzone  # 移动端显示的分享图标
 
 # Github
 github:
-  username: cofess  # github username
+  username: liuxiaoyucc  # github username
 
 # Comment
 # Gitment
 # Introduction: https://imsun.net/posts/gitment-introduction/
 comment:
-  type: valine  # 启用哪种评论系统
+  type: gitment  # 启用哪种评论系统
   disqus:  # enter disqus shortname here
   youyan:
     uid: 1783844 # enter youyan uid
   livere:
     uid: # enter youyan uid
   gitment:
-    githubID:
-    repo:
-    ClientID:
-    ClientSecret:
+    githubID: liuxiaoyucc
+    repo: xy-blog
+    ClientID: 3f444cd96c55b018da3b
+    ClientSecret: 196107507bfaec3f322d25041c3a9411e1d9ea4f
     lazy: false
   gitalk: # gitalk. https://gitalk.github.io/
     owner:  #必须. GitHub repository 所有者，可以是个人或者组织。
@@ -214,10 +213,10 @@ profile:
   # My Personal Links
   links:
     Github: https://github.com/liuxiaoyucc
-    Blog: 暂无
-    微博: 暂无
-    花瓣: 暂无
-    Behance: 暂无
+    Blog: http://pulsating.cn/
+    微博: /
+    花瓣: /
+    Behance: /
   # My Personal Labels
   labels:
     - 前端
@@ -227,8 +226,18 @@ profile:
     - 全栈
   # My Personal Works
   works:
-    name:
-      link: http://www.example.com
+
+    外卖管家云打印开放平台: 
+      link: http://open.xiaowm.com/
+      date: 2017
+    外卖大优惠: 
+      link: /
+      date: 2017
+    外卖海报: 
+      link: /
+      date: 2018
+    印题宝: 
+      link: https://www.yintibao.com/
       date: 2019
   # My Personal Projects
   projects:
