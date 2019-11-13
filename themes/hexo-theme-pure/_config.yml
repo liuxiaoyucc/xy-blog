@@ -41,7 +41,7 @@ config:
   layout: main-center # 布局方式 main-left main-center main-right
   toc: true # 是否开启文章章节目录导航
   menu_highlight: true # 是否开启当前菜单高亮显示
-  thumbnail: false # enable posts thumbnail, options: true, false
+  thumbnail: true # enable posts thumbnail, options: true, false
   excerpt_link: Read More
 
 # Pagination
@@ -155,7 +155,7 @@ douban:
 # PV
 pv:
   busuanzi:
-    enable: false  # 不蒜子统计
+    enable: true  # 不蒜子统计
   leancloud:
     enable: false  # leancloud统计
     app_id: # leancloud <AppID>

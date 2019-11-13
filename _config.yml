@@ -96,3 +96,10 @@ theme: hexo-theme-pure
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: ''
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
