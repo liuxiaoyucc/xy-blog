@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.pulsating.cn/"/>
-  <updated>2019-11-13T01:15:46.988Z</updated>
+  <updated>2019-11-13T02:48:09.437Z</updated>
   <id>http://www.pulsating.cn/</id>
   
   <author>
@@ -15,6 +15,49 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue动态绑定ref</title>
+    <link href="http://www.pulsating.cn/2019/11/13/Vue%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9Aref/"/>
+    <id>http://www.pulsating.cn/2019/11/13/Vue%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9Aref/</id>
+    <published>2019-11-13T01:54:18.000Z</published>
+    <updated>2019-11-13T02:48:09.437Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>记录一下动态绑定及使用ref的方法</p></blockquote><a id="more"></a><h2 id="情景"><a href="#情景" class="headerlink" title="情景"></a>情景</h2><p><strong>需要在使用weex的<code>&lt;list&gt;</code>组件时,需要实现一个滚动到具体某一个<code>&lt;cell&gt;</code>的功能</strong></p><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="在for循环标签上动态绑定ref"><a href="#在for循环标签上动态绑定ref" class="headerlink" title="在for循环标签上动态绑定ref"></a>在for循环标签上动态绑定ref</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"(item, index) in list"</span> <span class="attr">:key</span>=<span class="string">"index"</span> <span class="attr">:ref</span>=<span class="string">"`item$&#123;index&#125;`"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><h3 id="获取ref并滚动到指定位置"><a href="#获取ref并滚动到指定位置" class="headerlink" title="获取ref并滚动到指定位置"></a>获取ref并滚动到指定位置</h3><h4 id="引入weex的dom-模块"><a href="#引入weex的dom-模块" class="headerlink" title="引入weex的dom 模块"></a>引入weex的dom 模块</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dom = weex.requireModule(<span class="string">'dom'</span>);</span><br></pre></td></tr></table></figure><h4 id="动态获取ref-并使用scrollToElement滚动到指定元素"><a href="#动态获取ref-并使用scrollToElement滚动到指定元素" class="headerlink" title="动态获取ref,并使用scrollToElement滚动到指定元素"></a>动态获取ref,并使用scrollToElement滚动到指定元素</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> el = <span class="keyword">this</span>.$refs[<span class="string">`message<span class="subst">$&#123;length<span class="number">-1</span>&#125;</span>`</span>][<span class="number">0</span>];</span><br><span class="line">dom.scrollToElement(el, &#123;&#125;);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;记录一下动态绑定及使用ref的方法&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="前端" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="JavaScript" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+    
+      <category term="Vue" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/"/>
+    
+      <category term="uni-app" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/uni-app/"/>
+    
+      <category term="WEEX" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/WEEX/"/>
+    
+    
+      <category term="Js" scheme="http://www.pulsating.cn/tags/Js/"/>
+    
+      <category term="Vue" scheme="http://www.pulsating.cn/tags/Vue/"/>
+    
+      <category term="uni-app" scheme="http://www.pulsating.cn/tags/uni-app/"/>
+    
+      <category term="WEEX" scheme="http://www.pulsating.cn/tags/WEEX/"/>
+    
+      <category term="随手记" scheme="http://www.pulsating.cn/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>使用imagemagick实现两张或多张图片图片拼接 覆盖</title>
@@ -253,9 +296,9 @@
     <link href="http://www.pulsating.cn/2019/11/12/Windows-PHP5-6%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85imagick%E6%89%A9%E5%B1%95%E5%92%8Cimagemagick/"/>
     <id>http://www.pulsating.cn/2019/11/12/Windows-PHP5-6%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85imagick%E6%89%A9%E5%B1%95%E5%92%8Cimagemagick/</id>
     <published>2019-11-12T14:40:35.000Z</published>
-    <updated>2019-11-13T01:15:46.986Z</updated>
+    <updated>2019-11-13T02:05:27.272Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>其实回过头看,安装过程中最容易出错的反而是下载阶段,一定要将imagemagick和imagick的版本和<code>phpinfo</code>的信息对应好!<br>下图中几点需要注意,每个人的信息可能不同,根据你自己的phpinfo来选择接下来的下载的程序及扩展版本:</p></blockquote><ul><li>PHP Version: <strong>PHP版本</strong> </li><li>compiler: <strong>MSVC11</strong></li><li>Architecture: <strong>x86</strong></li><li>Thread Safety: <strong>disabled</strong> 非线程安全,也就是<strong>NTS</strong>,相反的则是线程安全<strong>TS</strong></li></ul><a id="more"></a><p><img src="https://upload-images.jianshu.io/upload_images/14618365-bc2658ebe00f81fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p><p><strong>正文部分</strong></p><hr><h4 id="一-Imagemagick部分"><a href="#一-Imagemagick部分" class="headerlink" title="一. Imagemagick部分"></a>一. Imagemagick部分</h4><h5 id="1-下载"><a href="#1-下载" class="headerlink" title="1. 下载"></a>1. 下载</h5><ul><li>下载<code>Imagemagick</code>程序<br>下载地址:<a href="http://windows.php.net/downloads/pecl/deps/" target="_blank" rel="noopener">Imagemagick程序下载地址</a><br>打开链接,找到Imagemagick的下载区域,根据phpinfo我应该选择vc11,32位的下载链接,也就是下图中圈出的部分<br><img src="https://upload-images.jianshu.io/upload_images/14618365-1fa2dc2e9309896b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li></ul><h5 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h5><ul><li><p><strong>解压缩</strong> 将下载后的压缩包,直接解压到你想放置的目录下,不要有中文和特殊字符,我把它放在了<code>D:\install_dir\imagemagick</code>下,并且记住不要忘记这个路径</p></li><li><p><strong>环境变量配置</strong> 为了更方便,全局都可以使用,我们需要配置下环境变量,进入刚才解压缩的目录,再进入/bin目录下,复制当前路径,我的路径为<code>D:\install_dir\imagemagick\bin</code>,右击我的电脑(计算机),按照下图依次打开环境变量配置位置,将路径粘贴进去(<strong>注意:Path中可能有多个路径,多个路径间用<code>;</code>分号分割就好</strong>)<br><img src="https://upload-images.jianshu.io/upload_images/14618365-b9d3e46e19449641.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p></li><li><p><strong>导入DLL文件</strong> 进入<code>imagemagick</code>的<code>bin</code>目录下,复制所有<code>.dll</code>后缀的文件到你的<code>php</code>根目录下(我使用的是Phpstudy建的环境,我的<code>php</code>路径为:<code>D:\phpStudy\php\php-5.6.27-nts</code>)我的版本有147个文件,这里有个小技巧,在文件管理器右上角搜索<code>.dll</code>,然后全选复制,会方便一点<br><img src="https://upload-images.jianshu.io/upload_images/14618365-845b64c7cb6228f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p></li></ul><h4 id="二-Imagick扩展部分"><a href="#二-Imagick扩展部分" class="headerlink" title="二. Imagick扩展部分"></a>二. Imagick扩展部分</h4><p>&emsp;&emsp;首先<code>imagick</code>一个<code>php</code>扩展,可以使用<code>php</code>控制<code>imagemagick</code>程序</p><h5 id="1-下载-1"><a href="#1-下载-1" class="headerlink" title="1. 下载"></a>1. 下载</h5><ul><li><strong>下载imagick</strong> <a href="https://windows.php.net/downloads/pecl/releases/imagick/" target="_blank" rel="noopener">下载地址</a> 仍然是根据你的phpinfo选择对应的版本,根据文章开始的图片,我应该选择<a href="https://windows.php.net/downloads/pecl/releases/imagick/3.4.3/php_imagick-3.4.3-5.6-ts-vc11-x86.zip" target="_blank" rel="noopener">php_imagick-3.4.3-5.6-ts-vc11-x86.zip</a></li></ul><p>#####2. 安装</p><ul><li><strong>php_imagick.dll</strong> 找到刚下载的压缩包,解压后,找到<code>php_imagick.dll</code>文件,将其复制粘贴到<code>php</code>根目录下的<code>ext</code>目录下</li><li><strong>其他<code>.DLL</code>文件</strong> 将解压后的<code>imagick</code>目录下的其他<code>.dll</code>后缀的文件全部复制粘贴到<code>php</code>根目录下</li><li><strong>php.ini</strong> 找到php.ini文件并打开编辑,加入<code>extension=php_imagick.dll</code>这一行</li></ul><h4 id="三-重启"><a href="#三-重启" class="headerlink" title="三. 重启"></a>三. 重启</h4><p>到这里基本上可以成功安装了,<code>imagemagick</code>需要重启电脑后才会生效,重启电脑后,查看phpinfo,如果成功安装了,会看到下图中的部分<br><img src="https://upload-images.jianshu.io/upload_images/14618365-e71f02e2d9ef466b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>其实回过头看,安装过程中最容易出错的反而是下载阶段,一定要将imagemagick和imagick的版本和<code>phpinfo</code>的信息对应好!<br>下图中几点需要注意,每个人的信息可能不同,根据你自己的phpinfo来选择接下来的下载的程序及扩展版本:</p></blockquote><ul><li>PHP Version: <strong>PHP版本</strong> </li><li>compiler: <strong>MSVC11</strong></li><li>Architecture: <strong>x86</strong></li><li>Thread Safety: <strong>disabled</strong> 非线程安全,也就是<strong>NTS</strong>,相反的则是线程安全<strong>TS</strong></li></ul><a id="more"></a><p><img src="https://upload-images.jianshu.io/upload_images/14618365-bc2658ebe00f81fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p><p><strong>正文部分</strong></p><hr><h4 id="一-Imagemagick部分"><a href="#一-Imagemagick部分" class="headerlink" title="一. Imagemagick部分"></a>一. Imagemagick部分</h4><h5 id="1-下载"><a href="#1-下载" class="headerlink" title="1. 下载"></a>1. 下载</h5><ul><li>下载<code>Imagemagick</code>程序<br>下载地址:<a href="http://windows.php.net/downloads/pecl/deps/" target="_blank" rel="noopener">Imagemagick程序下载地址</a><br>打开链接,找到Imagemagick的下载区域,根据phpinfo我应该选择vc11,32位的下载链接,也就是下图中圈出的部分<br><img src="https://upload-images.jianshu.io/upload_images/14618365-1fa2dc2e9309896b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li></ul><h5 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h5><ul><li><p><strong>解压缩</strong> 将下载后的压缩包,直接解压到你想放置的目录下,不要有中文和特殊字符,我把它放在了<code>D:\install_dir\imagemagick</code>下,并且记住不要忘记这个路径</p></li><li><p><strong>环境变量配置</strong> 为了更方便,全局都可以使用,我们需要配置下环境变量,进入刚才解压缩的目录,再进入/bin目录下,复制当前路径,我的路径为<code>D:\install_dir\imagemagick\bin</code>,右击我的电脑(计算机),按照下图依次打开环境变量配置位置,将路径粘贴进去(<strong>注意:Path中可能有多个路径,多个路径间用<code>;</code>分号分割就好</strong>)<br><img src="https://upload-images.jianshu.io/upload_images/14618365-b9d3e46e19449641.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p></li><li><p><strong>导入DLL文件</strong> 进入<code>imagemagick</code>的<code>bin</code>目录下,复制所有<code>.dll</code>后缀的文件到你的<code>php</code>根目录下(我使用的是Phpstudy建的环境,我的<code>php</code>路径为:<code>D:\phpStudy\php\php-5.6.27-nts</code>)我的版本有147个文件,这里有个小技巧,在文件管理器右上角搜索<code>.dll</code>,然后全选复制,会方便一点<br><img src="https://upload-images.jianshu.io/upload_images/14618365-845b64c7cb6228f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p></li></ul><h4 id="二-Imagick扩展部分"><a href="#二-Imagick扩展部分" class="headerlink" title="二. Imagick扩展部分"></a>二. Imagick扩展部分</h4><p>&emsp;&emsp;首先<code>imagick</code>一个<code>php</code>扩展,可以使用<code>php</code>控制<code>imagemagick</code>程序</p><h5 id="1-下载-1"><a href="#1-下载-1" class="headerlink" title="1. 下载"></a>1. 下载</h5><ul><li><strong>下载imagick</strong> <a href="https://windows.php.net/downloads/pecl/releases/imagick/" target="_blank" rel="noopener">下载地址</a> 仍然是根据你的phpinfo选择对应的版本,根据文章开始的图片,我应该选择<a href="https://windows.php.net/downloads/pecl/releases/imagick/3.4.3/php_imagick-3.4.3-5.6-ts-vc11-x86.zip" target="_blank" rel="noopener">php_imagick-3.4.3-5.6-ts-vc11-x86.zip</a></li></ul><h5 id="2-安装-1"><a href="#2-安装-1" class="headerlink" title="2. 安装"></a>2. 安装</h5><ul><li><strong>php_imagick.dll</strong> 找到刚下载的压缩包,解压后,找到<code>php_imagick.dll</code>文件,将其复制粘贴到<code>php</code>根目录下的<code>ext</code>目录下</li><li><strong>其他<code>.DLL</code>文件</strong> 将解压后的<code>imagick</code>目录下的其他<code>.dll</code>后缀的文件全部复制粘贴到<code>php</code>根目录下</li><li><strong>php.ini</strong> 找到php.ini文件并打开编辑,加入<code>extension=php_imagick.dll</code>这一行</li></ul><h4 id="三-重启"><a href="#三-重启" class="headerlink" title="三. 重启"></a>三. 重启</h4><p>到这里基本上可以成功安装了,<code>imagemagick</code>需要重启电脑后才会生效,重启电脑后,查看phpinfo,如果成功安装了,会看到下图中的部分<br><img src="https://upload-images.jianshu.io/upload_images/14618365-e71f02e2d9ef466b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>]]></content>
     
     <summary type="html">
     
