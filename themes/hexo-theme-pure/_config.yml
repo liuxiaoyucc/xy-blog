@@ -32,7 +32,7 @@ site:
   url: ../images/logo.png
   title: cc&xy # 页面title
   favicon: /fav.png
-  board: <p>日子一天一天的过去</p> # 站点公告
+  board: <p>控制早晨, 方能控制人生!</p> # 站点公告
   copyright: false # 底部版权信息
 
 # config
@@ -227,16 +227,16 @@ profile:
   # My Personal Works
   works:
 
-    外卖管家云打印开放平台: 
+    外卖管家云打印开放平台:
       link: http://open.xiaowm.com/
       date: 2017
-    外卖大优惠: 
+    外卖大优惠:
       link: /
       date: 2017
-    外卖海报: 
+    外卖海报:
       link: /
       date: 2018
-    印题宝: 
+    印题宝:
       link: https://www.yintibao.com/
       date: 2019
   # My Personal Projects

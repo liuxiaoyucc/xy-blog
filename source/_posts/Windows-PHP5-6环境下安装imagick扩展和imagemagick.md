@@ -53,7 +53,7 @@ __正文部分__
 ##### 1. 下载
 * **下载imagick** [下载地址](https://windows.php.net/downloads/pecl/releases/imagick/) 仍然是根据你的phpinfo选择对应的版本,根据文章开始的图片,我应该选择[php_imagick-3.4.3-5.6-ts-vc11-x86.zip](https://windows.php.net/downloads/pecl/releases/imagick/3.4.3/php_imagick-3.4.3-5.6-ts-vc11-x86.zip)
 
-#####2. 安装
+##### 2. 安装
 * **php_imagick.dll** 找到刚下载的压缩包,解压后,找到`php_imagick.dll`文件,将其复制粘贴到`php`根目录下的`ext`目录下
 * **其他`.DLL`文件** 将解压后的`imagick`目录下的其他`.dll`后缀的文件全部复制粘贴到`php`根目录下
 * **php.ini** 找到php.ini文件并打开编辑,加入`extension=php_imagick.dll`这一行
