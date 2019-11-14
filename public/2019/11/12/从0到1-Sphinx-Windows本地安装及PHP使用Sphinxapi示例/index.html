@@ -18,13 +18,13 @@
   
   
   <title>从0到1,Sphinx Windows本地安装及PHP使用Sphinxapi示例 | cc&amp;xy</title>
-  <meta name="description" content="&amp;emsp;&amp;emsp;最近一个项目需要实现这样一个需求:mysql数据库一张表中存了百万张菜品图片,需要根据菜品名称或描述,模糊匹配出符合条件的菜品图片,并展示出来 12select * from table_name where column like &amp;apos;%鱼香肉丝%&amp;apos;;  &amp;emsp;&amp;emsp;如果像上面那样,直接使用mysql like查询的话,会进行全表扫描,不走索引,大大的影响查询效">
-<meta name="keywords" content="大熊BIGBEAR,Mysql,PHP,Sphinx,Sphinxapi">
+  <meta name="description" content="&amp;emsp;&amp;emsp;最近一个项目需要实现这样一个需求:mysql数据库一张表中存了百万张菜品图片,需要根据菜品名称或描述,模糊匹配出符合条件的菜品图片,并展示出来 12select * from table_name where column like &amp;apos;%鱼香肉丝%&amp;apos;;  &amp;emsp;&amp;emsp;如果像上面那样,直接使用mysql like查询的话,会进行全表扫描,不走索引,大大的影响查">
+<meta name="keywords" content="Mysql,大熊BIGBEAR,PHP,Sphinx,Sphinxapi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从0到1,Sphinx Windows本地安装及PHP使用Sphinxapi示例">
 <meta property="og:url" content="http:&#x2F;&#x2F;www.pulsating.cn&#x2F;2019&#x2F;11&#x2F;12&#x2F;%E4%BB%8E0%E5%88%B01-Sphinx-Windows%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85%E5%8F%8APHP%E4%BD%BF%E7%94%A8Sphinxapi%E7%A4%BA%E4%BE%8B&#x2F;index.html">
 <meta property="og:site_name" content="cc &amp;&amp; xy">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;最近一个项目需要实现这样一个需求:mysql数据库一张表中存了百万张菜品图片,需要根据菜品名称或描述,模糊匹配出符合条件的菜品图片,并展示出来 12select * from table_name where column like &amp;apos;%鱼香肉丝%&amp;apos;;  &amp;emsp;&amp;emsp;如果像上面那样,直接使用mysql like查询的话,会进行全表扫描,不走索引,大大的影响查询效">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;最近一个项目需要实现这样一个需求:mysql数据库一张表中存了百万张菜品图片,需要根据菜品名称或描述,模糊匹配出符合条件的菜品图片,并展示出来 12select * from table_name where column like &amp;apos;%鱼香肉丝%&amp;apos;;  &amp;emsp;&amp;emsp;如果像上面那样,直接使用mysql like查询的话,会进行全表扫描,不走索引,大大的影响查">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-57bc4bf34fe6ce13.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
 <meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-eeada956c4180e1c.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
@@ -34,7 +34,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-4f8b1e2d6cc27b6a.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
 <meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-71ee147c00cedb1b.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
 <meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-4ce186161f4e1689.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
-<meta property="og:updated_time" content="2019-11-13T01:15:46.987Z">
+<meta property="og:updated_time" content="2019-11-14T02:05:26.507Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-57bc4bf34fe6ce13.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
   <!-- Canonical links -->
@@ -448,7 +448,9 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>&emsp;&emsp;最近一个项目需要实现这样一个需求:mysql数据库一张表中存了百万张菜品图片,需要根据菜品名称或描述,模糊匹配出符合条件的菜品图片,并展示出来</p>
+        <meta name="referrer" content="no-referrer" />
+
+<p>&emsp;&emsp;最近一个项目需要实现这样一个需求:mysql数据库一张表中存了百万张菜品图片,需要根据菜品名称或描述,模糊匹配出符合条件的菜品图片,并展示出来</p>
 <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="built_in">table_name</span> <span class="keyword">where</span> <span class="keyword">column</span> <span class="keyword">like</span> <span class="string">'%鱼香肉丝%'</span>;</span><br></pre></td></tr></table></figure>
 
 <p>&emsp;&emsp;如果像上面那样,直接使用mysql like查询的话,会进行全表扫描,不走索引,大大的影响查询效率,所以开始学习使用<strong>Sphinx全文搜索引擎</strong>,下面记录下第一次配置使用的过程,以及过程中遇到的问题和疑问,望指正.</p>

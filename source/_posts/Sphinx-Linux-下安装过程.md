@@ -1,17 +1,22 @@
 ---
 title: Sphinx Linux 下安装过程
-date: 2019-11-12 23:17:58
-categories: 
-    - [大熊BIGBEAR, Mysql, Sphinx]
-    - [大熊BIGBEAR, PHP]
-    - [大熊BIGBEAR, Linux]
-tags: 
-    - PHP
+categories:
+  - - 大熊BIGBEAR
     - Mysql
     - Sphinx
+  - - 大熊BIGBEAR
+    - PHP
+  - - 大熊BIGBEAR
     - Linux
-    - Sphinxapi
-    - 大熊BIGBEAR
+tags:
+  - PHP
+  - Mysql
+  - Sphinx
+  - Linux
+  - Sphinxapi
+  - 大熊BIGBEAR
+translate_title: sphinx-linux-installation-process
+date: 2019-11-12 23:17:58
 ---
 <meta name="referrer" content="no-referrer" />
 

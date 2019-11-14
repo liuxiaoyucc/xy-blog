@@ -1,12 +1,15 @@
 ---
 title: JS 通过User-Agent判断用户使用的设备 或平台
-date: 2019-11-12 22:08:21
-categories: 
-    - [大熊BIGBEAR, 前端, JavaScript]
-tags: 
+categories:
+  - - 大熊BIGBEAR
     - 前端
     - JavaScript
-    - 大熊BIGBEAR
+tags:
+  - 前端
+  - JavaScript
+  - 大熊BIGBEAR
+translate_title: js-determines-the-device-or-platform-used-by-user-through-useragent
+date: 2019-11-12 22:08:21
 ---
 ```
 <script>

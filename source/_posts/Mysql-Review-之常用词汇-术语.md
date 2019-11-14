@@ -1,13 +1,15 @@
 ---
 title: Mysql Review 之常用词汇 术语
-date: 2019-11-12 22:23:09
-categories: 
-    - [大熊BIGBEAR, Mysql, Mysql基础]
-    
-tags: 
+categories:
+  - - 大熊BIGBEAR
     - Mysql
     - Mysql基础
-    - 大熊BIGBEAR
+tags:
+  - Mysql
+  - Mysql基础
+  - 大熊BIGBEAR
+translate_title: common-vocabulary-of-mysql-review
+date: 2019-11-12 22:23:09
 ---
 __1. database__ 数据库
 

@@ -1,16 +1,20 @@
 ---
 title: PHP 单色位图取模
-date: 2019-11-12 23:24:09
-categories: 
-    - [大熊BIGBEAR, PHP, GD]
-    - [大熊BIGBEAR, 图像处理]
-tags: 
+categories:
+  - - 大熊BIGBEAR
     - PHP
     - GD
-    - pctoLCD2002
-    - bmp
-    - 位图
-    - 大熊BIGBEAR
+  - - 大熊BIGBEAR
+    - 图像处理
+tags:
+  - PHP
+  - GD
+  - pctoLCD2002
+  - bmp
+  - 位图
+  - 大熊BIGBEAR
+translate_title: php-monochrome-bitmap-modulo
+date: 2019-11-12 23:24:09
 ---
 <meta name="referrer" content="no-referrer" />
 

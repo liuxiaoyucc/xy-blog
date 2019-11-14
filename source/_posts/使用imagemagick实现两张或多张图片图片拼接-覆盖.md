@@ -1,14 +1,17 @@
 ---
 title: 使用imagemagick实现两张或多张图片图片拼接 覆盖
-date: 2019-11-12 23:40:50
-categories: 
-    - [大熊BIGBEAR, PHP]
-    - [大熊BIGBEAR, 图像处理]
-tags:
+categories:
+  - - 大熊BIGBEAR
     - PHP
-    - imagick
-    - Imagemagick
-    - 大熊BIGBEAR
+  - - 大熊BIGBEAR
+    - 图像处理
+tags:
+  - PHP
+  - imagick
+  - Imagemagick
+  - 大熊BIGBEAR
+translate_title: use-imagemagick-to-achieve-two-or-more-image-stitching
+date: 2019-11-12 23:40:50
 ---
 <meta name="referrer" content="no-referrer" />
 

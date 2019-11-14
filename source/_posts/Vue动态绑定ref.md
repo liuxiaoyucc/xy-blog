@@ -1,16 +1,25 @@
 ---
 title: Vue动态绑定ref
-date: 2019-11-13 09:54:18
-categories: 
-    - [大熊BIGBEAR, 前端, JavaScript, Vue, uni-app]
-    - [大熊BIGBEAR, 前端, JavaScript, Vue, WEEX]
-tags: 
-    - Js
+categories:
+  - - 大熊BIGBEAR
+    - 前端
+    - JavaScript
     - Vue
     - uni-app
+  - - 大熊BIGBEAR
+    - 前端
+    - JavaScript
+    - Vue
     - WEEX
-    - 随手记
-toc: true 
+tags:
+  - Js
+  - Vue
+  - uni-app
+  - WEEX
+  - 随手记
+toc: true
+translate_title: vue-dynamic-binding-ref
+date: 2019-11-13 09:54:18
 ---
 <meta name="referrer" content="no-referrer" />
 

@@ -1,13 +1,16 @@
 ---
 title: 使用Hexo搭建个人博客
-date: 2019-11-12 10:59:00
 categories:
-    - [大熊BIGBEAR, Blog, Hexo]
+  - - 大熊BIGBEAR
+    - Blog
+    - Hexo
 tags:
-    - article
-    - 建站
-    - SPA
-    - 教程
-    - 大熊BIGBEAR
+  - article
+  - 建站
+  - SPA
+  - 教程
+  - 大熊BIGBEAR
+translate_title: use-hexo-to-build-a-personal-blog
+date: 2019-11-12 10:59:00
 ---
 <meta name="referrer" content="no-referrer" />

@@ -1,12 +1,15 @@
 ---
 title: Mysql Review 之引擎
-date: 2019-11-12 22:31:31
-categories: 
-    - [大熊BIGBEAR, Mysql, Mysql基础]
-tags: 
+categories:
+  - - 大熊BIGBEAR
     - Mysql
     - Mysql基础
-    - 大熊BIGBEAR
+tags:
+  - Mysql
+  - Mysql基础
+  - 大熊BIGBEAR
+translate_title: the-engine-of-mysql-review
+date: 2019-11-12 22:31:31
 ---
 
 **1. Mysql具有多个引擎,都隐藏在Mysql服务器内,全都可以执行CERATE TABLE 和SELECT等命令**

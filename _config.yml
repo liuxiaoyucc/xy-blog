@@ -103,3 +103,8 @@ feed:
   limit: 20
   hub:
   content:
+
+translate_title:
+  translate_way: google    #google | baidu | youdao
+  is_need_proxy: true     #true | false
+  proxy_url: http://localhost:1080

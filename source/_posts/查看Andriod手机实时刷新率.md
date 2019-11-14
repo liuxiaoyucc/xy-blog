@@ -1,12 +1,14 @@
 ---
 title: 查看Andriod手机实时刷新率
-date: 2019-11-12 21:53:56
-categories: 
-    - [大熊BIGBEAR, 杂]
+categories:
+  - - 大熊BIGBEAR
+    - 杂
 tags:
-    - adb
-    - Andriod
-    - 大熊BIGBEAR
+  - adb
+  - Andriod
+  - 大熊BIGBEAR
+translate_title: view-realtime-refresh-rate-of-andriod-phones
+date: 2019-11-12 21:53:56
 ---
 <meta name="referrer" content="no-referrer" />
 

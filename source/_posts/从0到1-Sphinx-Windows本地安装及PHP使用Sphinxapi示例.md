@@ -1,16 +1,20 @@
 ---
 title: '从0到1,Sphinx Windows本地安装及PHP使用Sphinxapi示例'
-date: 2019-11-12 23:01:44
-categories: 
-    - [大熊BIGBEAR, Mysql, Sphinx]
-    - [大熊BIGBEAR, PHP]
-tags: 
-    - PHP
+categories:
+  - - 大熊BIGBEAR
     - Mysql
     - Sphinx
-    - Sphinxapi
-    - 大熊BIGBEAR
+  - - 大熊BIGBEAR
+    - PHP
+tags:
+  - PHP
+  - Mysql
+  - Sphinx
+  - Sphinxapi
+  - 大熊BIGBEAR
 toc: true
+translate_title: from-0-to-1-sphinx-windows-native-installation-and-php-using-sphinxapi-example
+date: 2019-11-12 23:01:44
 ---
 <meta name="referrer" content="no-referrer" />
 

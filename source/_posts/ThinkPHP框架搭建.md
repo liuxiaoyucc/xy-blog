@@ -1,12 +1,15 @@
 ---
 title: ThinkPHP框架搭建
-date: 2019-11-12 23:38:23
-categories: 
-    - [大熊BIGBEAR, PHP, ThinkPHP]
-tags:
+categories:
+  - - 大熊BIGBEAR
     - PHP
     - ThinkPHP
-    - 大熊BIGBEAR
+tags:
+  - PHP
+  - ThinkPHP
+  - 大熊BIGBEAR
+translate_title: thinkphp-framework-to-build
+date: 2019-11-12 23:38:23
 ---
 <meta name="referrer" content="no-referrer" />
 

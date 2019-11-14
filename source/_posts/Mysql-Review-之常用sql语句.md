@@ -1,12 +1,15 @@
 ---
 title: Mysql Review 之常用sql语句
-date: 2019-11-12 22:13:03
-categories: 
-    - [大熊BIGBEAR, Mysql, Mysql基础]
-tags: 
+categories:
+  - - 大熊BIGBEAR
     - Mysql
     - Mysql基础
-    - 大熊BIGBEAR
+tags:
+  - Mysql
+  - Mysql基础
+  - 大熊BIGBEAR
+translate_title: mysql-review-common-sql-statement
+date: 2019-11-12 22:13:03
 ---
 
 ### 一. 综合

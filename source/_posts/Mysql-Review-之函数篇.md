@@ -1,12 +1,15 @@
 ---
 title: Mysql Review 之函数篇
-date: 2019-11-12 22:24:39
-categories: 
-    - [大熊BIGBEAR, Mysql, Mysql基础]
-tags: 
+categories:
+  - - 大熊BIGBEAR
     - Mysql
     - Mysql基础
-    - 大熊BIGBEAR
+tags:
+  - Mysql
+  - Mysql基础
+  - 大熊BIGBEAR
+translate_title: mysql-review-function
+date: 2019-11-12 22:24:39
 ---
 
 

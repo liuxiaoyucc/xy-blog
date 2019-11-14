@@ -1,12 +1,15 @@
 ---
 title: Mysql Review 之表联结入门篇
-date: 2019-11-12 22:30:06
-categories: 
-    - [大熊BIGBEAR, Mysql, Mysql基础]
-tags: 
+categories:
+  - - 大熊BIGBEAR
     - Mysql
     - Mysql基础
-    - 大熊BIGBEAR
+tags:
+  - Mysql
+  - Mysql基础
+  - 大熊BIGBEAR
+translate_title: mysql-review-table-connection-entry
+date: 2019-11-12 22:30:06
 ---
 <meta name="referrer" content="no-referrer" />
 

@@ -1,13 +1,16 @@
 ---
 title: Sphinx 配置文件sphinx.conf配置项全解析
-date: 2019-11-12 23:12:36
-categories: 
-    - [大熊BIGBEAR, Mysql, Sphinx]
-tags:
-    - PHP
+categories:
+  - - 大熊BIGBEAR
     - Mysql
     - Sphinx
-    - 大熊BIGBEAR
+tags:
+  - PHP
+  - Mysql
+  - Sphinx
+  - 大熊BIGBEAR
+translate_title: sphinx-configuration-file-sphinxconf-item-full-resolution
+date: 2019-11-12 23:12:36
 ---
 <meta name="referrer" content="no-referrer" />
 
