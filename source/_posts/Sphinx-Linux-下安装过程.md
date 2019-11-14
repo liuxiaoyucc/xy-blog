@@ -13,6 +13,7 @@ tags:
     - Sphinxapi
     - 大熊BIGBEAR
 ---
+<meta name="referrer" content="no-referrer" />
 
 &emsp;&emsp;之前记录过一篇[Sphinx在Windows上的安装步骤](https://www.jianshu.com/p/1be12635ccbb),这篇当然就是Linux系统的安装步骤啦
 

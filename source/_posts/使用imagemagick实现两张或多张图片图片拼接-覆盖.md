@@ -10,6 +10,7 @@ tags:
     - Imagemagick
     - 大熊BIGBEAR
 ---
+<meta name="referrer" content="no-referrer" />
 
 >`Imagemagick`是一个强大的图像处理库,号称命令行上的photoshop
 

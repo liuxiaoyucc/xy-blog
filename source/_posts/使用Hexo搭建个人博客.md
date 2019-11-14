@@ -10,3 +10,4 @@ tags:
     - 教程
     - 大熊BIGBEAR
 ---
+<meta name="referrer" content="no-referrer" />

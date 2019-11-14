@@ -8,6 +8,7 @@ tags:
     - Mysql基础
     - 大熊BIGBEAR
 ---
+<meta name="referrer" content="no-referrer" />
 
 #### 1. 为什么要使用联结?
 

@@ -8,6 +8,7 @@ tags:
     - ThinkPHP
     - 大熊BIGBEAR
 ---
+<meta name="referrer" content="no-referrer" />
 
 `thinkphp`基于__`MVC`__的方式来组织,MVC是一种经典的程序设计理念,此模式将你的项目分成三个部分,`模型层(model)`,`视图层(view)`,`控制层(controller),MVC为这三个三次的首字母缩写
 

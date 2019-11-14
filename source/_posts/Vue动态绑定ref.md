@@ -12,6 +12,7 @@ tags:
     - 随手记
 toc: true 
 ---
+<meta name="referrer" content="no-referrer" />
 
 >记录一下动态绑定及使用ref的方法
 <!-- more -->

@@ -8,6 +8,7 @@ tags:
     - Andriod
     - 大熊BIGBEAR
 ---
+<meta name="referrer" content="no-referrer" />
 
 #### 1. 下载ADB
 #### 2. `adb shell "dumpsys window|grep mCurrentFocus`  获取app包名

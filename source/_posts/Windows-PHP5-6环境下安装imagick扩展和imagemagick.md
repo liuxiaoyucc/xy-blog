@@ -11,6 +11,7 @@ tags:
     - 大熊BIGBEAR
 ---
 
+<meta name="referrer" content="no-referrer" />
 
 >其实回过头看,安装过程中最容易出错的反而是下载阶段,一定要将imagemagick和imagick的版本和`phpinfo`的信息对应好!
 下图中几点需要注意,每个人的信息可能不同,根据你自己的phpinfo来选择接下来的下载的程序及扩展版本:
