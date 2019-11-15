@@ -4,4 +4,4 @@ date: {{ date }}
 tags:
 ---
 
-<meta name="referrer" content="no-referrer" />
+<!-- <meta name="referrer" content="no-referrer" /> -->

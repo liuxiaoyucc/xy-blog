@@ -8,6 +8,7 @@ menu:
   Movies: 电影
   Links: 友链
   About: 关于
+  Charitable: 404公益
 nav:
   all: All
   older: 下一篇
@@ -16,6 +17,7 @@ page:
   home: 主页
   archive: 归档
   archives: 归档
+  notfound: 404公益
   category: 分类
   categories: 分类
   tag: 标签

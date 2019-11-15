@@ -21,7 +21,7 @@ toc: true
 translate_title: vue-dynamic-binding-ref
 date: 2019-11-13 09:54:18
 ---
-<meta name="referrer" content="no-referrer" />
+<!-- <meta name="referrer" content="no-referrer" /> -->
 
 >记录一下动态绑定及使用ref的方法
 <!-- more -->

@@ -13,7 +13,7 @@ tags:
 translate_title: use-imagemagick-to-achieve-two-or-more-image-stitching
 date: 2019-11-12 23:40:50
 ---
-<meta name="referrer" content="no-referrer" />
+<!-- <meta name="referrer" content="no-referrer" /> -->
 
 >`Imagemagick`是一个强大的图像处理库,号称命令行上的photoshop
 

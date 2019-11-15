@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.pulsating.cn/"/>
-  <updated>2019-11-14T05:40:38.629Z</updated>
+  <updated>2019-11-15T15:27:20.792Z</updated>
   <id>http://www.pulsating.cn/</id>
   
   <author>
@@ -17,15 +17,47 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>GD库实现图片合并</title>
+    <link href="http://www.pulsating.cn/2019/11/15/GD%E5%BA%93%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E5%90%88%E5%B9%B6/"/>
+    <id>http://www.pulsating.cn/2019/11/15/GD%E5%BA%93%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E5%90%88%E5%B9%B6/</id>
+    <published>2019-11-15T15:24:42.000Z</published>
+    <updated>2019-11-15T15:27:20.792Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;!-- &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt; --&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/"/>
+    
+      <category term="图像处理" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
+    
+      <category term="GD" scheme="http://www.pulsating.cn/tags/GD/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Vue动态绑定ref</title>
     <link href="http://www.pulsating.cn/2019/11/13/Vue%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9Aref/"/>
     <id>http://www.pulsating.cn/2019/11/13/Vue%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9Aref/</id>
     <published>2019-11-13T01:54:18.000Z</published>
-    <updated>2019-11-14T05:40:38.629Z</updated>
+    <updated>2019-11-15T14:30:55.421Z</updated>
     
     <summary type="html">
     
-      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+      &lt;!-- &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt; --&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;记录一下动态绑定及使用ref的方法&lt;/p&gt;
@@ -64,11 +96,11 @@
     <link href="http://www.pulsating.cn/2019/11/12/%E4%BD%BF%E7%94%A8imagemagick%E5%AE%9E%E7%8E%B0%E4%B8%A4%E5%BC%A0%E6%88%96%E5%A4%9A%E5%BC%A0%E5%9B%BE%E7%89%87%E5%9B%BE%E7%89%87%E6%8B%BC%E6%8E%A5-%E8%A6%86%E7%9B%96/"/>
     <id>http://www.pulsating.cn/2019/11/12/%E4%BD%BF%E7%94%A8imagemagick%E5%AE%9E%E7%8E%B0%E4%B8%A4%E5%BC%A0%E6%88%96%E5%A4%9A%E5%BC%A0%E5%9B%BE%E7%89%87%E5%9B%BE%E7%89%87%E6%8B%BC%E6%8E%A5-%E8%A6%86%E7%9B%96/</id>
     <published>2019-11-12T15:40:50.000Z</published>
-    <updated>2019-11-14T05:40:39.315Z</updated>
+    <updated>2019-11-15T14:31:16.601Z</updated>
     
     <summary type="html">
     
-      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+      &lt;!-- &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt; --&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;&lt;code&gt;Imagemagick&lt;/code&gt;是一个强大的图像处理库,号称命令行上的photoshop&lt;/p&gt;
@@ -104,15 +136,15 @@
     <link href="http://www.pulsating.cn/2019/11/12/ThinkPHP%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA/"/>
     <id>http://www.pulsating.cn/2019/11/12/ThinkPHP%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA/</id>
     <published>2019-11-12T15:38:23.000Z</published>
-    <updated>2019-11-14T05:40:38.629Z</updated>
+    <updated>2019-11-15T14:30:50.500Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+        &lt;!-- &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt; --&gt;
 
-&lt;p&gt;&lt;code&gt;thinkphp&lt;/code&gt;基于&lt;strong&gt;&lt;code&gt;MVC&lt;/code&gt;&lt;/strong&gt;的方式来组织,MVC是一种经典的程序设计理念,此模式将你的项目分成
+&lt;p&gt;&lt;code&gt;thinkphp&lt;/code&gt;基于&lt;strong&gt;&lt;code&gt;MVC&lt;/code&gt;&lt;/strong&gt;的方式来组织,MVC是一种经典的程序设计理念,此
       
     
     </summary>
@@ -138,11 +170,11 @@
     <link href="http://www.pulsating.cn/2019/11/12/PHP-%E5%8D%95%E8%89%B2%E4%BD%8D%E5%9B%BE%E5%8F%96%E6%A8%A1/"/>
     <id>http://www.pulsating.cn/2019/11/12/PHP-%E5%8D%95%E8%89%B2%E4%BD%8D%E5%9B%BE%E5%8F%96%E6%A8%A1/</id>
     <published>2019-11-12T15:24:09.000Z</published>
-    <updated>2019-11-14T05:40:37.495Z</updated>
+    <updated>2019-11-15T14:30:26.800Z</updated>
     
     <summary type="html">
     
-      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+      &lt;!-- &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt; --&gt;
 
 &lt;p&gt;&lt;strong&gt;2018-11-27日更新:&lt;/strong&gt;&lt;br&gt;&amp;emsp;&amp;emsp;由于没有找到生成&lt;code&gt;.bmp&lt;/code&gt;格式图片的好办法,改为使用&lt;code&gt;.wbmp&lt;/code&gt;格式,转换和读取都改为&lt;code&gt;.wbmp&lt;/code&gt;格式,原来的&lt;code&gt;bmp2hex&lt;/code&gt;函数逻辑没有变化,改名为&lt;code&gt;wbmp2hex&lt;/code&gt;,并不再使用&lt;code&gt;ImageCreateFromBMP&lt;/code&gt;函数,可以收藏一下这个函数还是有用的,最新的代码我也提供了下载在文章末尾&lt;/p&gt;
     
@@ -177,11 +209,11 @@
     <link href="http://www.pulsating.cn/2019/11/12/Sphinx-Linux-%E4%B8%8B%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B/"/>
     <id>http://www.pulsating.cn/2019/11/12/Sphinx-Linux-%E4%B8%8B%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B/</id>
     <published>2019-11-12T15:17:58.000Z</published>
-    <updated>2019-11-14T05:40:38.845Z</updated>
+    <updated>2019-11-15T14:30:34.211Z</updated>
     
     <summary type="html">
     
-      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+      &lt;!-- &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt; --&gt;
 
 &lt;p&gt;&amp;emsp;&amp;emsp;之前记录过一篇&lt;a href=&quot;https://www.jianshu.com/p/1be12635ccbb&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Sphinx在Windows上的安装步骤&lt;/a&gt;,这篇当然就是Linux系统的安装步骤啦&lt;/p&gt;
     
@@ -218,11 +250,11 @@
     <link href="http://www.pulsating.cn/2019/11/12/Sphinx-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6sphinx-conf%E9%85%8D%E7%BD%AE%E9%A1%B9%E5%85%A8%E8%A7%A3%E6%9E%90/"/>
     <id>http://www.pulsating.cn/2019/11/12/Sphinx-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6sphinx-conf%E9%85%8D%E7%BD%AE%E9%A1%B9%E5%85%A8%E8%A7%A3%E6%9E%90/</id>
     <published>2019-11-12T15:12:36.000Z</published>
-    <updated>2019-11-14T05:40:39.246Z</updated>
+    <updated>2019-11-15T14:30:43.160Z</updated>
     
     <summary type="html">
     
-      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+      &lt;!-- &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt; --&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;source&lt;/strong&gt;：数据源，数据是从什么地方来的。&lt;/li&gt;
@@ -256,11 +288,11 @@
     <link href="http://www.pulsating.cn/2019/11/12/%E4%BB%8E0%E5%88%B01-Sphinx-Windows%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85%E5%8F%8APHP%E4%BD%BF%E7%94%A8Sphinxapi%E7%A4%BA%E4%BE%8B/"/>
     <id>http://www.pulsating.cn/2019/11/12/%E4%BB%8E0%E5%88%B01-Sphinx-Windows%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85%E5%8F%8APHP%E4%BD%BF%E7%94%A8Sphinxapi%E7%A4%BA%E4%BE%8B/</id>
     <published>2019-11-12T15:01:44.000Z</published>
-    <updated>2019-11-14T05:40:38.359Z</updated>
+    <updated>2019-11-15T14:31:05.170Z</updated>
     
     <summary type="html">
     
-      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+      &lt;!-- &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt; --&gt;
 
 &lt;p&gt;&amp;emsp;&amp;emsp;最近一个项目需要实现这样一个需求:mysql数据库一张表中存了百万张菜品图片,需要根据菜品名称或描述,模糊匹配出符合条件的菜品图片,并展示出来&lt;/p&gt;
 &lt;figure class=&quot;highlight pgsql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;select&lt;/span&gt; * &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;table_name&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;column&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;like&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;%鱼香肉丝%&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -296,11 +328,11 @@
     <link href="http://www.pulsating.cn/2019/11/12/Windows-PHP5-6%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85imagick%E6%89%A9%E5%B1%95%E5%92%8Cimagemagick/"/>
     <id>http://www.pulsating.cn/2019/11/12/Windows-PHP5-6%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85imagick%E6%89%A9%E5%B1%95%E5%92%8Cimagemagick/</id>
     <published>2019-11-12T14:40:35.000Z</published>
-    <updated>2019-11-14T02:05:25.801Z</updated>
+    <updated>2019-11-15T14:31:00.392Z</updated>
     
     <summary type="html">
     
-      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+      &lt;!-- &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt; --&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;其实回过头看,安装过程中最容易出错的反而是下载阶段,一定要将imagemagick和imagick的版本和&lt;code&gt;phpinfo&lt;/code&gt;的信息对应好!&lt;br&gt;下图中几点需要注意,每个人的信息可能不同,根据你自己的phpinfo来选择接下来的下载的程序及扩展版本:&lt;/p&gt;
@@ -337,7 +369,7 @@
     <link href="http://www.pulsating.cn/2019/11/12/Mysql-Review-%E4%B9%8B%E5%BC%95%E6%93%8E/"/>
     <id>http://www.pulsating.cn/2019/11/12/Mysql-Review-%E4%B9%8B%E5%BC%95%E6%93%8E/</id>
     <published>2019-11-12T14:31:31.000Z</published>
-    <updated>2019-11-14T05:40:37.379Z</updated>
+    <updated>2019-11-15T14:22:13.951Z</updated>
     
     <summary type="html">
     
@@ -370,15 +402,15 @@
     <link href="http://www.pulsating.cn/2019/11/12/Mysql-Review-%E4%B9%8B%E8%A1%A8%E8%81%94%E7%BB%93%E5%85%A5%E9%97%A8%E7%AF%87/"/>
     <id>http://www.pulsating.cn/2019/11/12/Mysql-Review-%E4%B9%8B%E8%A1%A8%E8%81%94%E7%BB%93%E5%85%A5%E9%97%A8%E7%AF%87/</id>
     <published>2019-11-12T14:30:06.000Z</published>
-    <updated>2019-11-14T05:40:38.375Z</updated>
+    <updated>2019-11-15T14:30:18.432Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+        &lt;!-- &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt; --&gt;
 
-&lt;h4 id=&quot;1-为什么要使用联结&quot;&gt;&lt;a href=&quot;#1-为什么要使用联结&quot; class=&quot;headerlink&quot; title=&quot;1. 为什么要使用联结?&quot;&gt;&lt;/a&gt;1. 为什么
+&lt;h4 id=&quot;1-为什么要使用联结&quot;&gt;&lt;a href=&quot;#1-为什么要使用联结&quot; class=&quot;headerlink&quot; title=&quot;1. 为什么要使用联结?&quot;&gt;&lt;
       
     
     </summary>
@@ -404,7 +436,7 @@
     <link href="http://www.pulsating.cn/2019/11/12/Mysql-Review-%E4%B9%8B%E5%87%BD%E6%95%B0%E7%AF%87/"/>
     <id>http://www.pulsating.cn/2019/11/12/Mysql-Review-%E4%B9%8B%E5%87%BD%E6%95%B0%E7%AF%87/</id>
     <published>2019-11-12T14:24:39.000Z</published>
-    <updated>2019-11-14T05:40:37.372Z</updated>
+    <updated>2019-11-15T14:22:13.942Z</updated>
     
     <summary type="html">
     
@@ -437,7 +469,7 @@
     <link href="http://www.pulsating.cn/2019/11/12/Mysql-Review-%E4%B9%8B%E5%B8%B8%E7%94%A8%E8%AF%8D%E6%B1%87-%E6%9C%AF%E8%AF%AD/"/>
     <id>http://www.pulsating.cn/2019/11/12/Mysql-Review-%E4%B9%8B%E5%B8%B8%E7%94%A8%E8%AF%8D%E6%B1%87-%E6%9C%AF%E8%AF%AD/</id>
     <published>2019-11-12T14:23:09.000Z</published>
-    <updated>2019-11-14T05:40:38.382Z</updated>
+    <updated>2019-11-15T14:22:13.947Z</updated>
     
     <summary type="html">
     
@@ -472,7 +504,7 @@
     <link href="http://www.pulsating.cn/2019/11/12/Mysql-Review-%E4%B9%8B%E5%B8%B8%E7%94%A8sql%E8%AF%AD%E5%8F%A5/"/>
     <id>http://www.pulsating.cn/2019/11/12/Mysql-Review-%E4%B9%8B%E5%B8%B8%E7%94%A8sql%E8%AF%AD%E5%8F%A5/</id>
     <published>2019-11-12T14:13:03.000Z</published>
-    <updated>2019-11-14T05:40:38.582Z</updated>
+    <updated>2019-11-15T14:22:13.944Z</updated>
     
     <summary type="html">
     
@@ -505,7 +537,7 @@
     <link href="http://www.pulsating.cn/2019/11/12/JS-%E9%80%9A%E8%BF%87User-Agent%E5%88%A4%E6%96%AD%E7%94%A8%E6%88%B7%E4%BD%BF%E7%94%A8%E7%9A%84%E8%AE%BE%E5%A4%87-%E6%88%96%E5%B9%B3%E5%8F%B0/"/>
     <id>http://www.pulsating.cn/2019/11/12/JS-%E9%80%9A%E8%BF%87User-Agent%E5%88%A4%E6%96%AD%E7%94%A8%E6%88%B7%E4%BD%BF%E7%94%A8%E7%9A%84%E8%AE%BE%E5%A4%87-%E6%88%96%E5%B9%B3%E5%8F%B0/</id>
     <published>2019-11-12T14:08:21.000Z</published>
-    <updated>2019-11-14T05:40:38.645Z</updated>
+    <updated>2019-11-15T14:22:13.935Z</updated>
     
     <summary type="html">
     
@@ -537,11 +569,11 @@
     <link href="http://www.pulsating.cn/2019/11/12/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD-%E6%BB%9A%E5%8A%A8%E5%8A%A0%E8%BD%BD-%E7%82%B9%E5%87%BB%E5%9B%BE%E7%89%87%E9%A2%84%E8%A7%88%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B/"/>
     <id>http://www.pulsating.cn/2019/11/12/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD-%E6%BB%9A%E5%8A%A8%E5%8A%A0%E8%BD%BD-%E7%82%B9%E5%87%BB%E5%9B%BE%E7%89%87%E9%A2%84%E8%A7%88%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B/</id>
     <published>2019-11-12T14:03:12.000Z</published>
-    <updated>2019-11-14T05:40:37.410Z</updated>
+    <updated>2019-11-15T14:31:23.542Z</updated>
     
     <summary type="html">
     
-      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+      &lt;!-- &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt; --&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;作者是个前端菜鸟,只能靠着东拼西凑才能生存下来这样子&lt;/p&gt;
@@ -587,11 +619,11 @@
     <link href="http://www.pulsating.cn/2019/11/12/%E6%90%9C%E7%B4%A2%E6%A1%86%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8-%E6%A8%A1%E7%B3%8A%E5%8C%B9%E9%85%8D-%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/"/>
     <id>http://www.pulsating.cn/2019/11/12/%E6%90%9C%E7%B4%A2%E6%A1%86%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8-%E6%A8%A1%E7%B3%8A%E5%8C%B9%E9%85%8D-%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/</id>
     <published>2019-11-12T13:57:06.000Z</published>
-    <updated>2019-11-14T05:40:38.598Z</updated>
+    <updated>2019-11-15T14:31:27.402Z</updated>
     
     <summary type="html">
     
-      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+      &lt;!-- &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt; --&gt;
 
 
 &lt;p&gt;&amp;emsp;&amp;emsp;本地实现了一个搜索框自动补全的小功能,在JQuery UI的autocomplete插件的基础上,加入了自己的业务代码,贴出来回顾一下,同时可以给大家一个参考&lt;/p&gt;
@@ -625,11 +657,11 @@
     <link href="http://www.pulsating.cn/2019/11/12/%E6%9F%A5%E7%9C%8BAndriod%E6%89%8B%E6%9C%BA%E5%AE%9E%E6%97%B6%E5%88%B7%E6%96%B0%E7%8E%87/"/>
     <id>http://www.pulsating.cn/2019/11/12/%E6%9F%A5%E7%9C%8BAndriod%E6%89%8B%E6%9C%BA%E5%AE%9E%E6%97%B6%E5%88%B7%E6%96%B0%E7%8E%87/</id>
     <published>2019-11-12T13:53:56.000Z</published>
-    <updated>2019-11-14T05:40:37.341Z</updated>
+    <updated>2019-11-15T14:31:30.560Z</updated>
     
     <summary type="html">
     
-      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+      &lt;!-- &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt; --&gt;
 
 &lt;h4 id=&quot;1-下载ADB&quot;&gt;&lt;a href=&quot;#1-下载ADB&quot; class=&quot;headerlink&quot; title=&quot;1. 下载ADB&quot;&gt;&lt;/a&gt;1. 下载ADB&lt;/h4&gt;&lt;h4 id=&quot;2-adb-shell-quot-dumpsys-window-grep-mCurrentFocus-获取app包名&quot;&gt;&lt;a href=&quot;#2-adb-shell-quot-dumpsys-window-grep-mCurrentFocus-获取app包名&quot; class=&quot;headerlink&quot; title=&quot;2. adb shell &amp;quot;dumpsys window|grep mCurrentFocus  获取app包名&quot;&gt;&lt;/a&gt;2. &lt;code&gt;adb shell &amp;quot;dumpsys window|grep mCurrentFocus&lt;/code&gt;  获取app包名&lt;/h4&gt;&lt;h4 id=&quot;3-操作需测试的app&quot;&gt;&lt;a href=&quot;#3-操作需测试的app&quot; class=&quot;headerlink&quot; title=&quot;3. 操作需测试的app&quot;&gt;&lt;/a&gt;3. 操作需测试的app&lt;/h4&gt;&lt;h4 id=&quot;4-adb-shell-dumpsys-gfxinfo-‘app的包名’-gt-FPS-txt-输出日志&quot;&gt;&lt;a href=&quot;#4-adb-shell-dumpsys-gfxinfo-‘app的包名’-gt-FPS-txt-输出日志&quot; class=&quot;headerlink&quot; title=&quot;4. adb shell dumpsys gfxinfo ‘app的包名’  &amp;gt;FPS.txt  输出日志&quot;&gt;&lt;/a&gt;4. adb shell dumpsys gfxinfo ‘app的包名’  &amp;gt;FPS.txt  输出日志&lt;/h4&gt;&lt;h4 id=&quot;5-打开查看Profile-data-in-ms下的内容&quot;&gt;&lt;a href=&quot;#5-打开查看Profile-data-in-ms下的内容&quot; class=&quot;headerlink&quot; title=&quot;5. 打开查看Profile data in ms下的内容:&quot;&gt;&lt;/a&gt;5. 打开查看&lt;code&gt;Profile data in ms&lt;/code&gt;下的内容:&lt;/h4&gt;&lt;p&gt;&lt;code&gt;FPS = 1000/Draw + Prepare + Process + Execute&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/14618365-1b54255c3ec7b157.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;1551852181(1).jpg&quot;&gt;&lt;/p&gt;
@@ -655,13 +687,13 @@
     <link href="http://www.pulsating.cn/2019/11/12/%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     <id>http://www.pulsating.cn/2019/11/12/%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</id>
     <published>2019-11-12T02:59:00.000Z</published>
-    <updated>2019-11-14T05:40:37.294Z</updated>
+    <updated>2019-11-15T14:31:10.932Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+        &lt;!-- &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt; --&gt;
 
       
     

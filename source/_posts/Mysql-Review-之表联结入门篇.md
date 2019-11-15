@@ -11,7 +11,7 @@ tags:
 translate_title: mysql-review-table-connection-entry
 date: 2019-11-12 22:30:06
 ---
-<meta name="referrer" content="no-referrer" />
+<!-- <meta name="referrer" content="no-referrer" /> -->
 
 #### 1. 为什么要使用联结?
 
