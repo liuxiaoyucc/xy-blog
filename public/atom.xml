@@ -46,11 +46,11 @@
   </entry>
   
   <entry>
-    <title>Mysql表数据快速导入导出</title>
-    <link href="http://www.pulsating.cn/2019/12/20/Mysql%E8%A1%A8%E6%95%B0%E6%8D%AE%E5%BF%AB%E9%80%9F%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/"/>
-    <id>http://www.pulsating.cn/2019/12/20/Mysql%E8%A1%A8%E6%95%B0%E6%8D%AE%E5%BF%AB%E9%80%9F%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/</id>
+    <title>Mysql table import and export 快速导出导入</title>
+    <link href="http://www.pulsating.cn/2019/12/20/Mysql-table-import-and-export/"/>
+    <id>http://www.pulsating.cn/2019/12/20/Mysql-table-import-and-export/</id>
     <published>2019-12-20T13:44:13.000Z</published>
-    <updated>2019-12-26T14:03:13.861Z</updated>
+    <updated>2019-12-26T15:13:36.352Z</updated>
     
     <summary type="html">
     
@@ -137,11 +137,11 @@
       <category term="图像处理" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
     
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
-    
       <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
     
       <category term="GD" scheme="http://www.pulsating.cn/tags/GD/"/>
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
     
   </entry>
   
@@ -218,9 +218,9 @@
       <category term="图像处理" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
     
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
-    
       <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
     
       <category term="imagick" scheme="http://www.pulsating.cn/tags/imagick/"/>
     
@@ -254,9 +254,9 @@
       <category term="ThinkPHP" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/ThinkPHP/"/>
     
     
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
-    
       <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
     
       <category term="ThinkPHP" scheme="http://www.pulsating.cn/tags/ThinkPHP/"/>
     
@@ -287,11 +287,11 @@
       <category term="GD" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/GD/"/>
     
     
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
-    
       <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
     
       <category term="GD" scheme="http://www.pulsating.cn/tags/GD/"/>
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
     
       <category term="pctoLCD2002" scheme="http://www.pulsating.cn/tags/pctoLCD2002/"/>
     
@@ -328,9 +328,9 @@
       <category term="Linux" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Linux/"/>
     
     
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
-    
       <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
     
       <category term="Mysql" scheme="http://www.pulsating.cn/tags/Mysql/"/>
     
@@ -370,9 +370,9 @@
       <category term="Sphinx" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/Sphinx/"/>
     
     
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
-    
       <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
     
       <category term="Mysql" scheme="http://www.pulsating.cn/tags/Mysql/"/>
     
@@ -408,9 +408,9 @@
       <category term="Sphinx" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/Sphinx/"/>
     
     
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
-    
       <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
     
       <category term="Mysql" scheme="http://www.pulsating.cn/tags/Mysql/"/>
     
@@ -451,9 +451,9 @@
       <category term="图像处理" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
     
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
-    
       <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
     
       <category term="imagick" scheme="http://www.pulsating.cn/tags/imagick/"/>
     
@@ -653,11 +653,11 @@
       <category term="JavaScript" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/"/>
     
     
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
       <category term="前端" scheme="http://www.pulsating.cn/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="JavaScript" scheme="http://www.pulsating.cn/tags/JavaScript/"/>
-    
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
     
   </entry>
   
@@ -695,11 +695,11 @@
       <category term="JavaScript" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/"/>
     
     
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
       <category term="前端" scheme="http://www.pulsating.cn/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="JavaScript" scheme="http://www.pulsating.cn/tags/JavaScript/"/>
-    
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
     
       <category term="WeUI" scheme="http://www.pulsating.cn/tags/WeUI/"/>
     
@@ -739,11 +739,11 @@
       <category term="autocomplete" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/JQuery-UI/autocomplete/"/>
     
     
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
       <category term="前端" scheme="http://www.pulsating.cn/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="JavaScript" scheme="http://www.pulsating.cn/tags/JavaScript/"/>
-    
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
     
       <category term="JQuery" scheme="http://www.pulsating.cn/tags/JQuery/"/>
     

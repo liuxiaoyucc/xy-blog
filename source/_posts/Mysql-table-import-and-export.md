@@ -1,5 +1,5 @@
 ---
-title: Mysql表数据快速导入导出
+title: Mysql table import and export 快速导出导入
 date: 2019-12-20 21:44:13
 categories:
   - - 大熊BIGBEAR
