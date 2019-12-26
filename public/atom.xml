@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.pulsating.cn/"/>
-  <updated>2019-12-20T14:35:28.339Z</updated>
+  <updated>2019-12-26T14:50:13.307Z</updated>
   <id>http://www.pulsating.cn/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>mysql表数据快速导入导出</title>
-    <link href="http://www.pulsating.cn/2019/12/20/mysql%E8%A1%A8%E6%95%B0%E6%8D%AE%E5%BF%AB%E9%80%9F%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/"/>
-    <id>http://www.pulsating.cn/2019/12/20/mysql%E8%A1%A8%E6%95%B0%E6%8D%AE%E5%BF%AB%E9%80%9F%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/</id>
+    <title>Mysql max_allowed_packet 设置</title>
+    <link href="http://www.pulsating.cn/2019/12/26/Mysql%20max_allowed_packet%20%E8%AE%BE%E7%BD%AE/"/>
+    <id>http://www.pulsating.cn/2019/12/26/Mysql%20max_allowed_packet%20%E8%AE%BE%E7%BD%AE/</id>
+    <published>2019-12-26T14:05:48.000Z</published>
+    <updated>2019-12-26T14:50:13.307Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;max_allowed_packet&lt;/strong&gt; 限制着你的mysql serve接收的数据包大小, 如果insert或者update时数据过大,超出max_allowed_packet的限制,mysql会抛出错误导致操作失败
+      
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="Mysql" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/"/>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="Mysql" scheme="http://www.pulsating.cn/tags/Mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mysql表数据快速导入导出</title>
+    <link href="http://www.pulsating.cn/2019/12/20/Mysql%E8%A1%A8%E6%95%B0%E6%8D%AE%E5%BF%AB%E9%80%9F%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/"/>
+    <id>http://www.pulsating.cn/2019/12/20/Mysql%E8%A1%A8%E6%95%B0%E6%8D%AE%E5%BF%AB%E9%80%9F%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/</id>
     <published>2019-12-20T13:44:13.000Z</published>
-    <updated>2019-12-20T14:35:28.339Z</updated>
+    <updated>2019-12-26T14:03:13.861Z</updated>
     
     <summary type="html">
     
@@ -717,36 +746,6 @@
       <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
     
       <category term="JQuery" scheme="http://www.pulsating.cn/tags/JQuery/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>查看Andriod手机实时刷新率</title>
-    <link href="http://www.pulsating.cn/2019/11/12/%E6%9F%A5%E7%9C%8BAndriod%E6%89%8B%E6%9C%BA%E5%AE%9E%E6%97%B6%E5%88%B7%E6%96%B0%E7%8E%87/"/>
-    <id>http://www.pulsating.cn/2019/11/12/%E6%9F%A5%E7%9C%8BAndriod%E6%89%8B%E6%9C%BA%E5%AE%9E%E6%97%B6%E5%88%B7%E6%96%B0%E7%8E%87/</id>
-    <published>2019-11-12T13:53:56.000Z</published>
-    <updated>2019-12-20T13:00:36.188Z</updated>
-    
-    <summary type="html">
-    
-      &lt;!-- &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt; --&gt;
-
-&lt;h4 id=&quot;1-下载ADB&quot;&gt;&lt;a href=&quot;#1-下载ADB&quot; class=&quot;headerlink&quot; title=&quot;1. 下载ADB&quot;&gt;&lt;/a&gt;1. 下载ADB&lt;/h4&gt;&lt;h4 id=&quot;2-adb-shell-quot-dumpsys-window-grep-mCurrentFocus-获取app包名&quot;&gt;&lt;a href=&quot;#2-adb-shell-quot-dumpsys-window-grep-mCurrentFocus-获取app包名&quot; class=&quot;headerlink&quot; title=&quot;2. adb shell &amp;quot;dumpsys window|grep mCurrentFocus  获取app包名&quot;&gt;&lt;/a&gt;2. &lt;code&gt;adb shell &amp;quot;dumpsys window|grep mCurrentFocus&lt;/code&gt;  获取app包名&lt;/h4&gt;&lt;h4 id=&quot;3-操作需测试的app&quot;&gt;&lt;a href=&quot;#3-操作需测试的app&quot; class=&quot;headerlink&quot; title=&quot;3. 操作需测试的app&quot;&gt;&lt;/a&gt;3. 操作需测试的app&lt;/h4&gt;&lt;h4 id=&quot;4-adb-shell-dumpsys-gfxinfo-‘app的包名’-gt-FPS-txt-输出日志&quot;&gt;&lt;a href=&quot;#4-adb-shell-dumpsys-gfxinfo-‘app的包名’-gt-FPS-txt-输出日志&quot; class=&quot;headerlink&quot; title=&quot;4. adb shell dumpsys gfxinfo ‘app的包名’  &amp;gt;FPS.txt  输出日志&quot;&gt;&lt;/a&gt;4. adb shell dumpsys gfxinfo ‘app的包名’  &amp;gt;FPS.txt  输出日志&lt;/h4&gt;&lt;h4 id=&quot;5-打开查看Profile-data-in-ms下的内容&quot;&gt;&lt;a href=&quot;#5-打开查看Profile-data-in-ms下的内容&quot; class=&quot;headerlink&quot; title=&quot;5. 打开查看Profile data in ms下的内容:&quot;&gt;&lt;/a&gt;5. 打开查看&lt;code&gt;Profile data in ms&lt;/code&gt;下的内容:&lt;/h4&gt;&lt;p&gt;&lt;code&gt;FPS = 1000/Draw + Prepare + Process + Execute&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/14618365-1b54255c3ec7b157.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;1551852181(1).jpg&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
-    
-      <category term="杂" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E6%9D%82/"/>
-    
-    
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
-    
-      <category term="adb" scheme="http://www.pulsating.cn/tags/adb/"/>
-    
-      <category term="Andriod" scheme="http://www.pulsating.cn/tags/Andriod/"/>
     
   </entry>
   
