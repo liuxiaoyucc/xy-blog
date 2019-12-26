@@ -1,5 +1,5 @@
 ---
-title: mysql表数据快速导入导出
+title: Mysql表数据快速导入导出
 date: 2019-12-20 21:44:13
 categories:
   - - 大熊BIGBEAR
@@ -33,4 +33,3 @@ mysqldump -u root -p -q -e -t  db_name table_name > table_name.sql
 use db_name;
 source table_name.sql;
 {% endcodeblock %}
-
