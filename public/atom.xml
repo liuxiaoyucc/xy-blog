@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.pulsating.cn/"/>
-  <updated>2019-12-27T15:10:03.105Z</updated>
+  <updated>2019-12-28T15:57:17.901Z</updated>
   <id>http://www.pulsating.cn/</id>
   
   <author>
@@ -17,21 +17,51 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>解决PHP CI(CodeIgniter)框架使用insert_batch()批量插入时unique列冲突导致操作失败的问题</title>
+    <link href="http://www.pulsating.cn/2019/12/27/custom-ci-insert_batch/"/>
+    <id>http://www.pulsating.cn/2019/12/27/custom-ci-insert_batch/</id>
+    <published>2019-12-27T15:32:39.000Z</published>
+    <updated>2019-12-28T15:57:17.901Z</updated>
+    
+    <summary type="html">
+    
+      &lt;!-- &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt; --&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;在CI中, 有时我们想将很多条数据, 批量插入到数据库中, 我们知道有&lt;a href=&quot;https://codeigniter.org.cn/user_guide/database/query_builder.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;insert_batch()&lt;/a&gt;这个函数, 但是如果insert_batch时, 遇到了mysql中的UNIQUE约束, 就会导致插入失败, 并回滚, 那么我们该如何让其跳过冲突的列, 并继续执行下面的数据呢?&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/"/>
+    
+      <category term="CI" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/CI/"/>
+    
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="CI" scheme="http://www.pulsating.cn/tags/CI/"/>
+    
+  </entry>
+  
+  <entry>
     <title>心血来潮,迟到的煮红酒</title>
     <link href="http://www.pulsating.cn/2019/12/27/%E5%BF%83%E8%A1%80%E6%9D%A5%E6%BD%AE-%E8%BF%9F%E5%88%B0%E7%9A%84%E7%85%AE%E7%BA%A2%E9%85%92/"/>
     <id>http://www.pulsating.cn/2019/12/27/%E5%BF%83%E8%A1%80%E6%9D%A5%E6%BD%AE-%E8%BF%9F%E5%88%B0%E7%9A%84%E7%85%AE%E7%BA%A2%E9%85%92/</id>
     <published>2019-12-27T14:13:14.000Z</published>
-    <updated>2019-12-27T15:10:03.105Z</updated>
+    <updated>2019-12-28T15:23:52.615Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;!-- &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt; --&gt;
+      &lt;!-- &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt; --&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;下班路上突然想起来圣诞节那天看到个微博热搜, 煮红酒, 突然间就好想试一下呀, 刚好家里还剩下的红酒, 说干就干, 吃
-      
+&lt;p&gt;&lt;strong&gt;下班路上突然想起来圣诞节那天看到个微博热搜, 煮红酒, 突然间就好想试一下呀, 刚好家里还剩下的红酒, 说干就干, 吃过晚饭之后就到超市准备水果啦! 紧跟潮流!&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
@@ -54,15 +84,13 @@
     <link href="http://www.pulsating.cn/2019/12/26/Mysql%20max_allowed_packet%20%E8%AE%BE%E7%BD%AE/"/>
     <id>http://www.pulsating.cn/2019/12/26/Mysql%20max_allowed_packet%20%E8%AE%BE%E7%BD%AE/</id>
     <published>2019-12-26T14:05:48.000Z</published>
-    <updated>2019-12-26T14:50:13.307Z</updated>
+    <updated>2019-12-28T15:25:22.702Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;max_allowed_packet&lt;/strong&gt; 限制着你的mysql serve接收的数据包大小, 如果insert或者update时数据过大,超出max_allowed_packet的限制,mysql会抛出错误导致操作失败
-      
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;max_allowed_packet&lt;/strong&gt; 限制着你的mysql serve接收的数据包大小, 如果insert或者update时数据过大,超出max_allowed_packet的限制,mysql会抛出错误导致操作失败,那么我们来看下如何查看和设置max_allowed_packet&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
@@ -113,16 +141,13 @@
     <link href="http://www.pulsating.cn/2019/11/22/JS%E5%AE%9E%E7%8E%B0%E9%A6%96%E5%AD%97%E6%AF%8D%E6%8E%92%E5%BA%8F/"/>
     <id>http://www.pulsating.cn/2019/11/22/JS%E5%AE%9E%E7%8E%B0%E9%A6%96%E5%AD%97%E6%AF%8D%E6%8E%92%E5%BA%8F/</id>
     <published>2019-11-22T08:56:10.000Z</published>
-    <updated>2019-12-20T13:00:36.170Z</updated>
+    <updated>2019-12-28T15:24:22.335Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;!-- &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt; --&gt;
+      &lt;!-- &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt; --&gt;
 
-&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;一个按照姓名首字母排序的功
-      
+&lt;p&gt;一个按照姓名首字母排序的功能,支持数字,字母,符号,中文混合排序&lt;/p&gt;
     
     </summary>
     
@@ -315,9 +340,9 @@
     
       <category term="PHP" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/"/>
     
-      <category term="图像处理" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
       <category term="GD" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/GD/"/>
+    
+      <category term="图像处理" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
     
       <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
@@ -352,9 +377,9 @@
     
       <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
     
-      <category term="PHP" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/"/>
-    
       <category term="Mysql" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/"/>
     
       <category term="Sphinx" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/Sphinx/"/>
     
@@ -434,9 +459,9 @@
     
       <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
     
-      <category term="PHP" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/"/>
-    
       <category term="Mysql" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/"/>
     
       <category term="Sphinx" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/Sphinx/"/>
     
@@ -691,56 +716,6 @@
       <category term="前端" scheme="http://www.pulsating.cn/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="JavaScript" scheme="http://www.pulsating.cn/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>图片懒加载 滚动加载 点击图片预览实现过程</title>
-    <link href="http://www.pulsating.cn/2019/11/12/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD-%E6%BB%9A%E5%8A%A8%E5%8A%A0%E8%BD%BD-%E7%82%B9%E5%87%BB%E5%9B%BE%E7%89%87%E9%A2%84%E8%A7%88%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B/"/>
-    <id>http://www.pulsating.cn/2019/11/12/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD-%E6%BB%9A%E5%8A%A8%E5%8A%A0%E8%BD%BD-%E7%82%B9%E5%87%BB%E5%9B%BE%E7%89%87%E9%A2%84%E8%A7%88%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B/</id>
-    <published>2019-11-12T14:03:12.000Z</published>
-    <updated>2019-12-20T13:00:36.185Z</updated>
-    
-    <summary type="html">
-    
-      &lt;!-- &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt; --&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;作者是个前端菜鸟,只能靠着东拼西凑才能生存下来这样子&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;上次写了一个实现&lt;strong&gt;搜索框自动补全&lt;/strong&gt;的小功能的文章,今天这个在其基础上,加入了几个新功能,两者卡可以结合使用,也可以分开独自使用,没有影响的,想了解的同学,可以先去了解一下,&lt;strong&gt;&lt;a href=&quot;https://www.jianshu.com/p/18047be090f4&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;[传送门]&lt;/a&gt;&lt;/strong&gt;,下面开始实现标题的功能&lt;/p&gt;
-&lt;h4 id=&quot;1-准备阶段&quot;&gt;&lt;a href=&quot;#1-准备阶段&quot; class=&quot;headerlink&quot; title=&quot;1. 准备阶段&quot;&gt;&lt;/a&gt;1. 准备阶段&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;WEUI&lt;/strong&gt;: WEUI是一套同微信原生视觉体验一致的基础样式库,由微信官方设计团队为微信内网页和小程序量身定制,令用户感知更加统一,&lt;a href=&quot;https://weui.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;点击进行在线体验&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Jquery WEUI&lt;/strong&gt;:JQuery WeUI 是专为微信公众账号开发而设计的一个简洁而强大的UI库，包含全部WeUI官方的CSS组件，并且额外提供了大量的拓展组件，丰富的组件库可以极大减少前端开发时间,&lt;a href=&quot;http://jqweui.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;JQuery WeUI官网&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;ECHO JS&lt;/strong&gt;:ECHO JS 是一个纯javascript轻量级延迟加载插件,用来实现懒加载部分&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
-    
-      <category term="前端" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="JavaScript" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/"/>
-    
-    
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
-    
-      <category term="前端" scheme="http://www.pulsating.cn/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="JavaScript" scheme="http://www.pulsating.cn/tags/JavaScript/"/>
-    
-      <category term="WeUI" scheme="http://www.pulsating.cn/tags/WeUI/"/>
-    
-      <category term="Jquery WEUI" scheme="http://www.pulsating.cn/tags/Jquery-WEUI/"/>
-    
-      <category term="ECHO JS" scheme="http://www.pulsating.cn/tags/ECHO-JS/"/>
-    
-      <category term="懒加载" scheme="http://www.pulsating.cn/tags/%E6%87%92%E5%8A%A0%E8%BD%BD/"/>
     
   </entry>
   

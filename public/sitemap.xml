@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.pulsating.cn/2019/12/27/custom-ci-insert_batch/</loc>
+    
+    <lastmod>2019-12-28T15:57:17.901Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.pulsating.cn/2019/12/26/Mysql%2520max_allowed_packet%2520%25E8%25AE%25BE%25E7%25BD%25AE/</loc>
+    
+    <lastmod>2019-12-28T15:25:22.702Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.pulsating.cn/2019/11/22/JS%25E5%25AE%259E%25E7%258E%25B0%25E9%25A6%2596%25E5%25AD%2597%25E6%25AF%258D%25E6%258E%2592%25E5%25BA%258F/</loc>
+    
+    <lastmod>2019-12-28T15:24:22.335Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.pulsating.cn/2019/12/27/%25E5%25BF%2583%25E8%25A1%2580%25E6%259D%25A5%25E6%25BD%25AE-%25E8%25BF%259F%25E5%2588%25B0%25E7%259A%2584%25E7%2585%25AE%25E7%25BA%25A2%25E9%2585%2592/</loc>
     
-    <lastmod>2019-12-27T15:10:03.105Z</lastmod>
+    <lastmod>2019-12-28T15:23:52.615Z</lastmod>
     
   </url>
   
@@ -12,13 +33,6 @@
     <loc>http://www.pulsating.cn/2019/12/20/Mysql-table-import-and-export/</loc>
     
     <lastmod>2019-12-26T15:13:36.352Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.pulsating.cn/2019/12/26/Mysql%2520max_allowed_packet%2520%25E8%25AE%25BE%25E7%25BD%25AE/</loc>
-    
-    <lastmod>2019-12-26T14:50:13.307Z</lastmod>
     
   </url>
   
@@ -156,14 +170,14 @@
   </url>
   
   <url>
-    <loc>http://www.pulsating.cn/2019/11/12/Mysql-Review-%25E4%25B9%258B%25E5%25BC%2595%25E6%2593%258E/</loc>
+    <loc>http://www.pulsating.cn/2019/11/12/Mysql-Review-%25E4%25B9%258B%25E5%25B8%25B8%25E7%2594%25A8%25E8%25AF%258D%25E6%25B1%2587-%25E6%259C%25AF%25E8%25AF%25AD/</loc>
     
     <lastmod>2019-12-20T13:00:36.174Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.pulsating.cn/2019/11/12/Mysql-Review-%25E4%25B9%258B%25E5%25B8%25B8%25E7%2594%25A8%25E8%25AF%258D%25E6%25B1%2587-%25E6%259C%25AF%25E8%25AF%25AD/</loc>
+    <loc>http://www.pulsating.cn/2019/11/12/Mysql-Review-%25E4%25B9%258B%25E5%25BC%2595%25E6%2593%258E/</loc>
     
     <lastmod>2019-12-20T13:00:36.174Z</lastmod>
     
@@ -180,13 +194,6 @@
     <loc>http://www.pulsating.cn/2019/11/12/Mysql-Review-%25E4%25B9%258B%25E5%2587%25BD%25E6%2595%25B0%25E7%25AF%2587/</loc>
     
     <lastmod>2019-12-20T13:00:36.172Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.pulsating.cn/2019/11/22/JS%25E5%25AE%259E%25E7%258E%25B0%25E9%25A6%2596%25E5%25AD%2597%25E6%25AF%258D%25E6%258E%2592%25E5%25BA%258F/</loc>
-    
-    <lastmod>2019-12-20T13:00:36.170Z</lastmod>
     
   </url>
   
