@@ -10,7 +10,7 @@ tags:
 ---
 
 > __max_allowed_packet__ 限制着你的mysql serve接收的数据包大小, 如果insert或者update时数据过大,超出max_allowed_packet的限制,mysql会抛出错误导致操作失败,那么我们来看下如何查看和设置max_allowed_packet
-
+<!-- more -->
 ## 查看
 ```
 mysql> show global variables like 'max_allowed_packet';
