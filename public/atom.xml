@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.pulsating.cn/"/>
-  <updated>2020-01-03T03:45:27.006Z</updated>
+  <updated>2020-01-06T14:55:46.219Z</updated>
   <id>http://www.pulsating.cn/</id>
   
   <author>
@@ -17,11 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>美味的糖醋排骨, 一次成功, 超级好吃</title>
+    <link href="http://www.pulsating.cn/2020/01/06/sweet-and-sour-spareribs/"/>
+    <id>http://www.pulsating.cn/2020/01/06/sweet-and-sour-spareribs/</id>
+    <published>2020-01-06T13:38:12.000Z</published>
+    <updated>2020-01-06T14:55:46.219Z</updated>
+    
+    <summary type="html">
+    
+      &lt;!-- &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt; --&gt;
+&lt;blockquote&gt;
+&lt;p&gt;每个周末, 都要想办法犒劳一下自己, 的胃, 刚好畅大人想吃糖醋排骨, 得! 那就来吧, 没想到以前一做就砸, 这次竟然成功了, 牛B, 记录一下&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="日常" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="美食" scheme="http://www.pulsating.cn/tags/%E7%BE%8E%E9%A3%9F/"/>
+    
+      <category term="食谱" scheme="http://www.pulsating.cn/tags/%E9%A3%9F%E8%B0%B1/"/>
+    
+  </entry>
+  
+  <entry>
     <title>解决PHP CI(CodeIgniter)框架使用insert_batch()批量插入时unique列冲突导致操作失败的问题</title>
     <link href="http://www.pulsating.cn/2019/12/27/custom-ci-insert_batch/"/>
     <id>http://www.pulsating.cn/2019/12/27/custom-ci-insert_batch/</id>
     <published>2019-12-27T15:32:39.000Z</published>
-    <updated>2020-01-03T03:45:27.006Z</updated>
+    <updated>2019-12-28T15:57:17.901Z</updated>
     
     <summary type="html">
     
@@ -53,7 +83,7 @@
     <link href="http://www.pulsating.cn/2019/12/27/%E5%BF%83%E8%A1%80%E6%9D%A5%E6%BD%AE-%E8%BF%9F%E5%88%B0%E7%9A%84%E7%85%AE%E7%BA%A2%E9%85%92/"/>
     <id>http://www.pulsating.cn/2019/12/27/%E5%BF%83%E8%A1%80%E6%9D%A5%E6%BD%AE-%E8%BF%9F%E5%88%B0%E7%9A%84%E7%85%AE%E7%BA%A2%E9%85%92/</id>
     <published>2019-12-27T14:13:14.000Z</published>
-    <updated>2020-01-03T03:45:27.007Z</updated>
+    <updated>2019-12-28T15:23:52.615Z</updated>
     
     <summary type="html">
     
@@ -84,7 +114,7 @@
     <link href="http://www.pulsating.cn/2019/12/26/Mysql%20max_allowed_packet%20%E8%AE%BE%E7%BD%AE/"/>
     <id>http://www.pulsating.cn/2019/12/26/Mysql%20max_allowed_packet%20%E8%AE%BE%E7%BD%AE/</id>
     <published>2019-12-26T14:05:48.000Z</published>
-    <updated>2020-01-03T03:45:27.006Z</updated>
+    <updated>2019-12-28T15:25:22.702Z</updated>
     
     <summary type="html">
     
@@ -111,7 +141,7 @@
     <link href="http://www.pulsating.cn/2019/12/20/Mysql-table-import-and-export/"/>
     <id>http://www.pulsating.cn/2019/12/20/Mysql-table-import-and-export/</id>
     <published>2019-12-20T13:44:13.000Z</published>
-    <updated>2020-01-03T03:45:27.006Z</updated>
+    <updated>2019-12-26T15:13:36.352Z</updated>
     
     <summary type="html">
     
@@ -141,7 +171,7 @@
     <link href="http://www.pulsating.cn/2019/11/22/JS%E5%AE%9E%E7%8E%B0%E9%A6%96%E5%AD%97%E6%AF%8D%E6%8E%92%E5%BA%8F/"/>
     <id>http://www.pulsating.cn/2019/11/22/JS%E5%AE%9E%E7%8E%B0%E9%A6%96%E5%AD%97%E6%AF%8D%E6%8E%92%E5%BA%8F/</id>
     <published>2019-11-22T08:56:10.000Z</published>
-    <updated>2020-01-03T03:45:27.005Z</updated>
+    <updated>2019-12-28T15:24:22.335Z</updated>
     
     <summary type="html">
     
@@ -165,9 +195,9 @@
     
       <category term="JavaScript" scheme="http://www.pulsating.cn/tags/JavaScript/"/>
     
-      <category term="排序" scheme="http://www.pulsating.cn/tags/%E6%8E%92%E5%BA%8F/"/>
-    
       <category term="Vue" scheme="http://www.pulsating.cn/tags/Vue/"/>
+    
+      <category term="排序" scheme="http://www.pulsating.cn/tags/%E6%8E%92%E5%BA%8F/"/>
     
   </entry>
   
@@ -176,7 +206,7 @@
     <link href="http://www.pulsating.cn/2019/11/15/GD%E5%BA%93%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E5%90%88%E5%B9%B6/"/>
     <id>http://www.pulsating.cn/2019/11/15/GD%E5%BA%93%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E5%90%88%E5%B9%B6/</id>
     <published>2019-11-15T15:24:42.000Z</published>
-    <updated>2019-11-22T08:50:58.766Z</updated>
+    <updated>2019-12-20T13:00:36.168Z</updated>
     
     <summary type="html">
     
@@ -208,7 +238,7 @@
     <link href="http://www.pulsating.cn/2019/11/13/Vue%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9Aref/"/>
     <id>http://www.pulsating.cn/2019/11/13/Vue%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9Aref/</id>
     <published>2019-11-13T01:54:18.000Z</published>
-    <updated>2019-11-22T08:50:58.771Z</updated>
+    <updated>2019-12-20T13:00:36.181Z</updated>
     
     <summary type="html">
     
@@ -234,9 +264,9 @@
       <category term="WEEX" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/WEEX/"/>
     
     
-      <category term="Js" scheme="http://www.pulsating.cn/tags/Js/"/>
-    
       <category term="Vue" scheme="http://www.pulsating.cn/tags/Vue/"/>
+    
+      <category term="Js" scheme="http://www.pulsating.cn/tags/Js/"/>
     
       <category term="uni-app" scheme="http://www.pulsating.cn/tags/uni-app/"/>
     
@@ -251,7 +281,7 @@
     <link href="http://www.pulsating.cn/2019/11/12/%E4%BD%BF%E7%94%A8imagemagick%E5%AE%9E%E7%8E%B0%E4%B8%A4%E5%BC%A0%E6%88%96%E5%A4%9A%E5%BC%A0%E5%9B%BE%E7%89%87%E5%9B%BE%E7%89%87%E6%8B%BC%E6%8E%A5-%E8%A6%86%E7%9B%96/"/>
     <id>http://www.pulsating.cn/2019/11/12/%E4%BD%BF%E7%94%A8imagemagick%E5%AE%9E%E7%8E%B0%E4%B8%A4%E5%BC%A0%E6%88%96%E5%A4%9A%E5%BC%A0%E5%9B%BE%E7%89%87%E5%9B%BE%E7%89%87%E6%8B%BC%E6%8E%A5-%E8%A6%86%E7%9B%96/</id>
     <published>2019-11-12T15:40:50.000Z</published>
-    <updated>2020-01-03T05:23:07.274Z</updated>
+    <updated>2019-12-20T13:00:36.184Z</updated>
     
     <summary type="html">
     
@@ -291,7 +321,7 @@
     <link href="http://www.pulsating.cn/2019/11/12/ThinkPHP%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA/"/>
     <id>http://www.pulsating.cn/2019/11/12/ThinkPHP%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA/</id>
     <published>2019-11-12T15:38:23.000Z</published>
-    <updated>2019-11-22T08:50:58.770Z</updated>
+    <updated>2019-12-20T13:00:36.180Z</updated>
     
     <summary type="html">
     
@@ -325,7 +355,7 @@
     <link href="http://www.pulsating.cn/2019/11/12/PHP-%E5%8D%95%E8%89%B2%E4%BD%8D%E5%9B%BE%E5%8F%96%E6%A8%A1/"/>
     <id>http://www.pulsating.cn/2019/11/12/PHP-%E5%8D%95%E8%89%B2%E4%BD%8D%E5%9B%BE%E5%8F%96%E6%A8%A1/</id>
     <published>2019-11-12T15:24:09.000Z</published>
-    <updated>2019-11-22T08:50:58.769Z</updated>
+    <updated>2019-12-20T13:00:36.176Z</updated>
     
     <summary type="html">
     
@@ -364,7 +394,7 @@
     <link href="http://www.pulsating.cn/2019/11/12/Sphinx-Linux-%E4%B8%8B%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B/"/>
     <id>http://www.pulsating.cn/2019/11/12/Sphinx-Linux-%E4%B8%8B%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B/</id>
     <published>2019-11-12T15:17:58.000Z</published>
-    <updated>2019-11-22T08:50:58.769Z</updated>
+    <updated>2019-12-20T13:00:36.177Z</updated>
     
     <summary type="html">
     
@@ -377,9 +407,9 @@
     
       <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
     
-      <category term="Mysql" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/"/>
-    
       <category term="PHP" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/"/>
+    
+      <category term="Mysql" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/"/>
     
       <category term="Sphinx" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/Sphinx/"/>
     
@@ -405,7 +435,7 @@
     <link href="http://www.pulsating.cn/2019/11/12/Sphinx-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6sphinx-conf%E9%85%8D%E7%BD%AE%E9%A1%B9%E5%85%A8%E8%A7%A3%E6%9E%90/"/>
     <id>http://www.pulsating.cn/2019/11/12/Sphinx-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6sphinx-conf%E9%85%8D%E7%BD%AE%E9%A1%B9%E5%85%A8%E8%A7%A3%E6%9E%90/</id>
     <published>2019-11-12T15:12:36.000Z</published>
-    <updated>2019-11-22T08:50:58.770Z</updated>
+    <updated>2019-12-20T13:00:36.179Z</updated>
     
     <summary type="html">
     
@@ -443,7 +473,7 @@
     <link href="http://www.pulsating.cn/2019/11/12/%E4%BB%8E0%E5%88%B01-Sphinx-Windows%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85%E5%8F%8APHP%E4%BD%BF%E7%94%A8Sphinxapi%E7%A4%BA%E4%BE%8B/"/>
     <id>http://www.pulsating.cn/2019/11/12/%E4%BB%8E0%E5%88%B01-Sphinx-Windows%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85%E5%8F%8APHP%E4%BD%BF%E7%94%A8Sphinxapi%E7%A4%BA%E4%BE%8B/</id>
     <published>2019-11-12T15:01:44.000Z</published>
-    <updated>2019-11-22T08:50:58.772Z</updated>
+    <updated>2019-12-20T13:00:36.182Z</updated>
     
     <summary type="html">
     
@@ -459,9 +489,9 @@
     
       <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
     
-      <category term="Mysql" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/"/>
-    
       <category term="PHP" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/"/>
+    
+      <category term="Mysql" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/"/>
     
       <category term="Sphinx" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/Sphinx/"/>
     
@@ -483,7 +513,7 @@
     <link href="http://www.pulsating.cn/2019/11/12/Windows-PHP5-6%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85imagick%E6%89%A9%E5%B1%95%E5%92%8Cimagemagick/"/>
     <id>http://www.pulsating.cn/2019/11/12/Windows-PHP5-6%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85imagick%E6%89%A9%E5%B1%95%E5%92%8Cimagemagick/</id>
     <published>2019-11-12T14:40:35.000Z</published>
-    <updated>2019-11-22T08:50:58.771Z</updated>
+    <updated>2019-12-20T13:00:36.181Z</updated>
     
     <summary type="html">
     
@@ -524,7 +554,7 @@
     <link href="http://www.pulsating.cn/2019/11/12/Mysql-Review-%E4%B9%8B%E5%BC%95%E6%93%8E/"/>
     <id>http://www.pulsating.cn/2019/11/12/Mysql-Review-%E4%B9%8B%E5%BC%95%E6%93%8E/</id>
     <published>2019-11-12T14:31:31.000Z</published>
-    <updated>2019-11-22T08:50:58.768Z</updated>
+    <updated>2019-12-20T13:00:36.174Z</updated>
     
     <summary type="html">
     
@@ -557,7 +587,7 @@
     <link href="http://www.pulsating.cn/2019/11/12/Mysql-Review-%E4%B9%8B%E8%A1%A8%E8%81%94%E7%BB%93%E5%85%A5%E9%97%A8%E7%AF%87/"/>
     <id>http://www.pulsating.cn/2019/11/12/Mysql-Review-%E4%B9%8B%E8%A1%A8%E8%81%94%E7%BB%93%E5%85%A5%E9%97%A8%E7%AF%87/</id>
     <published>2019-11-12T14:30:06.000Z</published>
-    <updated>2019-11-22T08:50:58.768Z</updated>
+    <updated>2019-12-20T13:00:36.175Z</updated>
     
     <summary type="html">
     
@@ -591,7 +621,7 @@
     <link href="http://www.pulsating.cn/2019/11/12/Mysql-Review-%E4%B9%8B%E5%87%BD%E6%95%B0%E7%AF%87/"/>
     <id>http://www.pulsating.cn/2019/11/12/Mysql-Review-%E4%B9%8B%E5%87%BD%E6%95%B0%E7%AF%87/</id>
     <published>2019-11-12T14:24:39.000Z</published>
-    <updated>2019-11-22T08:50:58.767Z</updated>
+    <updated>2019-12-20T13:00:36.172Z</updated>
     
     <summary type="html">
     
@@ -624,7 +654,7 @@
     <link href="http://www.pulsating.cn/2019/11/12/Mysql-Review-%E4%B9%8B%E5%B8%B8%E7%94%A8%E8%AF%8D%E6%B1%87-%E6%9C%AF%E8%AF%AD/"/>
     <id>http://www.pulsating.cn/2019/11/12/Mysql-Review-%E4%B9%8B%E5%B8%B8%E7%94%A8%E8%AF%8D%E6%B1%87-%E6%9C%AF%E8%AF%AD/</id>
     <published>2019-11-12T14:23:09.000Z</published>
-    <updated>2019-11-22T08:50:58.768Z</updated>
+    <updated>2019-12-20T13:00:36.174Z</updated>
     
     <summary type="html">
     
@@ -659,7 +689,7 @@
     <link href="http://www.pulsating.cn/2019/11/12/Mysql-Review-%E4%B9%8B%E5%B8%B8%E7%94%A8sql%E8%AF%AD%E5%8F%A5/"/>
     <id>http://www.pulsating.cn/2019/11/12/Mysql-Review-%E4%B9%8B%E5%B8%B8%E7%94%A8sql%E8%AF%AD%E5%8F%A5/</id>
     <published>2019-11-12T14:13:03.000Z</published>
-    <updated>2019-11-22T08:50:58.767Z</updated>
+    <updated>2019-12-20T13:00:36.173Z</updated>
     
     <summary type="html">
     
@@ -684,38 +714,6 @@
       <category term="Mysql" scheme="http://www.pulsating.cn/tags/Mysql/"/>
     
       <category term="Mysql基础" scheme="http://www.pulsating.cn/tags/Mysql%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JS 通过User-Agent判断用户使用的设备 或平台</title>
-    <link href="http://www.pulsating.cn/2019/11/12/JS-%E9%80%9A%E8%BF%87User-Agent%E5%88%A4%E6%96%AD%E7%94%A8%E6%88%B7%E4%BD%BF%E7%94%A8%E7%9A%84%E8%AE%BE%E5%A4%87-%E6%88%96%E5%B9%B3%E5%8F%B0/"/>
-    <id>http://www.pulsating.cn/2019/11/12/JS-%E9%80%9A%E8%BF%87User-Agent%E5%88%A4%E6%96%AD%E7%94%A8%E6%88%B7%E4%BD%BF%E7%94%A8%E7%9A%84%E8%AE%BE%E5%A4%87-%E6%88%96%E5%B9%B3%E5%8F%B0/</id>
-    <published>2019-11-12T14:08:21.000Z</published>
-    <updated>2019-11-22T08:50:58.766Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;
-      
-    
-    </summary>
-    
-    
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
-    
-      <category term="前端" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="JavaScript" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/"/>
-    
-    
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
-    
-      <category term="前端" scheme="http://www.pulsating.cn/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="JavaScript" scheme="http://www.pulsating.cn/tags/JavaScript/"/>
     
   </entry>
   
