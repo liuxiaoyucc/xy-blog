@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>PHP 单色位图取模 | cc&amp;xy</title>
+  <meta name="description" content="2018-11-27日更新:&amp;emsp;&amp;emsp;由于没有找到生成.bmp格式图片的好办法,改为使用.wbmp格式,转换和读取都改为.wbmp格式,原来的bmp2hex函数逻辑没有变化,改名为wbmp2hex,并不再使用ImageCreateFromBMP函数,可以收藏一下这个函数还是有用的,最新的代码我也提供了下载在文章末尾">
+<meta name="keywords" content="PHP,GD,大熊BIGBEAR,pctoLCD2002,bmp,位图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP 单色位图取模">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.pulsating.cn&#x2F;2019&#x2F;11&#x2F;12&#x2F;PHP-monochrome-bitmap-module&#x2F;index.html">
+<meta property="og:site_name" content="cc &amp;&amp; xy">
+<meta property="og:description" content="2018-11-27日更新:&amp;emsp;&amp;emsp;由于没有找到生成.bmp格式图片的好办法,改为使用.wbmp格式,转换和读取都改为.wbmp格式,原来的bmp2hex函数逻辑没有变化,改名为wbmp2hex,并不再使用ImageCreateFromBMP函数,可以收藏一下这个函数还是有用的,最新的代码我也提供了下载在文章末尾">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-b6d0e5ed3d0f89b6.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
+<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-036a928b957300bc.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
+<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-675d730990fe5b64.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
+<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-58921a2bee3a6c6c.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
+<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-d9a0e2dae4a0f54b.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
+<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-3e9e397592bf5c44.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
+<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-949d42ff637fec24.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
+<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-a133d36f74a84e72.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
+<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-1db851391b978ca4.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
+<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-e4ddf9d0efeb1393.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
+<meta property="og:updated_time" content="2019-12-20T13:00:36.176Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-b6d0e5ed3d0f89b6.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://www.pulsating.cn/2019/11/12/PHP-monochrome-bitmap-module/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="cc &amp;&amp; xy" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/fav.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
+  
+	  
+<script data-ad-client="ca-pub-2287074960345236" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+</head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/liuxiaoyucc" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">xy&amp;cc</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">程序猿和他的畅夫人</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> SuZhou, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-charitable">
+          <a href="/charitable">
+            
+            <i class="icon icon-eye-fill"></i>
+            
+            <span class="menu-title">404公益</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/liuxiaoyucc" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+
+
+  </div>
+
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>控制早晨, 方能控制人生!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><span class="category-list-count">25</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Blog/">Blog</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Blog/Hexo/">Hexo</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/">Mysql</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/Mysql%E5%9F%BA%E7%A1%80/">Mysql基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/Sphinx/">Sphinx</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/">PHP</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/CI/">CI</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/GD/">GD</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/ThinkPHP/">ThinkPHP</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/">JavaScript</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/JQuery-UI/">JQuery UI</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/JQuery-UI/autocomplete/">autocomplete</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/">Vue</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/WEEX/">WEEX</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/uni-app/">uni-app</a><span class="category-list-count">1</span></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">图像处理</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E6%97%A5%E5%B8%B8/">日常</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E6%9D%82/">杂</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Andriod/" rel="tag">Andriod</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CI/" rel="tag">CI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECHO-JS/" rel="tag">ECHO JS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GD/" rel="tag">GD</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Imagemagick/" rel="tag">Imagemagick</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JQuery/" rel="tag">JQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery-WEUI/" rel="tag">Jquery WEUI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Js/" rel="tag">Js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql%E5%9F%BA%E7%A1%80/" rel="tag">Mysql基础</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/" rel="tag">PHP</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SPA/" rel="tag">SPA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sphinx/" rel="tag">Sphinx</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sphinxapi/" rel="tag">Sphinxapi</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkPHP/" rel="tag">ThinkPHP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WEEX/" rel="tag">WEEX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WeUI/" rel="tag">WeUI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/" rel="tag">adb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/article/" rel="tag">article</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bmp/" rel="tag">bmp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/imagick/" rel="tag">imagick</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pctoLCD2002/" rel="tag">pctoLCD2002</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/uni-app/" rel="tag">uni-app</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%8D%E5%9B%BE/" rel="tag">位图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E7%86%8ABIGBEAR/" rel="tag">大熊BIGBEAR</a><span class="tag-list-count">23</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BB%BA%E7%AB%99/" rel="tag">建站</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%87%92%E5%8A%A0%E8%BD%BD/" rel="tag">懒加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BE%8E%E9%A3%9F/" rel="tag">美食</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" rel="tag">随手记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A3%9F%E8%B0%B1/" rel="tag">食谱</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Andriod/" style="font-size: 13px;">Andriod</a> <a href="/tags/CI/" style="font-size: 13px;">CI</a> <a href="/tags/ECHO-JS/" style="font-size: 13px;">ECHO JS</a> <a href="/tags/GD/" style="font-size: 13.14px;">GD</a> <a href="/tags/Imagemagick/" style="font-size: 13.14px;">Imagemagick</a> <a href="/tags/JQuery/" style="font-size: 13px;">JQuery</a> <a href="/tags/JavaScript/" style="font-size: 13.43px;">JavaScript</a> <a href="/tags/Jquery-WEUI/" style="font-size: 13px;">Jquery WEUI</a> <a href="/tags/Js/" style="font-size: 13px;">Js</a> <a href="/tags/Linux/" style="font-size: 13px;">Linux</a> <a href="/tags/Mysql/" style="font-size: 13.86px;">Mysql</a> <a href="/tags/Mysql%E5%9F%BA%E7%A1%80/" style="font-size: 13.57px;">Mysql基础</a> <a href="/tags/PHP/" style="font-size: 13.71px;">PHP</a> <a href="/tags/SPA/" style="font-size: 13px;">SPA</a> <a href="/tags/Sphinx/" style="font-size: 13.29px;">Sphinx</a> <a href="/tags/Sphinxapi/" style="font-size: 13.14px;">Sphinxapi</a> <a href="/tags/ThinkPHP/" style="font-size: 13px;">ThinkPHP</a> <a href="/tags/Vue/" style="font-size: 13.14px;">Vue</a> <a href="/tags/WEEX/" style="font-size: 13px;">WEEX</a> <a href="/tags/WeUI/" style="font-size: 13px;">WeUI</a> <a href="/tags/adb/" style="font-size: 13px;">adb</a> <a href="/tags/article/" style="font-size: 13px;">article</a> <a href="/tags/bmp/" style="font-size: 13px;">bmp</a> <a href="/tags/imagick/" style="font-size: 13.14px;">imagick</a> <a href="/tags/pctoLCD2002/" style="font-size: 13px;">pctoLCD2002</a> <a href="/tags/uni-app/" style="font-size: 13px;">uni-app</a> <a href="/tags/%E4%BD%8D%E5%9B%BE/" style="font-size: 13px;">位图</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13.43px;">前端</a> <a href="/tags/%E5%A4%A7%E7%86%8ABIGBEAR/" style="font-size: 14px;">大熊BIGBEAR</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 13px;">建站</a> <a href="/tags/%E6%87%92%E5%8A%A0%E8%BD%BD/" style="font-size: 13px;">懒加载</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 13px;">排序</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 13px;">教程</a> <a href="/tags/%E7%BE%8E%E9%A3%9F/" style="font-size: 13.14px;">美食</a> <a href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" style="font-size: 13px;">随手记</a> <a href="/tags/%E9%A3%9F%E8%B0%B1/" style="font-size: 13.14px;">食谱</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">20</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2020/01/06/sweet-and-sour-spareribs/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E6%97%A5%E5%B8%B8/">日常</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/01/06/sweet-and-sour-spareribs/" class="title">美味的糖醋排骨, 一次成功, 超级好吃</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-01-06T13:38:12.000Z" itemprop="datePublished">2020-01-06</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/12/27/custom-ci-insert_batch/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/">PHP</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/12/27/custom-ci-insert_batch/" class="title">解决PHP CI(CodeIgniter)框架使用insert_batch()批量插入时unique列冲突导致操作失败的问题</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-12-27T15:32:39.000Z" itemprop="datePublished">2019-12-27</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/12/27/Late-boiled-wine/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E6%97%A5%E5%B8%B8/">日常</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/12/27/Late-boiled-wine/" class="title">心血来潮,迟到的煮红酒</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-12-27T14:13:14.000Z" itemprop="datePublished">2019-12-27</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/12/26/Mysql-max_allowed_packet-setting/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/">Mysql</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/12/26/Mysql-max_allowed_packet-setting/" class="title">Mysql max_allowed_packet 设置</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-12-26T14:05:48.000Z" itemprop="datePublished">2019-12-26</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/12/20/Mysql-table-import-and-export/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/">Mysql</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/12/20/Mysql-table-import-and-export/" class="title">Mysql table import and export 快速导出导入</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-12-20T13:44:13.000Z" itemprop="datePublished">2019-12-20</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-PHP-monochrome-bitmap-module" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PHP 单色位图取模
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2019/11/12/PHP-monochrome-bitmap-module/" class="article-date">
+	  <time datetime="2019-11-12T15:24:09.000Z" itemprop="datePublished">2019-11-12</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/">PHP</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/GD/">GD</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">图像处理</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/GD/" rel="tag">GD</a>, <a class="article-tag-link" href="/tags/PHP/" rel="tag">PHP</a>, <a class="article-tag-link" href="/tags/bmp/" rel="tag">bmp</a>, <a class="article-tag-link" href="/tags/pctoLCD2002/" rel="tag">pctoLCD2002</a>, <a class="article-tag-link" href="/tags/%E4%BD%8D%E5%9B%BE/" rel="tag">位图</a>, <a class="article-tag-link" href="/tags/%E5%A4%A7%E7%86%8ABIGBEAR/" rel="tag">大熊BIGBEAR</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/11/12/PHP-monochrome-bitmap-module/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.2k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 9(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <!-- <meta name="referrer" content="no-referrer" /> -->
+
+<p><strong>2018-11-27日更新:</strong><br>&emsp;&emsp;由于没有找到生成<code>.bmp</code>格式图片的好办法,改为使用<code>.wbmp</code>格式,转换和读取都改为<code>.wbmp</code>格式,原来的<code>bmp2hex</code>函数逻辑没有变化,改名为<code>wbmp2hex</code>,并不再使用<code>ImageCreateFromBMP</code>函数,可以收藏一下这个函数还是有用的,最新的代码我也提供了下载在文章末尾</p>
+<a id="more"></a>
+
+
+<h4 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段:"></a>准备阶段:</h4><ul>
+<li><p><strong>pctoLCD2002</strong><br>网上找到的一款取模软件,可以读取<code>.bmp</code>图片并生成字模,当然我们还是要用代码来完成,这个只是起到了一个对照作用,我将它放在了我的网盘下供大家下载<br>链接：<a href="https://pan.baidu.com/s/12X9Jbctz7wp8_wOWJCmYdw" target="_blank" rel="noopener">点我下载pctoLCD2002</a> 密码：<code>2lyl</code></p>
+</li>
+<li><p><strong>PHP GD扩展</strong><br>强大的PHP图像生成和处理扩展</p>
+</li>
+<li><p><strong>Windows自带画图工具</strong><br>主要用来生成<code>.bpm</code>格式的图片,目前我还没有找到好的用PHP将<code>.jpg</code>和<code>.png</code>图片转为单色<code>.bmp</code>格式图片的办法,暂时只好用画图工具来生成</p>
+</li>
+</ul>
+<h4 id="操作步骤分解演示"><a href="#操作步骤分解演示" class="headerlink" title="操作步骤分解演示"></a>操作步骤分解演示</h4><h5 id="一-使用画图工具获得-bmp格式图片"><a href="#一-使用画图工具获得-bmp格式图片" class="headerlink" title="一. 使用画图工具获得.bmp格式图片"></a>一. 使用画图工具获得.bmp格式图片</h5><ol>
+<li>使用画图工具打开一张事先准备好的图片,另存为<code>.bmp</code><strong>单色位图</strong>,这样我们就得到了一张<code>.bmp</code>格式的图片,白色背景,只有黑色</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/14618365-b6d0e5ed3d0f89b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="打开图片"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/14618365-036a928b957300bc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="另存为"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/14618365-675d730990fe5b64.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=".bmp格式"></p>
+<ol start="2">
+<li>或者我们自己动手来画一张,打开画图工具,调整画布大小为你需要的尺寸,示例为100*70像素,取消勾选保持纵横比,调整好后点击确定,然后我们可以用刷子随便画些什么在画布上,你喜欢就好,然后重复前面的<strong>另存为.bmp单色位图</strong>步骤</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/14618365-58921a2bee3a6c6c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<ol start="3">
+<li>pctoLCD2002也可以新建一幅.bmp图片,并且非常简单</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/14618365-d9a0e2dae4a0f54b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pctoLCD2002新建bmp文件"></p>
+<h5 id="二-使用pctoLCD2002取模"><a href="#二-使用pctoLCD2002取模" class="headerlink" title="二. 使用pctoLCD2002取模"></a>二. 使用<strong><code>pctoLCD2002</code></strong>取模</h5><p>找到PCtoLCD2002.exe并双击打开</p>
+<h6 id="1-规则解析-及本文配置项参考"><a href="#1-规则解析-及本文配置项参考" class="headerlink" title="1. 规则解析,及本文配置项参考"></a>1. 规则解析,及本文配置项参考</h6><p>在取字模之前我们先来说下PCtoLCD2002设置项和取模规则</p>
+<ul>
+<li><strong>配置信息:</strong></li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/14618365-3e9e397592bf5c44.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pctoLCD2002设置项"></p>
+<ul>
+<li><p><strong>取模说明:</strong><br>a. 逐行式逐列式:顾名思义就是读取每张图片时取点时是逐行还是逐列的<br>b. 取模走向:<br><strong>逆向</strong>:从低位到高位<br><strong>顺向</strong>:从高位到低位<br>举例:<br><code>*</code>星号代表图中非空白的像素点,<code>_</code>代表空白的像素点,取八位为一个字节<br><code>* _ _ _ _ _ _ _</code>代表一个字节(为了方便查看,每个符号键我加入了一个空格,实际是没有的)<br>逆向即是从后往前写,表示为00000001<br>顺向即是从前往后写,表示为10000000<br>c. 输出数制:<br>这里选择十六进制,因需选择,不够我需要的是十六进制,后面的代码也只有十六进制的</p>
+</li>
+<li><p><strong>本文取模规则:</strong><br><code>逐行式</code> <code>顺向</code> <code>十六进制</code><br>从第一行开始,每行每隔8个像素点为一个字节,每行结尾最后不足8位,用0补满</p>
+</li>
+</ul>
+<h6 id="2-生成字模"><a href="#2-生成字模" class="headerlink" title="2. 生成字模"></a>2. 生成字模</h6><p>设置好规则后,打开之前制作的.bmp图片,点击生成字模,这时下方会生成出十六进制串,如图:</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/14618365-949d42ff637fec24.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>但是这还不是我最后想要的格式,需要处理一下:</p>
+<ul>
+<li>去掉开始处和结束处的文件路径</li>
+<li>去掉所有的标点符号<code>,</code>和<code>&#39;{&#39; &#39;}&#39;</code></li>
+<li>去掉十六进制的标识部分,所有的<code>0x</code></li>
+</ul>
+<p>最后得到一串连贯的字符串,类似:</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0000000000000007</span>F8000000000000000000000000003FFC00000000000000000000000000000003FF80000000</span><br></pre></td></tr></table></figure>
+<p>这就是我们最终需要的部分了!下面我们用代码来实现这个功能:</p>
+<h4 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决:"></a>问题解决:</h4><h5 id="一-实现过程及思路"><a href="#一-实现过程及思路" class="headerlink" title="一. 实现过程及思路"></a>一. 实现过程及思路</h5><h6 id="0-生成单色位图"><a href="#0-生成单色位图" class="headerlink" title="0. 生成单色位图"></a>0. 生成单色位图</h6><p>卡在这里好久,钻进了死胡同,其实.wbmp的图片完全符合我的要求:<br>GD库就可以将<code>jpg/png</code>转换成<code>wbmp</code>格式,使用时可以调节<code>threshold</code>参数,解释如下,我理解为精度不知道准不准确,也没有查到阀值到底是什么意思…</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/14618365-a133d36f74a84e72.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="threshold"></p>
+<p>生成<code>.wbmp</code>格式图片代码示例:</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$file</span>name = <span class="string">'static/img/1.jpg'</span>;</span><br><span class="line"><span class="symbol">$pat</span>h = <span class="string">'static/img/11.wbmp'</span>;</span><br><span class="line"><span class="symbol">$image</span> = getimagesize(<span class="symbol">$file</span>name);</span><br><span class="line">jpeg2wbmp(<span class="symbol">$file</span>name, <span class="symbol">$pat</span>h, <span class="symbol">$image</span>[<span class="number">1</span>], <span class="symbol">$image</span>[<span class="number">0</span>], <span class="number">5</span>);<span class="comment">//threshold == 5时,和给的软件转换后结果完全一致</span></span><br></pre></td></tr></table></figure>
+
+<p>图片样式:</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/14618365-1db851391b978ca4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=".wbmp格式"></p>
+<h6 id="1-读取-wbmp格式图片-原读取-bmp格式"><a href="#1-读取-wbmp格式图片-原读取-bmp格式" class="headerlink" title="1. 读取.wbmp格式图片(原读取.bmp格式)"></a>1. 读取.wbmp格式图片(原读取.bmp格式)</h6><p>使用gd库的imagecreatefromwbmp函数:</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$file</span>name = <span class="string">'static/img/11.wbmp'</span>;</span><br><span class="line"><span class="symbol">$im</span> = imagecreatefromwbmp(<span class="symbol">$file</span>name);</span><br></pre></td></tr></table></figure>
+<p>安装好GD库扩展后,我发现gd库只能读取.wbmp文件,并不支持.bmp文件,我的gd库版本信息如下<code>gd_info()</code>,经过一番google,找到了一个可以使用的读取.bmp的函数<code>ImageCreateFromBMP()</code>,感谢前辈</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/14618365-e4ddf9d0efeb1393.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="gd_info()"></p>
+<h6 id="2-逐个像素读取"><a href="#2-逐个像素读取" class="headerlink" title="2. 逐个像素读取"></a>2. 逐个像素读取</h6><p>可以读取.wbmp格式了,我们该如何能得出每个像素的颜色值呢?<br>通过查看gd库文档过程,我发现一个函数<code>imagecolorat()</code>,可以根据传入的位置,获取每个像素的索引值<br>使用示例:</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 取得一点的颜色</span></span><br><span class="line"><span class="symbol">$file</span>_name = <span class="string">''</span>;<span class="comment">//wbmp图片路径</span></span><br><span class="line"><span class="symbol">$im</span> = imagecreatefromwbmp(<span class="symbol">$file</span>_name);<span class="comment">//读取wbmp格式</span></span><br><span class="line"><span class="symbol">$start</span>_x = <span class="number">5</span>;<span class="comment">//行,从0开始</span></span><br><span class="line"><span class="symbol">$start</span>_y = <span class="number">10</span>;<span class="comment">//列,从0开始</span></span><br><span class="line"><span class="symbol">$color</span>_index = imagecolorat(<span class="symbol">$im</span>, <span class="symbol">$start</span>_x, <span class="symbol">$start</span>_y);</span><br><span class="line">print_r(<span class="symbol">$color</span>_index);</span><br></pre></td></tr></table></figure>
+
+
+<h6 id="3-获取图片宽高"><a href="#3-获取图片宽高" class="headerlink" title="3. 获取图片宽高"></a>3. 获取图片宽高</h6><p>第2步中可以获取每个像素中的值了,但是我们总不能每个点都手动传入,这时我们就需要获取图片的宽高了</p>
+<p>gd库中有获取图片宽高的函数<code>imagesx()</code>和<code>imagesy()</code>,代码示例:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$im = imagecreatefromwbmp($file_name);<span class="comment">//读取bmp格式,非gd库</span></span><br><span class="line">$width = imagesx($im);</span><br><span class="line">$height = imagesy($im);</span><br><span class="line"><span class="keyword">echo</span> $width.<span class="string">'*'</span>.$height;</span><br></pre></td></tr></table></figure>
+<p>到这里,最主要的部分都已经可以获取到了,后面就是逻辑部分了(代码中可以看到具体实现方式):</p>
+<ul>
+<li>根据图片的宽高,逐行逐点读取每个像素的值,每8位组合成1个字节,然后取模,再转为16进制</li>
+<li>检测每一行的最后是否满足8个像素,不足则用0补满</li>
+<li>最终将每一行组合到一起,组成16进制字符串</li>
+</ul>
+<h5 id="二-源码"><a href="#二-源码" class="headerlink" title="二. 源码"></a>二. 源码</h5><p><strong>整个过程可以大概分为三步完成,你可以根据自己的需求参考或者直接copy使用,如果对你有帮助,希望可以点个赞,转载请注明本篇文章链接地址及作者,谢谢!</strong></p>
+<ul>
+<li>将普通<code>jpg/png</code>格式转为<code>.wbmp</code><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$file</span>name = <span class="string">'static/img/1.jpg'</span>;</span><br><span class="line"><span class="symbol">$pat</span>h = <span class="string">'static/img/11.wbmp'</span>;</span><br><span class="line"><span class="symbol">$image</span> = getimagesize(<span class="symbol">$file</span>name);</span><br><span class="line">jpeg2wbmp(<span class="symbol">$file</span>name, <span class="symbol">$pat</span>h, <span class="symbol">$image</span>[<span class="number">1</span>], <span class="symbol">$image</span>[<span class="number">0</span>], <span class="number">5</span>);<span class="comment">//threshold == 5时,和给的软件转换后结果完全一致</span></span><br></pre></td></tr></table></figure></li>
+<li>读取<code>.wbmp</code>格式图片<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$file</span>name = <span class="string">'static/img/11.wbmp'</span>;</span><br><span class="line"><span class="symbol">$im</span> = imagecreatefromwbmp(<span class="symbol">$file</span>name);</span><br></pre></td></tr></table></figure></li>
+<li>将<code>.wbmp</code>转为<code>hex_str</code><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> $im</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> string</span></span><br><span class="line"><span class="comment">     * Commented by liu</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">wbmp2hex</span><span class="params">($im)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        $width = imagesx($im);</span><br><span class="line">        $height = imagesy($im);</span><br><span class="line">        $num = $width % <span class="number">8</span>;</span><br><span class="line"></span><br><span class="line">        $hex_str = <span class="string">''</span>;</span><br><span class="line">        <span class="keyword">for</span> ($start_y = <span class="number">0</span>; $start_y &lt; $height; $start_y++) &#123;</span><br><span class="line">            $binary_str = <span class="string">''</span>;</span><br><span class="line">            <span class="keyword">for</span> ($start_x = <span class="number">0</span>; $start_x &lt; $width; $start_x++) &#123;</span><br><span class="line">                $color_index = imagecolorat($im, $start_x, $start_y);<span class="comment">//指定像素的索引值</span></span><br><span class="line"></span><br><span class="line">                $binary_str .= $color_index == <span class="number">1</span> ? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">if</span> ((<span class="number">1</span> + $start_x) % <span class="number">8</span> == <span class="number">0</span> &amp;&amp; $start_x != <span class="number">0</span>) &#123;<span class="comment">//每隔8位转换1次</span></span><br><span class="line">                    $hex = (string)dechex(bindec($binary_str));</span><br><span class="line">                    $hex = strlen($hex) == <span class="number">1</span> ? <span class="string">'0'</span> . $hex : $hex;<span class="comment">//补0</span></span><br><span class="line">                    $hex_str .= $hex;</span><br><span class="line">                    $binary_str = <span class="string">''</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//这时如果$binary_str不为空,说明需要向后补0</span></span><br><span class="line">            <span class="keyword">if</span> ($num) &#123;</span><br><span class="line">                <span class="keyword">for</span> ($i = <span class="number">0</span>; $i &lt; <span class="number">8</span> - $num; $i++) &#123;</span><br><span class="line">                    $binary_str .= <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                $hex = (string)dechex(bindec($binary_str));</span><br><span class="line">                $hex = strlen($hex) == <span class="number">1</span> ? <span class="string">'0'</span> . $hex : $hex;<span class="comment">//补0</span></span><br><span class="line">                $hex_str .= $hex;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        $hex_str = strtoupper($hex_str);<span class="comment">//转为大写</span></span><br><span class="line">        <span class="keyword">return</span> $hex_str;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<p>最后附上读取<code>.bmp</code>格式图片的函数:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Commented by liu</span></span><br><span class="line"><span class="comment"> * Create on 2018/11/23 17:51</span></span><br><span class="line"><span class="comment"> * Class Image_api</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Image_api</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span> <span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * ImageCreateFromBMP函数,读取bmp格式图片</span></span><br><span class="line"><span class="comment">     * 注:phpGD扩展中没有ImageCreateFromBMP函数,只有ImageCreateFromWBMP</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> $filename</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> bool|resource</span></span><br><span class="line"><span class="comment">     * Commented by liu</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">ImageCreateFromBMP</span><span class="params">($filename)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//Ouverture du fichier en mode binaire</span></span><br><span class="line">        <span class="keyword">if</span> (!$f1 = fopen($filename, <span class="string">"rb"</span>))</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">FALSE</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//1 : Chargement des ent�tes FICHIER</span></span><br><span class="line">        $FILE = unpack(<span class="string">"vfile_type/Vfile_size/Vreserved/Vbitmap_offset"</span>, fread($f1, <span class="number">14</span>));</span><br><span class="line">        <span class="keyword">if</span> ($FILE[<span class="string">'file_type'</span>] != <span class="number">19778</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">FALSE</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//2 : Chargement des ent�tes BMP</span></span><br><span class="line">        $BMP = unpack(<span class="string">'Vheader_size/Vwidth/Vheight/vplanes/vbits_per_pixel'</span> .</span><br><span class="line">            <span class="string">'/Vcompression/Vsize_bitmap/Vhoriz_resolution'</span> .</span><br><span class="line">            <span class="string">'/Vvert_resolution/Vcolors_used/Vcolors_important'</span>, fread($f1, <span class="number">40</span>));</span><br><span class="line">        $BMP[<span class="string">'colors'</span>] = pow(<span class="number">2</span>, $BMP[<span class="string">'bits_per_pixel'</span>]);</span><br><span class="line">        <span class="keyword">if</span> ($BMP[<span class="string">'size_bitmap'</span>] == <span class="number">0</span>)</span><br><span class="line">            $BMP[<span class="string">'size_bitmap'</span>] = $FILE[<span class="string">'file_size'</span>] - $FILE[<span class="string">'bitmap_offset'</span>];</span><br><span class="line">        $BMP[<span class="string">'bytes_per_pixel'</span>] = $BMP[<span class="string">'bits_per_pixel'</span>] / <span class="number">8</span>;</span><br><span class="line">        $BMP[<span class="string">'bytes_per_pixel2'</span>] = ceil($BMP[<span class="string">'bytes_per_pixel'</span>]);</span><br><span class="line">        $BMP[<span class="string">'decal'</span>] = ($BMP[<span class="string">'width'</span>] * $BMP[<span class="string">'bytes_per_pixel'</span>] / <span class="number">4</span>);</span><br><span class="line">        $BMP[<span class="string">'decal'</span>] -= floor($BMP[<span class="string">'width'</span>] * $BMP[<span class="string">'bytes_per_pixel'</span>] / <span class="number">4</span>);</span><br><span class="line">        $BMP[<span class="string">'decal'</span>] = <span class="number">4</span> - (<span class="number">4</span> * $BMP[<span class="string">'decal'</span>]);</span><br><span class="line">        <span class="keyword">if</span> ($BMP[<span class="string">'decal'</span>] == <span class="number">4</span>)</span><br><span class="line">            $BMP[<span class="string">'decal'</span>] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//3 : Chargement des couleurs de la palette</span></span><br><span class="line">        $PALETTE = <span class="keyword">array</span>();</span><br><span class="line">        <span class="keyword">if</span> ($BMP[<span class="string">'colors'</span>] &lt; <span class="number">16777216</span>) &#123;</span><br><span class="line">            $PALETTE = unpack(<span class="string">'V'</span> . $BMP[<span class="string">'colors'</span>], fread($f1, $BMP[<span class="string">'colors'</span>] * <span class="number">4</span>));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//4 : Cr�ation de l'image</span></span><br><span class="line">        $IMG = fread($f1, $BMP[<span class="string">'size_bitmap'</span>]);</span><br><span class="line">        $VIDE = chr(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        $res = imagecreatetruecolor($BMP[<span class="string">'width'</span>], $BMP[<span class="string">'height'</span>]);</span><br><span class="line">        $P = <span class="number">0</span>;</span><br><span class="line">        $Y = $BMP[<span class="string">'height'</span>] - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> ($Y &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            $X = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> ($X &lt; $BMP[<span class="string">'width'</span>]) &#123;</span><br><span class="line">                <span class="keyword">if</span> ($BMP[<span class="string">'bits_per_pixel'</span>] == <span class="number">24</span>)</span><br><span class="line">                    $COLOR = unpack(<span class="string">"V"</span>, substr($IMG, $P, <span class="number">3</span>) . $VIDE);</span><br><span class="line">                <span class="keyword">elseif</span> ($BMP[<span class="string">'bits_per_pixel'</span>] == <span class="number">16</span>) &#123;</span><br><span class="line">                    $COLOR = unpack(<span class="string">"n"</span>, substr($IMG, $P, <span class="number">2</span>));</span><br><span class="line">                    $COLOR[<span class="number">1</span>] = $PALETTE[$COLOR[<span class="number">1</span>] + <span class="number">1</span>];</span><br><span class="line">                &#125; <span class="keyword">elseif</span> ($BMP[<span class="string">'bits_per_pixel'</span>] == <span class="number">8</span>) &#123;</span><br><span class="line">                    $COLOR = unpack(<span class="string">"n"</span>, $VIDE . substr($IMG, $P, <span class="number">1</span>));</span><br><span class="line">                    $COLOR[<span class="number">1</span>] = $PALETTE[$COLOR[<span class="number">1</span>] + <span class="number">1</span>];</span><br><span class="line">                &#125; <span class="keyword">elseif</span> ($BMP[<span class="string">'bits_per_pixel'</span>] == <span class="number">4</span>) &#123;</span><br><span class="line">                    $COLOR = unpack(<span class="string">"n"</span>, $VIDE . substr($IMG, floor($P), <span class="number">1</span>));</span><br><span class="line">                    <span class="keyword">if</span> (($P * <span class="number">2</span>) % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">                        $COLOR[<span class="number">1</span>] = ($COLOR[<span class="number">1</span>] &gt;&gt; <span class="number">4</span>);</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                        $COLOR[<span class="number">1</span>] = ($COLOR[<span class="number">1</span>] &amp; <span class="number">0x0F</span>);</span><br><span class="line">                    $COLOR[<span class="number">1</span>] = $PALETTE[$COLOR[<span class="number">1</span>] + <span class="number">1</span>];</span><br><span class="line">                &#125; <span class="keyword">elseif</span> ($BMP[<span class="string">'bits_per_pixel'</span>] == <span class="number">1</span>) &#123;</span><br><span class="line">                    $COLOR = unpack(<span class="string">"n"</span>, $VIDE . substr($IMG, floor($P), <span class="number">1</span>));</span><br><span class="line">                    <span class="keyword">if</span> (($P * <span class="number">8</span>) % <span class="number">8</span> == <span class="number">0</span>)</span><br><span class="line">                        $COLOR[<span class="number">1</span>] = $COLOR[<span class="number">1</span>] &gt;&gt; <span class="number">7</span>;</span><br><span class="line">                    <span class="keyword">elseif</span> (($P * <span class="number">8</span>) % <span class="number">8</span> == <span class="number">1</span>)</span><br><span class="line">                        $COLOR[<span class="number">1</span>] = ($COLOR[<span class="number">1</span>] &amp; <span class="number">0x40</span>) &gt;&gt; <span class="number">6</span>;</span><br><span class="line">                    <span class="keyword">elseif</span> (($P * <span class="number">8</span>) % <span class="number">8</span> == <span class="number">2</span>)</span><br><span class="line">                        $COLOR[<span class="number">1</span>] = ($COLOR[<span class="number">1</span>] &amp; <span class="number">0x20</span>) &gt;&gt; <span class="number">5</span>;</span><br><span class="line">                    <span class="keyword">elseif</span> (($P * <span class="number">8</span>) % <span class="number">8</span> == <span class="number">3</span>)</span><br><span class="line">                        $COLOR[<span class="number">1</span>] = ($COLOR[<span class="number">1</span>] &amp; <span class="number">0x10</span>) &gt;&gt; <span class="number">4</span>;</span><br><span class="line">                    <span class="keyword">elseif</span> (($P * <span class="number">8</span>) % <span class="number">8</span> == <span class="number">4</span>)</span><br><span class="line">                        $COLOR[<span class="number">1</span>] = ($COLOR[<span class="number">1</span>] &amp; <span class="number">0x8</span>) &gt;&gt; <span class="number">3</span>;</span><br><span class="line">                    <span class="keyword">elseif</span> (($P * <span class="number">8</span>) % <span class="number">8</span> == <span class="number">5</span>)</span><br><span class="line">                        $COLOR[<span class="number">1</span>] = ($COLOR[<span class="number">1</span>] &amp; <span class="number">0x4</span>) &gt;&gt; <span class="number">2</span>;</span><br><span class="line">                    <span class="keyword">elseif</span> (($P * <span class="number">8</span>) % <span class="number">8</span> == <span class="number">6</span>)</span><br><span class="line">                        $COLOR[<span class="number">1</span>] = ($COLOR[<span class="number">1</span>] &amp; <span class="number">0x2</span>) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">elseif</span> (($P * <span class="number">8</span>) % <span class="number">8</span> == <span class="number">7</span>)</span><br><span class="line">                        $COLOR[<span class="number">1</span>] = ($COLOR[<span class="number">1</span>] &amp; <span class="number">0x1</span>);</span><br><span class="line">                    $COLOR[<span class="number">1</span>] = $PALETTE[$COLOR[<span class="number">1</span>] + <span class="number">1</span>];</span><br><span class="line">                &#125; <span class="keyword">else</span></span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">FALSE</span>;</span><br><span class="line">                imagesetpixel($res, $X, $Y, $COLOR[<span class="number">1</span>]);</span><br><span class="line">                $X++;</span><br><span class="line">                $P += $BMP[<span class="string">'bytes_per_pixel'</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            $Y--;</span><br><span class="line">            $P += $BMP[<span class="string">'decal'</span>];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//Fermeture du fichier</span></span><br><span class="line">        fclose($f1);</span><br><span class="line">        <span class="keyword">return</span> $res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://www.pulsating.cn/2019/11/12/PHP-monochrome-bitmap-module/" title="PHP 单色位图取模" target="_blank" rel="external">http://www.pulsating.cn/2019/11/12/PHP-monochrome-bitmap-module/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/liuxiaoyucc" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/liuxiaoyucc" target="_blank"><span class="text-dark">xy&amp;cc</span><small class="ml-1x">程序猿和他的畅夫人</small></a></h3>
+        <div>程序猿和他的畅夫人</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center;"
+         data-ad-layout="in-article"
+         data-ad-format="fluid"
+         data-ad-client="ca-pub-2287074960345236"
+         data-ad-slot="2698971255"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </article>
+
+
+
+
+  
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2019/11/12/ThinkPHP%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA/" title="ThinkPHP框架搭建"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2019/11/12/Sphinx-Linux-install/" title="Sphinx Linux 下安装过程"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="wechat,weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/liuxiaoyucc" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '3f444cd96c55b018da3b',
+    clientSecret: '196107507bfaec3f322d25041c3a9411e1d9ea4f',
+    repo: 'xy-blog',
+    owner: 'liuxiaoyucc',
+    admin: ['liuxiaoyucc'],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+  })
+  gitalk.render('comments')
+  </script>
+
+      
+
+
+
+
+
+
+
+  <script type="text/javascript" src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+</body>
+</html>
