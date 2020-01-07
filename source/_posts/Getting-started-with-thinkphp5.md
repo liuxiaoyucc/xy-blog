@@ -1,5 +1,5 @@
 ---
-title: ThinkPHP框架搭建
+title: ThinkPHP5框架搭建
 categories:
   - - 大熊BIGBEAR
     - PHP
@@ -11,7 +11,7 @@ tags:
 translate_title: thinkphp-framework-to-build
 date: 2019-11-12 23:38:23
 ---
-<!-- <meta name="referrer" content="no-referrer" /> -->
+<meta name="referrer" content="no-referrer" />
 
 `thinkphp`基于__`MVC`__的方式来组织,MVC是一种经典的程序设计理念,此模式将你的项目分成三个部分,`模型层(model)`,`视图层(view)`,`控制层(controller),MVC为这三个三次的首字母缩写
 

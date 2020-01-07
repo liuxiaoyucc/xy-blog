@@ -12,6 +12,8 @@ translate_title: mysql-review-common-sql-statement
 date: 2019-11-12 22:13:03
 ---
 
+<meta name="referrer" content="no-referrer" />
+
 ### 一. 综合
 1. 使用__.sql__脚本 ``` SOURCE + 脚本路径;```
 2. 打开数据库 ``` USE database; ```

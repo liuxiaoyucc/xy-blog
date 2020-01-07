@@ -11,6 +11,9 @@ tags:
 translate_title: js-determines-the-device-or-platform-used-by-user-through-useragent
 date: 2019-11-12 22:08:21
 ---
+
+<meta name="referrer" content="no-referrer" />
+
 ```
 <script>
     var browser = {

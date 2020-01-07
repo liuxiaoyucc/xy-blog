@@ -13,12 +13,13 @@ tags:
 translate_title: use-imagemagick-to-achieve-two-or-more-image-stitching
 date: 2019-11-12 23:40:50
 ---
-<!-- <meta name="referrer" content="no-referrer" /> -->
+
+<meta name="referrer" content="no-referrer" />
 
 >`Imagemagick`是一个强大的图像处理库,号称命令行上的photoshop
 
-* [使用GD扩展实现和本篇文章相同的效果](aa13db8f7cf9)
-* [php的imagick扩展和imagemagick的安装教程](c2ff6c9c43e3)
+* [使用GD扩展实现和本篇文章相同的效果](http://www.pulsating.cn/2019/11/15/Use-GD-library-to-implement-image-merge/)
+* [php的imagick扩展和imagemagick的安装教程](http://pulsating.cn/2019/11/12/install-imagick-extend-and-imagemagick-in-windows-php5.6/)
 
 
 ##### 1. 问题场景

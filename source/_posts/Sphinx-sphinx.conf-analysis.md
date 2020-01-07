@@ -12,7 +12,7 @@ tags:
 translate_title: sphinx-configuration-file-sphinxconf-item-full-resolution
 date: 2019-11-12 23:12:36
 ---
-<!-- <meta name="referrer" content="no-referrer" /> -->
+<meta name="referrer" content="no-referrer" />
 
 - __source__：数据源，数据是从什么地方来的。
 - __index__：索引，当有数据源之后，从数据源处构建索引。索引实际上就是相当于一个字典检索。有了整本字典内容以后，才会有字典检索。

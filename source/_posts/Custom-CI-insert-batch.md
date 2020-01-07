@@ -11,7 +11,7 @@ tags:
   - 大熊BIGBEAR
 ---
 
-<!-- <meta name="referrer" content="no-referrer" /> -->
+<meta name="referrer" content="no-referrer" />
 
 >在CI中, 有时我们想将很多条数据, 批量插入到数据库中, 我们知道有[insert_batch()](https://codeigniter.org.cn/user_guide/database/query_builder.html)这个函数, 但是如果insert_batch时, 遇到了mysql中的UNIQUE约束, 就会导致插入失败, 并回滚, 那么我们该如何让其跳过冲突的列, 并继续执行下面的数据呢?
  <!-- more -->

@@ -16,7 +16,7 @@ tags:
 translate_title: php-monochrome-bitmap-modulo
 date: 2019-11-12 23:24:09
 ---
-<!-- <meta name="referrer" content="no-referrer" /> -->
+<meta name="referrer" content="no-referrer" />
 
 __2018-11-27日更新:__
 &emsp;&emsp;由于没有找到生成`.bmp`格式图片的好办法,改为使用`.wbmp`格式,转换和读取都改为`.wbmp`格式,原来的`bmp2hex`函数逻辑没有变化,改名为`wbmp2hex`,并不再使用`ImageCreateFromBMP`函数,可以收藏一下这个函数还是有用的,最新的代码我也提供了下载在文章末尾

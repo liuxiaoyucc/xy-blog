@@ -13,4 +13,4 @@ tags:
 translate_title: use-hexo-to-build-a-personal-blog
 date: 2019-11-12 10:59:00
 ---
-<!-- <meta name="referrer" content="no-referrer" /> -->
+<meta name="referrer" content="no-referrer" />

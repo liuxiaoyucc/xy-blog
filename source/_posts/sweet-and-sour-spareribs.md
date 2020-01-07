@@ -10,7 +10,8 @@ tags:
 	- 大熊BIGBEAR
 ---
 
-<!-- <meta name="referrer" content="no-referrer" /> -->
+<meta name="referrer" content="no-referrer" />
+
 > 每个周末, 都要想办法犒劳一下自己, 的胃, 刚好畅大人想吃糖醋排骨, 得! 那就来吧, 没想到以前一做就砸, 这次竟然成功了, 牛B, 记录一下
 <!-- more -->
 

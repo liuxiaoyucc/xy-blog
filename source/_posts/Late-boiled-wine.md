@@ -10,7 +10,7 @@ tags:
 	- 大熊BIGBEAR
 ---
 
-<!-- <meta name="referrer" content="no-referrer" /> -->
+<meta name="referrer" content="no-referrer" />
 
 >__下班路上突然想起来圣诞节那天看到个微博热搜, 煮红酒, 突然间就好想试一下呀, 刚好家里还剩下的红酒, 说干就干, 吃过晚饭之后就到超市准备水果啦! 紧跟潮流!__
 <!-- more -->

@@ -15,7 +15,7 @@ tags:
 translate_title: image-lazy-loading-scroll-click-preview-implementation-process
 date: 2019-11-12 22:03:12
 ---
-<!-- <meta name="referrer" content="no-referrer" /> -->
+<meta name="referrer" content="no-referrer" />
 
 >作者是个前端菜鸟,只能靠着东拼西凑才能生存下来这样子
 

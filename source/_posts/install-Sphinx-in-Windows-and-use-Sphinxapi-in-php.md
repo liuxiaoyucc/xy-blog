@@ -16,7 +16,7 @@ toc: true
 translate_title: from-0-to-1-sphinx-windows-native-installation-and-php-using-sphinxapi-example
 date: 2019-11-12 23:01:44
 ---
-<!-- <meta name="referrer" content="no-referrer" /> -->
+<meta name="referrer" content="no-referrer" />
 
 &emsp;&emsp;最近一个项目需要实现这样一个需求:mysql数据库一张表中存了百万张菜品图片,需要根据菜品名称或描述,模糊匹配出符合条件的菜品图片,并展示出来
 

@@ -14,7 +14,7 @@ tags:
 translate_title: search-box-auto-completion-fuzzy-matching-function-implementation
 date: 2019-11-12 21:57:06
 ---
-<!-- <meta name="referrer" content="no-referrer" /> -->
+<meta name="referrer" content="no-referrer" />
 
 
 &emsp;&emsp;本地实现了一个搜索框自动补全的小功能,在JQuery UI的autocomplete插件的基础上,加入了自己的业务代码,贴出来回顾一下,同时可以给大家一个参考

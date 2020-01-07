@@ -13,7 +13,7 @@ tags:
   - 排序
 ---
 
-<!-- <meta name="referrer" content="no-referrer" /> -->
+<meta name="referrer" content="no-referrer" />
 
 一个按照姓名首字母排序的功能,支持数字,字母,符号,中文混合排序
 <!-- more -->
