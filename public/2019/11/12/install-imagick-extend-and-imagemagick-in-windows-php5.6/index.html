@@ -17,13 +17,13 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Windows+PHP5.6环境下安装imagick扩展和imagemagick | cc&amp;xy</title>
+  <title>Windows+PHP5.6环境下安装imagick扩展和imagemagick | 大熊BIGBEAR的个人博客</title>
   <meta name="description" content="其实回过头看,安装过程中最容易出错的反而是下载阶段,一定要将imagemagick和imagick的版本和phpinfo的信息对应好!下图中几点需要注意,每个人的信息可能不同,根据你自己的phpinfo来选择接下来的下载的程序及扩展版本:   PHP Version: PHP版本  compiler: MSVC11 Architecture: x86 Thread Safety: disab">
 <meta name="keywords" content="PHP,大熊BIGBEAR,imagick,Imagemagick">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows+PHP5.6环境下安装imagick扩展和imagemagick">
 <meta property="og:url" content="http:&#x2F;&#x2F;www.pulsating.cn&#x2F;2019&#x2F;11&#x2F;12&#x2F;install-imagick-extend-and-imagemagick-in-windows-php5.6&#x2F;index.html">
-<meta property="og:site_name" content="cc &amp;&amp; xy">
+<meta property="og:site_name" content="大熊的个人博客">
 <meta property="og:description" content="其实回过头看,安装过程中最容易出错的反而是下载阶段,一定要将imagemagick和imagick的版本和phpinfo的信息对应好!下图中几点需要注意,每个人的信息可能不同,根据你自己的phpinfo来选择接下来的下载的程序及扩展版本:   PHP Version: PHP版本  compiler: MSVC11 Architecture: x86 Thread Safety: disab">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-bc2658ebe00f81fb.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
@@ -37,7 +37,7 @@
   <!-- Canonical links -->
   <link rel="canonical" href="http://www.pulsating.cn/2019/11/12/install-imagick-extend-and-imagemagick-in-windows-php5.6/index.html">
   
-    <link rel="alternate" href="/atom.xml" title="cc &amp;&amp; xy" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="大熊的个人博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/fav.png" type="image/x-icon">
@@ -566,6 +566,12 @@
   </ul>
   
   
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
   
   <div class="bar-right">
     
@@ -575,6 +581,48 @@
   </div>
 </nav>
   
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/wechatpayimg.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 </main>

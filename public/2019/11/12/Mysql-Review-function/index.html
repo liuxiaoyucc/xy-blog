@@ -17,13 +17,13 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Mysql Review 之函数篇 | cc&amp;xy</title>
+  <title>Mysql Review 之函数篇 | 大熊BIGBEAR的个人博客</title>
   <meta name="description" content="数据处理函数 Mqsql 和其他大多数计算机语言一样,支持利用函数处理数据,大多数SQL都支持以下类型的函数.   处理文本串的文本函数  数值数据上进行算术操作的数值函数  处理日期和时间值并从这些值中提取特定成分的日期和时间函数  返回DBMS正使用的特殊信息的系统函数   1. 文本处理函数常用的文本处理函数一览     函数 说明 示例    Left() or Right() 返回字符串">
 <meta name="keywords" content="大熊BIGBEAR,Mysql,Mysql基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mysql Review 之函数篇">
 <meta property="og:url" content="http:&#x2F;&#x2F;www.pulsating.cn&#x2F;2019&#x2F;11&#x2F;12&#x2F;Mysql-Review-function&#x2F;index.html">
-<meta property="og:site_name" content="cc &amp;&amp; xy">
+<meta property="og:site_name" content="大熊的个人博客">
 <meta property="og:description" content="数据处理函数 Mqsql 和其他大多数计算机语言一样,支持利用函数处理数据,大多数SQL都支持以下类型的函数.   处理文本串的文本函数  数值数据上进行算术操作的数值函数  处理日期和时间值并从这些值中提取特定成分的日期和时间函数  返回DBMS正使用的特殊信息的系统函数   1. 文本处理函数常用的文本处理函数一览     函数 说明 示例    Left() or Right() 返回字符串">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2020-01-07T07:31:12.303Z">
@@ -31,7 +31,7 @@
   <!-- Canonical links -->
   <link rel="canonical" href="http://www.pulsating.cn/2019/11/12/Mysql-Review-function/index.html">
   
-    <link rel="alternate" href="/atom.xml" title="cc &amp;&amp; xy" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="大熊的个人博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/fav.png" type="image/x-icon">
@@ -646,6 +646,12 @@
   </ul>
   
   
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
   
   <div class="bar-right">
     
@@ -655,6 +661,48 @@
   </div>
 </nav>
   
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/wechatpayimg.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 </main>

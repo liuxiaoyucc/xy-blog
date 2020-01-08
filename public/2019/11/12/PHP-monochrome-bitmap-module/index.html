@@ -17,13 +17,13 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>PHP 单色位图取模 | cc&amp;xy</title>
+  <title>PHP 单色位图取模 | 大熊BIGBEAR的个人博客</title>
   <meta name="description" content="2018-11-27日更新:&amp;emsp;&amp;emsp;由于没有找到生成.bmp格式图片的好办法,改为使用.wbmp格式,转换和读取都改为.wbmp格式,原来的bmp2hex函数逻辑没有变化,改名为wbmp2hex,并不再使用ImageCreateFromBMP函数,可以收藏一下这个函数还是有用的,最新的代码我也提供了下载在文章末尾">
 <meta name="keywords" content="PHP,GD,大熊BIGBEAR,pctoLCD2002,bmp,位图">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP 单色位图取模">
 <meta property="og:url" content="http:&#x2F;&#x2F;www.pulsating.cn&#x2F;2019&#x2F;11&#x2F;12&#x2F;PHP-monochrome-bitmap-module&#x2F;index.html">
-<meta property="og:site_name" content="cc &amp;&amp; xy">
+<meta property="og:site_name" content="大熊的个人博客">
 <meta property="og:description" content="2018-11-27日更新:&amp;emsp;&amp;emsp;由于没有找到生成.bmp格式图片的好办法,改为使用.wbmp格式,转换和读取都改为.wbmp格式,原来的bmp2hex函数逻辑没有变化,改名为wbmp2hex,并不再使用ImageCreateFromBMP函数,可以收藏一下这个函数还是有用的,最新的代码我也提供了下载在文章末尾">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-b6d0e5ed3d0f89b6.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
@@ -42,7 +42,7 @@
   <!-- Canonical links -->
   <link rel="canonical" href="http://www.pulsating.cn/2019/11/12/PHP-monochrome-bitmap-module/index.html">
   
-    <link rel="alternate" href="/atom.xml" title="cc &amp;&amp; xy" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="大熊的个人博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/fav.png" type="image/x-icon">
@@ -619,6 +619,12 @@
   </ul>
   
   
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
   
   <div class="bar-right">
     
@@ -628,6 +634,48 @@
   </div>
 </nav>
   
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/wechatpayimg.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 </main>
