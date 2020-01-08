@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.pulsating.cn/"/>
-  <updated>2020-01-08T03:25:56.016Z</updated>
+  <updated>2020-01-08T10:51:57.282Z</updated>
   <id>http://www.pulsating.cn/</id>
   
   <author>
@@ -15,6 +15,43 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>sphinx配置多索引</title>
+    <link href="http://www.pulsating.cn/2020/01/08/Sphinx-multi-index-configuration/"/>
+    <id>http://www.pulsating.cn/2020/01/08/Sphinx-multi-index-configuration/</id>
+    <published>2020-01-08T09:50:52.000Z</published>
+    <updated>2020-01-08T10:51:57.282Z</updated>
+    
+    <summary type="html">
+    
+      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+
+
+&lt;p&gt;&lt;strong&gt;之前有写过sphinx的简单使用, 初次接触sphinx的同学可以先了解下, windows和linux都有&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.pulsating.cn/2019/11/12/Sphinx-Linux-install/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Linux下安装sphinx及配置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pulsating.cn/2019/11/12/install-Sphinx-in-Windows-and-use-Sphinxapi-in-php/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Windows下安装sphinx及配置&lt;/a&gt;&lt;br&gt;本文记录以下如何在sphinx的配置文件&lt;code&gt;sphinx.conf&lt;/code&gt;中, 配置多个索引, 并启动服务
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="Mysql" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/"/>
+    
+      <category term="Sphinx" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/Sphinx/"/>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
+    
+      <category term="Mysql" scheme="http://www.pulsating.cn/tags/Mysql/"/>
+    
+      <category term="Sphinx" scheme="http://www.pulsating.cn/tags/Sphinx/"/>
+    
+  </entry>
   
   <entry>
     <title>使用命令行执行CI控制器中的函数</title>
@@ -41,9 +78,9 @@
       <category term="CI" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/CI/"/>
     
     
-      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
-    
       <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
     
       <category term="CI" scheme="http://www.pulsating.cn/tags/CI/"/>
     
@@ -104,9 +141,9 @@
       <category term="CI" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/CI/"/>
     
     
-      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
-    
       <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
     
       <category term="CI" scheme="http://www.pulsating.cn/tags/CI/"/>
     
@@ -231,9 +268,9 @@
     
       <category term="JavaScript" scheme="http://www.pulsating.cn/tags/JavaScript/"/>
     
-      <category term="排序" scheme="http://www.pulsating.cn/tags/%E6%8E%92%E5%BA%8F/"/>
-    
       <category term="Vue" scheme="http://www.pulsating.cn/tags/Vue/"/>
+    
+      <category term="排序" scheme="http://www.pulsating.cn/tags/%E6%8E%92%E5%BA%8F/"/>
     
   </entry>
   
@@ -261,11 +298,11 @@
       <category term="图像处理" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
     
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
       <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
     
       <category term="GD" scheme="http://www.pulsating.cn/tags/GD/"/>
-    
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
     
   </entry>
   
@@ -300,9 +337,9 @@
       <category term="WEEX" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/WEEX/"/>
     
     
-      <category term="Js" scheme="http://www.pulsating.cn/tags/Js/"/>
-    
       <category term="Vue" scheme="http://www.pulsating.cn/tags/Vue/"/>
+    
+      <category term="Js" scheme="http://www.pulsating.cn/tags/Js/"/>
     
       <category term="uni-app" scheme="http://www.pulsating.cn/tags/uni-app/"/>
     
@@ -342,9 +379,9 @@
       <category term="图像处理" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
     
-      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
-    
       <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
     
       <category term="imagick" scheme="http://www.pulsating.cn/tags/imagick/"/>
     
@@ -378,9 +415,9 @@
       <category term="ThinkPHP" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/ThinkPHP/"/>
     
     
-      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
-    
       <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
     
       <category term="ThinkPHP" scheme="http://www.pulsating.cn/tags/ThinkPHP/"/>
     
@@ -411,11 +448,11 @@
       <category term="GD" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/GD/"/>
     
     
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
       <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
     
       <category term="GD" scheme="http://www.pulsating.cn/tags/GD/"/>
-    
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
     
       <category term="pctoLCD2002" scheme="http://www.pulsating.cn/tags/pctoLCD2002/"/>
     
@@ -443,18 +480,18 @@
     
       <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
     
-      <category term="Mysql" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/"/>
-    
       <category term="PHP" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/"/>
+    
+      <category term="Mysql" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/"/>
     
       <category term="Sphinx" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/Sphinx/"/>
     
       <category term="Linux" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Linux/"/>
     
     
-      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
-    
       <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
     
       <category term="Mysql" scheme="http://www.pulsating.cn/tags/Mysql/"/>
     
@@ -494,9 +531,9 @@
       <category term="Sphinx" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/Sphinx/"/>
     
     
-      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
-    
       <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
     
       <category term="Mysql" scheme="http://www.pulsating.cn/tags/Mysql/"/>
     
@@ -525,16 +562,16 @@
     
       <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
     
-      <category term="Mysql" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/"/>
-    
       <category term="PHP" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/"/>
+    
+      <category term="Mysql" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/"/>
     
       <category term="Sphinx" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/Sphinx/"/>
     
     
-      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
-    
       <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
     
       <category term="Mysql" scheme="http://www.pulsating.cn/tags/Mysql/"/>
     
@@ -575,9 +612,9 @@
       <category term="图像处理" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
     
-      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
-    
       <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
     
       <category term="imagick" scheme="http://www.pulsating.cn/tags/imagick/"/>
     
@@ -665,41 +702,6 @@
       
         &lt;h4 id=&quot;数据处理函数&quot;&gt;&lt;a href=&quot;#数据处理函数&quot; class=&quot;headerlink&quot; title=&quot;数据处理函数&quot;&gt;&lt;/a&gt;数据处理函数&lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;Mqsql 和其他大多数计算机语言一样,支持利用函数处理数据,大多数SQL都支持以
-      
-    
-    </summary>
-    
-    
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
-    
-      <category term="Mysql" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/"/>
-    
-      <category term="Mysql基础" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/Mysql%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
-    
-      <category term="Mysql" scheme="http://www.pulsating.cn/tags/Mysql/"/>
-    
-      <category term="Mysql基础" scheme="http://www.pulsating.cn/tags/Mysql%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mysql Review 之常用词汇 术语</title>
-    <link href="http://www.pulsating.cn/2019/11/12/Mysql-Review-terminology/"/>
-    <id>http://www.pulsating.cn/2019/11/12/Mysql-Review-terminology/</id>
-    <published>2019-11-12T14:23:09.000Z</published>
-    <updated>2020-01-07T07:31:12.303Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;strong&gt;1. database&lt;/strong&gt; 数据库&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;2. DBMS&lt;/strong&gt; 数据库管理系统&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;3. table&lt;/strong&gt; 表 (结构化文件,存储某种特定类型的数据)&lt;/p&gt;
-&lt;p&gt;&lt;s
       
     
     </summary>
