@@ -34,7 +34,8 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;user-images.githubusercontent.com&#x2F;33248133&#x2F;71994302-73951780-3273-11ea-8a91-496296ad9aac.PNG">
 <meta property="og:image" content="https:&#x2F;&#x2F;user-images.githubusercontent.com&#x2F;33248133&#x2F;71994695-2c5b5680-3274-11ea-98e7-4a4bc1d532a4.PNG">
 <meta property="og:image" content="https:&#x2F;&#x2F;user-images.githubusercontent.com&#x2F;33248133&#x2F;71997841-7eeb4180-3279-11ea-8356-eb892fa78d22.gif">
-<meta property="og:updated_time" content="2020-01-08T17:02:21.686Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;user-images.githubusercontent.com&#x2F;33248133&#x2F;72047325-3ffad180-32f5-11ea-8ce3-c0c5e536275b.png">
+<meta property="og:updated_time" content="2020-01-09T08:27:49.778Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.phpcomposer.com&#x2F;&#x2F;assets&#x2F;img&#x2F;phpcomposer.png">
   <!-- Canonical links -->
@@ -356,7 +357,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/2020/01/06/Sweet-and-sour-spareribs/" class="thumb">
+              <a href="/2020/01/06/sweet-and-sour-spareribs/" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -370,7 +371,7 @@
                 <a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E6%97%A5%E5%B8%B8/">日常</a>
               </p>
               <p class="item-title">
-                <a href="/2020/01/06/Sweet-and-sour-spareribs/" class="title">美味的糖醋排骨, 一次成功, 超级好吃</a>
+                <a href="/2020/01/06/sweet-and-sour-spareribs/" class="title">美味的糖醋排骨, 一次成功, 超级好吃</a>
               </p>
               <p class="item-date">
                 <time datetime="2020-01-06T13:38:12.000Z" itemprop="datePublished">2020-01-06</time>
@@ -453,7 +454,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/01/08/Install-and-use-Composer/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 630(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 695(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
@@ -476,8 +477,8 @@
 <a id="more"></a>
 
 <h2 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h2><ul>
-<li>官网: <a href="https://getcomposer.org/" target="_blank" rel="noopener">Composer</a></li>
-<li>中文网: <a href="https://www.phpcomposer.com/" target="_blank" rel="noopener">Composer中文网</a></li>
+<li><a href="https://getcomposer.org/" target="_blank" rel="noopener">Composer官网</a></li>
+<li><a href="https://www.phpcomposer.com/" target="_blank" rel="noopener">Composer中文网</a></li>
 </ul>
 <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
 <li>PHP</li>
@@ -509,23 +510,21 @@
 <li>打开命令行, 输入<code>composer -V</code>, 会看到相应的版本信息. 命令行需要重新打开哦, 如果没有显示出相应信息, 则需要重启一下电脑, 至此, composer就安装完成了</li>
 </ol>
 <p><img src="https://user-images.githubusercontent.com/33248133/71994695-2c5b5680-3274-11ea-98e7-4a4bc1d532a4.PNG" alt="composer-v"></p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h4 id="从composer-json开始"><a href="#从composer-json开始" class="headerlink" title="从composer.json开始"></a>从composer.json开始</h4><ol>
-<li>新建一个空的项目目录</li>
-<li>新建composer.json文件,输入下面内容, <a href="http://www.querylist.cc/" target="_blank" rel="noopener"><code>querylist</code></a>是一个php的内容采集框架,后面我会写一篇关于它的使用方式, 这里我们使用它来演示composer</li>
-</ol>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>我们先从一个空项目说起</p>
+<p>随便在哪里新建一个空的目录</p>
+<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><h4 id="从composer-json开始"><a href="#从composer-json开始" class="headerlink" title="从composer.json开始"></a>从composer.json开始</h4><h5 id="新建composer-json文件"><a href="#新建composer-json文件" class="headerlink" title="新建composer.json文件"></a>新建composer.json文件</h5><p>新建composer.json文件,输入下面内容, <a href="http://www.querylist.cc/" target="_blank" rel="noopener"><code>querylist</code></a>是一个php的内容采集框架,后面我会写一篇关于它的使用方式, 这里我们使用它来演示composer</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">"require"</span>: &#123;</span><br><span class="line">		<span class="attr">"jaeger/querylist"</span>: <span class="string">"4.0.*"</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ol start="3">
-<li>在项目目录下执行<code>composer install</code> , composer会读取composer.json中的内容,来自动下载安装相关依赖</li>
-</ol>
+<h5 id="composer-install"><a href="#composer-install" class="headerlink" title="composer install"></a>composer install</h5><p>在项目目录下执行<code>composer install</code> , composer会读取composer.json中的内容,来自动下载安装相关依赖</p>
 <p><img src="https://user-images.githubusercontent.com/33248133/71997841-7eeb4180-3279-11ea-8356-eb892fa78d22.gif" alt="2020-01-09-00-39-02"></p>
-<ol start="4">
-<li>等待安装完成后我们会在项目根目录下看到一个vendor目录, 和一个composer.lock文件</li>
-</ol>
-<h4 id="从composer-require开始"><a href="#从composer-require开始" class="headerlink" title="从composer require开始"></a>从composer require开始</h4><p>直接执行命令</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer <span class="keyword">require</span> jaeger/querylist <span class="number">4.0</span>.*</span><br></pre></td></tr></table></figure>
+<h5 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h5><p>等待安装完成后我们会在项目根目录下看到一个vendor目录, 和一个composer.lock文件</p>
+<h4 id="从composer-require开始"><a href="#从composer-require开始" class="headerlink" title="从composer require开始"></a>从composer require开始</h4><h5 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer <span class="keyword">require</span> jaeger/querylist <span class="number">4.0</span>.*</span><br></pre></td></tr></table></figure>
 
-<p>使用这种方式, composer会自动生成一个composer.json文件, 并将jaeger/querylist写入到其中, 然后根据composer.json下载相关依赖, 命令执行完毕后, 项目根目录下的结构, 和前面的方式是一样的</p>
+<h5 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h5><p>使用这种方式, composer会自动生成一个composer.json文件, 并将jaeger/querylist写入到其中, 然后根据composer.json下载相关依赖, 命令执行完毕后, 项目根目录下的结构, 和前面的方式是一样的</p>
+<h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><h4 id="新建入口文件-Index-php"><a href="#新建入口文件-Index-php" class="headerlink" title="新建入口文件 Index.php"></a>新建入口文件 Index.php</h4><h4 id="引入autoload-php"><a href="#引入autoload-php" class="headerlink" title="引入autoload.php"></a>引入autoload.php</h4><p>vendor目录生成后, Composer会帮我们准备一个自动加载文件, <strong>autoload.php</strong></p>
+<img src="https://user-images.githubusercontent.com/33248133/72047325-3ffad180-32f5-11ea-8ce3-c0c5e536275b.png" alt="autoload.php位置" style="zoom:80%;" />
+
+<p>我们在Index.php写下如下代码</p>
 
       
     </div>
