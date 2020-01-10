@@ -95,7 +95,9 @@ theme: hexo-theme-pure
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: ''
+  # type: ''
+  type: baidu_url_submitter ## 这是新加的
+
 
 feed:
   type: atom
@@ -108,3 +110,9 @@ translate_title:
   translate_way: baidu    #google | baidu | youdao
   is_need_proxy: false     #true | false
   proxy_url: http://localhost:1080
+
+baidu_url_submit:
+  count: 1 ## 提交最新的一个链接
+  host: www.pulsating.cn ## 在百度站长平台中注册的域名
+  token: ApHAf8PHV4vV5eU5 ## 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里!
+  path: baidu_urls.txt ## 文本文档的地址， 新链接会保存在此文本文档里
