@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.pulsating.cn/"/>
-  <updated>2020-01-13T14:24:45.792Z</updated>
+  <updated>2020-04-06T05:43:26.670Z</updated>
   <id>http://www.pulsating.cn/</id>
   
   <author>
@@ -17,11 +17,44 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>ES6中的import和export使用方法</title>
+    <link href="http://www.pulsating.cn/2020/04/06/ES6-import-and-export/"/>
+    <id>http://www.pulsating.cn/2020/04/06/ES6-import-and-export/</id>
+    <published>2020-04-06T05:35:09.000Z</published>
+    <updated>2020-04-06T05:43:26.670Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class
+      
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="前端" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="JavaScript" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+    
+    
+      <category term="Js" scheme="http://www.pulsating.cn/tags/Js/"/>
+    
+      <category term="随手记" scheme="http://www.pulsating.cn/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Composer的安装及使用</title>
     <link href="http://www.pulsating.cn/2020/01/08/Install-and-use-Composer/"/>
     <id>http://www.pulsating.cn/2020/01/08/Install-and-use-Composer/</id>
     <published>2020-01-08T15:00:03.000Z</published>
-    <updated>2020-01-13T14:24:45.792Z</updated>
+    <updated>2020-01-10T01:10:21.861Z</updated>
     
     <summary type="html">
     
@@ -59,7 +92,7 @@
     <link href="http://www.pulsating.cn/2020/01/08/Sphinx-multi-index-configuration/"/>
     <id>http://www.pulsating.cn/2020/01/08/Sphinx-multi-index-configuration/</id>
     <published>2020-01-08T09:50:52.000Z</published>
-    <updated>2020-01-08T14:18:58.511Z</updated>
+    <updated>2020-01-08T10:51:57.282Z</updated>
     
     <summary type="html">
     
@@ -96,7 +129,7 @@
     <link href="http://www.pulsating.cn/2020/01/07/Run-CI-method-in-cli/"/>
     <id>http://www.pulsating.cn/2020/01/07/Run-CI-method-in-cli/</id>
     <published>2020-01-07T15:29:56.000Z</published>
-    <updated>2020-01-07T15:40:47.119Z</updated>
+    <updated>2020-01-08T03:25:56.016Z</updated>
     
     <summary type="html">
     
@@ -126,10 +159,10 @@
   
   <entry>
     <title>美味的糖醋排骨, 一次成功, 超级好吃</title>
-    <link href="http://www.pulsating.cn/2020/01/06/Sweet-and-sour-spareribs/"/>
-    <id>http://www.pulsating.cn/2020/01/06/Sweet-and-sour-spareribs/</id>
+    <link href="http://www.pulsating.cn/2020/01/06/sweet-and-sour-spareribs/"/>
+    <id>http://www.pulsating.cn/2020/01/06/sweet-and-sour-spareribs/</id>
     <published>2020-01-06T13:38:12.000Z</published>
-    <updated>2020-01-07T15:19:57.976Z</updated>
+    <updated>2020-01-08T03:25:56.023Z</updated>
     
     <summary type="html">
     
@@ -160,7 +193,7 @@
     <link href="http://www.pulsating.cn/2019/12/27/Custom-CI-insert-batch/"/>
     <id>http://www.pulsating.cn/2019/12/27/Custom-CI-insert-batch/</id>
     <published>2019-12-27T15:32:39.000Z</published>
-    <updated>2020-01-07T15:19:58.038Z</updated>
+    <updated>2020-01-08T03:25:56.011Z</updated>
     
     <summary type="html">
     
@@ -192,7 +225,7 @@
     <link href="http://www.pulsating.cn/2019/12/27/Late-boiled-wine/"/>
     <id>http://www.pulsating.cn/2019/12/27/Late-boiled-wine/</id>
     <published>2019-12-27T14:13:14.000Z</published>
-    <updated>2020-01-07T15:19:57.586Z</updated>
+    <updated>2020-01-08T03:25:56.013Z</updated>
     
     <summary type="html">
     
@@ -223,7 +256,7 @@
     <link href="http://www.pulsating.cn/2019/12/26/Mysql-max_allowed_packet-setting/"/>
     <id>http://www.pulsating.cn/2019/12/26/Mysql-max_allowed_packet-setting/</id>
     <published>2019-12-26T14:05:48.000Z</published>
-    <updated>2020-01-07T15:19:57.622Z</updated>
+    <updated>2020-01-08T03:25:56.015Z</updated>
     
     <summary type="html">
     
@@ -252,7 +285,7 @@
     <link href="http://www.pulsating.cn/2019/12/20/Mysql-table-import-and-export/"/>
     <id>http://www.pulsating.cn/2019/12/20/Mysql-table-import-and-export/</id>
     <published>2019-12-20T13:44:13.000Z</published>
-    <updated>2019-12-26T15:13:36.352Z</updated>
+    <updated>2020-01-03T03:45:27.006Z</updated>
     
     <summary type="html">
     
@@ -282,7 +315,7 @@
     <link href="http://www.pulsating.cn/2019/11/22/First-letter-sort-use-JS/"/>
     <id>http://www.pulsating.cn/2019/11/22/First-letter-sort-use-JS/</id>
     <published>2019-11-22T08:56:10.000Z</published>
-    <updated>2020-01-07T15:18:42.224Z</updated>
+    <updated>2020-01-08T03:25:56.012Z</updated>
     
     <summary type="html">
     
@@ -317,7 +350,7 @@
     <link href="http://www.pulsating.cn/2019/11/15/Use-GD-library-to-implement-image-merge/"/>
     <id>http://www.pulsating.cn/2019/11/15/Use-GD-library-to-implement-image-merge/</id>
     <published>2019-11-15T15:24:42.000Z</published>
-    <updated>2019-12-20T13:00:36.168Z</updated>
+    <updated>2020-01-07T07:31:12.307Z</updated>
     
     <summary type="html">
     
@@ -349,7 +382,7 @@
     <link href="http://www.pulsating.cn/2019/11/13/Vue-dynamically-binds-ref/"/>
     <id>http://www.pulsating.cn/2019/11/13/Vue-dynamically-binds-ref/</id>
     <published>2019-11-13T01:54:18.000Z</published>
-    <updated>2020-01-07T15:19:55.940Z</updated>
+    <updated>2020-01-08T03:25:56.019Z</updated>
     
     <summary type="html">
     
@@ -375,15 +408,15 @@
       <category term="WEEX" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/WEEX/"/>
     
     
-      <category term="Vue" scheme="http://www.pulsating.cn/tags/Vue/"/>
-    
       <category term="Js" scheme="http://www.pulsating.cn/tags/Js/"/>
+    
+      <category term="随手记" scheme="http://www.pulsating.cn/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/"/>
+    
+      <category term="Vue" scheme="http://www.pulsating.cn/tags/Vue/"/>
     
       <category term="uni-app" scheme="http://www.pulsating.cn/tags/uni-app/"/>
     
       <category term="WEEX" scheme="http://www.pulsating.cn/tags/WEEX/"/>
-    
-      <category term="随手记" scheme="http://www.pulsating.cn/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/"/>
     
   </entry>
   
@@ -392,7 +425,7 @@
     <link href="http://www.pulsating.cn/2019/11/12/Using-imagemagick-to-achieve-the-splicing-of-two-or-more-pictures/"/>
     <id>http://www.pulsating.cn/2019/11/12/Using-imagemagick-to-achieve-the-splicing-of-two-or-more-pictures/</id>
     <published>2019-11-12T15:40:50.000Z</published>
-    <updated>2020-01-07T15:19:57.986Z</updated>
+    <updated>2020-01-08T03:25:56.018Z</updated>
     
     <summary type="html">
     
@@ -432,7 +465,7 @@
     <link href="http://www.pulsating.cn/2019/11/12/Getting-started-with-thinkphp5/"/>
     <id>http://www.pulsating.cn/2019/11/12/Getting-started-with-thinkphp5/</id>
     <published>2019-11-12T15:38:23.000Z</published>
-    <updated>2020-01-07T15:19:57.280Z</updated>
+    <updated>2020-01-08T03:25:56.013Z</updated>
     
     <summary type="html">
     
@@ -466,7 +499,7 @@
     <link href="http://www.pulsating.cn/2019/11/12/PHP-monochrome-bitmap-module/"/>
     <id>http://www.pulsating.cn/2019/11/12/PHP-monochrome-bitmap-module/</id>
     <published>2019-11-12T15:24:09.000Z</published>
-    <updated>2020-01-07T15:19:57.697Z</updated>
+    <updated>2020-01-08T03:25:56.016Z</updated>
     
     <summary type="html">
     
@@ -505,7 +538,7 @@
     <link href="http://www.pulsating.cn/2019/11/12/Sphinx-Linux-install/"/>
     <id>http://www.pulsating.cn/2019/11/12/Sphinx-Linux-install/</id>
     <published>2019-11-12T15:17:58.000Z</published>
-    <updated>2020-01-07T15:19:57.907Z</updated>
+    <updated>2020-01-08T03:25:56.017Z</updated>
     
     <summary type="html">
     
@@ -535,9 +568,9 @@
     
       <category term="Sphinx" scheme="http://www.pulsating.cn/tags/Sphinx/"/>
     
-      <category term="Sphinxapi" scheme="http://www.pulsating.cn/tags/Sphinxapi/"/>
-    
       <category term="Linux" scheme="http://www.pulsating.cn/tags/Linux/"/>
+    
+      <category term="Sphinxapi" scheme="http://www.pulsating.cn/tags/Sphinxapi/"/>
     
   </entry>
   
@@ -546,7 +579,7 @@
     <link href="http://www.pulsating.cn/2019/11/12/Sphinx-sphinx.conf-analysis/"/>
     <id>http://www.pulsating.cn/2019/11/12/Sphinx-sphinx.conf-analysis/</id>
     <published>2019-11-12T15:12:36.000Z</published>
-    <updated>2020-01-07T15:19:57.934Z</updated>
+    <updated>2020-01-08T03:25:56.018Z</updated>
     
     <summary type="html">
     
@@ -581,10 +614,10 @@
   
   <entry>
     <title>从0到1,Sphinx Windows本地安装及PHP使用Sphinxapi示例</title>
-    <link href="http://www.pulsating.cn/2019/11/12/Install-Sphinx-in-Windows-and-use-Sphinxapi-in-php/"/>
-    <id>http://www.pulsating.cn/2019/11/12/Install-Sphinx-in-Windows-and-use-Sphinxapi-in-php/</id>
+    <link href="http://www.pulsating.cn/2019/11/12/install-Sphinx-in-Windows-and-use-Sphinxapi-in-php/"/>
+    <id>http://www.pulsating.cn/2019/11/12/install-Sphinx-in-Windows-and-use-Sphinxapi-in-php/</id>
     <published>2019-11-12T15:01:44.000Z</published>
-    <updated>2020-01-07T15:19:57.545Z</updated>
+    <updated>2020-01-08T03:25:56.021Z</updated>
     
     <summary type="html">
     
@@ -621,10 +654,10 @@
   
   <entry>
     <title>Windows+PHP5.6环境下安装imagick扩展和imagemagick</title>
-    <link href="http://www.pulsating.cn/2019/11/12/Install-imagick-extend-and-imagemagick-in-windows-php5.6/"/>
-    <id>http://www.pulsating.cn/2019/11/12/Install-imagick-extend-and-imagemagick-in-windows-php5.6/</id>
+    <link href="http://www.pulsating.cn/2019/11/12/install-imagick-extend-and-imagemagick-in-windows-php5.6/"/>
+    <id>http://www.pulsating.cn/2019/11/12/install-imagick-extend-and-imagemagick-in-windows-php5.6/</id>
     <published>2019-11-12T14:40:35.000Z</published>
-    <updated>2020-01-07T15:19:57.480Z</updated>
+    <updated>2020-01-08T03:25:56.022Z</updated>
     
     <summary type="html">
     
@@ -665,7 +698,7 @@
     <link href="http://www.pulsating.cn/2019/11/12/Mysql-Review-engine/"/>
     <id>http://www.pulsating.cn/2019/11/12/Mysql-Review-engine/</id>
     <published>2019-11-12T14:31:31.000Z</published>
-    <updated>2019-12-20T13:00:36.174Z</updated>
+    <updated>2020-01-07T07:31:12.302Z</updated>
     
     <summary type="html">
     
@@ -673,40 +706,6 @@
       
         &lt;p&gt;&lt;strong&gt;1. Mysql具有多个引擎,都隐藏在Mysql服务器内,全都可以执行CERATE TABLE 和SELECT等命令&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;2. 不同的引擎有不同的功能和灵活性,下面列出几个必须要知道的引擎:&lt;/strong&gt;&lt;/p&gt;
 &lt;u
-      
-    
-    </summary>
-    
-    
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
-    
-      <category term="Mysql" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/"/>
-    
-      <category term="Mysql基础" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/Mysql%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
-    
-      <category term="Mysql" scheme="http://www.pulsating.cn/tags/Mysql/"/>
-    
-      <category term="Mysql基础" scheme="http://www.pulsating.cn/tags/Mysql%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mysql Review 之表联结入门篇</title>
-    <link href="http://www.pulsating.cn/2019/11/12/Mysql-Review-JOIN/"/>
-    <id>http://www.pulsating.cn/2019/11/12/Mysql-Review-JOIN/</id>
-    <published>2019-11-12T14:30:06.000Z</published>
-    <updated>2019-12-20T13:00:36.175Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;!-- &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt; --&gt;
-
-&lt;h4 id=&quot;1-为什么要使用联结&quot;&gt;&lt;a href=&quot;#1-为什么要使用联结&quot; class=&quot;headerlink&quot; title=&quot;1. 为什么要使用联结?&quot;&gt;&lt;
       
     
     </summary>
