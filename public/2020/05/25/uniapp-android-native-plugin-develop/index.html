@@ -17,17 +17,38 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>uniapp android native plugin develop | 大熊BIGBEAR的个人博客</title>
-  <meta name="description" content="这是我第一次接触原生Android开发, 第一次使用Android Studio, 感觉很吃力, 目前还有很多地方不明所以, 索性最后还是成功了, 所以先写一篇文章记录下开发uni-app android原生插件及在uni-app中集成使用的过程, 文章会结合两个具体实例来完成, 供大家参考 环境这里仅说明本文使用的开发环境  JDK1301 1234java -versionjava ver">
+  <title>Uni-App Android Native Plugin Develop | 大熊BIGBEAR的个人博客</title>
+  <meta name="description" content="这是我第一次接触原生Android开发, 第一次使用Android Studio, 感觉很吃力, 目前还有很多地方不明所以, 索性最后还是成功了, 所以先写一篇文章记录下开发uni-app android原生插件及在uni-app中集成使用的过程, 文章会结合两个具体实例来完成, 供大家参考    环境这里仅说明本文使用的开发环境, 版本不一定非要一致, 但是不知道会不会出现问题  JDK1.8">
 <meta name="keywords" content="大熊BIGBEAR,uni-app,WEEX,Android,opencv">
 <meta property="og:type" content="article">
-<meta property="og:title" content="uniapp android native plugin develop">
+<meta property="og:title" content="Uni-App Android Native Plugin Develop">
 <meta property="og:url" content="http:&#x2F;&#x2F;www.pulsating.cn&#x2F;2020&#x2F;05&#x2F;25&#x2F;uniapp-android-native-plugin-develop&#x2F;index.html">
 <meta property="og:site_name" content="大熊的个人博客">
-<meta property="og:description" content="这是我第一次接触原生Android开发, 第一次使用Android Studio, 感觉很吃力, 目前还有很多地方不明所以, 索性最后还是成功了, 所以先写一篇文章记录下开发uni-app android原生插件及在uni-app中集成使用的过程, 文章会结合两个具体实例来完成, 供大家参考 环境这里仅说明本文使用的开发环境  JDK1301 1234java -versionjava ver">
+<meta property="og:description" content="这是我第一次接触原生Android开发, 第一次使用Android Studio, 感觉很吃力, 目前还有很多地方不明所以, 索性最后还是成功了, 所以先写一篇文章记录下开发uni-app android原生插件及在uni-app中集成使用的过程, 文章会结合两个具体实例来完成, 供大家参考    环境这里仅说明本文使用的开发环境, 版本不一定非要一致, 但是不知道会不会出现问题  JDK1.8">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-25T02:27:33.806Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;android_sdk_dir.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;import_uni_plugin.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;select_uni_plugin.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;dev_item.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;1590385032.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;c563ebca5dc4b336408ac42482cb237.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;1590385607.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;1590386478.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;1590386524%281%29.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;1590387148.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;1590387076.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;image-20200525141745073.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;image-20200525144028783.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;image-20200525145104711.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;image-20200525150337879.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;image-20200525150521090.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;image-20200525151005406.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;image-20200525151357167.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;image-20200525153835150.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;image-20200525154358654.png">
+<meta property="og:updated_time" content="2020-05-25T07:58:37.501Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;android_sdk_dir.jpg">
   <!-- Canonical links -->
   <link rel="canonical" href="http://www.pulsating.cn/2020/05/25/uniapp-android-native-plugin-develop/index.html">
   
@@ -280,7 +301,7 @@
                 <a class="category-link" href="/categories/opencv/">opencv</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/uni-app/">uni-app</a>
               </p>
               <p class="item-title">
-                <a href="/2020/05/25/uniapp-android-native-plugin-develop/" class="title">uniapp android native plugin develop</a>
+                <a href="/2020/05/25/uniapp-android-native-plugin-develop/" class="title">Uni-App Android Native Plugin Develop</a>
               </p>
               <p class="item-date">
                 <time datetime="2020-05-25T01:54:02.000Z" itemprop="datePublished">2020-05-25</time>
@@ -408,7 +429,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      uniapp android native plugin develop
+      Uni-App Android Native Plugin Develop
     </h1>
   
 
@@ -438,10 +459,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/05/25/uniapp-android-native-plugin-develop/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 192(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.4k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
 	
 
       </div>
@@ -449,24 +470,171 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <meta name="referrer" content="no-referrer" />
+这是我第一次接触原生Android开发, 第一次使用Android Studio, 感觉很吃力, 目前还有很多地方不明所以, 索性最后还是成功了, 所以先写一篇文章记录下开发uni-app android原生插件及在uni-app中集成使用的过程, 文章会结合两个具体实例来完成, 供大家参考
 
-<p>这是我第一次接触原生Android开发, 第一次使用Android Studio, 感觉很吃力, 目前还有很多地方不明所以, 索性最后还是成功了, 所以先写一篇文章记录下开发uni-app android原生插件及在uni-app中集成使用的过程, 文章会结合两个具体实例来完成, 供大家参考</p>
-<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>这里仅说明本文使用的开发环境</p>
+
+
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>这里仅说明本文使用的开发环境, 版本不一定非要一致, 但是不知道会不会出现问题</p>
 <ul>
-<li><p>JDK1301</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br><span class="line">java version <span class="string">"13.0.1"</span> <span class="number">2019</span><span class="number">-10</span><span class="number">-15</span></span><br><span class="line">Java(TM) SE Runtime Environment (build <span class="number">13.0</span><span class="number">.1</span>+<span class="number">9</span>)</span><br><span class="line">Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class="number">13.0</span><span class="number">.1</span>+<span class="number">9</span>, mixed mode, sharing)</span><br></pre></td></tr></table></figure>
+<li><p>JDK1.8 <strong>官网推荐 jdk1.7+(最优1.8)</strong></p>
 </li>
 <li><p>Android SDK</p>
 </li>
-<li><p>Android Studio</p>
+<li><p><a href="https://developer.android.google.cn/studio/index.html" target="_blank" rel="noopener">Android Studio</a> </p>
+<p>目前用的最新版3.6.3</p>
+</li>
+<li><p><a href="https://nativesupport.dcloud.net.cn/AppDocs/download/android" target="_blank" rel="noopener">App离线SDK</a></p>
+<p>建议使用最新版, 最好同时使用对应版本的HbuilderX</p>
 </li>
 <li><p>科学上网</p>
+<p>想想办法</p>
 </li>
 </ul>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><p>(uni-app原生插件开发文档)[<a href="https://nativesupport.dcloud.net.cn/NativePlugin/README]" target="_blank" rel="noopener">https://nativesupport.dcloud.net.cn/NativePlugin/README]</a></p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h4 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h4><p>uni原生插件, 是为了补足uni-app项目的功能, 或者进一步提高APP性能, 基于开源项目<a href="https://weex.apache.org/cn/guide/index.html" target="_blank" rel="noopener">weex</a>架构</p>
+<h4 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h4><p>根据不同需求, uni原生插件可分为两个模式</p>
+<ul>
+<li>Module模式<ul>
+<li>能力扩展，无嵌入窗体的UI控件。大部分插件都是属于此类，比如调用计步器API。代码写法为通过js进行require，然后调用该插件对象的方法。如涉及一些弹出框、全屏ui，也仍然属于Module模式。类似于前端里的js sdk</li>
+</ul>
 </li>
-<li><p>(Android SDK下载安装及配置教程)[<a href="https://zhuanlan.zhihu.com/p/37974829]" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/37974829]</a></p>
+<li>Component模式<ul>
+<li>在窗体中内嵌显示某个原生ui组件。比如窗体局部内嵌某个地图厂商的map组件，上下混排其他前端内容，就需要把这个原生地图sdk封装为Componet模式。代码写法与vue组件相同，在template里写组件标签。类似于前端里的vue组件。</li>
+</ul>
+</li>
+</ul>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><ol>
+<li>vue页面中仅支持使用Module类型的原生插件，且不支持调用同步方法返回数据</li>
+<li>nvue页面中支持使用Module和Component两种类型的原生插件</li>
+</ol>
+<p><strong>本文仅涉及到Module模式</strong></p>
+<h2 id="了解官方示例"><a href="#了解官方示例" class="headerlink" title="了解官方示例"></a>了解官方示例</h2><h4 id="Android离线sdk"><a href="#Android离线sdk" class="headerlink" title="Android离线sdk"></a>Android离线sdk</h4><h5 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h5><p>我这里下载的是2.6.16版本, 如果不想使用最新版, 可以在Dcloud提供的网盘下载历史版本</p>
+<h5 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h5><p><img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/android_sdk_dir.jpg" alt="android_sdk"></p>
+<ul>
+<li><p><strong>UniPlugin-Hello-AS</strong>: </p>
+<p>Android Studio环境离线打包带扩展插件演示应用, 本文的主角</p>
+</li>
+<li><p>SDK: </p>
+<p>SDK库文件, 在libs中</p>
+</li>
+<li><p>HBuilder-Hello: </p>
+<p>离线打包演示应用</p>
+</li>
+<li><p>HBuilder-Integrate-AS: </p>
+<p>5+ SDK 集成和插件开发示例</p>
+</li>
+</ul>
+<h5 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h5><ol>
+<li>File-&gt;New-&gt;Import Project</li>
+</ol>
+<p><img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/import_uni_plugin.jpg" alt="import"></p>
+<ol start="2">
+<li>找到离线sdk目录, 将<strong>UniPlugin-Hello-AS</strong>项目导入, 点击ok, 等待build结束</li>
+</ol>
+<p>   <img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/select_uni_plugin.jpg" alt="import"></p>
+<h4 id="运行示例"><a href="#运行示例" class="headerlink" title="运行示例"></a>运行示例</h4><ol>
+<li>数据线将手机连接电脑上, 开启开发者选项, 打开USB调试及允许USB安装应用, 请自行google或百度你的机型如何开启, HbuilderX中也有如何真机调试的教程</li>
+</ol>
+<img width="300" src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/dev_item.jpg">
+
+
+
+<ol start="2">
+<li>Android Studio中将项目运行到真机, 选择app, 及你的手机型号, 点击右侧绿色三角运行</li>
+</ol>
+<p><img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/1590385032.jpg" alt="image-20200525133704600"></p>
+<ol start="3">
+<li>运行成功可以在你连接的手机上看到运行起来的app, 有这样三个部分, 分别对应着项目中的三个库, 也可以说是三个插件</li>
+</ol>
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/c563ebca5dc4b336408ac42482cb237.png" style="zoom:30%;" />
+
+
+
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/1590385607.jpg" style="zoom:50%;" />
+
+
+
+<h4 id="生成本地打包资源"><a href="#生成本地打包资源" class="headerlink" title="生成本地打包资源"></a>生成本地打包资源</h4><p>左上角代码视图调整到Android, 依次打开app/assets/apps/__UNI__BCEC007/www目录, 我们看到的是编译后的uni-app项目, 那么要如何编译呢?</p>
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/1590386478.jpg" style="zoom:50%;" />
+
+
+
+<p>我们将代码视图调整为Project, 看到有个名为<strong><code>uniapp示例工程源码</code></strong>的目录, 展开后看到了我们熟悉的uni-app项目结构</p>
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/1590386524%281%29.jpg" style="zoom:50%;" />
+
+
+
+<p>将其unipluginDemo项目使用HbuilderX打开, 打开manifest.json重新获取一下AppID</p>
+<p><img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/1590387148.jpg" alt="image-20200525141333374"></p>
+<p>依次点击发行-&gt;原生app本地打包, 生成本地打包app资源</p>
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/1590387076.jpg" style="zoom:80%;" />
+
+
+
+<p>等待控制台提示导出成功, 打开unpackage/resources目录可以看到app资源已经生成好了</p>
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525141745073.png" alt="image-20200525141745073" style="zoom:67%;" />
+
+
+
+<p>将以AppID命名的目录复制, 放到上面第1步提到的<code>app/assets/apps</code>目录下, 并修改<code>app/assets/data/dcloud_control.xml</code>中的appid为你自己的appid, 点击运行, 现在运行的就是刚刚编译好的app资源, 原有的__UNI__BCEC007目录可以删掉啦</p>
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525144028783.png" alt="image-20200525144028783" style="zoom: 67%;" />
+
+
+
+<p>app内的扩展module下的三个按钮的点击事件, 分别调用了<code>uniplugin_module\src\main\java\io\dcloud\uniplugin\TestModule.java</code>内的三个方法</p>
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525145104711.png" alt="image-20200525145104711" style="zoom: 67%;" />
+
+
+
+<h2 id="插件开发"><a href="#插件开发" class="headerlink" title="插件开发"></a>插件开发</h2><p>前面使用的是官方提供的示例项目及原生插件, 现在需要自己动手开发一个插件</p>
+<h4 id="创建插件"><a href="#创建插件" class="headerlink" title="创建插件"></a>创建插件</h4><p>点击Android Studio File-&gt;New-&gt;New Module</p>
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525150337879.png" alt="image-20200525150337879" style="zoom:80%;" />
+
+
+
+<p>选择Android Library, 点击Next</p>
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525150521090.png" alt="image-20200525150521090" style="zoom:50%;" />
+
+
+
+<p>自定义库名, 模块名, 包名, 语言选择Java, Minimum SDK选择API 19, 新手可以和图中保持一致, 避免出错, 点击Finish</p>
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525151005406.png" alt="image-20200525151005406" style="zoom:50%;" />
+
+<p>等待Build成功, 可以看到左侧项目管理器可以看到创建的插件</p>
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525151357167.png" alt="image-20200525151357167" style="zoom: 67%;" />
+
+
+
+<h4 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h4><p>打开openfile的<code>build.gradle</code>, 将<code>dependencies</code>节点下内容删除, 替换成下面内容</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    implementation <span class="keyword">fileTree</span>(dir: <span class="string">'libs'</span>, <span class="keyword">include</span>: [<span class="string">'*.jar'</span>])</span><br><span class="line">    </span><br><span class="line">    compileOnly <span class="string">'com.android.support:recyclerview-v7:27.1.0'</span></span><br><span class="line">    compileOnly <span class="string">'com.android.support:support-v4:27.1.0'</span></span><br><span class="line">    compileOnly <span class="string">'com.android.support:appcompat-v7:27.1.0'</span></span><br><span class="line">    compileOnly <span class="string">'com.alibaba:fastjson:1.1.46.android'</span></span><br><span class="line">    compileOnly <span class="keyword">fileTree</span>(dir: <span class="string">'../app/libs'</span>, <span class="keyword">include</span>: [<span class="string">'uniapp-release.aar'</span>])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在dependencies同级添加<code>repositories</code>节点</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">repositories</span> &#123;</span><br><span class="line">    <span class="section">flatDir</span> &#123;</span><br><span class="line">        <span class="attribute">dirs</span> <span class="string">'libs'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>点击AS右上角Sync Now, 等待同步成功</p>
+<h4 id="创建Module类"><a href="#创建Module类" class="headerlink" title="创建Module类"></a>创建Module类</h4><p>在<code>com.bigbear.openfile</code>下新建Java Class, </p>
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525153835150.png" alt="image-20200525153835150" style="zoom: 67%;" />
+
+<p>填写类名, 继承WXModule, 点击OK</p>
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525154358654.png" alt="image-20200525154358654" style="zoom:67%;" />
+
+
+
+<p>编写一个init函数, 测试一下能否正常使用. 代码如下:</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.bigbear.openfile;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.util.<span class="type">Log</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.<span class="type">JSONObject</span>;</span><br><span class="line"><span class="keyword">import</span> com.taobao.weex.annotation.<span class="type">JSMethod</span>;</span><br><span class="line"><span class="keyword">import</span> com.taobao.weex.bridge.<span class="type">JSCallback</span>;</span><br><span class="line"><span class="keyword">import</span> com.taobao.weex.common.<span class="type">WXModule</span>;</span><br><span class="line"></span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">OpenFileModule</span> <span class="keyword">extends</span> <span class="title">WXModule</span> </span>&#123;</span><br><span class="line">    public static <span class="type">String</span> <span class="type">TAG</span> = <span class="string">"BIGBEAR"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@JSMethod</span>(uiThread = <span class="literal">true</span>)</span><br><span class="line">    public void init(<span class="type">JSONObject</span> options, <span class="type">JSCallback</span> callback) &#123;</span><br><span class="line">        <span class="type">Log</span>.e(<span class="type">TAG</span>, <span class="string">"testinit: "</span> + options);</span><br><span class="line">        <span class="keyword">if</span>(callback != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="type">JSONObject</span> data = <span class="keyword">new</span> <span class="type">JSONObject</span>();</span><br><span class="line">            data.put(<span class="string">"code"</span>, <span class="number">0</span>);</span><br><span class="line">            callback.invoke(data);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="注册插件"><a href="#注册插件" class="headerlink" title="注册插件"></a>注册插件</h4><p>打开<code>app/assets/dcloud_uniplugins.json</code>文件, 在<code>nativePlugins</code>节点下新增</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="attr">"hooksClass"</span>: <span class="string">""</span>,</span><br><span class="line">   <span class="attr">"plugins"</span>: [</span><br><span class="line">     &#123;</span><br><span class="line">       <span class="attr">"type"</span>: <span class="string">"module"</span>,</span><br><span class="line">       <span class="attr">"name"</span>: <span class="string">"OpenFile"</span>,</span><br><span class="line">       <span class="attr">"class"</span>: <span class="string">"com.bigbear.openfile.OpenFileModule"</span></span><br><span class="line">     &#125;</span><br><span class="line">   ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><p><a href="https://nativesupport.dcloud.net.cn/NativePlugin/README" target="_blank" rel="noopener">uni-app原生插件开发文档</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/37974829" target="_blank" rel="noopener">Android SDK下载安装及配置教程</a></p>
 </li>
 </ul>
 
@@ -479,7 +647,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://www.pulsating.cn/2020/05/25/uniapp-android-native-plugin-develop/" title="uniapp android native plugin develop" target="_blank" rel="external">http://www.pulsating.cn/2020/05/25/uniapp-android-native-plugin-develop/</a>
+      <a href="http://www.pulsating.cn/2020/05/25/uniapp-android-native-plugin-develop/" title="Uni-App Android Native Plugin Develop" target="_blank" rel="external">http://www.pulsating.cn/2020/05/25/uniapp-android-native-plugin-develop/</a>
     </li>
     
     <li class="post-copyright-license">

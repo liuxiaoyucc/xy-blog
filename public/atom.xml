@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.pulsating.cn/"/>
-  <updated>2020-05-25T02:27:33.806Z</updated>
+  <updated>2020-05-25T07:58:37.501Z</updated>
   <id>http://www.pulsating.cn/</id>
   
   <author>
@@ -17,19 +17,18 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>uniapp android native plugin develop</title>
+    <title>Uni-App Android Native Plugin Develop</title>
     <link href="http://www.pulsating.cn/2020/05/25/uniapp-android-native-plugin-develop/"/>
     <id>http://www.pulsating.cn/2020/05/25/uniapp-android-native-plugin-develop/</id>
     <published>2020-05-25T01:54:02.000Z</published>
-    <updated>2020-05-25T02:27:33.806Z</updated>
+    <updated>2020-05-25T07:58:37.501Z</updated>
     
     <summary type="html">
     
       
       
         &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
-
-&lt;p&gt;这是我第一次接触原生Android开发, 第一次使用Android Studio, 感觉很吃力, 目前还有很多地方不明所以, 索性最后还是成功了, 所以先写一篇文章记录下开发un
+这是我第一次接触原生Android开发, 第一次使用Android Studio, 感觉很吃力, 目前还有很多地方不明所以, 索性最后还是成功了, 所以先写一篇文章记录下开发uni-ap
       
     
     </summary>
@@ -96,15 +95,13 @@
     <link href="http://www.pulsating.cn/2020/01/08/Install-and-use-Composer/"/>
     <id>http://www.pulsating.cn/2020/01/08/Install-and-use-Composer/</id>
     <published>2020-01-08T15:00:03.000Z</published>
-    <updated>2020-01-10T01:10:21.861Z</updated>
+    <updated>2020-05-25T05:34:22.237Z</updated>
     
     <summary type="html">
     
       &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+&gt; Composer 是 PHP 用来管理依赖（dependency）关系的工具。你可以在自己的项目中声明所依赖的外部工具库（libraries），Composer 会帮你安装这些依赖的库文件
 
-&lt;blockquote&gt;
-&lt;p&gt;Composer 是 PHP 用来管理依赖（dependency）关系的工具。你可以在自己的项目中声明所依赖的外部工具库（libraries），Composer 会帮你安装这些依赖的库文件&lt;/p&gt;
-&lt;/blockquote&gt;
 &lt;p align=&quot;center&quot;&gt;
     &lt;a href=&quot;https://www.phpcomposer.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;
         &lt;img width=&quot;400&quot; src=&quot;https://www.phpcomposer.com//assets/img/phpcomposer.png&quot; alt=&quot;Composer logo&quot;&gt;
