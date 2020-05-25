@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.pulsating.cn/"/>
-  <updated>2020-04-06T05:43:26.670Z</updated>
+  <updated>2020-05-25T02:27:33.806Z</updated>
   <id>http://www.pulsating.cn/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>uniapp android native plugin develop</title>
+    <link href="http://www.pulsating.cn/2020/05/25/uniapp-android-native-plugin-develop/"/>
+    <id>http://www.pulsating.cn/2020/05/25/uniapp-android-native-plugin-develop/</id>
+    <published>2020-05-25T01:54:02.000Z</published>
+    <updated>2020-05-25T02:27:33.806Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+
+&lt;p&gt;这是我第一次接触原生Android开发, 第一次使用Android Studio, 感觉很吃力, 目前还有很多地方不明所以, 索性最后还是成功了, 所以先写一篇文章记录下开发un
+      
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="uni-app" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/uni-app/"/>
+    
+      <category term="Android" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/uni-app/Android/"/>
+    
+      <category term="WEEX" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/uni-app/Android/WEEX/"/>
+    
+      <category term="opencv" scheme="http://www.pulsating.cn/categories/opencv/"/>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="uni-app" scheme="http://www.pulsating.cn/tags/uni-app/"/>
+    
+      <category term="WEEX" scheme="http://www.pulsating.cn/tags/WEEX/"/>
+    
+      <category term="Android" scheme="http://www.pulsating.cn/tags/Android/"/>
+    
+      <category term="opencv" scheme="http://www.pulsating.cn/tags/opencv/"/>
+    
+  </entry>
   
   <entry>
     <title>ES6中的import和export使用方法</title>
@@ -690,39 +732,6 @@
       <category term="imagick" scheme="http://www.pulsating.cn/tags/imagick/"/>
     
       <category term="Imagemagick" scheme="http://www.pulsating.cn/tags/Imagemagick/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mysql Review 之引擎</title>
-    <link href="http://www.pulsating.cn/2019/11/12/Mysql-Review-engine/"/>
-    <id>http://www.pulsating.cn/2019/11/12/Mysql-Review-engine/</id>
-    <published>2019-11-12T14:31:31.000Z</published>
-    <updated>2020-01-07T07:31:12.302Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;strong&gt;1. Mysql具有多个引擎,都隐藏在Mysql服务器内,全都可以执行CERATE TABLE 和SELECT等命令&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;2. 不同的引擎有不同的功能和灵活性,下面列出几个必须要知道的引擎:&lt;/strong&gt;&lt;/p&gt;
-&lt;u
-      
-    
-    </summary>
-    
-    
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
-    
-      <category term="Mysql" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/"/>
-    
-      <category term="Mysql基础" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/Mysql%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
-    
-      <category term="Mysql" scheme="http://www.pulsating.cn/tags/Mysql/"/>
-    
-      <category term="Mysql基础" scheme="http://www.pulsating.cn/tags/Mysql%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
