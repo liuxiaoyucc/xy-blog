@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.pulsating.cn/"/>
-  <updated>2020-05-25T07:58:37.501Z</updated>
+  <updated>2020-06-20T02:08:45.552Z</updated>
   <id>http://www.pulsating.cn/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>mysql 从树形结构表中获取叶子结点数据</title>
+    <link href="http://www.pulsating.cn/2020/06/20/mysql-select-leaf-node-from-tree-structure-data/"/>
+    <id>http://www.pulsating.cn/2020/06/20/mysql-select-leaf-node-from-tree-structure-data/</id>
+    <published>2020-06-20T01:59:36.000Z</published>
+    <updated>2020-06-20T02:08:45.552Z</updated>
+    
+    <summary type="html">
+    
+      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+&gt; 叶子结点 就是出度为0的结点 就是没有子结点的结点
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="Mysql" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/"/>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="Mysql" scheme="http://www.pulsating.cn/tags/Mysql/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Uni-App Android Native Plugin Develop</title>
     <link href="http://www.pulsating.cn/2020/05/25/uniapp-android-native-plugin-develop/"/>
     <id>http://www.pulsating.cn/2020/05/25/uniapp-android-native-plugin-develop/</id>
     <published>2020-05-25T01:54:02.000Z</published>
-    <updated>2020-05-25T07:58:37.501Z</updated>
+    <updated>2020-06-01T03:21:00.187Z</updated>
     
     <summary type="html">
     
@@ -688,47 +714,6 @@
       <category term="Sphinx" scheme="http://www.pulsating.cn/tags/Sphinx/"/>
     
       <category term="Sphinxapi" scheme="http://www.pulsating.cn/tags/Sphinxapi/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Windows+PHP5.6环境下安装imagick扩展和imagemagick</title>
-    <link href="http://www.pulsating.cn/2019/11/12/install-imagick-extend-and-imagemagick-in-windows-php5.6/"/>
-    <id>http://www.pulsating.cn/2019/11/12/install-imagick-extend-and-imagemagick-in-windows-php5.6/</id>
-    <published>2019-11-12T14:40:35.000Z</published>
-    <updated>2020-01-08T03:25:56.022Z</updated>
-    
-    <summary type="html">
-    
-      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;其实回过头看,安装过程中最容易出错的反而是下载阶段,一定要将imagemagick和imagick的版本和&lt;code&gt;phpinfo&lt;/code&gt;的信息对应好!&lt;br&gt;下图中几点需要注意,每个人的信息可能不同,根据你自己的phpinfo来选择接下来的下载的程序及扩展版本:&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;PHP Version: &lt;strong&gt;PHP版本&lt;/strong&gt; &lt;/li&gt;
-&lt;li&gt;compiler: &lt;strong&gt;MSVC11&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;Architecture: &lt;strong&gt;x86&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;Thread Safety: &lt;strong&gt;disabled&lt;/strong&gt; 非线程安全,也就是&lt;strong&gt;NTS&lt;/strong&gt;,相反的则是线程安全&lt;strong&gt;TS&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
-    
-      <category term="PHP" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/"/>
-    
-      <category term="图像处理" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-    
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
-    
-      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
-    
-      <category term="imagick" scheme="http://www.pulsating.cn/tags/imagick/"/>
-    
-      <category term="Imagemagick" scheme="http://www.pulsating.cn/tags/Imagemagick/"/>
     
   </entry>
   
