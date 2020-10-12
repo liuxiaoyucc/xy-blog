@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.pulsating.cn/"/>
-  <updated>2020-06-20T02:08:45.552Z</updated>
+  <updated>2020-10-12T07:28:48.109Z</updated>
   <id>http://www.pulsating.cn/</id>
   
   <author>
@@ -15,6 +15,72 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue变化侦测原理</title>
+    <link href="http://www.pulsating.cn/2020/10/12/vue%E5%8F%98%E5%8C%96%E4%BE%A6%E6%B5%8B%E5%8E%9F%E7%90%86/"/>
+    <id>http://www.pulsating.cn/2020/10/12/vue%E5%8F%98%E5%8C%96%E4%BE%A6%E6%B5%8B%E5%8E%9F%E7%90%86/</id>
+    <published>2020-10-12T07:17:24.000Z</published>
+    <updated>2020-10-12T07:28:48.109Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+
+&lt;p&gt;__前几天面试中遇到一个关于vue变化侦测的问题, 今天扛到一篇文章写的很清楚, 搬运一下, 文末注明了原文链接 __&lt;/p&gt;
+&lt;h1 id=&quot;深入浅出-vue变化侦测原理&quot;&gt;&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="前端" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="JavaScript" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+    
+      <category term="Vue" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/"/>
+    
+    
+      <category term="Js" scheme="http://www.pulsating.cn/tags/Js/"/>
+    
+      <category term="Vue" scheme="http://www.pulsating.cn/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS Enent Loop</title>
+    <link href="http://www.pulsating.cn/2020/10/07/JS-Enent-Loop/"/>
+    <id>http://www.pulsating.cn/2020/10/07/JS-Enent-Loop/</id>
+    <published>2020-10-07T02:59:19.000Z</published>
+    <updated>2020-10-07T03:01:21.513Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+
+&lt;p&gt;搞懂JS的运行机制&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="前端" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="JavaScript" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+    
+    
+      <category term="Js" scheme="http://www.pulsating.cn/tags/Js/"/>
+    
+  </entry>
   
   <entry>
     <title>mysql 从树形结构表中获取叶子结点数据</title>
@@ -634,84 +700,6 @@
       <category term="Sphinx" scheme="http://www.pulsating.cn/tags/Sphinx/"/>
     
       <category term="Linux" scheme="http://www.pulsating.cn/tags/Linux/"/>
-    
-      <category term="Sphinxapi" scheme="http://www.pulsating.cn/tags/Sphinxapi/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Sphinx 配置文件sphinx.conf配置项全解析</title>
-    <link href="http://www.pulsating.cn/2019/11/12/Sphinx-sphinx.conf-analysis/"/>
-    <id>http://www.pulsating.cn/2019/11/12/Sphinx-sphinx.conf-analysis/</id>
-    <published>2019-11-12T15:12:36.000Z</published>
-    <updated>2020-01-08T03:25:56.018Z</updated>
-    
-    <summary type="html">
-    
-      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;source&lt;/strong&gt;：数据源，数据是从什么地方来的。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;index&lt;/strong&gt;：索引，当有数据源之后，从数据源处构建索引。索引实际上就是相当于一个字典检索。有了整本字典内容以后，才会有字典检索。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;searchd&lt;/strong&gt;：提供搜索查询服务。它一般是以deamon的形式运行在后台的。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;indexer&lt;/strong&gt;：构建索引的服务。当要重新构建索引的时候，就是调用indexer这个命令。&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
-    
-      <category term="Mysql" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/"/>
-    
-      <category term="Sphinx" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/Sphinx/"/>
-    
-    
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
-    
-      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
-    
-      <category term="Mysql" scheme="http://www.pulsating.cn/tags/Mysql/"/>
-    
-      <category term="Sphinx" scheme="http://www.pulsating.cn/tags/Sphinx/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从0到1,Sphinx Windows本地安装及PHP使用Sphinxapi示例</title>
-    <link href="http://www.pulsating.cn/2019/11/12/install-Sphinx-in-Windows-and-use-Sphinxapi-in-php/"/>
-    <id>http://www.pulsating.cn/2019/11/12/install-Sphinx-in-Windows-and-use-Sphinxapi-in-php/</id>
-    <published>2019-11-12T15:01:44.000Z</published>
-    <updated>2020-01-08T03:25:56.021Z</updated>
-    
-    <summary type="html">
-    
-      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
-
-&lt;p&gt;&amp;emsp;&amp;emsp;最近一个项目需要实现这样一个需求:mysql数据库一张表中存了百万张菜品图片,需要根据菜品名称或描述,模糊匹配出符合条件的菜品图片,并展示出来&lt;/p&gt;
-&lt;figure class=&quot;highlight pgsql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;select&lt;/span&gt; * &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;table_name&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;column&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;like&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;%鱼香肉丝%&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;&amp;emsp;&amp;emsp;如果像上面那样,直接使用mysql like查询的话,会进行全表扫描,不走索引,大大的影响查询效率,所以开始学习使用&lt;strong&gt;Sphinx全文搜索引擎&lt;/strong&gt;,下面记录下第一次配置使用的过程,以及过程中遇到的问题和疑问,望指正.&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
-    
-      <category term="PHP" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/"/>
-    
-      <category term="Mysql" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/"/>
-    
-      <category term="Sphinx" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/Sphinx/"/>
-    
-    
-      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
-    
-      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
-    
-      <category term="Mysql" scheme="http://www.pulsating.cn/tags/Mysql/"/>
-    
-      <category term="Sphinx" scheme="http://www.pulsating.cn/tags/Sphinx/"/>
     
       <category term="Sphinxapi" scheme="http://www.pulsating.cn/tags/Sphinxapi/"/>
     
