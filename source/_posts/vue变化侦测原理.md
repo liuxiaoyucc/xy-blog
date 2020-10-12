@@ -41,7 +41,7 @@ __前几天面试中遇到一个关于vue变化侦测的问题, 今天扛到一�
 
 知道 `Object.defineProperty` 可以侦测到对象的变化，那么我们瞬间可以写出这样的代码：
 
-```
+```javascript
 function defineReactive (data, key, val) {
     Object.defineProperty(data, key, {
         enumerable: true,
@@ -72,7 +72,7 @@ function defineReactive (data, key, val) {
 
 举个🌰：
 
-```
+```vue
 <template>
   <div>{{ key }}</div>
   <p>{{ key }}</p>
@@ -91,7 +91,7 @@ function defineReactive (data, key, val) {
 
 思考一下，首先想到的是每个 `key` 都有一个数组，用来存储当前 `key` 的依赖，假设依赖是一个函数存在 `window.target` 上，先把 `defineReactive` 稍微改造一下：
 
-```
+```javascript
 function defineReactive (data, key, val) {
     let dep = [] // 新增
     Object.defineProperty(data, key, {
@@ -124,7 +124,7 @@ function defineReactive (data, key, val) {
 
 但是这样写有点耦合，我们把依赖收集这部分代码封装起来，写成下面的样子：
 
-```
+```javascript
 export default class Dep {
   static target: ?Watcher;
   id: number;
@@ -162,7 +162,7 @@ export default class Dep {
 
 然后在改造一下 `defineReactive`：
 
-```
+```javascript
 function defineReactive (data, key, val) {
     let dep = new Dep() // 修改
     Object.defineProperty(data, key, {
@@ -210,7 +210,7 @@ watcher 是一个中介的角色，数据发生变化通知给 watcher，然后w
 关于watcher我们先看一个经典的使用方式：
 
 
-```
+```javascript
 // keypath
 vm.$watch('a.b.c', function (newVal, oldVal) {
   // do something
@@ -225,7 +225,7 @@ vm.$watch('a.b.c', function (newVal, oldVal) {
 
 好，思考完毕，开工，写出如下代码：
 
-```
+```javascript
 class Watch {
     constructor (expOrFn, cb) {
         // 执行 this.getter() 就可以拿到 data.a.b.c
@@ -272,7 +272,7 @@ class Watch {
 现在其实已经可以实现变化侦测的功能了，但是我们之前写的代码只能侦测数据中的一个 key，所以我们要加工一下 `defineReactive` 这个函数：
 
 
-```
+```javascript
 // 新增
 function walk (obj: Object) {
   const keys = Object.keys(obj)
@@ -322,14 +322,14 @@ vue 中对这个数组问题的解决方案非常的简单粗暴，我说说vue�
 
 第一步：
 
-```
+```javascript
 const arrayProto = Array.prototype
 export const arrayMethods = Object.create(arrayProto)
 ```
 
 第二步：
 
-```
+```javascript
 ;[
   'push',
   'pop',
@@ -365,7 +365,7 @@ export const arrayMethods = Object.create(arrayProto)
 那现在怎么访问依赖列表呢，可能我们需要把上面封装的 `walk` 加工一下：
 
 
-```
+```javascript
 // 工具函数
 function def (obj: Object, key: string, val: any, enumerable?: boolean) {
   Object.defineProperty(obj, key, {
@@ -425,7 +425,7 @@ export class Observer {
 
 然后我们在改进一下Array原型的拦截器：
 
-```
+```javascript
 ;[
   'push',
   'pop',
@@ -475,7 +475,7 @@ export class Observer {
 我们改造一下 `Observer`：
 
 
-```
+```javascript
 export class Observer {
   constructor (value: any) {
     this.value = value
@@ -500,7 +500,7 @@ export class Observer {
 
 所以我们的代码又要改造一下：
 
-```
+```javascript
 // can we use __proto__?
 const hasProto = '__proto__' in {} // 新增
 export class Observer {
@@ -548,7 +548,7 @@ this.list[0] = 2
 
 再例如：
 
-```
+```javascript
 this.list.length = 0
 ```
 
