@@ -1,9 +1,0 @@
-User-agent: *
-Allow: /
-Allow: /archives/
-
-Disallow: /js/
-Disallow: /css/
-
-Sitemap: http://www.pulsating.cn/sitemap.xml
-Sitemap: http://www.pulsating.cn/baidusitemap.xml

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4629c910-dcec-4924-a911-110ea040b52b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/public/2019/11/12/Check-android-mobile-refresh-rate-in-real-time/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/11/12/Check-android-mobile-refresh-rate-in-real-time/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/11/12/Determine-the-device-or-platform-used-by-UserAgent/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/11/12/Determine-the-device-or-platform-used-by-UserAgent/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/11/12/Getting-started-with-thinkphp5/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/11/12/Getting-started-with-thinkphp5/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/11/12/Mysql-Review-JOIN/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/11/12/Mysql-Review-JOIN/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/11/12/Mysql-Review-common-sql/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/11/12/Mysql-Review-common-sql/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/11/12/Mysql-Review-engine/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/11/12/Mysql-Review-engine/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/11/12/Mysql-Review-function/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/11/12/Mysql-Review-function/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/11/12/Mysql-Review-terminology/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/11/12/Mysql-Review-terminology/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/11/12/PHP-monochrome-bitmap-module/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/11/12/PHP-monochrome-bitmap-module/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/11/12/Sphinx-Linux-install/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/11/12/Sphinx-Linux-install/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/11/12/Sphinx-sphinx.conf-analysis/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/11/12/Sphinx-sphinx.conf-analysis/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/11/12/Using-imagemagick-to-achieve-the-splicing-of-two-or-more-pictures/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/11/12/Using-imagemagick-to-achieve-the-splicing-of-two-or-more-pictures/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/11/12/create-personal-blog-use-hexo/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/11/12/create-personal-blog-use-hexo/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/11/12/image-lazy-load-and-preview/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/11/12/image-lazy-load-and-preview/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/11/12/install-Sphinx-in-Windows-and-use-Sphinxapi-in-php/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/11/12/install-Sphinx-in-Windows-and-use-Sphinxapi-in-php/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/11/12/install-imagick-extend-and-imagemagick-in-windows-php5.6/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/11/12/install-imagick-extend-and-imagemagick-in-windows-php5.6/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/11/12/searchinput-auto-complated/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/11/12/searchinput-auto-complated/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/11/13/Vue-dynamically-binds-ref/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/11/13/Vue-dynamically-binds-ref/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/11/15/Use-GD-library-to-implement-image-merge/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/11/15/Use-GD-library-to-implement-image-merge/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/11/22/First-letter-sort-use-JS/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/11/22/First-letter-sort-use-JS/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/12/20/Mysql-table-import-and-export/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/12/20/Mysql-table-import-and-export/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/12/26/Mysql-max_allowed_packet-setting/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/12/26/Mysql-max_allowed_packet-setting/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/12/27/Custom-CI-insert-batch/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/12/27/Custom-CI-insert-batch/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/12/27/Late-boiled-wine/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/12/27/Late-boiled-wine/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2020/01/06/sweet-and-sour-spareribs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2020/01/06/sweet-and-sour-spareribs/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2020/01/07/Run-CI-method-in-cli/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2020/01/07/Run-CI-method-in-cli/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2020/01/08/Install-and-use-Composer/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2020/01/08/Install-and-use-Composer/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2020/01/08/Sphinx-multi-index-configuration/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2020/01/08/Sphinx-multi-index-configuration/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2020/04/06/ES6-import-and-export/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2020/04/06/ES6-import-and-export/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2020/05/25/uniapp-android-native-plugin-develop/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2020/05/25/uniapp-android-native-plugin-develop/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2020/06/20/mysql-select-leaf-node-from-tree-structure-data/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2020/06/20/mysql-select-leaf-node-from-tree-structure-data/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2020/10/07/JS-Enent-Loop/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2020/10/07/JS-Enent-Loop/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2020/10/12/vue变化侦测原理/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2020/10/12/vue变化侦测原理/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/about/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/about/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/ads.txt" beforeDir="false" afterPath="$PROJECT_DIR$/public/ads.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/2019/11/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2019/11/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/2019/11/page/2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2019/11/page/2/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/2019/12/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2019/12/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/2019/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2019/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/2019/page/2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2019/page/2/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/2019/page/3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2019/page/3/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/2020/01/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2020/01/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/2020/04/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2020/04/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/2020/05/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2020/05/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/2020/06/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2020/06/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/2020/10/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2020/10/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/2020/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2020/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/page/2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/page/2/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/page/3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/page/3/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/archives/page/4/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/page/4/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/atom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/public/atom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/baidu_urls.txt" beforeDir="false" afterPath="$PROJECT_DIR$/public/baidu_urls.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/baidusitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/public/baidusitemap.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/opencv/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/opencv/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/Blog/Hexo/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/Blog/Hexo/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/Blog/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/Blog/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/Linux/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/Linux/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/Mysql/Mysql基础/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/Mysql/Mysql基础/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/Mysql/Sphinx/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/Mysql/Sphinx/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/Mysql/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/Mysql/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/Mysql/page/2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/Mysql/page/2/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/PHP/CI/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/PHP/CI/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/PHP/Composer/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/PHP/Composer/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/PHP/GD/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/PHP/GD/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/PHP/ThinkPHP/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/PHP/ThinkPHP/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/PHP/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/PHP/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/page/2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/page/2/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/page/3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/page/3/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/page/4/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/page/4/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/uni-app/Android/WEEX/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/uni-app/Android/WEEX/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/uni-app/Android/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/uni-app/Android/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/uni-app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/uni-app/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/前端/JavaScript/JQuery-UI/autocomplete/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/前端/JavaScript/JQuery-UI/autocomplete/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/前端/JavaScript/JQuery-UI/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/前端/JavaScript/JQuery-UI/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/前端/JavaScript/Vue/WEEX/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/前端/JavaScript/Vue/WEEX/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/前端/JavaScript/Vue/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/前端/JavaScript/Vue/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/前端/JavaScript/Vue/uni-app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/前端/JavaScript/Vue/uni-app/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/前端/JavaScript/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/前端/JavaScript/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/前端/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/前端/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/图像处理/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/图像处理/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/日常/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/日常/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/杂/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/杂/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/charitable/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/charitable/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/content.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/content.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fav.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/fav.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/README.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/README.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/iconfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/iconfont.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/iconfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/iconfont.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/iconfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/iconfont.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/iconfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/iconfont.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1590385032.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/1590385032.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1590385607.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/1590385607.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1590386478.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/1590386478.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1590386524(1).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/1590386524(1).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1590387076.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/1590387076.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1590387148.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/1590387148.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/alipayimg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/alipayimg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/android_sdk_dir.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/android_sdk_dir.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/avatar-old.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/avatar-old.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/avatar.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/avatar.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/c563ebca5dc4b336408ac42482cb237.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/c563ebca5dc4b336408ac42482cb237.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/dev_item.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/dev_item.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/favatar/SzsFox-logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/favatar/SzsFox-logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/favatar/chuangzaoshi-logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/favatar/chuangzaoshi-logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/favatar/idesign-logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/favatar/idesign-logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/import_uni_plugin.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/import_uni_plugin.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/select_uni_plugin.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/select_uni_plugin.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/thumb-default.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/thumb-default.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/wechatpayimg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/wechatpayimg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/xingqiu-qrcode.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/xingqiu-qrcode.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/微信图片_20191227223848.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/微信图片_20191227223848.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/微信图片_20191227224914.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/微信图片_20191227224914.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/application.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/application.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/application.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/insight.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/insight.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/jquery.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugin.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugin.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugin.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugin.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/links/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/links/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/page/2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/page/2/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/page/3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/page/3/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/page/4/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/page/4/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/repository/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/repository/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/sitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/public/sitemap.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/Andriod/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Andriod/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/Android/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Android/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/CI/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/CI/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/Composer/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Composer/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/ECHO-JS/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/ECHO-JS/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/GD/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/GD/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/Imagemagick/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Imagemagick/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/JQuery/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/JQuery/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/JavaScript/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/JavaScript/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/Jquery-WEUI/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Jquery-WEUI/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/Js/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Js/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/Linux/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Linux/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/Mysql/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Mysql/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/Mysql/page/2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Mysql/page/2/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/Mysql基础/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Mysql基础/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/PHP/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/PHP/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/PHP/page/2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/PHP/page/2/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/SPA/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/SPA/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/Sphinx/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Sphinx/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/Sphinxapi/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Sphinxapi/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/ThinkPHP/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/ThinkPHP/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/Vue/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Vue/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/WEEX/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/WEEX/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/WeUI/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/WeUI/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/adb/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/adb/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/article/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/article/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/bmp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/bmp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/imagick/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/imagick/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/opencv/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/opencv/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/pctoLCD2002/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/pctoLCD2002/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/uni-app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/uni-app/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/位图/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/位图/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/前端/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/前端/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/大熊BIGBEAR/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/大熊BIGBEAR/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/大熊BIGBEAR/page/2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/大熊BIGBEAR/page/2/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/大熊BIGBEAR/page/3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/大熊BIGBEAR/page/3/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/建站/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/建站/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/懒加载/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/懒加载/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/排序/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/排序/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/教程/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/教程/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/美食/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/美食/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/随手记/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/随手记/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/食谱/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/食谱/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/vue变化侦测原理.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/vue变化侦测原理.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1pGqljGQFnTSAi6ebHIzQR7BNMb" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4629c910-dcec-4924-a911-110ea040b52b" name="Default Changelist" comment="" />
+      <created>1614819927969</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1614819927969</updated>
+      <workItem from="1614819929622" duration="625000" />
+      <workItem from="1614820735720" duration="1872000" />
+      <workItem from="1614823493234" duration="79000" />
+      <workItem from="1614823598131" duration="13000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="551" y="304" key="SettingsEditor" timestamp="1614820557429">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="551" y="304" key="SettingsEditor/0.30.1920.1050@0.30.1920.1050" timestamp="1614820557429" />
+  </component>
+</project>
