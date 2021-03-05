@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Composer的安装及使用 | 大熊BIGBEAR的个人博客</title>
+  <meta name="description" content="&amp;gt; Composer 是 PHP 用来管理依赖（dependency）关系的工具。你可以在自己的项目中声明所依赖的外部工具库（libraries），Composer 会帮你安装这些依赖的库文件                        或许你还没听说过Composer,  亦或听说过 没听过,两万五千里 而没有使用过, 没关系, 跟着我一起, 用起来">
+<meta name="keywords" content="PHP,Composer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Composer的安装及使用">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.pulsating.cn&#x2F;2020&#x2F;01&#x2F;08&#x2F;Install-and-use-Composer&#x2F;index.html">
+<meta property="og:site_name" content="大熊的个人博客">
+<meta property="og:description" content="&amp;gt; Composer 是 PHP 用来管理依赖（dependency）关系的工具。你可以在自己的项目中声明所依赖的外部工具库（libraries），Composer 会帮你安装这些依赖的库文件                        或许你还没听说过Composer,  亦或听说过 没听过,两万五千里 而没有使用过, 没关系, 跟着我一起, 用起来">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.phpcomposer.com&#x2F;&#x2F;assets&#x2F;img&#x2F;phpcomposer.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;user-images.githubusercontent.com&#x2F;33248133&#x2F;71993077-742cae80-3271-11ea-8ecb-338cc7bcb5cd.PNG">
+<meta property="og:image" content="https:&#x2F;&#x2F;user-images.githubusercontent.com&#x2F;33248133&#x2F;71993490-26fd0c80-3272-11ea-950c-c9a6ee791e12.PNG">
+<meta property="og:image" content="https:&#x2F;&#x2F;user-images.githubusercontent.com&#x2F;33248133&#x2F;71993796-aab6f900-3272-11ea-86f7-e4bf17735152.PNG">
+<meta property="og:image" content="https:&#x2F;&#x2F;user-images.githubusercontent.com&#x2F;33248133&#x2F;71993953-e81b8680-3272-11ea-9276-7a4f29ace4ca.PNG">
+<meta property="og:image" content="https:&#x2F;&#x2F;user-images.githubusercontent.com&#x2F;33248133&#x2F;71994302-73951780-3273-11ea-8a91-496296ad9aac.PNG">
+<meta property="og:image" content="https:&#x2F;&#x2F;user-images.githubusercontent.com&#x2F;33248133&#x2F;71994695-2c5b5680-3274-11ea-98e7-4a4bc1d532a4.PNG">
+<meta property="og:image" content="https:&#x2F;&#x2F;user-images.githubusercontent.com&#x2F;33248133&#x2F;71997841-7eeb4180-3279-11ea-8356-eb892fa78d22.gif">
+<meta property="og:image" content="https:&#x2F;&#x2F;user-images.githubusercontent.com&#x2F;33248133&#x2F;72072870-c3361a80-3329-11ea-96d3-b269196385eb.PNG">
+<meta property="og:image" content="https:&#x2F;&#x2F;user-images.githubusercontent.com&#x2F;33248133&#x2F;72047325-3ffad180-32f5-11ea-8ce3-c0c5e536275b.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;user-images.githubusercontent.com&#x2F;33248133&#x2F;72077886-ff21ad80-3332-11ea-970b-daf9b7442fe6.png">
+<meta property="og:updated_time" content="2021-02-27T08:03:34.905Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;www.phpcomposer.com&#x2F;&#x2F;assets&#x2F;img&#x2F;phpcomposer.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://www.pulsating.cn/2020/01/08/Install-and-use-Composer/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="大熊的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/fav.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
+  
+	  
+<script data-ad-client="ca-pub-2287074960345236" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+</head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/liuxiaoyucc" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">xy&amp;cc</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">程序猿和他的畅夫人</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> SuZhou, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-charitable">
+          <a href="/charitable">
+            
+            <i class="icon icon-eye-fill"></i>
+            
+            <span class="menu-title">404公益</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/liuxiaoyucc" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+
+
+  </div>
+
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>控制早晨, 方能控制人生!</p>
+            </div>
+        </div>
+    </div>
+</div>
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/opencv/">opencv</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><span class="category-list-count">34</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Blog/">Blog</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Blog/Hexo/">Hexo</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/">Mysql</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/Mysql%E5%9F%BA%E7%A1%80/">Mysql基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/Sphinx/">Sphinx</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/">PHP</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/CI/">CI</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/Composer/">Composer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/GD/">GD</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/ThinkPHP/">ThinkPHP</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/uni-app/">uni-app</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/uni-app/Android/">Android</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/uni-app/Android/WEEX/">WEEX</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/">JavaScript</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/JQuery-UI/">JQuery UI</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/JQuery-UI/autocomplete/">autocomplete</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/">Vue</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/WEEX/">WEEX</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/uni-app/">uni-app</a><span class="category-list-count">1</span></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">图像处理</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E6%97%A5%E5%B8%B8/">日常</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E6%9D%82/">杂</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Andriod/" rel="tag">Andriod</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CI/" rel="tag">CI</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Composer/" rel="tag">Composer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECHO-JS/" rel="tag">ECHO JS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GD/" rel="tag">GD</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Imagemagick/" rel="tag">Imagemagick</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JQuery/" rel="tag">JQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery-WEUI/" rel="tag">Jquery WEUI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Js/" rel="tag">Js</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql%E5%9F%BA%E7%A1%80/" rel="tag">Mysql基础</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/" rel="tag">PHP</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SPA/" rel="tag">SPA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sphinx/" rel="tag">Sphinx</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sphinxapi/" rel="tag">Sphinxapi</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkPHP/" rel="tag">ThinkPHP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WEEX/" rel="tag">WEEX</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WeUI/" rel="tag">WeUI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/" rel="tag">adb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/article/" rel="tag">article</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bmp/" rel="tag">bmp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/imagick/" rel="tag">imagick</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opencv/" rel="tag">opencv</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pctoLCD2002/" rel="tag">pctoLCD2002</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/uni-app/" rel="tag">uni-app</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%8D%E5%9B%BE/" rel="tag">位图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E7%86%8ABIGBEAR/" rel="tag">大熊BIGBEAR</a><span class="tag-list-count">28</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BB%BA%E7%AB%99/" rel="tag">建站</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1H5%E6%94%AF%E4%BB%98/" rel="tag">微信H5支付</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/" rel="tag">微信支付</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%87%92%E5%8A%A0%E8%BD%BD/" rel="tag">懒加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%94%AF%E4%BB%98/" rel="tag">支付</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BE%8E%E9%A3%9F/" rel="tag">美食</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" rel="tag">随手记</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A3%9F%E8%B0%B1/" rel="tag">食谱</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Andriod/" style="font-size: 13px;">Andriod</a> <a href="/tags/Android/" style="font-size: 13px;">Android</a> <a href="/tags/CI/" style="font-size: 13.17px;">CI</a> <a href="/tags/Composer/" style="font-size: 13px;">Composer</a> <a href="/tags/ECHO-JS/" style="font-size: 13px;">ECHO JS</a> <a href="/tags/GD/" style="font-size: 13.17px;">GD</a> <a href="/tags/Imagemagick/" style="font-size: 13.17px;">Imagemagick</a> <a href="/tags/JQuery/" style="font-size: 13px;">JQuery</a> <a href="/tags/JavaScript/" style="font-size: 13.5px;">JavaScript</a> <a href="/tags/Jquery-WEUI/" style="font-size: 13px;">Jquery WEUI</a> <a href="/tags/Js/" style="font-size: 13.5px;">Js</a> <a href="/tags/Linux/" style="font-size: 13px;">Linux</a> <a href="/tags/Mysql/" style="font-size: 13.83px;">Mysql</a> <a href="/tags/Mysql%E5%9F%BA%E7%A1%80/" style="font-size: 13.67px;">Mysql基础</a> <a href="/tags/PHP/" style="font-size: 13.83px;">PHP</a> <a href="/tags/SPA/" style="font-size: 13px;">SPA</a> <a href="/tags/Sphinx/" style="font-size: 13.5px;">Sphinx</a> <a href="/tags/Sphinxapi/" style="font-size: 13.17px;">Sphinxapi</a> <a href="/tags/ThinkPHP/" style="font-size: 13.17px;">ThinkPHP</a> <a href="/tags/Vue/" style="font-size: 13.33px;">Vue</a> <a href="/tags/WEEX/" style="font-size: 13.17px;">WEEX</a> <a href="/tags/WeUI/" style="font-size: 13px;">WeUI</a> <a href="/tags/adb/" style="font-size: 13px;">adb</a> <a href="/tags/article/" style="font-size: 13px;">article</a> <a href="/tags/bmp/" style="font-size: 13px;">bmp</a> <a href="/tags/imagick/" style="font-size: 13.17px;">imagick</a> <a href="/tags/opencv/" style="font-size: 13px;">opencv</a> <a href="/tags/pctoLCD2002/" style="font-size: 13px;">pctoLCD2002</a> <a href="/tags/uni-app/" style="font-size: 13.17px;">uni-app</a> <a href="/tags/%E4%BD%8D%E5%9B%BE/" style="font-size: 13px;">位图</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13.5px;">前端</a> <a href="/tags/%E5%A4%A7%E7%86%8ABIGBEAR/" style="font-size: 14px;">大熊BIGBEAR</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 13px;">建站</a> <a href="/tags/%E5%BE%AE%E4%BF%A1H5%E6%94%AF%E4%BB%98/" style="font-size: 13px;">微信H5支付</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/" style="font-size: 13px;">微信支付</a> <a href="/tags/%E6%87%92%E5%8A%A0%E8%BD%BD/" style="font-size: 13px;">懒加载</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 13px;">排序</a> <a href="/tags/%E6%94%AF%E4%BB%98/" style="font-size: 13px;">支付</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 13px;">教程</a> <a href="/tags/%E7%BE%8E%E9%A3%9F/" style="font-size: 13.17px;">美食</a> <a href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" style="font-size: 13.17px;">随手记</a> <a href="/tags/%E9%A3%9F%E8%B0%B1/" style="font-size: 13.17px;">食谱</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">20</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2021/03/04/Wechat-H5-Pay-for-PHP/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/">PHP</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/03/04/Wechat-H5-Pay-for-PHP/" class="title">Wechat H5 Pay for PHP</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-03-04T01:05:02.000Z" itemprop="datePublished">2021-03-04</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2020/10/12/vue%E5%8F%98%E5%8C%96%E4%BE%A6%E6%B5%8B%E5%8E%9F%E7%90%86/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/">前端</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/10/12/vue%E5%8F%98%E5%8C%96%E4%BE%A6%E6%B5%8B%E5%8E%9F%E7%90%86/" class="title">vue变化侦测原理</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-10-12T07:17:24.000Z" itemprop="datePublished">2020-10-12</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2020/10/07/JS-Enent-Loop/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/">前端</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/10/07/JS-Enent-Loop/" class="title">JS Enent Loop</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-10-07T02:59:19.000Z" itemprop="datePublished">2020-10-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2020/06/20/mysql-select-leaf-node-from-tree-structure-data/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/">Mysql</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/06/20/mysql-select-leaf-node-from-tree-structure-data/" class="title">mysql 从树形结构表中获取叶子结点数据</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-06-20T01:59:36.000Z" itemprop="datePublished">2020-06-20</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2020/05/25/uniapp-android-native-plugin-develop/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/opencv/">opencv</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/uni-app/">uni-app</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/25/uniapp-android-native-plugin-develop/" class="title">Uni-App Android Native Plugin Develop</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-25T01:54:02.000Z" itemprop="datePublished">2020-05-25</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Install-and-use-Composer" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Composer的安装及使用
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/01/08/Install-and-use-Composer/" class="article-date">
+	  <time datetime="2020-01-08T15:00:03.000Z" itemprop="datePublished">2020-01-08</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/">PHP</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/Composer/">Composer</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Composer/" rel="tag">Composer</a>, <a class="article-tag-link" href="/tags/PHP/" rel="tag">PHP</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/01/08/Install-and-use-Composer/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.2k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <meta name="referrer" content="no-referrer" />
+> Composer 是 PHP 用来管理依赖（dependency）关系的工具。你可以在自己的项目中声明所依赖的外部工具库（libraries），Composer 会帮你安装这些依赖的库文件
+
+<p align="center">
+    <a href="https://www.phpcomposer.com/" target="_blank" rel="noopener noreferrer">
+        <img width="400" src="https://www.phpcomposer.com//assets/img/phpcomposer.png" alt="Composer logo">
+    </a>
+</p>
+
+<p>或许你还没听说过Composer,  亦或听说过 <del>没听过,两万五千里</del> 而没有使用过, 没关系, 跟着我一起, 用起来</p>
+<a id="more"></a>
+
+<h2 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h2><ul>
+<li><a href="https://getcomposer.org/" target="_blank" rel="noopener">Composer官网</a></li>
+<li><a href="https://www.phpcomposer.com/" target="_blank" rel="noopener">Composer中文网</a></li>
+</ul>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
+<li>PHP</li>
+</ul>
+<p>这是必须的吧, 啊哈哈哈, 如果还没有安装php, 我建议你先不要看下去了</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>随便打开一个上面提供的网址, 找到下载页, 或者直接点击<a href="https://getcomposer.org/Composer-Setup.exe" target="_blank" rel="noopener">Composer-Setup.exe</a>开始下载exe文件</p>
+<p>双击Composer-Setup.exe开始安装</p>
+<ol>
+<li>这里勾上developer mode可以自定义安装目录, 也可以不勾选, Next</li>
+</ol>
+<p><img src="https://user-images.githubusercontent.com/33248133/71993077-742cae80-3271-11ea-8ecb-338cc7bcb5cd.PNG" alt="composer-setup"></p>
+<ol start="2">
+<li>这里会自动识别出你的php安装目录, 如果没有识别出来, 需要自己选择一下, 所以要记得你的php装在什么位置了哦 Next</li>
+</ol>
+<p><img src="https://user-images.githubusercontent.com/33248133/71993490-26fd0c80-3272-11ea-950c-c9a6ee791e12.PNG" alt="composer-setup"></p>
+<ol start="3">
+<li>设置代理, 按需设置, 没有可以直接跳过 Next</li>
+</ol>
+<p><img src="https://user-images.githubusercontent.com/33248133/71993796-aab6f900-3272-11ea-86f7-e4bf17735152.PNG" alt="composer-setup"></p>
+<ol start="4">
+<li>这里来检查一下安装路径, 并且会自动帮你将composer加入到环境变量中, 这样就可以在全局使用了,填写无误可以点击 Install</li>
+</ol>
+<p><img src="https://user-images.githubusercontent.com/33248133/71993953-e81b8680-3272-11ea-9276-7a4f29ace4ca.PNG" alt="composer-setup"></p>
+<ol start="5">
+<li>耐心等待一小会, 等他安装完成, 跳出警告可以直接点击下一步, 看到下图, 就已经安装完成啦! Next-&gt;Finished</li>
+</ol>
+<p><img src="https://user-images.githubusercontent.com/33248133/71994302-73951780-3273-11ea-8a91-496296ad9aac.PNG" alt="composer-five"></p>
+<ol start="6">
+<li>打开命令行, 输入<code>composer -V</code>, 会看到相应的版本信息. 命令行需要重新打开哦, 如果没有显示出相应信息, 则需要重启一下电脑, 至此, composer就安装完成了</li>
+</ol>
+<p><img src="https://user-images.githubusercontent.com/33248133/71994695-2c5b5680-3274-11ea-98e7-4a4bc1d532a4.PNG" alt="composer-v"></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>我们先从一个空项目说起</p>
+<p>随便在哪里新建一个空的目录</p>
+<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><h4 id="从composer-json开始"><a href="#从composer-json开始" class="headerlink" title="从composer.json开始"></a>从composer.json开始</h4><h5 id="新建composer-json文件"><a href="#新建composer-json文件" class="headerlink" title="新建composer.json文件"></a>新建composer.json文件</h5><p>新建composer.json文件,输入下面内容, <a href="http://www.querylist.cc/" target="_blank" rel="noopener"><code>querylist</code></a>是一个php的内容采集框架,后面我会写一篇关于它的使用方式, 这里我们使用它来演示composer</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">"require"</span>: &#123;</span><br><span class="line">		<span class="attr">"jaeger/querylist"</span>: <span class="string">"4.0.*"</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="composer-install"><a href="#composer-install" class="headerlink" title="composer install"></a>composer install</h5><p>在项目目录下执行<code>composer install</code> , composer会读取composer.json中的内容,来自动下载安装相关依赖</p>
+<p><img src="https://user-images.githubusercontent.com/33248133/71997841-7eeb4180-3279-11ea-8356-eb892fa78d22.gif" alt="演示动图"></p>
+<h5 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h5><p>等待安装完成后我们会在项目根目录下看到一个vendor目录, 和一个composer.lock文件</p>
+<h4 id="从composer-require开始"><a href="#从composer-require开始" class="headerlink" title="从composer require开始"></a>从composer require开始</h4><h5 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer <span class="keyword">require</span> jaeger/querylist <span class="number">4.0</span>.*</span><br></pre></td></tr></table></figure>
+
+<h5 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h5><p>使用这种方式, composer会自动生成一个composer.json文件, 并将jaeger/querylist写入到其中, 然后根据composer.json下载相关依赖, 命令执行完毕后, 项目根目录下的结构, 和前面的方式是一样的</p>
+<h4 id="锁文件composer-lock"><a href="#锁文件composer-lock" class="headerlink" title="锁文件composer.lock"></a>锁文件<code>composer.lock</code></h4><h5 id="生成"><a href="#生成" class="headerlink" title="生成"></a>生成</h5><p>每次安装新的依赖时, Composer会将其相关信息, 自动写入lock文件中, 包括对应版本</p>
+<h5 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h5><p>如果多人协同项目的话, 其他人在执行composer install时, 会先从lock文件中寻找该依赖和相应版本, 保证了所有人的版本一致, 可以理解为lock文件, ‘<strong>锁定</strong>‘ 了各依赖的版本</p>
+<h5 id="更新依赖版本"><a href="#更新依赖版本" class="headerlink" title="更新依赖版本"></a>更新依赖版本</h5><p>注意, 当执行<strong><code>composer update</code></strong> 时,  composer会获取依赖的最新版本, 并更新lock文件, 如果你只想更新特定的某个包, 那么可以在命令后指明要更新的包,像这样</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer update jaeger/querylist # 后面可以继续添加多个, 会一并更新</span><br></pre></td></tr></table></figure>
+
+<p>下面是lock中, 我们刚刚装好的依赖的部分信息, 你可以自己动手打开lock文件看下全部</p>
+<p><img src="https://user-images.githubusercontent.com/33248133/72072870-c3361a80-3329-11ea-96d3-b269196385eb.PNG" alt="composer-lock中的部分依赖信息"></p>
+<h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><h4 id="autoload-php"><a href="#autoload-php" class="headerlink" title="autoload.php"></a>autoload.php</h4><p>vendor目录生成后, Composer会帮我们准备一个自动加载文件, <strong>autoload.php</strong>, 我们只需引入这个文件, Composer会帮我们处理一切</p>
+<img src="https://user-images.githubusercontent.com/33248133/72047325-3ffad180-32f5-11ea-8ce3-c0c5e536275b.png" alt="autoload.php位置" style="zoom:80%;" />
+
+
+
+
+
+<h4 id="普通项目引入"><a href="#普通项目引入" class="headerlink" title="普通项目引入"></a>普通项目引入</h4><h5 id="入口文件"><a href="#入口文件" class="headerlink" title="入口文件"></a>入口文件</h5><p>我们在刚才的项目目录下新建一个可执行php文件, 命名为Index.php,</p>
+<h5 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h5><p>写入如下代码</p>
+<p>这段代码抓取了我的个人博客首页的文章title和链接, 后面会有专门一篇文章介绍QueryList的使用, 很方便</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">require</span> <span class="string">'vendor/autoload.php'</span>;</span><br><span class="line"><span class="keyword">Use</span> <span class="title">QL</span>\<span class="title">QueryList</span>;</span><br><span class="line"></span><br><span class="line">$url = <span class="string">'http://blog.pulsating.cn'</span>;</span><br><span class="line">$rules = [</span><br><span class="line">	<span class="string">'title'</span>=&gt; [<span class="string">'.article-title'</span>, <span class="string">'text'</span>],</span><br><span class="line">	<span class="string">'url'</span>=&gt; [<span class="string">'.article-title'</span>, <span class="string">'href'</span>]</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">$result = QueryList::rules($rules)-&gt;get($url)-&gt;queryData();</span><br><span class="line"></span><br><span class="line">print_r($result);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>执行Index.php, 可以看到已经成功的使用了querylist依赖</p>
+<p><img src="https://user-images.githubusercontent.com/33248133/72077886-ff21ad80-3332-11ea-970b-daf9b7442fe6.png" alt="执行结果"></p>
+<h4 id="在CodeIgniter中引入"><a href="#在CodeIgniter中引入" class="headerlink" title="在CodeIgniter中引入"></a>在CodeIgniter中引入</h4><h5 id="修改config-php"><a href="#修改config-php" class="headerlink" title="修改config.php"></a>修改config.php</h5><p>将<code>$config[&#39;composer_autoload&#39;]</code>的值改为true, CI会自动在application/vendor/目录下寻找autoload.php文件并加载</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// application/config/config.php</span></span><br><span class="line"></span><br><span class="line">$config[<span class="string">'composer_autoload'</span>] = <span class="keyword">TRUE</span>;</span><br></pre></td></tr></table></figure>
+
+<p>或者也可以这样, 将值写成具体路径</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$config[<span class="string">'composer_autoload'</span>] = <span class="string">'vendor/autoload.php'</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="controller中使用"><a href="#controller中使用" class="headerlink" title="controller中使用"></a>controller中使用</h5><p>直接在controller中的class外部use, 然后就可以使用QueryList了, 后续代码和上面相同</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">QL</span>\<span class="title">QueryList</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="结束-1"><a href="#结束-1" class="headerlink" title="结束"></a>结束</h2><ul>
+<li>不推荐手写composer.json文件, 推荐使用require的方式下载依赖, 手写很容易出错</li>
+</ul>
+<ul>
+<li><a href="https://packagist.org/" target="_blank" rel="noopener">packagist</a> 是 Composer 主要的一个包信息存储库, 你可以分享自己的package到上面, 也可以在里面找其他人分享的package使用</li>
+</ul>
+<ul>
+<li><a href="http://www.querylist.cc/" target="_blank" rel="noopener">QueryList</a> 文中的QueryList官网</li>
+</ul>
+
+      
+    </div>
+
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://www.pulsating.cn/2020/01/08/Install-and-use-Composer/" title="Composer的安装及使用" target="_blank" rel="external">http://www.pulsating.cn/2020/01/08/Install-and-use-Composer/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/liuxiaoyucc" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/liuxiaoyucc" target="_blank"><span class="text-dark">xy&amp;cc</span><small class="ml-1x">程序猿和他的畅夫人</small></a></h3>
+        <div>程序猿和他的畅夫人</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+
+  </article>
+
+
+
+
+  
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2020/04/06/ES6-import-and-export/" title="ES6中的import和export使用方法"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2020/01/08/Sphinx-multi-index-configuration/" title="sphinx配置多索引"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="wechat,weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/wechatpayimg.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/liuxiaoyucc" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        	</br>
+        	<a href="http://www.beian.miit.gov.cn/" target="_blank" rel="noopener" style="font-size: 10px">黑ICP备19000767号</a>
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '3f444cd96c55b018da3b',
+    clientSecret: '196107507bfaec3f322d25041c3a9411e1d9ea4f',
+    repo: 'xy-blog',
+    owner: 'liuxiaoyucc',
+    admin: ['liuxiaoyucc'],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+  })
+  gitalk.render('comments')
+  </script>
+
+      
+
+
+
+
+
+
+
+  <script type="text/javascript" src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+</body>
+</html>

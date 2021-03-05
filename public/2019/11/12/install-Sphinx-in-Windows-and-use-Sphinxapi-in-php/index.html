@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>从0到1,Sphinx Windows本地安装及PHP使用Sphinxapi示例 | 大熊BIGBEAR的个人博客</title>
+  <meta name="description" content="&amp;emsp;&amp;emsp;最近一个项目需要实现这样一个需求:mysql数据库一张表中存了百万张菜品图片,需要根据菜品名称或描述,模糊匹配出符合条件的菜品图片,并展示出来 12select * from table_name where column like &amp;apos;%鱼香肉丝%&amp;apos;;  &amp;emsp;&amp;emsp;如果像上面那样,直接使用mysql like查询的话,会进行全表扫描,不走索引,大大的影响查">
+<meta name="keywords" content="大熊BIGBEAR,PHP,Mysql,Sphinx,Sphinxapi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从0到1,Sphinx Windows本地安装及PHP使用Sphinxapi示例">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.pulsating.cn&#x2F;2019&#x2F;11&#x2F;12&#x2F;install-Sphinx-in-Windows-and-use-Sphinxapi-in-php&#x2F;index.html">
+<meta property="og:site_name" content="大熊的个人博客">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;最近一个项目需要实现这样一个需求:mysql数据库一张表中存了百万张菜品图片,需要根据菜品名称或描述,模糊匹配出符合条件的菜品图片,并展示出来 12select * from table_name where column like &amp;apos;%鱼香肉丝%&amp;apos;;  &amp;emsp;&amp;emsp;如果像上面那样,直接使用mysql like查询的话,会进行全表扫描,不走索引,大大的影响查">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-57bc4bf34fe6ce13.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
+<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-eeada956c4180e1c.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
+<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-f72b58fee6c8b94f.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
+<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-5e7913e3b77827cf.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
+<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-b051e3066904d801.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
+<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-4f8b1e2d6cc27b6a.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
+<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-71ee147c00cedb1b.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
+<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-4ce186161f4e1689.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
+<meta property="og:updated_time" content="2021-02-27T08:03:34.917Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-57bc4bf34fe6ce13.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://www.pulsating.cn/2019/11/12/install-Sphinx-in-Windows-and-use-Sphinxapi-in-php/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="大熊的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/fav.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
+  
+	  
+<script data-ad-client="ca-pub-2287074960345236" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+</head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/liuxiaoyucc" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">xy&amp;cc</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">程序猿和他的畅夫人</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> SuZhou, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-charitable">
+          <a href="/charitable">
+            
+            <i class="icon icon-eye-fill"></i>
+            
+            <span class="menu-title">404公益</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/liuxiaoyucc" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+
+
+  </div>
+
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>控制早晨, 方能控制人生!</p>
+            </div>
+        </div>
+    </div>
+</div>
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/opencv/">opencv</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><span class="category-list-count">34</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Blog/">Blog</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Blog/Hexo/">Hexo</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/">Mysql</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/Mysql%E5%9F%BA%E7%A1%80/">Mysql基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/Sphinx/">Sphinx</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/">PHP</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/CI/">CI</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/Composer/">Composer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/GD/">GD</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/ThinkPHP/">ThinkPHP</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/uni-app/">uni-app</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/uni-app/Android/">Android</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/uni-app/Android/WEEX/">WEEX</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/">JavaScript</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/JQuery-UI/">JQuery UI</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/JQuery-UI/autocomplete/">autocomplete</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/">Vue</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/WEEX/">WEEX</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/uni-app/">uni-app</a><span class="category-list-count">1</span></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">图像处理</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E6%97%A5%E5%B8%B8/">日常</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E6%9D%82/">杂</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Andriod/" rel="tag">Andriod</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CI/" rel="tag">CI</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Composer/" rel="tag">Composer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECHO-JS/" rel="tag">ECHO JS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GD/" rel="tag">GD</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Imagemagick/" rel="tag">Imagemagick</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JQuery/" rel="tag">JQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery-WEUI/" rel="tag">Jquery WEUI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Js/" rel="tag">Js</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql%E5%9F%BA%E7%A1%80/" rel="tag">Mysql基础</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/" rel="tag">PHP</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SPA/" rel="tag">SPA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sphinx/" rel="tag">Sphinx</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sphinxapi/" rel="tag">Sphinxapi</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkPHP/" rel="tag">ThinkPHP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WEEX/" rel="tag">WEEX</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WeUI/" rel="tag">WeUI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/" rel="tag">adb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/article/" rel="tag">article</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bmp/" rel="tag">bmp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/imagick/" rel="tag">imagick</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opencv/" rel="tag">opencv</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pctoLCD2002/" rel="tag">pctoLCD2002</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/uni-app/" rel="tag">uni-app</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%8D%E5%9B%BE/" rel="tag">位图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E7%86%8ABIGBEAR/" rel="tag">大熊BIGBEAR</a><span class="tag-list-count">28</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BB%BA%E7%AB%99/" rel="tag">建站</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1H5%E6%94%AF%E4%BB%98/" rel="tag">微信H5支付</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/" rel="tag">微信支付</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%87%92%E5%8A%A0%E8%BD%BD/" rel="tag">懒加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%94%AF%E4%BB%98/" rel="tag">支付</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BE%8E%E9%A3%9F/" rel="tag">美食</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" rel="tag">随手记</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A3%9F%E8%B0%B1/" rel="tag">食谱</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Andriod/" style="font-size: 13px;">Andriod</a> <a href="/tags/Android/" style="font-size: 13px;">Android</a> <a href="/tags/CI/" style="font-size: 13.17px;">CI</a> <a href="/tags/Composer/" style="font-size: 13px;">Composer</a> <a href="/tags/ECHO-JS/" style="font-size: 13px;">ECHO JS</a> <a href="/tags/GD/" style="font-size: 13.17px;">GD</a> <a href="/tags/Imagemagick/" style="font-size: 13.17px;">Imagemagick</a> <a href="/tags/JQuery/" style="font-size: 13px;">JQuery</a> <a href="/tags/JavaScript/" style="font-size: 13.5px;">JavaScript</a> <a href="/tags/Jquery-WEUI/" style="font-size: 13px;">Jquery WEUI</a> <a href="/tags/Js/" style="font-size: 13.5px;">Js</a> <a href="/tags/Linux/" style="font-size: 13px;">Linux</a> <a href="/tags/Mysql/" style="font-size: 13.83px;">Mysql</a> <a href="/tags/Mysql%E5%9F%BA%E7%A1%80/" style="font-size: 13.67px;">Mysql基础</a> <a href="/tags/PHP/" style="font-size: 13.83px;">PHP</a> <a href="/tags/SPA/" style="font-size: 13px;">SPA</a> <a href="/tags/Sphinx/" style="font-size: 13.5px;">Sphinx</a> <a href="/tags/Sphinxapi/" style="font-size: 13.17px;">Sphinxapi</a> <a href="/tags/ThinkPHP/" style="font-size: 13.17px;">ThinkPHP</a> <a href="/tags/Vue/" style="font-size: 13.33px;">Vue</a> <a href="/tags/WEEX/" style="font-size: 13.17px;">WEEX</a> <a href="/tags/WeUI/" style="font-size: 13px;">WeUI</a> <a href="/tags/adb/" style="font-size: 13px;">adb</a> <a href="/tags/article/" style="font-size: 13px;">article</a> <a href="/tags/bmp/" style="font-size: 13px;">bmp</a> <a href="/tags/imagick/" style="font-size: 13.17px;">imagick</a> <a href="/tags/opencv/" style="font-size: 13px;">opencv</a> <a href="/tags/pctoLCD2002/" style="font-size: 13px;">pctoLCD2002</a> <a href="/tags/uni-app/" style="font-size: 13.17px;">uni-app</a> <a href="/tags/%E4%BD%8D%E5%9B%BE/" style="font-size: 13px;">位图</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13.5px;">前端</a> <a href="/tags/%E5%A4%A7%E7%86%8ABIGBEAR/" style="font-size: 14px;">大熊BIGBEAR</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 13px;">建站</a> <a href="/tags/%E5%BE%AE%E4%BF%A1H5%E6%94%AF%E4%BB%98/" style="font-size: 13px;">微信H5支付</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/" style="font-size: 13px;">微信支付</a> <a href="/tags/%E6%87%92%E5%8A%A0%E8%BD%BD/" style="font-size: 13px;">懒加载</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 13px;">排序</a> <a href="/tags/%E6%94%AF%E4%BB%98/" style="font-size: 13px;">支付</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 13px;">教程</a> <a href="/tags/%E7%BE%8E%E9%A3%9F/" style="font-size: 13.17px;">美食</a> <a href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" style="font-size: 13.17px;">随手记</a> <a href="/tags/%E9%A3%9F%E8%B0%B1/" style="font-size: 13.17px;">食谱</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">20</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2021/03/04/Wechat-H5-Pay-for-PHP/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/">PHP</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/03/04/Wechat-H5-Pay-for-PHP/" class="title">Wechat H5 Pay for PHP</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-03-04T01:05:02.000Z" itemprop="datePublished">2021-03-04</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2020/10/12/vue%E5%8F%98%E5%8C%96%E4%BE%A6%E6%B5%8B%E5%8E%9F%E7%90%86/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/">前端</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/10/12/vue%E5%8F%98%E5%8C%96%E4%BE%A6%E6%B5%8B%E5%8E%9F%E7%90%86/" class="title">vue变化侦测原理</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-10-12T07:17:24.000Z" itemprop="datePublished">2020-10-12</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2020/10/07/JS-Enent-Loop/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/">前端</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/10/07/JS-Enent-Loop/" class="title">JS Enent Loop</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-10-07T02:59:19.000Z" itemprop="datePublished">2020-10-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2020/06/20/mysql-select-leaf-node-from-tree-structure-data/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/">Mysql</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/06/20/mysql-select-leaf-node-from-tree-structure-data/" class="title">mysql 从树形结构表中获取叶子结点数据</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-06-20T01:59:36.000Z" itemprop="datePublished">2020-06-20</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2020/05/25/uniapp-android-native-plugin-develop/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/opencv/">opencv</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/uni-app/">uni-app</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/25/uniapp-android-native-plugin-develop/" class="title">Uni-App Android Native Plugin Develop</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-25T01:54:02.000Z" itemprop="datePublished">2020-05-25</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc " id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-下载sphinx源码压缩包点击下载"><span class="toc-number">1.</span> <span class="toc-text">1. 下载sphinx源码压缩包点击下载</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-下载后的sphinx源码目录"><span class="toc-number">2.</span> <span class="toc-text">2. 下载后的sphinx源码目录</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-配置文件"><span class="toc-number">3.</span> <span class="toc-text">3.配置文件</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-sphinx-config文件配置"><span class="toc-number">4.</span> <span class="toc-text">4. sphinx.config文件配置</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5-根据sphinx-conf创建索引"><span class="toc-number">5.</span> <span class="toc-text">5. 根据sphinx.conf创建索引</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#6-Sphinxapi-php使用-或者安装php扩展"><span class="toc-number">6.</span> <span class="toc-text">6. Sphinxapi.php使用(或者安装php扩展)</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-install-Sphinx-in-Windows-and-use-Sphinxapi-in-php" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      从0到1,Sphinx Windows本地安装及PHP使用Sphinxapi示例
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2019/11/12/install-Sphinx-in-Windows-and-use-Sphinxapi-in-php/" class="article-date">
+	  <time datetime="2019-11-12T15:01:44.000Z" itemprop="datePublished">2019-11-12</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/">Mysql</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/Sphinx/">Sphinx</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/">PHP</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Mysql/" rel="tag">Mysql</a>, <a class="article-tag-link" href="/tags/PHP/" rel="tag">PHP</a>, <a class="article-tag-link" href="/tags/Sphinx/" rel="tag">Sphinx</a>, <a class="article-tag-link" href="/tags/Sphinxapi/" rel="tag">Sphinxapi</a>, <a class="article-tag-link" href="/tags/%E5%A4%A7%E7%86%8ABIGBEAR/" rel="tag">大熊BIGBEAR</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/11/12/install-Sphinx-in-Windows-and-use-Sphinxapi-in-php/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.5k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 6(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <meta name="referrer" content="no-referrer" />
+
+<p>&emsp;&emsp;最近一个项目需要实现这样一个需求:mysql数据库一张表中存了百万张菜品图片,需要根据菜品名称或描述,模糊匹配出符合条件的菜品图片,并展示出来</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="built_in">table_name</span> <span class="keyword">where</span> <span class="keyword">column</span> <span class="keyword">like</span> <span class="string">'%鱼香肉丝%'</span>;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;如果像上面那样,直接使用mysql like查询的话,会进行全表扫描,不走索引,大大的影响查询效率,所以开始学习使用<strong>Sphinx全文搜索引擎</strong>,下面记录下第一次配置使用的过程,以及过程中遇到的问题和疑问,望指正.</p>
+<a id="more"></a>
+
+
+<h6 id="1-下载sphinx源码压缩包点击下载"><a href="#1-下载sphinx源码压缩包点击下载" class="headerlink" title="1. 下载sphinx源码压缩包点击下载"></a>1. 下载sphinx源码压缩包<a href="http://sphinxsearch.com/downloads/current/" target="_blank" rel="noopener">点击下载</a></h6><p>按照自己的需求,下载对应的版本,我这里下载的是Windows x64 binaries 3.1.1 版本</p>
+<h6 id="2-下载后的sphinx源码目录"><a href="#2-下载后的sphinx源码目录" class="headerlink" title="2. 下载后的sphinx源码目录"></a>2. 下载后的sphinx源码目录</h6><p><img src="https://upload-images.jianshu.io/upload_images/14618365-57bc4bf34fe6ce13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="sphinx源码目录结构"></p>
+<h6 id="3-配置文件"><a href="#3-配置文件" class="headerlink" title="3.配置文件"></a>3.配置文件</h6><p>打开etc目录,里面有三个文件,example,sql是创建测试表的脚本,我们稍后会用到,sphinx.conf.dist是完整版默认配置,这里我选择了sphinx-min.conf.dist简化版,暂时可以满足需求,复制一份到bin目录下,并且重命名为sphinx.conf.<br><img src="https://upload-images.jianshu.io/upload_images/14618365-eeada956c4180e1c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="etc目录"></p>
+<h6 id="4-sphinx-config文件配置"><a href="#4-sphinx-config文件配置" class="headerlink" title="4. sphinx.config文件配置"></a>4. sphinx.config文件配置</h6><p>配置文件的几个组成部分:</p>
+<ul>
+<li>source 数据源,这里配置你要进行全文检索的数据的来源</li>
+<li>index 索引,从上面的数据源处构建索引,相当于字典检索,要有整本字典内容后才会有索引</li>
+<li>indexer 构建索引,需要重新构建索引时,其实就是调用indexer这个命令</li>
+<li>searchd 提供搜索查询的服务,后台运行<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">source src1 ## src1为数据源命名的名称,可以根据数据源的属性更改</span><br><span class="line">&#123;</span><br><span class="line">    type            = mysql ## 数据源,本项目使用mysql</span><br><span class="line">    sql_host        = localhost ## 数据库服务器,这里因为是测试,使用的是本地数据库</span><br><span class="line">    sql_user        = root # 数据库用户名</span><br><span class="line">    sql_pass        = root # 数据库密码</span><br><span class="line">    sql_db          = hongbao ## 数据库名称,替换成你自己的数据库名称</span><br><span class="line">    sql_port        = <span class="number">3306</span> ## 数据库端口,默认<span class="number">3306</span></span><br><span class="line">    sql_query_pre   = SET NAMES utf8 ## 如果你的数据库不是uft8编码的,注释掉本行</span><br><span class="line">    sql_query       = \ ## 主查询,查询出所有在检索范围的数据</span><br><span class="line">        SELECT id, group_id, UNIX_TIMESTAMP(date_added) AS date_added, title, content \</span><br><span class="line">        FROM documents</span><br><span class="line">    sql_attr_uint       = group_id ## 属性</span><br><span class="line">    sql_attr_timestamp  = date_added ## 属性,可用来排序</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">index test1 ## 索引名称,自行命名</span><br><span class="line">&#123;</span><br><span class="line">    source          = src1 ## 基于这个数据源构建索引</span><br><span class="line">    path            = D:/sphinx/data/ ## 存放索引的目录,自己创建</span><br><span class="line">    charset_table = <span class="number">0.</span><span class="number">.9</span>, A..Z-&gt;a..z, _, a..z, U+<span class="number">410.</span>.U+<span class="number">42</span>F-&gt;U+<span class="number">430.</span>.U+<span class="number">44</span>F, U+<span class="number">430.</span>.U+<span class="number">44</span>F  ##  指定utf<span class="number">-8</span>的编码表</span><br><span class="line">    mlock           = <span class="number">0</span></span><br><span class="line">    morphology      = none ## 词形处理器,如果检索中文用不到,dogs&lt;==&gt;dog</span><br><span class="line">    min_word_len        = <span class="number">1</span> ## 最小索引词长度,小于这个长度的词不会被索引</span><br><span class="line">    ngram_len       = <span class="number">1</span> ## 简单分词,只支持<span class="number">0</span>和<span class="number">1</span>,如果要搜索中文,请指定为<span class="number">1</span></span><br><span class="line">    ngram_chars     = U+<span class="number">3000.</span>.U+<span class="number">2</span>FA1F ## 需要分词的字符,如果要搜索中文,请放开这行</span><br><span class="line">    html_strip      = <span class="number">0</span> ## html标记清理,是否从输出全文数据中去除HTML标记</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">indexer</span><br><span class="line">&#123;</span><br><span class="line">    # memory limit, <span class="keyword">in</span> bytes, kiloytes (<span class="number">16384</span>K) or megabytes (<span class="number">256</span>M)</span><br><span class="line">    # optional, default is <span class="number">128</span>M, max is <span class="number">2047</span>M, recommended is <span class="number">256</span>M to <span class="number">1024</span>M</span><br><span class="line">    mem_limit       = <span class="number">128</span>M ## 建立索引的时候,索引内存限制</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">searchd</span><br><span class="line">&#123;</span><br><span class="line">    listen          = <span class="number">9312</span> ## 监听端口</span><br><span class="line">    listen          = <span class="number">9306</span>:mysql41</span><br><span class="line"></span><br><span class="line">    log         = D:/sphinx/log/searchd.log ## 监听日志</span><br><span class="line">    query_log       = D:/sphinx/log/query.log ## 查询日志</span><br><span class="line">    pid_file        = D:/sphinx/log/searchd.pid ## ## 进程id文件</span><br><span class="line">    read_timeout        = <span class="number">5</span> ## 客户端读超时时间</span><br><span class="line">    client_timeout      = <span class="number">300</span> ## 客户端持久连接超时时间,即客户端读一次以后,持久连接,然后再读一次,中间这个持久连接的时间</span><br><span class="line">    max_children        = <span class="number">30</span> ## 并行执行搜索的数目</span><br><span class="line">    persistent_connections_limit    = <span class="number">30</span></span><br><span class="line">    preopen_indexes     = <span class="number">1</span> ## 索引预开启，是否强制重新打开所有索引文件</span><br><span class="line">    unlink_old      = <span class="number">1</span> ## 索引轮换成功之后，是否删除以.old为扩展名的索引拷贝</span><br><span class="line">    max_packet_size     = <span class="number">8</span>M ## 网络通讯时允许的最大的包的大小</span><br><span class="line">    max_filters     = <span class="number">256</span> ## 每次查询允许设置的过滤器的最大个数</span><br><span class="line">    max_filter_values   = <span class="number">4096</span> ## 单个过滤器允许的值的最大个数</span><br><span class="line">    max_batch_queries   = <span class="number">32</span> ## 每次批量查询的查询数限制</span><br><span class="line">    workers         = threads # for RT to work     多处理模式（MPM）。 可选项；可用值为none、fork、prefork，以及threads。 默认在Unix类系统为form，Windows系统为threads。</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br>
+__注:配置文件更改完成之后,回到根目录新建配置文件中使用到的data和log两个目录__
+
+</li>
+</ul>
+<p>导入源码里提供的示例数据,执行etc目录下的example.sql脚本:<br><img src="https://upload-images.jianshu.io/upload_images/14618365-f72b58fee6c8b94f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="导入测试数据"></p>
+<p>或者使用mysql图形处理界面工具:<br><img src="https://upload-images.jianshu.io/upload_images/14618365-5e7913e3b77827cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="导入测试数据.png"></p>
+<h6 id="5-根据sphinx-conf创建索引"><a href="#5-根据sphinx-conf创建索引" class="headerlink" title="5. 根据sphinx.conf创建索引"></a>5. 根据sphinx.conf创建索引</h6><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">## 构建索引语法:</span><br><span class="line">indexer -c 配置文件 索引名字</span><br></pre></td></tr></table></figure>
+<ul>
+<li>打开windows 命令提示行工具,进入到sphinx/bin目录下</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/14618365-b051e3066904d801.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="根据sphinx.conf创建索引"></p>
+<ul>
+<li>启动sphinx检索服务,后台常驻</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/14618365-4f8b1e2d6cc27b6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="启动"></p>
+<ul>
+<li>查看索引创建情况<br>重新打开一个命令行窗口,</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/14618365-71ee147c00cedb1b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="索引建立情况"></p>
+<h6 id="6-Sphinxapi-php使用-或者安装php扩展"><a href="#6-Sphinxapi-php使用-或者安装php扩展" class="headerlink" title="6. Sphinxapi.php使用(或者安装php扩展)"></a>6. Sphinxapi.php使用(或者安装php扩展)</h6><p>sphinx提供了各种语言的代码,php使用sphinx,只需要引入sphinxapi.php,打开根目录下的api目录,将sphinxapi.php文件复制到你的项目目录下,方便调用</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line">/**</span><br><span class="line"> * Demo.php</span><br><span class="line"> * Create on 2018/8/29 10:42</span><br><span class="line"> * Create by liu</span><br><span class="line"> * Administrator</span><br><span class="line"><span class="php"> */</span></span><br><span class="line"></span><br><span class="line"><span class="php"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span> <span class="keyword">extends</span> <span class="title">CI_Controller</span></span></span></span><br><span class="line"><span class="php">&#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">private</span> $sphinx;</span></span><br><span class="line"><span class="php">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span></span></span><br><span class="line"><span class="php">    &#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">parent</span>::__construct();</span></span><br><span class="line"><span class="php">        <span class="keyword">require_once</span> APPPATH . <span class="string">'libraries/Sphinxapi.php'</span>;</span></span><br><span class="line"><span class="php">        <span class="keyword">$this</span>-&gt;sphinx = <span class="keyword">new</span> SphinxClient();</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="php">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">sphinx</span><span class="params">()</span></span></span></span><br><span class="line"><span class="php">    &#123;</span></span><br><span class="line"><span class="php">        <span class="comment">//设置操作哪个sphinx服务器</span></span></span><br><span class="line"><span class="php">        <span class="keyword">$this</span>-&gt;sphinx-&gt;setServer(<span class="string">'localhost'</span>,<span class="number">9312</span>);</span></span><br><span class="line"><span class="php">        $keyword = <span class="string">"银行"</span>;<span class="comment">//要搜索的关键字</span></span></span><br><span class="line"><span class="php">        $index = <span class="string">'bank'</span>;<span class="comment">//索引名称</span></span></span><br><span class="line"><span class="php">        <span class="comment">//查询出关键字所在的主键id</span></span></span><br><span class="line"><span class="php">        <span class="keyword">$this</span>-&gt;sphinx-&gt;_limit = <span class="number">2000</span>;</span></span><br><span class="line"><span class="php">        $res = <span class="keyword">$this</span>-&gt;sphinx-&gt;Query($keyword,$index);</span></span><br><span class="line"><span class="php">        <span class="keyword">echo</span> <span class="string">'&lt;pre&gt;'</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="php">        <span class="keyword">if</span> (<span class="keyword">isset</span>($res[<span class="string">'matches'</span>]))&#123;</span></span><br><span class="line"><span class="php">            $ids = array_keys($res[<span class="string">'matches'</span>]);</span></span><br><span class="line"><span class="php">            $ids = implode(<span class="string">','</span>,$ids);</span></span><br><span class="line"><span class="php">        &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="php">            print_r(<span class="string">"内容不存在"</span>);</span></span><br><span class="line"><span class="php">            <span class="keyword">return</span>;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        <span class="comment">//获取匹配到的主键id</span></span></span><br><span class="line"><span class="php">        $mysql_con = mysqli_connect(<span class="string">'localhost'</span>,<span class="string">'root'</span>,<span class="string">''</span>,<span class="string">'hongbao'</span>);<span class="comment">//本地数据库</span></span></span><br><span class="line"><span class="php">        mysqli_query($mysql_con,<span class="string">'set name utf8'</span>);</span></span><br><span class="line"><span class="php">        mysqli_query($mysql_con,<span class="string">'use hongbao'</span>);</span></span><br><span class="line"><span class="php">        $sql = <span class="string">"select * from bank where id in ($ids)"</span>;</span></span><br><span class="line"><span class="php">        </span></span><br><span class="line"><span class="php">        $res = mysqli_query($mysql_con,$sql);</span></span><br><span class="line"></span><br><span class="line"><span class="php">        <span class="keyword">while</span> ($row = mysqli_fetch_assoc($res))&#123;</span></span><br><span class="line"><span class="php">            $data[] = $row;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        <span class="keyword">foreach</span> ($data <span class="keyword">as</span> $key =&gt; $v)&#123;</span></span><br><span class="line"></span><br><span class="line"><span class="php">            $v = str_replace($keyword,<span class="string">"&lt;font color='red'&gt;&#123;$keyword&#125;&lt;/font&gt;"</span>,$v);</span></span><br><span class="line"><span class="php">            $data[$key] = $v;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        print_r($data);</span></span><br><span class="line"></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="php">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>代码运行结果<br><img src="https://upload-images.jianshu.io/upload_images/14618365-4ce186161f4e1689.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="代码运行结果"></p>
+
+      
+    </div>
+
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://www.pulsating.cn/2019/11/12/install-Sphinx-in-Windows-and-use-Sphinxapi-in-php/" title="从0到1,Sphinx Windows本地安装及PHP使用Sphinxapi示例" target="_blank" rel="external">http://www.pulsating.cn/2019/11/12/install-Sphinx-in-Windows-and-use-Sphinxapi-in-php/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/liuxiaoyucc" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/liuxiaoyucc" target="_blank"><span class="text-dark">xy&amp;cc</span><small class="ml-1x">程序猿和他的畅夫人</small></a></h3>
+        <div>程序猿和他的畅夫人</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+
+  </article>
+
+
+
+
+  
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2019/11/12/Sphinx-sphinx.conf-analysis/" title="Sphinx 配置文件sphinx.conf配置项全解析"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2019/11/12/install-imagick-extend-and-imagemagick-in-windows-php5.6/" title="Windows+PHP5.6环境下安装imagick扩展和imagemagick"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="wechat,weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/wechatpayimg.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/liuxiaoyucc" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        	</br>
+        	<a href="http://www.beian.miit.gov.cn/" target="_blank" rel="noopener" style="font-size: 10px">黑ICP备19000767号</a>
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '3f444cd96c55b018da3b',
+    clientSecret: '196107507bfaec3f322d25041c3a9411e1d9ea4f',
+    repo: 'xy-blog',
+    owner: 'liuxiaoyucc',
+    admin: ['liuxiaoyucc'],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+  })
+  gitalk.render('comments')
+  </script>
+
+      
+
+
+
+
+
+
+
+  <script type="text/javascript" src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+</body>
+</html>

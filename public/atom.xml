@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="https://www.w3.org/2005/Atom">
+  <title>大熊的个人博客</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://www.pulsating.cn/"/>
+  <updated>2021-03-04T01:52:15.560Z</updated>
+  <id>http://www.pulsating.cn/</id>
+  
+  <author>
+    <name>xy</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Wechat H5 Pay for PHP</title>
+    <link href="http://www.pulsating.cn/2021/03/04/Wechat-H5-Pay-for-PHP/"/>
+    <id>http://www.pulsating.cn/2021/03/04/Wechat-H5-Pay-for-PHP/</id>
+    <published>2021-03-04T01:05:02.000Z</published>
+    <updated>2021-03-04T01:52:15.560Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+
+&lt;p&gt;&lt;strong&gt;十分钟搞定微信H5支付&lt;/strong&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/"/>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="ThinkPHP" scheme="http://www.pulsating.cn/tags/ThinkPHP/"/>
+    
+      <category term="支付" scheme="http://www.pulsating.cn/tags/%E6%94%AF%E4%BB%98/"/>
+    
+      <category term="微信支付" scheme="http://www.pulsating.cn/tags/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/"/>
+    
+      <category term="微信H5支付" scheme="http://www.pulsating.cn/tags/%E5%BE%AE%E4%BF%A1H5%E6%94%AF%E4%BB%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue变化侦测原理</title>
+    <link href="http://www.pulsating.cn/2020/10/12/vue%E5%8F%98%E5%8C%96%E4%BE%A6%E6%B5%8B%E5%8E%9F%E7%90%86/"/>
+    <id>http://www.pulsating.cn/2020/10/12/vue%E5%8F%98%E5%8C%96%E4%BE%A6%E6%B5%8B%E5%8E%9F%E7%90%86/</id>
+    <published>2020-10-12T07:17:24.000Z</published>
+    <updated>2021-03-04T01:14:11.094Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+
+&lt;p&gt;&lt;strong&gt;前几天面试中遇到一个关于vue变化侦测的问题, 今天扛到一篇文章写的很清楚, 搬运一下, 文末注明了原文链接&lt;/strong&gt;&lt;/p&gt;
+&lt;h1 id=&quot;深入浅出-
+      
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="前端" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="JavaScript" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+    
+      <category term="Vue" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/"/>
+    
+    
+      <category term="Js" scheme="http://www.pulsating.cn/tags/Js/"/>
+    
+      <category term="Vue" scheme="http://www.pulsating.cn/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS Enent Loop</title>
+    <link href="http://www.pulsating.cn/2020/10/07/JS-Enent-Loop/"/>
+    <id>http://www.pulsating.cn/2020/10/07/JS-Enent-Loop/</id>
+    <published>2020-10-07T02:59:19.000Z</published>
+    <updated>2021-02-27T08:03:34.905Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+
+&lt;p&gt;搞懂JS的运行机制&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="前端" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="JavaScript" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+    
+    
+      <category term="Js" scheme="http://www.pulsating.cn/tags/Js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mysql 从树形结构表中获取叶子结点数据</title>
+    <link href="http://www.pulsating.cn/2020/06/20/mysql-select-leaf-node-from-tree-structure-data/"/>
+    <id>http://www.pulsating.cn/2020/06/20/mysql-select-leaf-node-from-tree-structure-data/</id>
+    <published>2020-06-20T01:59:36.000Z</published>
+    <updated>2021-02-27T08:03:34.919Z</updated>
+    
+    <summary type="html">
+    
+      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+&gt; 叶子结点 就是出度为0的结点 就是没有子结点的结点
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="Mysql" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/"/>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="Mysql" scheme="http://www.pulsating.cn/tags/Mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Uni-App Android Native Plugin Develop</title>
+    <link href="http://www.pulsating.cn/2020/05/25/uniapp-android-native-plugin-develop/"/>
+    <id>http://www.pulsating.cn/2020/05/25/uniapp-android-native-plugin-develop/</id>
+    <published>2020-05-25T01:54:02.000Z</published>
+    <updated>2021-02-27T08:03:34.921Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+这是我第一次接触原生Android开发, 第一次使用Android Studio, 感觉很吃力, 目前还有很多地方不明所以, 索性最后还是成功了, 所以先写一篇文章记录下开发uni-ap
+      
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="uni-app" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/uni-app/"/>
+    
+      <category term="Android" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/uni-app/Android/"/>
+    
+      <category term="WEEX" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/uni-app/Android/WEEX/"/>
+    
+      <category term="opencv" scheme="http://www.pulsating.cn/categories/opencv/"/>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="uni-app" scheme="http://www.pulsating.cn/tags/uni-app/"/>
+    
+      <category term="WEEX" scheme="http://www.pulsating.cn/tags/WEEX/"/>
+    
+      <category term="Android" scheme="http://www.pulsating.cn/tags/Android/"/>
+    
+      <category term="opencv" scheme="http://www.pulsating.cn/tags/opencv/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ES6中的import和export使用方法</title>
+    <link href="http://www.pulsating.cn/2020/04/06/ES6-import-and-export/"/>
+    <id>http://www.pulsating.cn/2020/04/06/ES6-import-and-export/</id>
+    <published>2020-04-06T05:35:09.000Z</published>
+    <updated>2021-02-27T08:03:34.903Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class
+      
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="前端" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="JavaScript" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+    
+    
+      <category term="Js" scheme="http://www.pulsating.cn/tags/Js/"/>
+    
+      <category term="随手记" scheme="http://www.pulsating.cn/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Composer的安装及使用</title>
+    <link href="http://www.pulsating.cn/2020/01/08/Install-and-use-Composer/"/>
+    <id>http://www.pulsating.cn/2020/01/08/Install-and-use-Composer/</id>
+    <published>2020-01-08T15:00:03.000Z</published>
+    <updated>2021-02-27T08:03:34.905Z</updated>
+    
+    <summary type="html">
+    
+      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+&gt; Composer 是 PHP 用来管理依赖（dependency）关系的工具。你可以在自己的项目中声明所依赖的外部工具库（libraries），Composer 会帮你安装这些依赖的库文件
+
+&lt;p align=&quot;center&quot;&gt;
+    &lt;a href=&quot;https://www.phpcomposer.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;
+        &lt;img width=&quot;400&quot; src=&quot;https://www.phpcomposer.com//assets/img/phpcomposer.png&quot; alt=&quot;Composer logo&quot;&gt;
+    &lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;或许你还没听说过Composer,  亦或听说过 &lt;del&gt;没听过,两万五千里&lt;/del&gt; 而没有使用过, 没关系, 跟着我一起, 用起来&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/"/>
+    
+      <category term="Composer" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/Composer/"/>
+    
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
+    
+      <category term="Composer" scheme="http://www.pulsating.cn/tags/Composer/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sphinx配置多索引</title>
+    <link href="http://www.pulsating.cn/2020/01/08/Sphinx-multi-index-configuration/"/>
+    <id>http://www.pulsating.cn/2020/01/08/Sphinx-multi-index-configuration/</id>
+    <published>2020-01-08T09:50:52.000Z</published>
+    <updated>2021-02-27T08:03:34.912Z</updated>
+    
+    <summary type="html">
+    
+      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+
+
+&lt;p&gt;&lt;strong&gt;之前有写过sphinx的简单使用, 初次接触sphinx的同学可以先了解下, windows和linux都有&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.pulsating.cn/2019/11/12/Sphinx-Linux-install/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Linux下安装sphinx及配置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pulsating.cn/2019/11/12/install-Sphinx-in-Windows-and-use-Sphinxapi-in-php/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Windows下安装sphinx及配置&lt;/a&gt;&lt;br&gt;本文记录以下如何在sphinx的配置文件&lt;code&gt;sphinx.conf&lt;/code&gt;中, 配置多个索引, 并启动服务
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="Mysql" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/"/>
+    
+      <category term="Sphinx" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/Sphinx/"/>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
+    
+      <category term="Mysql" scheme="http://www.pulsating.cn/tags/Mysql/"/>
+    
+      <category term="Sphinx" scheme="http://www.pulsating.cn/tags/Sphinx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用命令行执行CI控制器中的函数</title>
+    <link href="http://www.pulsating.cn/2020/01/07/Run-CI-method-in-cli/"/>
+    <id>http://www.pulsating.cn/2020/01/07/Run-CI-method-in-cli/</id>
+    <published>2020-01-07T15:29:56.000Z</published>
+    <updated>2021-02-27T08:03:34.911Z</updated>
+    
+    <summary type="html">
+    
+      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;有些时候我们在执行一些长时间的任务的时候, 使用浏览器运行是很不友好的, 看不到实时输出, 时间过长浏览器还会超时, 这时候就需要在命令行中来执行&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/"/>
+    
+      <category term="CI" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/CI/"/>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
+    
+      <category term="CI" scheme="http://www.pulsating.cn/tags/CI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>美味的糖醋排骨, 一次成功, 超级好吃</title>
+    <link href="http://www.pulsating.cn/2020/01/06/sweet-and-sour-spareribs/"/>
+    <id>http://www.pulsating.cn/2020/01/06/sweet-and-sour-spareribs/</id>
+    <published>2020-01-06T13:38:12.000Z</published>
+    <updated>2021-02-27T08:03:34.920Z</updated>
+    
+    <summary type="html">
+    
+      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;每个周末, 都要想办法犒劳一下自己, 的胃, 刚好畅大人想吃糖醋排骨, 得! 那就来吧, 没想到以前一做就砸, 这次竟然成功了, 牛B, 记录一下&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="日常" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="美食" scheme="http://www.pulsating.cn/tags/%E7%BE%8E%E9%A3%9F/"/>
+    
+      <category term="食谱" scheme="http://www.pulsating.cn/tags/%E9%A3%9F%E8%B0%B1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解决PHP CI(CodeIgniter)框架使用insert_batch()批量插入时unique列冲突导致操作失败的问题</title>
+    <link href="http://www.pulsating.cn/2019/12/27/Custom-CI-insert-batch/"/>
+    <id>http://www.pulsating.cn/2019/12/27/Custom-CI-insert-batch/</id>
+    <published>2019-12-27T15:32:39.000Z</published>
+    <updated>2021-02-27T08:03:34.902Z</updated>
+    
+    <summary type="html">
+    
+      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;在CI中, 有时我们想将很多条数据, 批量插入到数据库中, 我们知道有&lt;a href=&quot;https://codeigniter.org.cn/user_guide/database/query_builder.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;insert_batch()&lt;/a&gt;这个函数, 但是如果insert_batch时, 遇到了mysql中的UNIQUE约束, 就会导致插入失败, 并回滚, 那么我们该如何让其跳过冲突的列, 并继续执行下面的数据呢?&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/"/>
+    
+      <category term="CI" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/CI/"/>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
+    
+      <category term="CI" scheme="http://www.pulsating.cn/tags/CI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>心血来潮,迟到的煮红酒</title>
+    <link href="http://www.pulsating.cn/2019/12/27/Late-boiled-wine/"/>
+    <id>http://www.pulsating.cn/2019/12/27/Late-boiled-wine/</id>
+    <published>2019-12-27T14:13:14.000Z</published>
+    <updated>2021-02-27T08:03:34.906Z</updated>
+    
+    <summary type="html">
+    
+      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;下班路上突然想起来圣诞节那天看到个微博热搜, 煮红酒, 突然间就好想试一下呀, 刚好家里还剩下的红酒, 说干就干, 吃过晚饭之后就到超市准备水果啦! 紧跟潮流!&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="日常" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="美食" scheme="http://www.pulsating.cn/tags/%E7%BE%8E%E9%A3%9F/"/>
+    
+      <category term="食谱" scheme="http://www.pulsating.cn/tags/%E9%A3%9F%E8%B0%B1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mysql max_allowed_packet 设置</title>
+    <link href="http://www.pulsating.cn/2019/12/26/Mysql-max_allowed_packet-setting/"/>
+    <id>http://www.pulsating.cn/2019/12/26/Mysql-max_allowed_packet-setting/</id>
+    <published>2019-12-26T14:05:48.000Z</published>
+    <updated>2021-02-27T08:03:34.908Z</updated>
+    
+    <summary type="html">
+    
+      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;max_allowed_packet&lt;/strong&gt; 限制着你的mysql serve接收的数据包大小, 如果insert或者update时数据过大,超出max_allowed_packet的限制,mysql会抛出错误导致操作失败,那么我们来看下如何查看和设置max_allowed_packet&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="Mysql" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/"/>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="Mysql" scheme="http://www.pulsating.cn/tags/Mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mysql table import and export 快速导出导入</title>
+    <link href="http://www.pulsating.cn/2019/12/20/Mysql-table-import-and-export/"/>
+    <id>http://www.pulsating.cn/2019/12/20/Mysql-table-import-and-export/</id>
+    <published>2019-12-20T13:44:13.000Z</published>
+    <updated>2021-02-27T08:03:34.909Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;!-- &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt; --&gt;
+
+&lt;h2 id=&quot;导出&quot;&gt;&lt;a href=&quot;#导出&quot; class=&quot;headerlink&quot; title=&quot;导出&quot;&gt;&lt;/a&gt;导出&lt;/h2&gt;&lt;figure class=&quot;h
+      
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="Mysql" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/"/>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="Mysql" scheme="http://www.pulsating.cn/tags/Mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS实现首字母排序</title>
+    <link href="http://www.pulsating.cn/2019/11/22/First-letter-sort-use-JS/"/>
+    <id>http://www.pulsating.cn/2019/11/22/First-letter-sort-use-JS/</id>
+    <published>2019-11-22T08:56:10.000Z</published>
+    <updated>2021-02-27T08:03:34.904Z</updated>
+    
+    <summary type="html">
+    
+      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+
+&lt;p&gt;一个按照姓名首字母排序的功能,支持数字,字母,符号,中文混合排序&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="前端" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="JavaScript" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+    
+      <category term="Vue" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/"/>
+    
+    
+      <category term="前端" scheme="http://www.pulsating.cn/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="JavaScript" scheme="http://www.pulsating.cn/tags/JavaScript/"/>
+    
+      <category term="Vue" scheme="http://www.pulsating.cn/tags/Vue/"/>
+    
+      <category term="排序" scheme="http://www.pulsating.cn/tags/%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GD库实现图片合并</title>
+    <link href="http://www.pulsating.cn/2019/11/15/Use-GD-library-to-implement-image-merge/"/>
+    <id>http://www.pulsating.cn/2019/11/15/Use-GD-library-to-implement-image-merge/</id>
+    <published>2019-11-15T15:24:42.000Z</published>
+    <updated>2021-02-27T08:03:34.913Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;!-- &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt; --&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/"/>
+    
+      <category term="图像处理" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
+    
+      <category term="GD" scheme="http://www.pulsating.cn/tags/GD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue动态绑定ref</title>
+    <link href="http://www.pulsating.cn/2019/11/13/Vue-dynamically-binds-ref/"/>
+    <id>http://www.pulsating.cn/2019/11/13/Vue-dynamically-binds-ref/</id>
+    <published>2019-11-13T01:54:18.000Z</published>
+    <updated>2021-02-27T08:03:34.915Z</updated>
+    
+    <summary type="html">
+    
+      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;记录一下动态绑定及使用ref的方法&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="前端" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="JavaScript" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+    
+      <category term="Vue" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/"/>
+    
+      <category term="uni-app" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/uni-app/"/>
+    
+      <category term="WEEX" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/WEEX/"/>
+    
+    
+      <category term="Js" scheme="http://www.pulsating.cn/tags/Js/"/>
+    
+      <category term="随手记" scheme="http://www.pulsating.cn/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/"/>
+    
+      <category term="Vue" scheme="http://www.pulsating.cn/tags/Vue/"/>
+    
+      <category term="uni-app" scheme="http://www.pulsating.cn/tags/uni-app/"/>
+    
+      <category term="WEEX" scheme="http://www.pulsating.cn/tags/WEEX/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用imagemagick实现两张或多张图片图片拼接 覆盖</title>
+    <link href="http://www.pulsating.cn/2019/11/12/Using-imagemagick-to-achieve-the-splicing-of-two-or-more-pictures/"/>
+    <id>http://www.pulsating.cn/2019/11/12/Using-imagemagick-to-achieve-the-splicing-of-two-or-more-pictures/</id>
+    <published>2019-11-12T15:40:50.000Z</published>
+    <updated>2021-02-27T08:03:34.914Z</updated>
+    
+    <summary type="html">
+    
+      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;Imagemagick&lt;/code&gt;是一个强大的图像处理库,号称命令行上的photoshop&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.pulsating.cn/2019/11/15/Use-GD-library-to-implement-image-merge/&quot;&gt;使用GD扩展实现和本篇文章相同的效果&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pulsating.cn/2019/11/12/install-imagick-extend-and-imagemagick-in-windows-php5.6/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;php的imagick扩展和imagemagick的安装教程&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&quot;1-问题场景&quot;&gt;&lt;a href=&quot;#1-问题场景&quot; class=&quot;headerlink&quot; title=&quot;1. 问题场景&quot;&gt;&lt;/a&gt;1. 问题场景&lt;/h5&gt;&lt;p&gt;&amp;emsp;&amp;emsp;在进行手上的一个海报项目时,遇到了这样一个需求:&lt;br&gt;&amp;emsp;&amp;emsp;如图,在用户制作一张海报后,最后保存的时候,图片主体&lt;code&gt;body&lt;/code&gt;是用户制作的海报,&lt;code&gt;footer&lt;/code&gt;是由左右两张二维码组成的,左边为公众号的带参数二维码,右侧是用户自定义的二维码,美工提供一张通用的footer模版,程序来负责动态将二维码替换上去,最终拼接成下面图片示例的样子&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/"/>
+    
+      <category term="图像处理" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
+    
+      <category term="imagick" scheme="http://www.pulsating.cn/tags/imagick/"/>
+    
+      <category term="Imagemagick" scheme="http://www.pulsating.cn/tags/Imagemagick/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ThinkPHP5框架搭建</title>
+    <link href="http://www.pulsating.cn/2019/11/12/Getting-started-with-thinkphp5/"/>
+    <id>http://www.pulsating.cn/2019/11/12/Getting-started-with-thinkphp5/</id>
+    <published>2019-11-12T15:38:23.000Z</published>
+    <updated>2021-02-27T08:03:34.904Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+
+&lt;p&gt;&lt;code&gt;thinkphp&lt;/code&gt;基于&lt;strong&gt;&lt;code&gt;MVC&lt;/code&gt;&lt;/strong&gt;的方式来组织,MVC是一种经典的程序设计理念,此模式将你的项目分成
+      
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/"/>
+    
+      <category term="ThinkPHP" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/ThinkPHP/"/>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
+    
+      <category term="ThinkPHP" scheme="http://www.pulsating.cn/tags/ThinkPHP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PHP 单色位图取模</title>
+    <link href="http://www.pulsating.cn/2019/11/12/PHP-monochrome-bitmap-module/"/>
+    <id>http://www.pulsating.cn/2019/11/12/PHP-monochrome-bitmap-module/</id>
+    <published>2019-11-12T15:24:09.000Z</published>
+    <updated>2021-02-27T08:03:34.911Z</updated>
+    
+    <summary type="html">
+    
+      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+
+&lt;p&gt;&lt;strong&gt;2018-11-27日更新:&lt;/strong&gt;&lt;br&gt;&amp;emsp;&amp;emsp;由于没有找到生成&lt;code&gt;.bmp&lt;/code&gt;格式图片的好办法,改为使用&lt;code&gt;.wbmp&lt;/code&gt;格式,转换和读取都改为&lt;code&gt;.wbmp&lt;/code&gt;格式,原来的&lt;code&gt;bmp2hex&lt;/code&gt;函数逻辑没有变化,改名为&lt;code&gt;wbmp2hex&lt;/code&gt;,并不再使用&lt;code&gt;ImageCreateFromBMP&lt;/code&gt;函数,可以收藏一下这个函数还是有用的,最新的代码我也提供了下载在文章末尾&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/"/>
+    
+      <category term="GD" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/GD/"/>
+    
+      <category term="图像处理" scheme="http://www.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://www.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="PHP" scheme="http://www.pulsating.cn/tags/PHP/"/>
+    
+      <category term="GD" scheme="http://www.pulsating.cn/tags/GD/"/>
+    
+      <category term="pctoLCD2002" scheme="http://www.pulsating.cn/tags/pctoLCD2002/"/>
+    
+      <category term="bmp" scheme="http://www.pulsating.cn/tags/bmp/"/>
+    
+      <category term="位图" scheme="http://www.pulsating.cn/tags/%E4%BD%8D%E5%9B%BE/"/>
+    
+  </entry>
+  
+</feed>

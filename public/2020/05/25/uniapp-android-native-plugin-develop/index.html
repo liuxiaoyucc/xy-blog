@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Uni-App Android Native Plugin Develop | 大熊BIGBEAR的个人博客</title>
+  <meta name="description" content="这是我第一次接触原生Android开发, 第一次使用Android Studio, 感觉很吃力, 目前还有很多地方不明所以, 索性最后还是成功了, 所以先写一篇文章记录下开发uni-app android原生插件及在uni-app中集成使用的过程, 文章会结合两个具体实例来完成, 供大家参考    环境这里仅说明本文使用的开发环境, 版本不一定非要一致, 但是不知道会不会出现问题  JDK1.8">
+<meta name="keywords" content="大熊BIGBEAR,uni-app,WEEX,Android,opencv">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Uni-App Android Native Plugin Develop">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.pulsating.cn&#x2F;2020&#x2F;05&#x2F;25&#x2F;uniapp-android-native-plugin-develop&#x2F;index.html">
+<meta property="og:site_name" content="大熊的个人博客">
+<meta property="og:description" content="这是我第一次接触原生Android开发, 第一次使用Android Studio, 感觉很吃力, 目前还有很多地方不明所以, 索性最后还是成功了, 所以先写一篇文章记录下开发uni-app android原生插件及在uni-app中集成使用的过程, 文章会结合两个具体实例来完成, 供大家参考    环境这里仅说明本文使用的开发环境, 版本不一定非要一致, 但是不知道会不会出现问题  JDK1.8">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;android_sdk_dir.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;import_uni_plugin.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;select_uni_plugin.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;dev_item.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;1590385032.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;c563ebca5dc4b336408ac42482cb237.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;1590385607.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;1590386478.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;1590386524%281%29.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;1590387148.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;1590387076.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;image-20200525141745073.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;image-20200525144028783.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;image-20200525145104711.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;image-20200525150337879.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;image-20200525150521090.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;image-20200525151005406.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;image-20200525151357167.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;image-20200525153835150.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;image-20200525154358654.png">
+<meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200601104329137.png">
+<meta property="og:image" content="c:&#x2F;Users&#x2F;Administrator&#x2F;AppData&#x2F;Roaming&#x2F;Typora&#x2F;typora-user-images&#x2F;image-20200601105021393.png">
+<meta property="og:image" content="c:&#x2F;Users&#x2F;Administrator&#x2F;AppData&#x2F;Roaming&#x2F;Typora&#x2F;typora-user-images&#x2F;image-20200601111732541.png">
+<meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200601111935162.png">
+<meta property="og:updated_time" content="2021-02-27T08:03:34.921Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;ccliuxy-image.oss-cn-beijing.aliyuncs.com&#x2F;android_sdk_dir.jpg">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://www.pulsating.cn/2020/05/25/uniapp-android-native-plugin-develop/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="大熊的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/fav.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
+  
+	  
+<script data-ad-client="ca-pub-2287074960345236" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+</head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/liuxiaoyucc" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">xy&amp;cc</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">程序猿和他的畅夫人</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> SuZhou, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-charitable">
+          <a href="/charitable">
+            
+            <i class="icon icon-eye-fill"></i>
+            
+            <span class="menu-title">404公益</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/liuxiaoyucc" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+
+
+  </div>
+
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>控制早晨, 方能控制人生!</p>
+            </div>
+        </div>
+    </div>
+</div>
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/opencv/">opencv</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><span class="category-list-count">34</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Blog/">Blog</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Blog/Hexo/">Hexo</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/">Mysql</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/Mysql%E5%9F%BA%E7%A1%80/">Mysql基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/Sphinx/">Sphinx</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/">PHP</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/CI/">CI</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/Composer/">Composer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/GD/">GD</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/ThinkPHP/">ThinkPHP</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/uni-app/">uni-app</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/uni-app/Android/">Android</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/uni-app/Android/WEEX/">WEEX</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/">JavaScript</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/JQuery-UI/">JQuery UI</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/JQuery-UI/autocomplete/">autocomplete</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/">Vue</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/WEEX/">WEEX</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/uni-app/">uni-app</a><span class="category-list-count">1</span></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">图像处理</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E6%97%A5%E5%B8%B8/">日常</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E6%9D%82/">杂</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Andriod/" rel="tag">Andriod</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CI/" rel="tag">CI</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Composer/" rel="tag">Composer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECHO-JS/" rel="tag">ECHO JS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GD/" rel="tag">GD</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Imagemagick/" rel="tag">Imagemagick</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JQuery/" rel="tag">JQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery-WEUI/" rel="tag">Jquery WEUI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Js/" rel="tag">Js</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql%E5%9F%BA%E7%A1%80/" rel="tag">Mysql基础</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/" rel="tag">PHP</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SPA/" rel="tag">SPA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sphinx/" rel="tag">Sphinx</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sphinxapi/" rel="tag">Sphinxapi</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkPHP/" rel="tag">ThinkPHP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WEEX/" rel="tag">WEEX</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WeUI/" rel="tag">WeUI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/" rel="tag">adb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/article/" rel="tag">article</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bmp/" rel="tag">bmp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/imagick/" rel="tag">imagick</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opencv/" rel="tag">opencv</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pctoLCD2002/" rel="tag">pctoLCD2002</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/uni-app/" rel="tag">uni-app</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%8D%E5%9B%BE/" rel="tag">位图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E7%86%8ABIGBEAR/" rel="tag">大熊BIGBEAR</a><span class="tag-list-count">28</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BB%BA%E7%AB%99/" rel="tag">建站</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1H5%E6%94%AF%E4%BB%98/" rel="tag">微信H5支付</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/" rel="tag">微信支付</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%87%92%E5%8A%A0%E8%BD%BD/" rel="tag">懒加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%94%AF%E4%BB%98/" rel="tag">支付</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BE%8E%E9%A3%9F/" rel="tag">美食</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" rel="tag">随手记</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A3%9F%E8%B0%B1/" rel="tag">食谱</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Andriod/" style="font-size: 13px;">Andriod</a> <a href="/tags/Android/" style="font-size: 13px;">Android</a> <a href="/tags/CI/" style="font-size: 13.17px;">CI</a> <a href="/tags/Composer/" style="font-size: 13px;">Composer</a> <a href="/tags/ECHO-JS/" style="font-size: 13px;">ECHO JS</a> <a href="/tags/GD/" style="font-size: 13.17px;">GD</a> <a href="/tags/Imagemagick/" style="font-size: 13.17px;">Imagemagick</a> <a href="/tags/JQuery/" style="font-size: 13px;">JQuery</a> <a href="/tags/JavaScript/" style="font-size: 13.5px;">JavaScript</a> <a href="/tags/Jquery-WEUI/" style="font-size: 13px;">Jquery WEUI</a> <a href="/tags/Js/" style="font-size: 13.5px;">Js</a> <a href="/tags/Linux/" style="font-size: 13px;">Linux</a> <a href="/tags/Mysql/" style="font-size: 13.83px;">Mysql</a> <a href="/tags/Mysql%E5%9F%BA%E7%A1%80/" style="font-size: 13.67px;">Mysql基础</a> <a href="/tags/PHP/" style="font-size: 13.83px;">PHP</a> <a href="/tags/SPA/" style="font-size: 13px;">SPA</a> <a href="/tags/Sphinx/" style="font-size: 13.5px;">Sphinx</a> <a href="/tags/Sphinxapi/" style="font-size: 13.17px;">Sphinxapi</a> <a href="/tags/ThinkPHP/" style="font-size: 13.17px;">ThinkPHP</a> <a href="/tags/Vue/" style="font-size: 13.33px;">Vue</a> <a href="/tags/WEEX/" style="font-size: 13.17px;">WEEX</a> <a href="/tags/WeUI/" style="font-size: 13px;">WeUI</a> <a href="/tags/adb/" style="font-size: 13px;">adb</a> <a href="/tags/article/" style="font-size: 13px;">article</a> <a href="/tags/bmp/" style="font-size: 13px;">bmp</a> <a href="/tags/imagick/" style="font-size: 13.17px;">imagick</a> <a href="/tags/opencv/" style="font-size: 13px;">opencv</a> <a href="/tags/pctoLCD2002/" style="font-size: 13px;">pctoLCD2002</a> <a href="/tags/uni-app/" style="font-size: 13.17px;">uni-app</a> <a href="/tags/%E4%BD%8D%E5%9B%BE/" style="font-size: 13px;">位图</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13.5px;">前端</a> <a href="/tags/%E5%A4%A7%E7%86%8ABIGBEAR/" style="font-size: 14px;">大熊BIGBEAR</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 13px;">建站</a> <a href="/tags/%E5%BE%AE%E4%BF%A1H5%E6%94%AF%E4%BB%98/" style="font-size: 13px;">微信H5支付</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/" style="font-size: 13px;">微信支付</a> <a href="/tags/%E6%87%92%E5%8A%A0%E8%BD%BD/" style="font-size: 13px;">懒加载</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 13px;">排序</a> <a href="/tags/%E6%94%AF%E4%BB%98/" style="font-size: 13px;">支付</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 13px;">教程</a> <a href="/tags/%E7%BE%8E%E9%A3%9F/" style="font-size: 13.17px;">美食</a> <a href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" style="font-size: 13.17px;">随手记</a> <a href="/tags/%E9%A3%9F%E8%B0%B1/" style="font-size: 13.17px;">食谱</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">20</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2021/03/04/Wechat-H5-Pay-for-PHP/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/">PHP</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/03/04/Wechat-H5-Pay-for-PHP/" class="title">Wechat H5 Pay for PHP</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-03-04T01:05:02.000Z" itemprop="datePublished">2021-03-04</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2020/10/12/vue%E5%8F%98%E5%8C%96%E4%BE%A6%E6%B5%8B%E5%8E%9F%E7%90%86/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/">前端</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/10/12/vue%E5%8F%98%E5%8C%96%E4%BE%A6%E6%B5%8B%E5%8E%9F%E7%90%86/" class="title">vue变化侦测原理</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-10-12T07:17:24.000Z" itemprop="datePublished">2020-10-12</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2020/10/07/JS-Enent-Loop/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/">前端</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/10/07/JS-Enent-Loop/" class="title">JS Enent Loop</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-10-07T02:59:19.000Z" itemprop="datePublished">2020-10-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2020/06/20/mysql-select-leaf-node-from-tree-structure-data/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/">Mysql</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/06/20/mysql-select-leaf-node-from-tree-structure-data/" class="title">mysql 从树形结构表中获取叶子结点数据</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-06-20T01:59:36.000Z" itemprop="datePublished">2020-06-20</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2020/05/25/uniapp-android-native-plugin-develop/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/opencv/">opencv</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/uni-app/">uni-app</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/05/25/uniapp-android-native-plugin-develop/" class="title">Uni-App Android Native Plugin Develop</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-25T01:54:02.000Z" itemprop="datePublished">2020-05-25</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-uniapp-android-native-plugin-develop" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Uni-App Android Native Plugin Develop
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/05/25/uniapp-android-native-plugin-develop/" class="article-date">
+	  <time datetime="2020-05-25T01:54:02.000Z" itemprop="datePublished">2020-05-25</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/opencv/">opencv</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/uni-app/">uni-app</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/uni-app/Android/">Android</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/uni-app/Android/WEEX/">WEEX</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Android/" rel="tag">Android</a>, <a class="article-tag-link" href="/tags/WEEX/" rel="tag">WEEX</a>, <a class="article-tag-link" href="/tags/opencv/" rel="tag">opencv</a>, <a class="article-tag-link" href="/tags/uni-app/" rel="tag">uni-app</a>, <a class="article-tag-link" href="/tags/%E5%A4%A7%E7%86%8ABIGBEAR/" rel="tag">大熊BIGBEAR</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/05/25/uniapp-android-native-plugin-develop/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.4k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 10(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <meta name="referrer" content="no-referrer" />
+这是我第一次接触原生Android开发, 第一次使用Android Studio, 感觉很吃力, 目前还有很多地方不明所以, 索性最后还是成功了, 所以先写一篇文章记录下开发uni-app android原生插件及在uni-app中集成使用的过程, 文章会结合两个具体实例来完成, 供大家参考
+
+
+
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>这里仅说明本文使用的开发环境, 版本不一定非要一致, 但是不知道会不会出现问题</p>
+<ul>
+<li><p>JDK1.8 <strong>官网推荐 jdk1.7+(最优1.8)</strong></p>
+</li>
+<li><p>Android SDK</p>
+</li>
+<li><p><a href="https://developer.android.google.cn/studio/index.html" target="_blank" rel="noopener">Android Studio</a> </p>
+<p>目前用的最新版3.6.3</p>
+</li>
+<li><p><a href="https://nativesupport.dcloud.net.cn/AppDocs/download/android" target="_blank" rel="noopener">App离线SDK</a></p>
+<p>建议使用最新版, 最好同时使用对应版本的HbuilderX</p>
+</li>
+<li><p>科学上网</p>
+<p>想想办法</p>
+</li>
+</ul>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h4 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h4><p>uni原生插件, 是为了补足uni-app项目的功能, 或者进一步提高APP性能, 基于开源项目<a href="https://weex.apache.org/cn/guide/index.html" target="_blank" rel="noopener">weex</a>架构</p>
+<h4 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h4><p>根据不同需求, uni原生插件可分为两个模式</p>
+<ul>
+<li>Module模式<ul>
+<li>能力扩展，无嵌入窗体的UI控件。大部分插件都是属于此类，比如调用计步器API。代码写法为通过js进行require，然后调用该插件对象的方法。如涉及一些弹出框、全屏ui，也仍然属于Module模式。类似于前端里的js sdk</li>
+</ul>
+</li>
+<li>Component模式<ul>
+<li>在窗体中内嵌显示某个原生ui组件。比如窗体局部内嵌某个地图厂商的map组件，上下混排其他前端内容，就需要把这个原生地图sdk封装为Componet模式。代码写法与vue组件相同，在template里写组件标签。类似于前端里的vue组件。</li>
+</ul>
+</li>
+</ul>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><ol>
+<li>vue页面中仅支持使用Module类型的原生插件，且不支持调用同步方法返回数据</li>
+<li>nvue页面中支持使用Module和Component两种类型的原生插件</li>
+</ol>
+<p><strong>本文仅涉及到Module模式</strong></p>
+<h2 id="了解官方示例"><a href="#了解官方示例" class="headerlink" title="了解官方示例"></a>了解官方示例</h2><h4 id="Android离线sdk"><a href="#Android离线sdk" class="headerlink" title="Android离线sdk"></a>Android离线sdk</h4><h5 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h5><p>我这里下载的是2.6.16版本, 如果不想使用最新版, 可以在Dcloud提供的网盘下载历史版本</p>
+<h5 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h5><p><img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/android_sdk_dir.jpg" alt="android_sdk"></p>
+<ul>
+<li><p><strong>UniPlugin-Hello-AS</strong>: </p>
+<p>Android Studio环境离线打包带扩展插件演示应用, 本文的主角</p>
+</li>
+<li><p>SDK: </p>
+<p>SDK库文件, 在libs中</p>
+</li>
+<li><p>HBuilder-Hello: </p>
+<p>离线打包演示应用</p>
+</li>
+<li><p>HBuilder-Integrate-AS: </p>
+<p>5+ SDK 集成和插件开发示例</p>
+</li>
+</ul>
+<h5 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h5><ol>
+<li>File-&gt;New-&gt;Import Project</li>
+</ol>
+<p><img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/import_uni_plugin.jpg" alt="import"></p>
+<ol start="2">
+<li>找到离线sdk目录, 将<strong>UniPlugin-Hello-AS</strong>项目导入, 点击ok, 等待build结束</li>
+</ol>
+<p>   <img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/select_uni_plugin.jpg" alt="import"></p>
+<h4 id="运行示例"><a href="#运行示例" class="headerlink" title="运行示例"></a>运行示例</h4><ol>
+<li>数据线将手机连接电脑上, 开启开发者选项, 打开USB调试及允许USB安装应用, 请自行google或百度你的机型如何开启, HbuilderX中也有如何真机调试的教程</li>
+</ol>
+<img width="300" src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/dev_item.jpg">
+
+
+
+<ol start="2">
+<li>Android Studio中将项目运行到真机, 选择app, 及你的手机型号, 点击右侧绿色三角运行</li>
+</ol>
+<p><img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/1590385032.jpg" alt="image-20200525133704600"></p>
+<ol start="3">
+<li>运行成功可以在你连接的手机上看到运行起来的app, 有这样三个部分, 分别对应着项目中的三个库, 也可以说是三个插件</li>
+</ol>
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/c563ebca5dc4b336408ac42482cb237.png" style="zoom:30%;" />
+
+
+
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/1590385607.jpg" style="zoom:50%;" />
+
+
+
+<h4 id="生成本地打包资源"><a href="#生成本地打包资源" class="headerlink" title="生成本地打包资源"></a>生成本地打包资源</h4><p>左上角代码视图调整到Android, 依次打开app/assets/apps/__UNI__BCEC007/www目录, 我们看到的是编译后的uni-app项目, 那么要如何编译呢?</p>
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/1590386478.jpg" style="zoom:50%;" />
+
+
+
+<p>我们将代码视图调整为Project, 看到有个名为<strong><code>uniapp示例工程源码</code></strong>的目录, 展开后看到了我们熟悉的uni-app项目结构</p>
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/1590386524%281%29.jpg" style="zoom:50%;" />
+
+
+
+<p>将其unipluginDemo项目使用HbuilderX打开, 打开manifest.json重新获取一下AppID</p>
+<p><img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/1590387148.jpg" alt="image-20200525141333374"></p>
+<p>依次点击发行-&gt;原生app本地打包, 生成本地打包app资源</p>
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/1590387076.jpg" style="zoom:80%;" />
+
+
+
+<p>等待控制台提示导出成功, 打开unpackage/resources目录可以看到app资源已经生成好了</p>
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525141745073.png" alt="image-20200525141745073" style="zoom:67%;" />
+
+
+
+<p>将以AppID命名的目录复制, 放到上面第1步提到的<code>app/assets/apps</code>目录下, 并修改<code>app/assets/data/dcloud_control.xml</code>中的appid为你自己的appid, 点击运行, 现在运行的就是刚刚编译好的app资源, 原有的__UNI__BCEC007目录可以删掉啦</p>
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525144028783.png" alt="image-20200525144028783" style="zoom: 67%;" />
+
+
+
+<p>app内的扩展module下的三个按钮的点击事件, 分别调用了<code>uniplugin_module\src\main\java\io\dcloud\uniplugin\TestModule.java</code>内的三个方法</p>
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525145104711.png" alt="image-20200525145104711" style="zoom: 67%;" />
+
+
+
+<h2 id="插件开发"><a href="#插件开发" class="headerlink" title="插件开发"></a>插件开发</h2><p>前面使用的是官方提供的示例项目及原生插件, 现在需要自己动手开发一个插件</p>
+<h4 id="创建插件"><a href="#创建插件" class="headerlink" title="创建插件"></a>创建插件</h4><p>点击Android Studio File-&gt;New-&gt;New Module</p>
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525150337879.png" alt="image-20200525150337879" style="zoom:80%;" />
+
+
+
+<p>选择Android Library, 点击Next</p>
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525150521090.png" alt="image-20200525150521090" style="zoom:50%;" />
+
+
+
+<p>自定义库名, 模块名, 包名, 语言选择Java, Minimum SDK选择API 19, 新手可以和图中保持一致, 避免出错, 点击Finish</p>
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525151005406.png" alt="image-20200525151005406" style="zoom:50%;" />
+
+<p>等待Build成功, 可以看到左侧项目管理器可以看到创建的插件</p>
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525151357167.png" alt="image-20200525151357167" style="zoom: 67%;" />
+
+
+
+<h4 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h4><p>打开openfile的<code>build.gradle</code>, 将<code>dependencies</code>节点下内容删除, 替换成下面内容</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    implementation fileTree(dir: 'libs', include: ['*.jar'])</span><br><span class="line">    </span><br><span class="line">    compileOnly 'com.android.support:recyclerview-v7:27.1.0'</span><br><span class="line">    compileOnly 'com.android.support:support-v4:27.1.0'</span><br><span class="line">    compileOnly 'com.android.support:appcompat-v7:27.1.0'</span><br><span class="line">    compileOnly 'com.alibaba:fastjson:1.1.46.android'</span><br><span class="line">    compileOnly fileTree(dir: '../app/libs', include: ['uniapp-release.aar'])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在dependencies同级添加<code>repositories</code>节点</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">repositories &#123;</span><br><span class="line">    flatDir &#123;</span><br><span class="line">        dirs 'libs'</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>点击AS右上角Sync Now, 等待同步成功</p>
+<h4 id="创建Module类"><a href="#创建Module类" class="headerlink" title="创建Module类"></a>创建Module类</h4><p>在<code>com.bigbear.openfile</code>下新建Java Class, </p>
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525153835150.png" alt="image-20200525153835150" style="zoom: 67%;" />
+
+<p>填写类名, 继承WXModule, 点击OK</p>
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525154358654.png" alt="image-20200525154358654" style="zoom:67%;" />
+
+
+
+<p>编写一个init函数, 测试一下能否正常使用. 代码如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.bigbear.openfile;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.util.Log;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSONObject;</span><br><span class="line"><span class="keyword">import</span> com.taobao.weex.annotation.JSMethod;</span><br><span class="line"><span class="keyword">import</span> com.taobao.weex.bridge.JSCallback;</span><br><span class="line"><span class="keyword">import</span> com.taobao.weex.common.WXModule;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OpenFileModule</span> <span class="keyword">extends</span> <span class="title">WXModule</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String TAG = <span class="string">"BIGBEAR"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@JSMethod</span>(uiThread = <span class="keyword">true</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(JSONObject options, JSCallback callback)</span> </span>&#123;</span><br><span class="line">        Log.e(TAG, <span class="string">"testinit: "</span> + options);</span><br><span class="line">        <span class="keyword">if</span>(callback != <span class="keyword">null</span>) &#123;</span><br><span class="line">            JSONObject data = <span class="keyword">new</span> JSONObject();</span><br><span class="line">            data.put(<span class="string">"code"</span>, <span class="number">0</span>);</span><br><span class="line">            callback.invoke(data);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="注册插件"><a href="#注册插件" class="headerlink" title="注册插件"></a>注册插件</h4><p>打开<code>app/assets/dcloud_uniplugins.json</code>文件, 在<code>nativePlugins</code>节点下新增</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="attr">"hooksClass"</span>: <span class="string">""</span>,</span><br><span class="line">   <span class="attr">"plugins"</span>: [</span><br><span class="line">     &#123;</span><br><span class="line">       <span class="attr">"type"</span>: <span class="string">"module"</span>,</span><br><span class="line">       <span class="attr">"name"</span>: <span class="string">"OpenFile"</span>,</span><br><span class="line">       <span class="attr">"class"</span>: <span class="string">"com.bigbear.openfile.OpenFileModule"</span></span><br><span class="line">     &#125;</span><br><span class="line">   ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="原生工程中调用插件方法进行调试"><a href="#原生工程中调用插件方法进行调试" class="headerlink" title="原生工程中调用插件方法进行调试"></a>原生工程中调用插件方法进行调试</h4><p>新建一个uni-app项目, 或者使用现有的项目, 在页面中引入插件, 并添加一个按钮触发init方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;view&gt;</span><br><span class="line">		&lt;button type=&quot;primary&quot; @click=&quot;testInit&quot;&gt;testInit&lt;/button&gt;</span><br><span class="line">	&lt;/view&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">	// 引入 module </span><br><span class="line">	const OpenFile = uni.requireNativePlugin(&quot;OpenFile&quot;)</span><br><span class="line">	export default &#123;</span><br><span class="line">		onLoad() &#123;</span><br><span class="line">			</span><br><span class="line">		&#125;,</span><br><span class="line">		methods: &#123;</span><br><span class="line">			testInit() &#123;</span><br><span class="line">				OpenFile.init(&#123;a:1, b:2&#125;, res=&gt; &#123; //调用插件中刚编写的init方法</span><br><span class="line">					console.log(res);</span><br><span class="line">				&#125;)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a href="#生成本地打包资源">生成本地打包APP资源</a>, 并且将其放入原生工程目录下, 可参考前面说过的步骤完成, 记得保证<code>dcloud_control.xml</code>中的appid和uniapp项目的appid一致</p>
+<p><strong>在app的build.gradle中添加插件</strong></p>
+<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">implementation</span> <span class="function"><span class="title">project</span>(<span class="string">':openfile'</span>)</span></span><br></pre></td></tr></table></figure>
+
+<p>点击RUN 按钮运行app, 点击测试按钮, 可以在logcat中看见我们打印出的传递过来的参数</p>
+<p>logcat中的日志很乱, 筛选一下方便查看</p>
+<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200601104329137.png" alt="image-20200601104329137"></p>
+<h4 id="openfile功能"><a href="#openfile功能" class="headerlink" title="openfile功能"></a>openfile功能</h4><p>这个功能想必大部分人都用过, 就是在使用 微信, QQ打开文件的时候, 我们想使用其他应用打开, 方便我们编辑或查看文档, 那么你会见到这个弹窗 </p>
+<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200601105021393.png" alt="image-20200601105021393" style="zoom: 33%;" />
+
+<p>那么, 我们要做的, 就是将你自己开发的uni-app项目, 添加到这个列表中</p>
+<h5 id="AndroidManifest-xml"><a href="#AndroidManifest-xml" class="headerlink" title="AndroidManifest.xml"></a>AndroidManifest.xml</h5><p>打开openfile下的<code>AndroidManifest.xml</code>文件, 修改成下面的样子</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">manifest</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">package</span>=<span class="string">"com.bigbear.openfile"</span> &gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">application</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:allowBackup</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:supportsRtl</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">"com.bigbear.openfile.OpenFileActivity"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:theme</span>=<span class="string">"@style/Theme.AppCompat.Dialog"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.VIEW"</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.SEND"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">                <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.DEFAULT"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">                <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.BROWSABLE"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">                <span class="tag">&lt;<span class="name">data</span> <span class="attr">android:scheme</span>=<span class="string">"http"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">data</span> <span class="attr">android:scheme</span>=<span class="string">"https"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">				</span><br><span class="line">                <span class="tag">&lt;<span class="name">data</span> <span class="attr">android:scheme</span>=<span class="string">"file"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">data</span> <span class="attr">android:scheme</span>=<span class="string">"content"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">                <span class="tag">&lt;<span class="name">data</span> <span class="attr">android:mimeType</span>=<span class="string">"text/plain"</span> /&gt;</span> <span class="comment">&lt;!--txt--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">data</span> <span class="attr">android:mimeType</span>=<span class="string">"text/xml"</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">data</span> <span class="attr">android:mimeType</span>=<span class="string">"text/csv"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">                <span class="tag">&lt;<span class="name">data</span> <span class="attr">android:mimeType</span>=<span class="string">"application/msword"</span> /&gt;</span> <span class="comment">&lt;!--doc--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">data</span> <span class="attr">android:mimeType</span>=<span class="string">"application/vnd.openxmlformats-officedocument.wordprocessingml.document"</span> /&gt;</span> <span class="comment">&lt;!--docx--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">data</span> <span class="attr">android:mimeType</span>=<span class="string">"application/vnd.ms-powerpoint"</span> /&gt;</span> <span class="comment">&lt;!--ppt--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">data</span> <span class="attr">android:mimeType</span>=<span class="string">"application/vnd.openxmlformats-officedocument.presentationml.presentation"</span> /&gt;</span> <span class="comment">&lt;!--pptx--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">data</span> <span class="attr">android:mimeType</span>=<span class="string">"application/vnd.ms-excel"</span> /&gt;</span><span class="comment">&lt;!--xls--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">data</span> <span class="attr">android:mimeType</span>=<span class="string">"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"</span> /&gt;</span><span class="comment">&lt;!--xlsx--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">data</span> <span class="attr">android:mimeType</span>=<span class="string">"application/json"</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">data</span> <span class="attr">android:mimeType</span>=<span class="string">"application/pdf"</span> /&gt;</span> <span class="comment">&lt;!--pdf--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">data</span> <span class="attr">android:mimeType</span>=<span class="string">"application/xml"</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">data</span> <span class="attr">android:mimeType</span>=<span class="string">"application/vnd.ms-works"</span> /&gt;</span> <span class="comment">&lt;!--wps--&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">application</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="OpenFileActivity"><a href="#OpenFileActivity" class="headerlink" title="OpenFileActivity"></a>OpenFileActivity</h5><p>在<code>com.bigbear.openfile</code>下新建<code>OpenFileActivity.java</code>, 在<code>onCreate</code>中获取其他应用打开你的应用时传递过来的文件路径, 然后通过scheme唤起你的uni-app应用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.bigbear.openfile;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.content.Intent;</span><br><span class="line"><span class="keyword">import</span> android.net.Uri;</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.os.Environment;</span><br><span class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OpenFileActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        System.out.println(<span class="string">"----------*******************************onCreate**************************-------------"</span>);</span><br><span class="line">        System.out.println(<span class="string">"----------*******************************openfile**************************-------------"</span>);</span><br><span class="line"></span><br><span class="line">        Intent intent = getIntent();</span><br><span class="line">        Uri uri = intent.getData();</span><br><span class="line">        <span class="keyword">assert</span> uri != <span class="keyword">null</span>;</span><br><span class="line">        String path = uri.getPath();</span><br><span class="line">        String _uri;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="string">"content"</span>.equals(uri.getScheme()) &amp;&amp; path != <span class="keyword">null</span> ) &#123;</span><br><span class="line">            <span class="keyword">if</span> (path.startsWith(<span class="string">"/external/"</span>)) &#123; <span class="comment">//wechat</span></span><br><span class="line">                path = Environment.getExternalStorageDirectory().getAbsolutePath() + path.replace(<span class="string">"/external"</span>, <span class="string">""</span>);</span><br><span class="line">                _uri = <span class="string">"file://"</span> + path;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> (path.startsWith(<span class="string">"/external_files/"</span>)) &#123; <span class="comment">//qq</span></span><br><span class="line">                path = path.replace(<span class="string">"/external_files"</span>, <span class="string">""</span>);</span><br><span class="line">                _uri = <span class="string">"file://"</span> + path;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                _uri = uri + <span class="string">""</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;<span class="keyword">else</span>  &#123;</span><br><span class="line">            _uri = uri + <span class="string">""</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(_uri);</span><br><span class="line">        Uri open_uri = Uri.parse(<span class="string">"abc://"</span>+ _uri); <span class="comment">//这里的abc是你给uniapp项目设置的scheme</span></span><br><span class="line">        Intent _intent = <span class="keyword">new</span> Intent(Intent.ACTION_VIEW, open_uri);</span><br><span class="line">        startActivity(_intent);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"----------***************************************************"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>重新运行, 在微信中或者qq中找一个文件, 选择用其他应用打开, 可以看到, 我们的测试app已经出现在了列表中</p>
+<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200601111732541.png" alt="image-20200601111732541" style="zoom:33%;" />
+
+<p>选择HBuilder-integrate-AS打开, 应用会自动打开跳转到我们在代码中写的scheme的应用中, 同时logcat中看下打印出的内容, 我们也已经获取到了文件的链接</p>
+<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200601111935162.png" alt="image-20200601111935162"></p>
+<h4 id="集成插件到uniapp"><a href="#集成插件到uniapp" class="headerlink" title="集成插件到uniapp"></a>集成插件到uniapp</h4><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><p><a href="https://nativesupport.dcloud.net.cn/NativePlugin/README" target="_blank" rel="noopener">uni-app原生插件开发文档</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/37974829" target="_blank" rel="noopener">Android SDK下载安装及配置教程</a></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://www.pulsating.cn/2020/05/25/uniapp-android-native-plugin-develop/" title="Uni-App Android Native Plugin Develop" target="_blank" rel="external">http://www.pulsating.cn/2020/05/25/uniapp-android-native-plugin-develop/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/liuxiaoyucc" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/liuxiaoyucc" target="_blank"><span class="text-dark">xy&amp;cc</span><small class="ml-1x">程序猿和他的畅夫人</small></a></h3>
+        <div>程序猿和他的畅夫人</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+
+  </article>
+
+
+
+
+  
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2020/06/20/mysql-select-leaf-node-from-tree-structure-data/" title="mysql 从树形结构表中获取叶子结点数据"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2020/04/06/ES6-import-and-export/" title="ES6中的import和export使用方法"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="wechat,weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/wechatpayimg.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/liuxiaoyucc" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        	</br>
+        	<a href="http://www.beian.miit.gov.cn/" target="_blank" rel="noopener" style="font-size: 10px">黑ICP备19000767号</a>
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '3f444cd96c55b018da3b',
+    clientSecret: '196107507bfaec3f322d25041c3a9411e1d9ea4f',
+    repo: 'xy-blog',
+    owner: 'liuxiaoyucc',
+    admin: ['liuxiaoyucc'],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+  })
+  gitalk.render('comments')
+  </script>
+
+      
+
+
+
+
+
+
+
+  <script type="text/javascript" src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+</body>
+</html>
