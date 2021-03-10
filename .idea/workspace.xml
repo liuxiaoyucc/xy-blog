@@ -33,8 +33,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4629c910-dcec-4924-a911-110ea040b52b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/source/_data/friends.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/js/FunnyTitle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/2019/11/12/Check-android-mobile-refresh-rate-in-real-time/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/11/12/Check-android-mobile-refresh-rate-in-real-time/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/2019/11/12/Determine-the-device-or-platform-used-by-UserAgent/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/11/12/Determine-the-device-or-platform-used-by-UserAgent/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/2019/11/12/Getting-started-with-thinkphp5/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/11/12/Getting-started-with-thinkphp5/index.html" afterDir="false" />
@@ -89,7 +93,7 @@
       <change beforePath="$PROJECT_DIR$/public/archives/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/archives/page/2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/page/2/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/archives/page/3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/page/3/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/atom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/public/atom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/baidusitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/public/baidusitemap.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/categories/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/categories/opencv/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/opencv/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/Blog/Hexo/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/Blog/Hexo/index.html" afterDir="false" />
@@ -122,13 +126,11 @@
       <change beforePath="$PROJECT_DIR$/public/charitable/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/charitable/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/contact/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/contact/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/content.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/content.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/friend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/friend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/matery.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/matery.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/friend/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/friends/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/friends/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/links/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/links/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/medias/avatar.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/medias/avatar.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/medias/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/medias/logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/page/2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/page/2/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/page/3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/page/3/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/repository/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/repository/index.html" afterDir="false" />
@@ -180,10 +182,15 @@
       <change beforePath="$PROJECT_DIR$/public/tags/美食/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/美食/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/tags/随手记/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/随手记/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/tags/食谱/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/食谱/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/PHP-monochrome-bitmap-module.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/PHP-monochrome-bitmap-module.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/about/index-1.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/about/index-1.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/about/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/about/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/contact/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/contact/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/friend/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/friends/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/friends/index.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/favicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/favicon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/medias/avatar.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/medias/avatar.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/medias/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/medias/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/layout.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/layout/layout.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/css/matery.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/css/matery.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,6 +199,13 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -231,7 +245,7 @@
       <workItem from="1614906157063" duration="7788000" />
       <workItem from="1615163918501" duration="32000" />
       <workItem from="1615279056268" duration="2696000" />
-      <workItem from="1615338379184" duration="1266000" />
+      <workItem from="1615338379184" duration="7511000" />
     </task>
     <servers />
   </component>

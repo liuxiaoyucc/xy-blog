@@ -2,37 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.pulsating.cn/2021/03/09/Ali-H5-Pay-for-PHP/</loc>
-    
-    <lastmod>2021-03-10T02:28:31.489Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.pulsating.cn/friends/index.html</loc>
-    
-    <lastmod>2021-03-09T09:12:57.943Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.pulsating.cn/friend/index.html</loc>
-    
-    <lastmod>2021-03-09T09:11:46.479Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://blog.pulsating.cn/contact/index.html</loc>
     
-    <lastmod>2021-03-09T09:11:28.855Z</lastmod>
+    <lastmod>2021-03-10T07:06:09.096Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.pulsating.cn/about/index.html</loc>
+    
+    <lastmod>2021-03-10T06:31:00.255Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://blog.pulsating.cn/about/index-1.html</loc>
     
-    <lastmod>2021-03-09T09:11:14.650Z</lastmod>
+    <lastmod>2021-03-10T06:30:06.531Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.pulsating.cn/friends/index.html</loc>
+    
+    <lastmod>2021-03-10T06:23:52.774Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.pulsating.cn/2019/11/12/PHP-monochrome-bitmap-module/</loc>
+    
+    <lastmod>2021-03-10T05:41:41.161Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.pulsating.cn/2021/03/09/Ali-H5-Pay-for-PHP/</loc>
+    
+    <lastmod>2021-03-10T02:28:31.489Z</lastmod>
     
   </url>
   
@@ -89,13 +96,6 @@
     <loc>http://blog.pulsating.cn/categories/index.html</loc>
     
     <lastmod>2021-02-27T08:03:34.936Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.pulsating.cn/about/index.html</loc>
-    
-    <lastmod>2021-02-27T08:03:34.922Z</lastmod>
     
   </url>
   
@@ -194,13 +194,6 @@
     <loc>http://blog.pulsating.cn/2020/01/08/Sphinx-multi-index-configuration/</loc>
     
     <lastmod>2021-02-27T08:03:34.912Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.pulsating.cn/2019/11/12/PHP-monochrome-bitmap-module/</loc>
-    
-    <lastmod>2021-02-27T08:03:34.911Z</lastmod>
     
   </url>
   

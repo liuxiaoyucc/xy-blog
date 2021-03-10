@@ -1,7 +1,8 @@
 ---
 title: 关于
 description: 个人简介
-layout: about
+layout: "about"
+type: "about"
 comments: false
 sidebar: custom
 translate_title: 'on'

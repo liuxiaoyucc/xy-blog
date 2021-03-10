@@ -67,7 +67,7 @@ dream:
   enable: true
   showTitle: true
   title: 我的梦想
-  text: 不是每个人都应该像我这样去建造一座水晶大教堂，但是每个人都应该拥有自己的梦想，设计自己的梦想，追求自己的梦想，实现自己的梦想。梦想是生命的灵魂，是心灵的灯塔，是引导人走向成功的信仰。有了崇高的梦想，只要矢志不渝地追求，梦想就会成为现实，奋斗就会变成壮举，生命就会创造奇迹。——罗伯·舒乐
+  text: 路漫漫其修远兮，吾将上下而求索
 
 # Whether to display the musics.
 # 是否在首页显示音乐.
@@ -169,7 +169,7 @@ reward:
 # minCharNumber: Approve copyright information by copying at least how many characters.
 # 是否激活复制文章时追加博客和作者的版权信息.
 copyright:
-  enable: false
+  enable: true
   minCharNumber: 120 # 至少复制多少个字符就追加版权信息.
   description: 本文章著作权归作者所有，任何形式的转载都请注明出处。
 
@@ -283,13 +283,13 @@ postCalendar: true
 # the Gitalk config，default disabled
 # Gitalk 评论模块的配置，默认为不激活
 gitalk:
-  enable: false
-  owner:
-  repo:
+  enable: true
+  owner: liuxiaoyucc
+  repo: xy-blog
   oauth:
-    clientId:
-    clientSecret:
-  admin:
+    clientId: 3f444cd96c55b018da3b
+    clientSecret: 196107507bfaec3f322d25041c3a9411e1d9ea4f
+  admin: liuxiaoyucc
 
 # the Gitment config，default disabled
 # Gitment 评论模块的配置，默认为不激活
