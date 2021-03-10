@@ -8,7 +8,7 @@
       <link href="2021/03/09/Ali-H5-Pay-for-PHP/"/>
       <url>2021/03/09/Ali-H5-Pay-for-PHP/</url>
       
-        <content type="html"><![CDATA[<h1 id="十分钟搞定支付宝H5支付-ThinkPHP5-1"><a href="#十分钟搞定支付宝H5支付-ThinkPHP5-1" class="headerlink" title="十分钟搞定支付宝H5支付(ThinkPHP5.1)"></a>十分钟搞定支付宝H5支付(ThinkPHP5.1)</h1>]]></content>
+        <content type="html"><![CDATA[<h1 id="十分钟搞定支付宝H5支付-ThinkPHP5-1"><a href="#十分钟搞定支付宝H5支付-ThinkPHP5-1" class="headerlink" title="十分钟搞定支付宝H5支付(ThinkPHP5.1)"></a>十分钟搞定支付宝H5支付(ThinkPHP5.1)</h1><p>记录下接入支付宝H5支付的过程</p><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ol><li>开通手机网站支付的支付宝账号</li><li>入驻支付宝开放平台新建<strong>网页&amp;移动应用</strong>并签约</li></ol>]]></content>
       
       
       <categories>
