@@ -33,12 +33,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4629c910-dcec-4924-a911-110ea040b52b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/medias/reward/alipay.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/medias/reward/wechat.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/2019/11/12/Check-android-mobile-refresh-rate-in-real-time/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/11/12/Check-android-mobile-refresh-rate-in-real-time/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/2019/11/12/Determine-the-device-or-platform-used-by-UserAgent/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/11/12/Determine-the-device-or-platform-used-by-UserAgent/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/2019/11/12/Getting-started-with-thinkphp5/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/11/12/Getting-started-with-thinkphp5/index.html" afterDir="false" />
@@ -73,13 +69,15 @@
       <change beforePath="$PROJECT_DIR$/public/2020/10/07/JS-Enent-Loop/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2020/10/07/JS-Enent-Loop/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/2020/10/12/vue变化侦测原理/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2020/10/12/vue变化侦测原理/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/2021/03/04/Wechat-H5-Pay-for-PHP/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2021/03/04/Wechat-H5-Pay-for-PHP/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2021/03/09/Ali-H5-Pay-for-PHP/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2021/03/09/Ali-H5-Pay-for-PHP/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/404/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/404/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/about/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/about/index-1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/about/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/about/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/archives/2019/11/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2019/11/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/archives/2019/11/page/2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2019/11/page/2/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/archives/2019/12/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2019/12/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/archives/2019/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2019/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/archives/2019/page/2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2019/page/2/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/archives/2019/page/3/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/archives/2020/01/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2020/01/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/archives/2020/04/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2020/04/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/archives/2020/05/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2020/05/index.html" afterDir="false" />
@@ -91,10 +89,7 @@
       <change beforePath="$PROJECT_DIR$/public/archives/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/archives/page/2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/page/2/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/archives/page/3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/page/3/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/archives/page/4/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/atom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/public/atom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/baidu_urls.txt" beforeDir="false" afterPath="$PROJECT_DIR$/public/baidu_urls.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/baidusitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/public/baidusitemap.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/categories/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/categories/opencv/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/opencv/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/Blog/Hexo/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/Blog/Hexo/index.html" afterDir="false" />
@@ -103,17 +98,14 @@
       <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/Mysql/Mysql基础/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/Mysql/Mysql基础/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/Mysql/Sphinx/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/Mysql/Sphinx/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/Mysql/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/Mysql/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/Mysql/page/2/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/PHP/CI/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/PHP/CI/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/PHP/Composer/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/PHP/Composer/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/PHP/GD/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/PHP/GD/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/PHP/ThinkPHP/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/PHP/ThinkPHP/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/PHP/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/PHP/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/PHP/page/2/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/page/2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/page/2/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/page/3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/page/3/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/page/4/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/uni-app/Android/WEEX/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/uni-app/Android/WEEX/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/uni-app/Android/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/uni-app/Android/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/uni-app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/uni-app/index.html" afterDir="false" />
@@ -128,34 +120,17 @@
       <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/日常/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/日常/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/杂/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/大熊BIGBEAR/杂/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/charitable/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/charitable/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/contact/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/contact/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/content.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/content.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fav.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/favicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/README.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/iconfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/iconfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/iconfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/iconfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/avatar-old.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/favatar/SzsFox-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/favatar/chuangzaoshi-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/favatar/idesign-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/thumb-default.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/xingqiu-qrcode.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/friend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/friend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/friends/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/friends/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/application.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/application.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/insight.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/plugin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/plugin.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/plugin.min.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/links/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/links/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/medias/avatar.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/medias/avatar.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/medias/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/medias/logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/page/2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/page/2/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/page/3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/page/3/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/page/4/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/repository/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/repository/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/sitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/public/sitemap.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/tags/Andriod/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Andriod/index.html" afterDir="false" />
@@ -171,10 +146,8 @@
       <change beforePath="$PROJECT_DIR$/public/tags/Js/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Js/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/tags/Linux/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Linux/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/tags/Mysql/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Mysql/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/Mysql/page/2/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/tags/Mysql基础/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Mysql基础/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/tags/PHP/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/PHP/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/PHP/page/2/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/tags/SPA/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/SPA/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/tags/Sphinx/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Sphinx/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/tags/Sphinxapi/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Sphinxapi/index.html" afterDir="false" />
@@ -201,10 +174,16 @@
       <change beforePath="$PROJECT_DIR$/public/tags/懒加载/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/懒加载/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/tags/排序/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/排序/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/tags/支付/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/支付/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/支付宝H5支付/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/支付宝H5支付/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/tags/支付宝支付/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/支付宝支付/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/tags/教程/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/教程/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/tags/美食/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/美食/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/tags/随手记/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/随手记/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/tags/食谱/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/食谱/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/_config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/favicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/favicon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/medias/avatar.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/medias/avatar.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/medias/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/medias/logo.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,13 +204,15 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/themes/hexo-theme-matery/source/medias/reward" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/themes/hexo-theme-matery/source/medias" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspace\mine\xy-blog\themes\hexo-theme-matery\source\medias" />
+      <recent name="D:\workspace\mine\xy-blog\themes\hexo-theme-matery\source" />
       <recent name="D:\workspace\mine\xy-blog\themes\hexo-theme-matery\source\medias\reward" />
     </key>
   </component>
@@ -249,7 +230,8 @@
       <workItem from="1614823598131" duration="13000" />
       <workItem from="1614906157063" duration="7788000" />
       <workItem from="1615163918501" duration="32000" />
-      <workItem from="1615279056268" duration="2190000" />
+      <workItem from="1615279056268" duration="2696000" />
+      <workItem from="1615338379184" duration="1266000" />
     </task>
     <servers />
   </component>
@@ -266,15 +248,16 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="551" y="304" key="SettingsEditor" timestamp="1614820557429">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="551" y="304" key="SettingsEditor/0.30.1920.1050@0.30.1920.1050" timestamp="1614820557429" />
-    <state x="663" y="271" width="594" height="568" key="find.popup" timestamp="1615281248000">
+    <state x="663" y="271" width="594" height="568" key="find.popup" timestamp="1615338864216">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="663" y="271" width="594" height="568" key="find.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1615281248000" />
+    <state x="663" y="271" width="594" height="568" key="find.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1615338864216" />
   </component>
 </project>
