@@ -33,8 +33,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4629c910-dcec-4924-a911-110ea040b52b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/_config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hexo-theme-matery/source/medias/logo.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +69,7 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\workspace\mine\xy-blog\themes\hexo-theme-matery\source\medias" />
+      <recent name="D:\workspace\mine\xy-blog\themes\hexo-theme-matery\source\medias\banner" />
       <recent name="D:\workspace\mine\xy-blog\themes\hexo-theme-matery\source" />
       <recent name="D:\workspace\mine\xy-blog\themes\hexo-theme-matery\source\medias\reward" />
     </key>
@@ -89,7 +89,7 @@
       <workItem from="1614906157063" duration="7788000" />
       <workItem from="1615163918501" duration="32000" />
       <workItem from="1615279056268" duration="2696000" />
-      <workItem from="1615338379184" duration="8135000" />
+      <workItem from="1615338379184" duration="8632000" />
     </task>
     <servers />
   </component>
