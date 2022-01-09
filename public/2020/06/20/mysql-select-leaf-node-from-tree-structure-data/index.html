@@ -29,8 +29,6 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0">
-<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="大熊的个人博客" type="application/atom+xml">
 </head>
 
@@ -474,14 +472,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-27
+                    2022-01-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    98
+                    97
                 </div>
                 
 
@@ -511,9 +509,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                &gt; 叶子结点 就是出度为0的结点 就是没有子结点的结点
+                <meta name="referrer" content="no-referrer" />
+> 叶子结点 就是出度为0的结点 就是没有子结点的结点
 
-<span id="more"></span>
+<a id="more"></a>
 <p>先记录下sql, 后面详细说明</p>
 <p>catalogue是一张存储着书籍目录的表</p>
 <p>主要字段包括</p>
@@ -525,14 +524,13 @@
 <li><p>book_id 对应的书籍id</p>
 </li>
 </ul>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select b.* 
+<pre><code class="mysql">select b.* 
 from catalogue a 
 right join catalogue b 
 on a.parent_id = b.id
 where b.book_id = 555
 group by b.id 
-having count(a.id) = 0;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+having count(a.id) = 0;</code></pre>
 
                 
             </div>
@@ -1131,7 +1129,7 @@ having count(a.id) = 0;<span aria-hidden="true" class="line-numbers-rows"><span>
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2021</span>
+                <span id="year">2019-2022</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">大熊</a>
@@ -1140,7 +1138,7 @@ having count(a.id) = 0;<span aria-hidden="true" class="line-numbers-rows"><span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">28.7k</span>&nbsp;字
+                class="white-color">31k</span>&nbsp;字
             
             
             
@@ -1366,6 +1364,6 @@ $(function () {
             document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ好哦！",st=setTimeout(function(){document.title=OriginTitile},3e3))
         })
     </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.9},"log":false});</script></body>
+</body>
 
 </html>

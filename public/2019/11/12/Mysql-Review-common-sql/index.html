@@ -29,8 +29,6 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0">
-<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="大熊的个人博客" type="application/atom+xml">
 </head>
 
@@ -482,14 +480,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-27
+                    2020-01-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    673
+                    687
                 </div>
                 
 
@@ -519,7 +517,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="一-综合"><a href="#一-综合" class="headerlink" title="一. 综合"></a>一. 综合</h3><ol>
+                <meta name="referrer" content="no-referrer" />
+
+<h3 id="一-综合"><a href="#一-综合" class="headerlink" title="一. 综合"></a>一. 综合</h3><ol>
 <li>使用<strong>.sql</strong>脚本 <code>SOURCE + 脚本路径;</code></li>
 <li>打开数据库 <code>USE database;</code></li>
 <li>显示所有数据库名称 <code>SHOW databases;</code> </li>
@@ -607,40 +607,34 @@
 </ul>
 <p>11.使用通配符进行过滤<br>通配符(wildcard) 用来匹配值的一部分的特殊字符.<br>搜索模式(search pattern) 由字面值,通配符,或两者组合构成的搜索条件.</p>
 <ul>
-<li>百分号%通配符,可以在搜索模式的任意位置使用任意个通配符,<pre class="line-numbers language-none"><code class="language-none">SELECT * FROM table_name WHERE username LIKE 'rise%'; ##检索以rise开头的用户名 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>下划线_通配符,用途和%一样,但是只能匹配单个字符而不是多个<pre class="line-numbers language-none"><code class="language-none">SELECT * FROM table_name WHERE price LIKE '_000'; ##检索出价格为1000,2000等的商品 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-</li>
+<li>百分号%通配符,可以在搜索模式的任意位置使用任意个通配符,<pre><code>SELECT * FROM table_name WHERE username LIKE &#39;rise%&#39;; ##检索以rise开头的用户名 </code></pre></li>
+<li>下划线_通配符,用途和%一样,但是只能匹配单个字符而不是多个<pre><code>SELECT * FROM table_name WHERE price LIKE &#39;_000&#39;; ##检索出价格为1000,2000等的商品 </code></pre></li>
 </ul>
 <p>不要过度使用通配符,并且尽量不要在搜索模式的开始出使用,搜索速度巨慢!</p>
 <ol start="11">
-<li>Mysql使用正则表达式<pre class="line-numbers language-none"><code class="language-none">SELECT * FROM table_name WHERE prod_name REGEXP '正则表达式'; <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-</li>
+<li>Mysql使用正则表达式<pre><code>SELECT * FROM table_name WHERE prod_name REGEXP &#39;正则表达式&#39;; </code></pre></li>
 </ol>
 <h5 id="计算字段"><a href="#计算字段" class="headerlink" title="计算字段"></a>计算字段</h5><ol start="12">
 <li><strong>Concat()</strong>拼接两个列   </li>
 </ol>
-<pre class="line-numbers language-none"><code class="language-none">## 将两个列拼接起来,变成一个新字段vend-title,类似  '值name(location) '的形式,同时去掉两个字段右侧的空格.
+<pre><code>## 将两个列拼接起来,变成一个新字段vend-title,类似  &#39;值name(location) &#39;的形式,同时去掉两个字段右侧的空格.
 ## RTrim(),LTrim(),Trim()
 ## AS 用as赋予别名 (又叫导出列)
-SELECT Concat(RTrim(vend_name) , ' (', RTrim(vend_country), ') ') AS vend_title 
+SELECT Concat(RTrim(vend_name) , &#39; (&#39;, RTrim(vend_country), &#39;) &#39;) AS vend_title 
 FROM vendors
-ORDER BY vend_name;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ol start="13">
-<li>执行算术计算<pre class="line-numbers language-none"><code class="language-none">##通过单价和数量两个列运算出商品总价并形成一个新字段 expanded_price
+ORDER BY vend_name;</code></pre><ol start="13">
+<li>执行算术计算<pre><code>##通过单价和数量两个列运算出商品总价并形成一个新字段 expanded_price
 SELECT prod_id,
-       quantity,
-       item_price,
-       quantity * item_price AS expanded_price
+   quantity,
+   item_price,
+   quantity * item_price AS expanded_price
 FROM orderitems
-WHERE order_num = 20005;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+WHERE order_num = 20005;</code></pre></li>
 <li>测试计算</li>
 </ol>
-<pre class="line-numbers language-none"><code class="language-none">SELECT 3 * 2;
-SELECT Trim('abc');
-SELECT Now();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre><code>SELECT 3 * 2;
+SELECT Trim(&#39;abc&#39;);
+SELECT Now();</code></pre>
                 
             </div>
             <hr/>
@@ -1234,7 +1228,7 @@ SELECT Now();<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2021</span>
+                <span id="year">2019-2022</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">大熊</a>
@@ -1243,7 +1237,7 @@ SELECT Now();<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">28.7k</span>&nbsp;字
+                class="white-color">31k</span>&nbsp;字
             
             
             
@@ -1469,6 +1463,6 @@ $(function () {
             document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ好哦！",st=setTimeout(function(){document.title=OriginTitile},3e3))
         })
     </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.9},"log":false});</script></body>
+</body>
 
 </html>

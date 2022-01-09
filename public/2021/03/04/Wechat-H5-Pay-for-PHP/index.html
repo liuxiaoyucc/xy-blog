@@ -29,8 +29,6 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0">
-<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="大熊的个人博客" type="application/atom+xml">
 </head>
 
@@ -486,21 +484,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-05
+                    2022-01-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.3k
+                    2.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    13 分
                 </div>
                 
 
@@ -523,265 +521,266 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="十分钟搞定微信H5支付-ThinkPHP5-1"><a href="#十分钟搞定微信H5支付-ThinkPHP5-1" class="headerlink" title="十分钟搞定微信H5支付(ThinkPHP5.1)"></a>十分钟搞定微信H5支付(ThinkPHP5.1)</h1><p>之前接过的支付都是jssdk支付, 也就是在微信浏览器环境下的支付, 这次有个项目需要对接微信H5支付, 这里记录下</p>
+                <meta name="referrer" content="no-referrer" />
+
+<h1 id="十分钟搞定微信H5支付-ThinkPHP5-1"><a href="#十分钟搞定微信H5支付-ThinkPHP5-1" class="headerlink" title="十分钟搞定微信H5支付(ThinkPHP5.1)"></a>十分钟搞定微信H5支付(ThinkPHP5.1)</h1><p>之前接过的支付都是jssdk支付, 也就是在微信浏览器环境下的支付, 这次有个项目需要对接微信H5支付, 这里记录下</p>
 <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ol>
 <li>首先微信公众号要开通微信支付功能, 并绑定商户号</li>
 <li>开通微信H5支付服务, 审核大概需要1天左右</li>
 </ol>
 <h2 id="代码部分"><a href="#代码部分" class="headerlink" title="代码部分"></a>代码部分</h2><h4 id="配置参数"><a href="#配置参数" class="headerlink" title="配置参数"></a>配置参数</h4><p>在<code>config</code>目录下, 新建<code>wechat.php</code>文件, 写入如下配置</p>
-<pre class="line-numbers language-php" data-language="php"><code class="language-php">
-<span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
-<span class="token comment">/**
+<pre><code class="php">
+&lt;?php
+/**
  * 微信配置参数
- */</span>
-<span class="token keyword">return</span> <span class="token punctuation">[</span>
-    <span class="token string single-quoted-string">'auth'</span> <span class="token operator">=&gt;</span> <span class="token punctuation">[</span>
-        <span class="token string single-quoted-string">'appid'</span> <span class="token operator">=&gt;</span> <span class="token string single-quoted-string">''</span><span class="token punctuation">,</span>
-        <span class="token string single-quoted-string">'appsecret'</span><span class="token operator">=&gt;</span> <span class="token string single-quoted-string">''</span><span class="token punctuation">,</span>
-    <span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token string single-quoted-string">'pay'</span> <span class="token operator">=&gt;</span> <span class="token punctuation">[</span> <span class="token comment">// 微信支付用这里的参数</span>
-        <span class="token string single-quoted-string">'appid'</span><span class="token operator">=&gt;</span> <span class="token string single-quoted-string">'APPID'</span><span class="token punctuation">,</span>
-        <span class="token string single-quoted-string">'mch_id'</span><span class="token operator">=&gt;</span> <span class="token string single-quoted-string">'MCH_ID'</span><span class="token punctuation">,</span> <span class="token comment">// 商户号</span>
-        <span class="token string single-quoted-string">'notify_url'</span><span class="token operator">=&gt;</span> <span class="token string single-quoted-string">''</span><span class="token punctuation">,</span> <span class="token comment">// 支付结果通知地址, 填写你接收通知的url</span>
-        <span class="token string single-quoted-string">'key'</span><span class="token operator">=&gt;</span> <span class="token string single-quoted-string">'E918BB87E7BF1B73359AA378550A2598'</span><span class="token punctuation">,</span> <span class="token comment">// 这个key是在商户平台配置的好像, 随便生成一个md5就可以</span>
-    <span class="token punctuation">]</span>
-<span class="token punctuation">]</span><span class="token punctuation">;</span>
-</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+ */
+return [
+    &#39;auth&#39; =&gt; [
+        &#39;appid&#39; =&gt; &#39;&#39;,
+        &#39;appsecret&#39;=&gt; &#39;&#39;,
+    ],
+    &#39;pay&#39; =&gt; [ // 微信支付用这里的参数
+        &#39;appid&#39;=&gt; &#39;APPID&#39;,
+        &#39;mch_id&#39;=&gt; &#39;MCH_ID&#39;, // 商户号
+        &#39;notify_url&#39;=&gt; &#39;&#39;, // 支付结果通知地址, 填写你接收通知的url
+        &#39;key&#39;=&gt; &#39;E918BB87E7BF1B73359AA378550A2598&#39;, // 这个key是在商户平台配置的好像, 随便生成一个md5就可以
+    ]
+];
+</code></pre>
 <h4 id="支付类WechatAppPay-php"><a href="#支付类WechatAppPay-php" class="headerlink" title="支付类WechatAppPay.php"></a>支付类<code>WechatAppPay.php</code></h4><p>提供订单相关的功能, 例如统一下单(主要), 查询订单信息, 关闭订单等, 这里只贴出了支付需要用到的部分</p>
 <p>我将这个库文件, 放在了<code>application/extra</code>目录下面, tp5.1 <code>extra</code>目录需要自己创建一下就好了,<br>如果想放在其他地方, 将代码中的<code>namespace</code>改一下再用.</p>
-<pre class="line-numbers language-php" data-language="php"><code class="language-php">
-<span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<pre><code class="php">
+&lt;?php
 
-<span class="token keyword">namespace</span> <span class="token package">app<span class="token punctuation">\</span>extra</span><span class="token punctuation">;</span>
+namespace app\extra;
 
-<span class="token keyword">class</span> <span class="token class-name">WechatAppPay</span>
-<span class="token punctuation">{</span>
-    <span class="token comment">//接口API URL前缀</span>
-    <span class="token keyword">const</span> <span class="token constant">API_URL_PREFIX</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'https://api.mch.weixin.qq.com'</span><span class="token punctuation">;</span>
-    <span class="token comment">//下单地址URL</span>
-    <span class="token keyword">const</span> <span class="token constant">UNIFIEDORDER_URL</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"/pay/unifiedorder"</span><span class="token punctuation">;</span>
-    <span class="token comment">//查询订单URL</span>
-    <span class="token keyword">const</span> <span class="token constant">ORDERQUERY_URL</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"/pay/orderquery"</span><span class="token punctuation">;</span>
-    <span class="token comment">//关闭订单URL</span>
-    <span class="token keyword">const</span> <span class="token constant">CLOSEORDER_URL</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"/pay/closeorder"</span><span class="token punctuation">;</span>
-    <span class="token comment">//公众账号ID</span>
-    <span class="token keyword">private</span> <span class="token variable">$appid</span><span class="token punctuation">;</span>
-    <span class="token comment">//商户号</span>
-    <span class="token keyword">private</span> <span class="token variable">$mch_id</span><span class="token punctuation">;</span>
-    <span class="token comment">//随机字符串</span>
-    <span class="token keyword">private</span> <span class="token variable">$nonce_str</span><span class="token punctuation">;</span>
-    <span class="token comment">//签名</span>
-    <span class="token keyword">private</span> <span class="token variable">$sign</span><span class="token punctuation">;</span>
-    <span class="token comment">//商品描述</span>
-    <span class="token keyword">private</span> <span class="token variable">$body</span><span class="token punctuation">;</span>
+class WechatAppPay
+{
+    //接口API URL前缀
+    const API_URL_PREFIX = &#39;https://api.mch.weixin.qq.com&#39;;
+    //下单地址URL
+    const UNIFIEDORDER_URL = &quot;/pay/unifiedorder&quot;;
+    //查询订单URL
+    const ORDERQUERY_URL = &quot;/pay/orderquery&quot;;
+    //关闭订单URL
+    const CLOSEORDER_URL = &quot;/pay/closeorder&quot;;
+    //公众账号ID
+    private $appid;
+    //商户号
+    private $mch_id;
+    //随机字符串
+    private $nonce_str;
+    //签名
+    private $sign;
+    //商品描述
+    private $body;
 
-    <span class="token keyword">private</span> <span class="token variable">$scene_info</span><span class="token punctuation">;</span>
+    private $scene_info;
 
-    <span class="token keyword">private</span> <span class="token variable">$attach</span><span class="token punctuation">;</span>
-    <span class="token comment">//商户订单号</span>
-    <span class="token keyword">private</span> <span class="token variable">$out_trade_no</span><span class="token punctuation">;</span>
-    <span class="token comment">//支付总金额</span>
-    <span class="token keyword">private</span> <span class="token variable">$total_fee</span><span class="token punctuation">;</span>
-    <span class="token comment">//终端IP</span>
-    <span class="token keyword">private</span> <span class="token variable">$spbill_create_ip</span><span class="token punctuation">;</span>
-    <span class="token comment">//支付结果回调通知地址</span>
-    <span class="token keyword">private</span> <span class="token variable">$notify_url</span><span class="token punctuation">;</span>
-    <span class="token comment">//交易类型</span>
-    <span class="token keyword">private</span> <span class="token variable">$trade_type</span><span class="token punctuation">;</span>
-    <span class="token comment">//支付密钥</span>
-    <span class="token keyword">private</span> <span class="token variable">$key</span><span class="token punctuation">;</span>
-    <span class="token comment">//证书路径</span>
-    <span class="token keyword">private</span> <span class="token variable">$SSLCERT_PATH</span><span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token variable">$SSLKEY_PATH</span><span class="token punctuation">;</span>
-    <span class="token comment">//所有参数</span>
-    <span class="token keyword">private</span> <span class="token variable">$params</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token variable">$appid</span><span class="token punctuation">,</span> <span class="token variable">$mch_id</span><span class="token punctuation">,</span> <span class="token variable">$notify_url</span><span class="token punctuation">,</span> <span class="token variable">$key</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">appid</span> <span class="token operator">=</span> <span class="token variable">$appid</span><span class="token punctuation">;</span>
-        <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">mch_id</span> <span class="token operator">=</span> <span class="token variable">$mch_id</span><span class="token punctuation">;</span>
-        <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">notify_url</span> <span class="token operator">=</span> <span class="token variable">$notify_url</span><span class="token punctuation">;</span>
-        <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">key</span> <span class="token operator">=</span> <span class="token variable">$key</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token comment">/**
+    private $attach;
+    //商户订单号
+    private $out_trade_no;
+    //支付总金额
+    private $total_fee;
+    //终端IP
+    private $spbill_create_ip;
+    //支付结果回调通知地址
+    private $notify_url;
+    //交易类型
+    private $trade_type;
+    //支付密钥
+    private $key;
+    //证书路径
+    private $SSLCERT_PATH;
+    private $SSLKEY_PATH;
+    //所有参数
+    private $params = array();
+    public function __construct($appid, $mch_id, $notify_url, $key)
+    {
+        $this-&gt;appid = $appid;
+        $this-&gt;mch_id = $mch_id;
+        $this-&gt;notify_url = $notify_url;
+        $this-&gt;key = $key;
+    }
+    /**
      * 下单方法
      * @param   $params 下单参数
-     */</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">unifiedOrder</span><span class="token punctuation">(</span> <span class="token variable">$params</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">body</span> <span class="token operator">=</span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'body'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">out_trade_no</span> <span class="token operator">=</span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'out_trade_no'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">total_fee</span> <span class="token operator">=</span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'total_fee'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">trade_type</span> <span class="token operator">=</span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'trade_type'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">scene_info</span> <span class="token operator">=</span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'scene_info'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">attach</span> <span class="token operator">=</span> <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'attach'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">nonce_str</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token function">genRandomString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">spbill_create_ip</span> <span class="token operator">=</span> <span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'REMOTE_ADDR'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'appid'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">appid</span><span class="token punctuation">;</span>
-        <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'mch_id'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">mch_id</span><span class="token punctuation">;</span>
-        <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'nonce_str'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">nonce_str</span><span class="token punctuation">;</span>
-        <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'body'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">body</span><span class="token punctuation">;</span>
-        <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'out_trade_no'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">out_trade_no</span><span class="token punctuation">;</span>
-        <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'total_fee'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">total_fee</span><span class="token punctuation">;</span>
-        <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'spbill_create_ip'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">spbill_create_ip</span><span class="token punctuation">;</span>
-        <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'notify_url'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">notify_url</span><span class="token punctuation">;</span>
-        <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'trade_type'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">trade_type</span><span class="token punctuation">;</span>
-        <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'scene_info'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">scene_info</span><span class="token punctuation">;</span>
-        <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'attach'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">attach</span><span class="token punctuation">;</span>
-        <span class="token comment">//获取签名数据</span>
-        <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">sign</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token function">MakeSign</span><span class="token punctuation">(</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">params</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'sign'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">sign</span><span class="token punctuation">;</span>
+     */
+    public function unifiedOrder( $params ){
+        $this-&gt;body = $params[&#39;body&#39;];
+        $this-&gt;out_trade_no = $params[&#39;out_trade_no&#39;];
+        $this-&gt;total_fee = $params[&#39;total_fee&#39;];
+        $this-&gt;trade_type = $params[&#39;trade_type&#39;];
+        $this-&gt;scene_info = $params[&#39;scene_info&#39;];
+        $this-&gt;attach = $params[&#39;attach&#39;];
+        $this-&gt;nonce_str = $this-&gt;genRandomString();
+        $this-&gt;spbill_create_ip = $_SERVER[&#39;REMOTE_ADDR&#39;];
+        $this-&gt;params[&#39;appid&#39;] = $this-&gt;appid;
+        $this-&gt;params[&#39;mch_id&#39;] = $this-&gt;mch_id;
+        $this-&gt;params[&#39;nonce_str&#39;] = $this-&gt;nonce_str;
+        $this-&gt;params[&#39;body&#39;] = $this-&gt;body;
+        $this-&gt;params[&#39;out_trade_no&#39;] = $this-&gt;out_trade_no;
+        $this-&gt;params[&#39;total_fee&#39;] = $this-&gt;total_fee;
+        $this-&gt;params[&#39;spbill_create_ip&#39;] = $this-&gt;spbill_create_ip;
+        $this-&gt;params[&#39;notify_url&#39;] = $this-&gt;notify_url;
+        $this-&gt;params[&#39;trade_type&#39;] = $this-&gt;trade_type;
+        $this-&gt;params[&#39;scene_info&#39;] = $this-&gt;scene_info;
+        $this-&gt;params[&#39;attach&#39;] = $this-&gt;attach;
+        //获取签名数据
+        $this-&gt;sign = $this-&gt;MakeSign( $this-&gt;params );
+        $this-&gt;params[&#39;sign&#39;] = $this-&gt;sign;
 
-        <span class="token variable">$xml</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token function">data_to_xml</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">params</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token variable">$response</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token function">postXmlCurl</span><span class="token punctuation">(</span><span class="token variable">$xml</span><span class="token punctuation">,</span> <span class="token keyword static-context">self</span><span class="token operator">::</span><span class="token constant">API_URL_PREFIX</span><span class="token operator">.</span><span class="token keyword static-context">self</span><span class="token operator">::</span><span class="token constant">UNIFIEDORDER_URL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token operator">!</span><span class="token variable">$response</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token constant boolean">false</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token variable">$result</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token function">xml_to_data</span><span class="token punctuation">(</span> <span class="token variable">$response</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token operator">!</span><span class="token keyword">empty</span><span class="token punctuation">(</span><span class="token variable">$result</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'result_code'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token keyword">empty</span><span class="token punctuation">(</span><span class="token variable">$result</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'err_code'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token variable">$result</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'err_msg'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token function">error_code</span><span class="token punctuation">(</span> <span class="token variable">$result</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'err_code'</span><span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> <span class="token variable">$result</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    
-    <span class="token comment">/**
+        $xml = $this-&gt;data_to_xml($this-&gt;params);
+        $response = $this-&gt;postXmlCurl($xml, self::API_URL_PREFIX.self::UNIFIEDORDER_URL);
+        if( !$response ){
+            return false;
+        }
+        $result = $this-&gt;xml_to_data( $response );
+        if( !empty($result[&#39;result_code&#39;]) &amp;&amp; !empty($result[&#39;err_code&#39;]) ){
+            $result[&#39;err_msg&#39;] = $this-&gt;error_code( $result[&#39;err_code&#39;] );
+        }
+        return $result;
+    }
+
+    /**
      *
      * 获取支付结果通知数据
      * return array
-     */</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getNotifyData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token comment">//获取通知的数据</span>
-<span class="token comment">//        $xml = $GLOBALS['HTTP_RAW_POST_DATA'];</span>
-        <span class="token variable">$xml</span> <span class="token operator">=</span> <span class="token function">file_get_contents</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'php://input'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">//echo 123;die;</span>
-        <span class="token variable">$data</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token keyword">empty</span><span class="token punctuation">(</span><span class="token variable">$xml</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token function">c_log</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'xml为空'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> <span class="token constant boolean">false</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token variable">$data</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token function">xml_to_data</span><span class="token punctuation">(</span> <span class="token variable">$xml</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token operator">!</span><span class="token keyword">empty</span><span class="token punctuation">(</span><span class="token variable">$data</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'return_code'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token variable">$data</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'return_code'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string single-quoted-string">'FAIL'</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
-                <span class="token keyword">return</span> <span class="token constant boolean">false</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> <span class="token variable">$data</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token comment">/**
+     */
+    public function getNotifyData(){
+        //获取通知的数据
+//        $xml = $GLOBALS[&#39;HTTP_RAW_POST_DATA&#39;];
+        $xml = file_get_contents(&#39;php://input&#39;);
+        //echo 123;die;
+        $data = array();
+        if( empty($xml) ){
+            c_log(&#39;xml为空&#39;);
+            return false;
+        }
+        $data = $this-&gt;xml_to_data( $xml );
+        if( !empty($data[&#39;return_code&#39;]) ){
+            if( $data[&#39;return_code&#39;] == &#39;FAIL&#39; ){
+                return false;
+            }
+        }
+        return $data;
+    }
+    /**
      * 接收通知成功后应答输出XML数据
      * @param string $xml
-     */</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">replyNotify</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token variable">$data</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'return_code'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'SUCCESS'</span><span class="token punctuation">;</span>
-        <span class="token variable">$data</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'return_msg'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'OK'</span><span class="token punctuation">;</span>
-        <span class="token variable">$xml</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token function">data_to_xml</span><span class="token punctuation">(</span> <span class="token variable">$data</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">echo</span> <span class="token variable">$xml</span><span class="token punctuation">;</span>
-        <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    
-    <span class="token comment">/**
+     */
+    public function replyNotify(){
+        $data[&#39;return_code&#39;] = &#39;SUCCESS&#39;;
+        $data[&#39;return_msg&#39;] = &#39;OK&#39;;
+        $xml = $this-&gt;data_to_xml( $data );
+        echo $xml;
+        die();
+    }
+
+    /**
      * 生成签名
      *  @return 签名
-     */</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">MakeSign</span><span class="token punctuation">(</span> <span class="token variable">$params</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token comment">//签名步骤一：按字典序排序数组参数</span>
-        <span class="token function">ksort</span><span class="token punctuation">(</span><span class="token variable">$params</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token variable">$string</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token function">ToUrlParams</span><span class="token punctuation">(</span><span class="token variable">$params</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">//签名步骤二：在string后加入KEY</span>
-        <span class="token variable">$string</span> <span class="token operator">=</span> <span class="token variable">$string</span> <span class="token operator">.</span> <span class="token string double-quoted-string">"&amp;key="</span><span class="token operator">.</span><span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">key</span><span class="token punctuation">;</span>
-        <span class="token comment">//签名步骤三：MD5加密</span>
-        <span class="token variable">$string</span> <span class="token operator">=</span> <span class="token function">md5</span><span class="token punctuation">(</span><span class="token variable">$string</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">//签名步骤四：所有字符转为大写</span>
-        <span class="token variable">$result</span> <span class="token operator">=</span> <span class="token function">strtoupper</span><span class="token punctuation">(</span><span class="token variable">$string</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token variable">$result</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token comment">/**
+     */
+    public function MakeSign( $params ){
+        //签名步骤一：按字典序排序数组参数
+        ksort($params);
+        $string = $this-&gt;ToUrlParams($params);
+        //签名步骤二：在string后加入KEY
+        $string = $string . &quot;&amp;key=&quot;.$this-&gt;key;
+        //签名步骤三：MD5加密
+        $string = md5($string);
+        //签名步骤四：所有字符转为大写
+        $result = strtoupper($string);
+        return $result;
+    }
+    /**
      * 将参数拼接为url: key=value&amp;key=value
      * @param   $params
      * @return  string
-     */</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">ToUrlParams</span><span class="token punctuation">(</span> <span class="token variable">$params</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token variable">$string</span> <span class="token operator">=</span> <span class="token string single-quoted-string">''</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token operator">!</span><span class="token keyword">empty</span><span class="token punctuation">(</span><span class="token variable">$params</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token variable">$array</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">foreach</span><span class="token punctuation">(</span> <span class="token variable">$params</span> <span class="token keyword">as</span> <span class="token variable">$key</span> <span class="token operator">=&gt;</span> <span class="token variable">$value</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
-                <span class="token variable">$array</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$key</span><span class="token operator">.</span><span class="token string single-quoted-string">'='</span><span class="token operator">.</span><span class="token variable">$value</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            <span class="token variable">$string</span> <span class="token operator">=</span> <span class="token function">implode</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"&amp;"</span><span class="token punctuation">,</span><span class="token variable">$array</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> <span class="token variable">$string</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token comment">/**
+     */
+    public function ToUrlParams( $params ){
+        $string = &#39;&#39;;
+        if( !empty($params) ){
+            $array = array();
+            foreach( $params as $key =&gt; $value ){
+                $array[] = $key.&#39;=&#39;.$value;
+            }
+            $string = implode(&quot;&amp;&quot;,$array);
+        }
+        return $string;
+    }
+    /**
      * 输出xml字符
      * @param   $params     参数名称
      * return   string      返回组装的xml
-     **/</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">data_to_xml</span><span class="token punctuation">(</span> <span class="token variable">$params</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">is_array</span><span class="token punctuation">(</span><span class="token variable">$params</span><span class="token punctuation">)</span><span class="token operator">||</span> <span class="token class-name">count</span><span class="token punctuation">(</span><span class="token variable">$params</span><span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token constant boolean">false</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token variable">$xml</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"&lt;xml&gt;"</span><span class="token punctuation">;</span>
-        <span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$params</span> <span class="token keyword">as</span> <span class="token variable">$key</span><span class="token operator">=&gt;</span><span class="token variable">$val</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">is_numeric</span><span class="token punctuation">(</span><span class="token variable">$val</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                <span class="token variable">$xml</span><span class="token operator">.=</span><span class="token string double-quoted-string">"&lt;"</span><span class="token operator">.</span><span class="token variable">$key</span><span class="token operator">.</span><span class="token string double-quoted-string">"&gt;"</span><span class="token operator">.</span><span class="token variable">$val</span><span class="token operator">.</span><span class="token string double-quoted-string">"&lt;/"</span><span class="token operator">.</span><span class="token variable">$key</span><span class="token operator">.</span><span class="token string double-quoted-string">"&gt;"</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-                <span class="token variable">$xml</span><span class="token operator">.=</span><span class="token string double-quoted-string">"&lt;"</span><span class="token operator">.</span><span class="token variable">$key</span><span class="token operator">.</span><span class="token string double-quoted-string">"&gt;&lt;![CDATA["</span><span class="token operator">.</span><span class="token variable">$val</span><span class="token operator">.</span><span class="token string double-quoted-string">"]]&gt;&lt;/"</span><span class="token operator">.</span><span class="token variable">$key</span><span class="token operator">.</span><span class="token string double-quoted-string">"&gt;"</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        <span class="token variable">$xml</span><span class="token operator">.=</span><span class="token string double-quoted-string">"&lt;/xml&gt;"</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token variable">$xml</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token comment">/**
+     **/
+    public function data_to_xml( $params ){
+        if(!is_array($params)|| count($params) &lt;= 0)
+        {
+            return false;
+        }
+        $xml = &quot;&lt;xml&gt;&quot;;
+        foreach ($params as $key=&gt;$val)
+        {
+            if (is_numeric($val)){
+                $xml.=&quot;&lt;&quot;.$key.&quot;&gt;&quot;.$val.&quot;&lt;/&quot;.$key.&quot;&gt;&quot;;
+            }else{
+                $xml.=&quot;&lt;&quot;.$key.&quot;&gt;&lt;![CDATA[&quot;.$val.&quot;]]&gt;&lt;/&quot;.$key.&quot;&gt;&quot;;
+            }
+        }
+        $xml.=&quot;&lt;/xml&gt;&quot;;
+        return $xml;
+    }
+    /**
      * 将xml转为array
      * @param string $xml
      * return array
-     */</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">xml_to_data</span><span class="token punctuation">(</span><span class="token variable">$xml</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token variable">$xml</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token constant boolean">false</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token comment">//将XML转为array</span>
-        <span class="token comment">//禁止引用外部xml实体</span>
-        <span class="token function">libxml_disable_entity_loader</span><span class="token punctuation">(</span><span class="token constant boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token variable">$data</span> <span class="token operator">=</span> <span class="token function">json_decode</span><span class="token punctuation">(</span><span class="token function">json_encode</span><span class="token punctuation">(</span><span class="token function">simplexml_load_string</span><span class="token punctuation">(</span><span class="token variable">$xml</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'SimpleXMLElement'</span><span class="token punctuation">,</span> <span class="token constant">LIBXML_NOCDATA</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token constant boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token variable">$data</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token comment">/**
+     */
+    public function xml_to_data($xml){
+        if(!$xml){
+            return false;
+        }
+        //将XML转为array
+        //禁止引用外部xml实体
+        libxml_disable_entity_loader(true);
+        $data = json_decode(json_encode(simplexml_load_string($xml, &#39;SimpleXMLElement&#39;, LIBXML_NOCDATA)), true);
+        return $data;
+    }
+    /**
      * 获取毫秒级别的时间戳
-     */</span>
-    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">getMillisecond</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token comment">//获取毫秒的时间戳</span>
-        <span class="token variable">$time</span> <span class="token operator">=</span> <span class="token function">explode </span><span class="token punctuation">(</span> <span class="token string double-quoted-string">" "</span><span class="token punctuation">,</span> <span class="token function">microtime </span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token variable">$time</span> <span class="token operator">=</span> <span class="token variable">$time</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">.</span> <span class="token punctuation">(</span><span class="token variable">$time</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token variable">$time2</span> <span class="token operator">=</span> <span class="token function">explode</span><span class="token punctuation">(</span> <span class="token string double-quoted-string">"."</span><span class="token punctuation">,</span> <span class="token variable">$time</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token variable">$time</span> <span class="token operator">=</span> <span class="token variable">$time2</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token variable">$time</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token comment">/**
+     */
+    private static function getMillisecond(){
+        //获取毫秒的时间戳
+        $time = explode ( &quot; &quot;, microtime () );
+        $time = $time[1] . ($time[0] * 1000);
+        $time2 = explode( &quot;.&quot;, $time );
+        $time = $time2[0];
+        return $time;
+    }
+    /**
      * 产生一个指定长度的随机字符串,并返回给用户
      * @param type $len 产生字符串的长度
      * @return string 随机字符串
-     */</span>
-    <span class="token keyword">private</span> <span class="token keyword">function</span> <span class="token function">genRandomString</span><span class="token punctuation">(</span><span class="token variable">$len</span> <span class="token operator">=</span> <span class="token number">32</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token variable">$chars</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
-            <span class="token string double-quoted-string">"a"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"b"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"c"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"d"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"e"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"f"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"g"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"h"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"i"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"j"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"k"</span><span class="token punctuation">,</span>
-            <span class="token string double-quoted-string">"l"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"m"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"n"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"o"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"p"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"q"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"r"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"s"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"t"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"u"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"v"</span><span class="token punctuation">,</span>
-            <span class="token string double-quoted-string">"w"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"x"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"y"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"z"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"A"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"B"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"C"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"D"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"E"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"F"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"G"</span><span class="token punctuation">,</span>
-            <span class="token string double-quoted-string">"H"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"I"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"J"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"K"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"L"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"M"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"N"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"O"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"P"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"Q"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"R"</span><span class="token punctuation">,</span>
-            <span class="token string double-quoted-string">"S"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"T"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"U"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"V"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"W"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"X"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"Y"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"Z"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"0"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"1"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"2"</span><span class="token punctuation">,</span>
-            <span class="token string double-quoted-string">"3"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"4"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"5"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"6"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"7"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"8"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"9"</span>
-        <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token variable">$charsLen</span> <span class="token operator">=</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token variable">$chars</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token comment">// 将数组打乱</span>
-        <span class="token function">shuffle</span><span class="token punctuation">(</span><span class="token variable">$chars</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token variable">$output</span> <span class="token operator">=</span> <span class="token string double-quoted-string">""</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token variable">$i</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token variable">$i</span> <span class="token operator">&lt;</span> <span class="token variable">$len</span><span class="token punctuation">;</span> <span class="token variable">$i</span><span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token variable">$output</span> <span class="token operator">.=</span> <span class="token variable">$chars</span><span class="token punctuation">[</span><span class="token function">mt_rand</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token variable">$charsLen</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> <span class="token variable">$output</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token comment">/**
+     */
+    private function genRandomString($len = 32) {
+        $chars = array(
+            &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;, &quot;h&quot;, &quot;i&quot;, &quot;j&quot;, &quot;k&quot;,
+            &quot;l&quot;, &quot;m&quot;, &quot;n&quot;, &quot;o&quot;, &quot;p&quot;, &quot;q&quot;, &quot;r&quot;, &quot;s&quot;, &quot;t&quot;, &quot;u&quot;, &quot;v&quot;,
+            &quot;w&quot;, &quot;x&quot;, &quot;y&quot;, &quot;z&quot;, &quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;, &quot;G&quot;,
+            &quot;H&quot;, &quot;I&quot;, &quot;J&quot;, &quot;K&quot;, &quot;L&quot;, &quot;M&quot;, &quot;N&quot;, &quot;O&quot;, &quot;P&quot;, &quot;Q&quot;, &quot;R&quot;,
+            &quot;S&quot;, &quot;T&quot;, &quot;U&quot;, &quot;V&quot;, &quot;W&quot;, &quot;X&quot;, &quot;Y&quot;, &quot;Z&quot;, &quot;0&quot;, &quot;1&quot;, &quot;2&quot;,
+            &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;
+        );
+        $charsLen = count($chars) - 1;
+        // 将数组打乱
+        shuffle($chars);
+        $output = &quot;&quot;;
+        for ($i = 0; $i &lt; $len; $i++) {
+            $output .= $chars[mt_rand(0, $charsLen)];
+        }
+        return $output;
+    }
+    /**
      * 以post方式提交xml到对应的接口url
      *
      * @param string $xml  需要post的xml数据
@@ -789,159 +788,153 @@
      * @param bool $useCert 是否需要证书，默认不需要
      * @param int $second   url执行超时时间，默认30s
      * @throws WxPayException
-     */</span>
-    <span class="token keyword">private</span> <span class="token keyword">function</span> <span class="token function">postXmlCurl</span><span class="token punctuation">(</span><span class="token variable">$xml</span><span class="token punctuation">,</span> <span class="token variable">$url</span><span class="token punctuation">,</span> <span class="token variable">$useCert</span> <span class="token operator">=</span> <span class="token constant boolean">false</span><span class="token punctuation">,</span> <span class="token variable">$second</span> <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token variable">$ch</span> <span class="token operator">=</span> <span class="token function">curl_init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">//设置超时</span>
-        <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_TIMEOUT</span><span class="token punctuation">,</span> <span class="token variable">$second</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$ch</span><span class="token punctuation">,</span><span class="token constant">CURLOPT_URL</span><span class="token punctuation">,</span> <span class="token variable">$url</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$ch</span><span class="token punctuation">,</span><span class="token constant">CURLOPT_SSL_VERIFYPEER</span><span class="token punctuation">,</span><span class="token constant boolean">FALSE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$ch</span><span class="token punctuation">,</span><span class="token constant">CURLOPT_SSL_VERIFYHOST</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">//设置header</span>
-        <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_HEADER</span><span class="token punctuation">,</span> <span class="token constant boolean">FALSE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">//要求结果为字符串且输出到屏幕上</span>
-        <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_RETURNTRANSFER</span><span class="token punctuation">,</span> <span class="token constant boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$useCert</span> <span class="token operator">==</span> <span class="token constant boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token comment">//设置证书</span>
-            <span class="token comment">//使用证书：cert 与 key 分别属于两个.pem文件</span>
-            <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$ch</span><span class="token punctuation">,</span><span class="token constant">CURLOPT_SSLCERTTYPE</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'PEM'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token comment">//curl_setopt($ch,CURLOPT_SSLCERT, WxPayConfig::SSLCERT_PATH);</span>
-            <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$ch</span><span class="token punctuation">,</span><span class="token constant">CURLOPT_SSLKEYTYPE</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'PEM'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token comment">//curl_setopt($ch,CURLOPT_SSLKEY, WxPayConfig::SSLKEY_PATH);</span>
-        <span class="token punctuation">}</span>
-        <span class="token comment">//post提交方式</span>
-        <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_POST</span><span class="token punctuation">,</span> <span class="token constant boolean">TRUE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_POSTFIELDS</span><span class="token punctuation">,</span> <span class="token variable">$xml</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">//运行curl</span>
-        <span class="token variable">$data</span> <span class="token operator">=</span> <span class="token function">curl_exec</span><span class="token punctuation">(</span><span class="token variable">$ch</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">//返回结果</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$data</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token function">curl_close</span><span class="token punctuation">(</span><span class="token variable">$ch</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> <span class="token variable">$data</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-            <span class="token variable">$error</span> <span class="token operator">=</span> <span class="token function">curl_errno</span><span class="token punctuation">(</span><span class="token variable">$ch</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token function">curl_close</span><span class="token punctuation">(</span><span class="token variable">$ch</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> <span class="token constant boolean">false</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token comment">/**
+     */
+    private function postXmlCurl($xml, $url, $useCert = false, $second = 30){
+        $ch = curl_init();
+        //设置超时
+        curl_setopt($ch, CURLOPT_TIMEOUT, $second);
+        curl_setopt($ch,CURLOPT_URL, $url);
+        curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,FALSE);
+        curl_setopt($ch,CURLOPT_SSL_VERIFYHOST,2);
+        //设置header
+        curl_setopt($ch, CURLOPT_HEADER, FALSE);
+        //要求结果为字符串且输出到屏幕上
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        if($useCert == true){
+            //设置证书
+            //使用证书：cert 与 key 分别属于两个.pem文件
+            curl_setopt($ch,CURLOPT_SSLCERTTYPE,&#39;PEM&#39;);
+            //curl_setopt($ch,CURLOPT_SSLCERT, WxPayConfig::SSLCERT_PATH);
+            curl_setopt($ch,CURLOPT_SSLKEYTYPE,&#39;PEM&#39;);
+            //curl_setopt($ch,CURLOPT_SSLKEY, WxPayConfig::SSLKEY_PATH);
+        }
+        //post提交方式
+        curl_setopt($ch, CURLOPT_POST, TRUE);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $xml);
+        //运行curl
+        $data = curl_exec($ch);
+        //返回结果
+        if($data){
+            curl_close($ch);
+            return $data;
+        } else {
+            $error = curl_errno($ch);
+            curl_close($ch);
+            return false;
+        }
+    }
+    /**
      * 错误代码
      * @param  $code       服务器输出的错误代码
      * return string
-     */</span>
-    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">error_code</span><span class="token punctuation">(</span> <span class="token variable">$code</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token variable">$errList</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
-            <span class="token string single-quoted-string">'NOAUTH'</span>                <span class="token operator">=&gt;</span>  <span class="token string single-quoted-string">'商户未开通此接口权限'</span><span class="token punctuation">,</span>
-            <span class="token string single-quoted-string">'NOTENOUGH'</span>             <span class="token operator">=&gt;</span>  <span class="token string single-quoted-string">'用户帐号余额不足'</span><span class="token punctuation">,</span>
-            <span class="token string single-quoted-string">'ORDERNOTEXIST'</span>         <span class="token operator">=&gt;</span>  <span class="token string single-quoted-string">'订单号不存在'</span><span class="token punctuation">,</span>
-            <span class="token string single-quoted-string">'ORDERPAID'</span>             <span class="token operator">=&gt;</span>  <span class="token string single-quoted-string">'商户订单已支付，无需重复操作'</span><span class="token punctuation">,</span>
-            <span class="token string single-quoted-string">'ORDERCLOSED'</span>           <span class="token operator">=&gt;</span>  <span class="token string single-quoted-string">'当前订单已关闭，无法支付'</span><span class="token punctuation">,</span>
-            <span class="token string single-quoted-string">'SYSTEMERROR'</span>           <span class="token operator">=&gt;</span>  <span class="token string single-quoted-string">'系统错误!系统超时'</span><span class="token punctuation">,</span>
-            <span class="token string single-quoted-string">'APPID_NOT_EXIST'</span>       <span class="token operator">=&gt;</span>  <span class="token string single-quoted-string">'参数中缺少APPID'</span><span class="token punctuation">,</span>
-            <span class="token string single-quoted-string">'MCHID_NOT_EXIST'</span>       <span class="token operator">=&gt;</span>  <span class="token string single-quoted-string">'参数中缺少MCHID'</span><span class="token punctuation">,</span>
-            <span class="token string single-quoted-string">'APPID_MCHID_NOT_MATCH'</span> <span class="token operator">=&gt;</span>  <span class="token string single-quoted-string">'appid和mch_id不匹配'</span><span class="token punctuation">,</span>
-            <span class="token string single-quoted-string">'LACK_PARAMS'</span>           <span class="token operator">=&gt;</span>  <span class="token string single-quoted-string">'缺少必要的请求参数'</span><span class="token punctuation">,</span>
-            <span class="token string single-quoted-string">'OUT_TRADE_NO_USED'</span>     <span class="token operator">=&gt;</span>  <span class="token string single-quoted-string">'同一笔交易不能多次提交'</span><span class="token punctuation">,</span>
-            <span class="token string single-quoted-string">'SIGNERROR'</span>             <span class="token operator">=&gt;</span>  <span class="token string single-quoted-string">'参数签名结果不正确'</span><span class="token punctuation">,</span>
-            <span class="token string single-quoted-string">'XML_FORMAT_ERROR'</span>      <span class="token operator">=&gt;</span>  <span class="token string single-quoted-string">'XML格式错误'</span><span class="token punctuation">,</span>
-            <span class="token string single-quoted-string">'REQUIRE_POST_METHOD'</span>   <span class="token operator">=&gt;</span>  <span class="token string single-quoted-string">'未使用post传递参数 '</span><span class="token punctuation">,</span>
-            <span class="token string single-quoted-string">'POST_DATA_EMPTY'</span>       <span class="token operator">=&gt;</span>  <span class="token string single-quoted-string">'post数据不能为空'</span><span class="token punctuation">,</span>
-            <span class="token string single-quoted-string">'NOT_UTF8'</span>              <span class="token operator">=&gt;</span>  <span class="token string single-quoted-string">'未使用指定编码格式'</span><span class="token punctuation">,</span>
-        <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">array_key_exists</span><span class="token punctuation">(</span> <span class="token variable">$code</span> <span class="token punctuation">,</span> <span class="token variable">$errList</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token variable">$errList</span><span class="token punctuation">[</span><span class="token variable">$code</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+     */
+    public function error_code( $code ){
+        $errList = array(
+            &#39;NOAUTH&#39;                =&gt;  &#39;商户未开通此接口权限&#39;,
+            &#39;NOTENOUGH&#39;             =&gt;  &#39;用户帐号余额不足&#39;,
+            &#39;ORDERNOTEXIST&#39;         =&gt;  &#39;订单号不存在&#39;,
+            &#39;ORDERPAID&#39;             =&gt;  &#39;商户订单已支付，无需重复操作&#39;,
+            &#39;ORDERCLOSED&#39;           =&gt;  &#39;当前订单已关闭，无法支付&#39;,
+            &#39;SYSTEMERROR&#39;           =&gt;  &#39;系统错误!系统超时&#39;,
+            &#39;APPID_NOT_EXIST&#39;       =&gt;  &#39;参数中缺少APPID&#39;,
+            &#39;MCHID_NOT_EXIST&#39;       =&gt;  &#39;参数中缺少MCHID&#39;,
+            &#39;APPID_MCHID_NOT_MATCH&#39; =&gt;  &#39;appid和mch_id不匹配&#39;,
+            &#39;LACK_PARAMS&#39;           =&gt;  &#39;缺少必要的请求参数&#39;,
+            &#39;OUT_TRADE_NO_USED&#39;     =&gt;  &#39;同一笔交易不能多次提交&#39;,
+            &#39;SIGNERROR&#39;             =&gt;  &#39;参数签名结果不正确&#39;,
+            &#39;XML_FORMAT_ERROR&#39;      =&gt;  &#39;XML格式错误&#39;,
+            &#39;REQUIRE_POST_METHOD&#39;   =&gt;  &#39;未使用post传递参数 &#39;,
+            &#39;POST_DATA_EMPTY&#39;       =&gt;  &#39;post数据不能为空&#39;,
+            &#39;NOT_UTF8&#39;              =&gt;  &#39;未使用指定编码格式&#39;,
+        );
+        if( array_key_exists( $code , $errList ) ){
+            return $errList[$code];
+        }
+    }
+}
+</code></pre>
 <h4 id="控制器部分"><a href="#控制器部分" class="headerlink" title="控制器部分"></a>控制器部分</h4><h5 id="下单接口"><a href="#下单接口" class="headerlink" title="下单接口"></a>下单接口</h5><p>我们控制器需要提供接口给前端, 然后将微信的统一下单接口返回的参数返回给前端</p>
 <p>首先在控制器顶部引入支付类<code>WechatAppPay.php</code></p>
-<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">use</span> <span class="token package">app<span class="token punctuation">\</span>extra<span class="token punctuation">\</span>WechatAppPay</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code class="php">use app\extra\WechatAppPay;</code></pre>
 <p>然后新建一个接口函数供前端调用</p>
-<pre class="line-numbers language-php" data-language="php"><code class="language-php">
-<span class="token comment">/**
- * 支付
- * @param Request $request
- * @return string
- */</span>
-<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">wechat_pay</span><span class="token punctuation">(</span><span class="token class-name type-declaration">Request</span> <span class="token variable">$request</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
+<pre><code class="php">
+    /**
+     * 支付
+     * @param Request $request
+     * @return string
+     */
+    public function wechat_pay(Request $request)
+    {
 
-    <span class="token variable">$data</span> <span class="token operator">=</span> <span class="token variable">$request</span><span class="token operator">-&gt;</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token variable">$body</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 附加的业务参数, 会在异步通知中原样收到</span>
-    <span class="token variable">$order_no</span> <span class="token operator">=</span> <span class="token string single-quoted-string">''</span><span class="token punctuation">;</span> <span class="token comment">// 自定义订单号, 根据时间戳或者其他生成一个, 需保证唯一性</span>
+        $data = $request-&gt;post();
+        $body = []; // 附加的业务参数, 会在异步通知中原样收到
+        $order_no = &#39;&#39;; // 自定义订单号, 根据时间戳或者其他生成一个, 需保证唯一性
 
-    <span class="token comment">// 初始化</span>
-    <span class="token variable">$lib_wx_pay</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WechatAppPay</span><span class="token punctuation">(</span><span class="token function">config</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'wechat.pay.appid'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">config</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'wechat.pay.mch_id'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">config</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'wechat.pay.notify_url'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">config</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'wechat.pay.key'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        // 初始化
+        $lib_wx_pay = new WechatAppPay(config(&#39;wechat.pay.appid&#39;), config(&#39;wechat.pay.mch_id&#39;), config(&#39;wechat.pay.notify_url&#39;), config(&#39;wechat.pay.key&#39;));
 
-    <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'body'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string single-quoted-string">''</span><span class="token punctuation">;</span> <span class="token comment">// 商品描述</span>
-    <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'out_trade_no'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$order_no</span><span class="token punctuation">;</span>   <span class="token comment">//自定义的订单号，不能重复</span>
-    <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'total_fee'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">//订单金额 只能为整数 单位为分</span>
-    <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'trade_type'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'MWEB'</span><span class="token punctuation">;</span> <span class="token comment">//交易类型, h5支付固定填写 MWEB</span>
-    <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'scene_info'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span> <span class="token comment">// 支付场景信息</span>
-        <span class="token string single-quoted-string">'h5_info'</span> <span class="token operator">=&gt;</span> <span class="token punctuation">[</span>
-            <span class="token string single-quoted-string">'type'</span> <span class="token operator">=&gt;</span> <span class="token string single-quoted-string">'Wap'</span><span class="token punctuation">,</span> <span class="token comment">// 固定</span>
-            <span class="token string single-quoted-string">'wap_url'</span> <span class="token operator">=&gt;</span> <span class="token string single-quoted-string">''</span><span class="token punctuation">,</span> <span class="token comment">// 这个是调用此接口的页面url, 应该可以忽略</span>
-            <span class="token string single-quoted-string">'wap_name'</span> <span class="token operator">=&gt;</span> <span class="token string single-quoted-string">''</span> <span class="token comment">// 网站名字, 应该也可以忽略</span>
-        <span class="token punctuation">]</span>
-    <span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'attach'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">json_encode</span><span class="token punctuation">(</span><span class="token variable">$body</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 自定义附加参数</span>
-    <span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'scene_info'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">json_encode</span><span class="token punctuation">(</span><span class="token variable">$params</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'scene_info'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token variable">$res</span> <span class="token operator">=</span> <span class="token variable">$lib_wx_pay</span><span class="token operator">-&gt;</span><span class="token function">unifiedOrder</span><span class="token punctuation">(</span><span class="token variable">$params</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 调用统一下单接口, 接收返回值, 并返回给前端</span>
+        $params[&#39;body&#39;] = &#39;&#39;; // 商品描述
+        $params[&#39;out_trade_no&#39;] = $order_no;   //自定义的订单号，不能重复
+        $params[&#39;total_fee&#39;] = 1; //订单金额 只能为整数 单位为分
+        $params[&#39;trade_type&#39;] = &#39;MWEB&#39;; //交易类型, h5支付固定填写 MWEB
+        $params[&#39;scene_info&#39;] = [ // 支付场景信息
+            &#39;h5_info&#39; =&gt; [
+                &#39;type&#39; =&gt; &#39;Wap&#39;, // 固定
+                &#39;wap_url&#39; =&gt; &#39;&#39;, // 这个是调用此接口的页面url, 应该可以忽略
+                &#39;wap_name&#39; =&gt; &#39;&#39; // 网站名字, 应该也可以忽略
+            ]
+        ];
+        $params[&#39;attach&#39;] = json_encode($body); // 自定义附加参数
+        $params[&#39;scene_info&#39;] = json_encode($params[&#39;scene_info&#39;]);
+        $res = $lib_wx_pay-&gt;unifiedOrder($params); // 调用统一下单接口, 接收返回值, 并返回给前端
 
-    <span class="token variable">$res</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'order_no'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$order_no</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token variable">$res</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+        $res[&#39;order_no&#39;] = $order_no;
+        return $res;
+    }
+</code></pre>
 <h5 id="异步接收微信支付结果接口"><a href="#异步接收微信支付结果接口" class="headerlink" title="异步接收微信支付结果接口"></a>异步接收微信支付结果接口</h5><p>这是异步接收微信支付结果的函数, 在这里处理订单状态和一些其他的支付后的业务逻辑, 并按微信规定的格式返回</p>
-<pre class="line-numbers language-php" data-language="php"><code class="language-php">
-<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">notify_wechat</span><span class="token punctuation">(</span><span class="token class-name type-declaration">PayRecord</span> <span class="token variable">$m_pay_record</span><span class="token punctuation">,</span> <span class="token class-name type-declaration">TestRecord</span> <span class="token variable">$m_test_record</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token variable">$lib_wx_pay</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WechatAppPay</span><span class="token punctuation">(</span><span class="token function">config</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'wechat.pay.appid'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">config</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'wechat.pay.mch_id'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">config</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'wechat.pay.notify_url'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">config</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'wechat.pay.key'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="php">
+    public function notify_wechat(PayRecord $m_pay_record, TestRecord $m_test_record)
+    {
+        $lib_wx_pay = new WechatAppPay(config(&#39;wechat.pay.appid&#39;), config(&#39;wechat.pay.mch_id&#39;), config(&#39;wechat.pay.notify_url&#39;), config(&#39;wechat.pay.key&#39;));
 
-    <span class="token variable">$data</span> <span class="token operator">=</span> <span class="token variable">$lib_wx_pay</span><span class="token operator">-&gt;</span><span class="token function">getNotifyData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 接收通知的参数</span>
+        $data = $lib_wx_pay-&gt;getNotifyData(); // 接收通知的参数
 
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        if ($data) {
 
-        <span class="token variable">$body</span> <span class="token operator">=</span> <span class="token function">json_decode</span><span class="token punctuation">(</span><span class="token variable">$data</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'attach'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token constant boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token variable">$order_no</span> <span class="token operator">=</span> <span class="token variable">$data</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'out_trade_no'</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 自定义订单号</span>
+            $body = json_decode($data[&#39;attach&#39;], true);
+            $order_no = $data[&#39;out_trade_no&#39;]; // 自定义订单号
 
-        <span class="token comment">// 下面根据业务需求处理支付成功的逻辑</span>
+            // 下面根据业务需求处理支付成功的逻辑
 
-    <span class="token punctuation">}</span>
+        }
 
-    <span class="token variable">$lib_wx_pay</span><span class="token operator">-&gt;</span><span class="token function">replyNotify</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 通知微信服务器已处理</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+        $lib_wx_pay-&gt;replyNotify(); // 通知微信服务器已处理
+    }
+</code></pre>
 <h5 id="支付后同步跳转接口"><a href="#支付后同步跳转接口" class="headerlink" title="支付后同步跳转接口"></a>支付后同步跳转接口</h5><p>支付成功后跳转的页面, 如果需要处理些逻辑可以通过控制器, 也可以直接在前端跳转到结果页</p>
-<pre class="line-numbers language-php" data-language="php"><code class="language-php">
-<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">return_wechat_pay</span><span class="token punctuation">(</span><span class="token class-name type-declaration">Request</span> <span class="token variable">$request</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token variable">$return_url</span> <span class="token operator">=</span> <span class="token string single-quoted-string">''</span><span class="token punctuation">;</span> <span class="token comment">// 跳转结果页</span>
-    <span class="token function">header</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"Location: <span class="token interpolation"><span class="token variable">$return_url</span></span>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<pre><code class="php">
+    public function return_wechat_pay(Request $request)
+    {
+        $return_url = &#39;&#39;; // 跳转结果页
+        header(&quot;Location: $return_url&quot;);
+    }
+</code></pre>
 <h4 id="前端部分"><a href="#前端部分" class="headerlink" title="前端部分"></a>前端部分</h4><p>前端这里提供的是jquery代码, 其实就一个post请求, 用啥都一样</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">
-$<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/index.php/api/v1/pay/wechat_pay'</span><span class="token punctuation">,</span>post_data<span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">.</span>return_msg <span class="token operator">===</span> <span class="token string">'OK'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment">// mweb_url是统一下单接口返回的链接</span>
-        <span class="token comment">// redirect_url就是支付成功后跳转的链接, 需要encode后拼接到mweb_url后面,</span>
-        <span class="token comment">// 如果不需要跳转则忽略redirect_url, 不拼接</span>
-        <span class="token keyword">let</span> red_url <span class="token operator">=</span> <span class="token string">'return_wechat_pay'</span><span class="token punctuation">;</span>
-        red_url <span class="token operator">=</span> <span class="token function">encodeURI</span><span class="token punctuation">(</span>red_url<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        
-        <span class="token comment">// 这样跳转后, mweb_url就会调起微信支付</span>
-        window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href <span class="token operator">=</span> res<span class="token punctuation">.</span>mweb_url <span class="token operator">+</span> <span class="token string">'&amp;redirect_url='</span> <span class="token operator">+</span> red_url<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code class="javascript">
+    $.post(&#39;/index.php/api/v1/pay/wechat_pay&#39;,post_data, function (res) {
+        if (res.return_msg === &#39;OK&#39;) {
+            // mweb_url是统一下单接口返回的链接
+            // redirect_url就是支付成功后跳转的链接, 需要encode后拼接到mweb_url后面,
+            // 如果不需要跳转则忽略redirect_url, 不拼接
+            let red_url = &#39;return_wechat_pay&#39;;
+            red_url = encodeURI(red_url);
 
-
+            // 这样跳转后, mweb_url就会调起微信支付
+            window.location.href = res.mweb_url + &#39;&amp;redirect_url=&#39; + red_url;
+        }
+    })
+</code></pre>
 <h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><ol>
 <li>如果使用redirect_url这个参数, 会有一个体验很不好的地方, 就是在支付过程中停留超过5s,<br>或者由于某些原因支付失败, 也会进行跳转到结果页, 所以需要在结果页由用户去手动查询支付结果,<br>可以给个弹窗提示下用户, 是否支付成功, 然后使用订单号去查询后台, 是否真的支付成功</li>
 </ol>
@@ -1551,7 +1544,7 @@ $<span class="token punctuation">.</span><span class="token function">post</span
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2021</span>
+                <span id="year">2019-2022</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">大熊</a>
@@ -1560,7 +1553,7 @@ $<span class="token punctuation">.</span><span class="token function">post</span
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">28.7k</span>&nbsp;字
+                class="white-color">31k</span>&nbsp;字
             
             
             
@@ -1786,6 +1779,6 @@ $(function () {
             document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ好哦！",st=setTimeout(function(){document.title=OriginTitile},3e3))
         })
     </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.9},"log":false});</script></body>
+</body>
 
 </html>

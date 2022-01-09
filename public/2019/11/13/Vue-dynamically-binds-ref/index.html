@@ -29,8 +29,6 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0">
-<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="大熊的个人博客" type="application/atom+xml">
 </head>
 
@@ -502,14 +500,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-27
+                    2020-01-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    127
+                    140
                 </div>
                 
 
@@ -539,17 +537,19 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
+                <meta name="referrer" content="no-referrer" />
+
+<blockquote>
 <p>记录一下动态绑定及使用ref的方法</p>
 </blockquote>
-<span id="more"></span>
+<a id="more"></a>
 
 <h2 id="情景"><a href="#情景" class="headerlink" title="情景"></a>情景</h2><p><strong>需要在使用weex的<code>&lt;list&gt;</code>组件时,需要实现一个滚动到具体某一个<code>&lt;cell&gt;</code>的功能</strong></p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="在for循环标签上动态绑定ref"><a href="#在for循环标签上动态绑定ref" class="headerlink" title="在for循环标签上动态绑定ref"></a>在for循环标签上动态绑定ref</h3><pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>(item, index) in list<span class="token punctuation">"</span></span> <span class="token attr-name">:key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>index<span class="token punctuation">"</span></span> <span class="token attr-name">:ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>`item${index}`<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="在for循环标签上动态绑定ref"><a href="#在for循环标签上动态绑定ref" class="headerlink" title="在for循环标签上动态绑定ref"></a>在for循环标签上动态绑定ref</h3><pre><code>&lt;div v-for=&quot;(item, index) in list&quot; :key=&quot;index&quot; :ref=&quot;&#96;item${index}&#96;&quot;&gt;&lt;&#x2F;div&gt;</code></pre>
 
-<h3 id="获取ref并滚动到指定位置"><a href="#获取ref并滚动到指定位置" class="headerlink" title="获取ref并滚动到指定位置"></a>获取ref并滚动到指定位置</h3><h4 id="引入weex的dom-模块"><a href="#引入weex的dom-模块" class="headerlink" title="引入weex的dom 模块"></a>引入weex的dom 模块</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> dom <span class="token operator">=</span> weex<span class="token punctuation">.</span><span class="token function">requireModule</span><span class="token punctuation">(</span><span class="token string">'dom'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h4 id="动态获取ref-并使用scrollToElement滚动到指定元素"><a href="#动态获取ref-并使用scrollToElement滚动到指定元素" class="headerlink" title="动态获取ref,并使用scrollToElement滚动到指定元素"></a>动态获取ref,并使用scrollToElement滚动到指定元素</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> el <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">[</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">message</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-dom<span class="token punctuation">.</span><span class="token function">scrollToElement</span><span class="token punctuation">(</span>el<span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="获取ref并滚动到指定位置"><a href="#获取ref并滚动到指定位置" class="headerlink" title="获取ref并滚动到指定位置"></a>获取ref并滚动到指定位置</h3><h4 id="引入weex的dom-模块"><a href="#引入weex的dom-模块" class="headerlink" title="引入weex的dom 模块"></a>引入weex的dom 模块</h4><pre><code>const dom = weex.requireModule(&#39;dom&#39;);</code></pre>
+<h4 id="动态获取ref-并使用scrollToElement滚动到指定元素"><a href="#动态获取ref-并使用scrollToElement滚动到指定元素" class="headerlink" title="动态获取ref,并使用scrollToElement滚动到指定元素"></a>动态获取ref,并使用scrollToElement滚动到指定元素</h4><pre><code>const el = this.$refs[&#96;message${length-1}&#96;][0];
+dom.scrollToElement(el, {});</code></pre>
                 
             </div>
             <hr/>
@@ -882,13 +882,15 @@ dom<span class="token punctuation">.</span><span class="token function">scrollTo
                     <div class="summary block-with-text">
                         
                             
+
+
 Imagemagick是一个强大的图像处理库,号称命令行上的photoshop
 
 
 使用GD扩展实现和本篇文章相同的效果
 php的imagick扩展和imagemagick的安装教程
 
-1. 问题场景  在进行手上的一个海报项目时,遇到了
+1. 问题场景&emsp;&emsp;在进行手上
                         
                     </div>
                     <div class="publish-info">
@@ -1162,7 +1164,7 @@ php的imagick扩展和imagemagick的安装教程
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2021</span>
+                <span id="year">2019-2022</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">大熊</a>
@@ -1171,7 +1173,7 @@ php的imagick扩展和imagemagick的安装教程
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">28.7k</span>&nbsp;字
+                class="white-color">31k</span>&nbsp;字
             
             
             
@@ -1397,6 +1399,6 @@ $(function () {
             document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ好哦！",st=setTimeout(function(){document.title=OriginTitile},3e3))
         })
     </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.9},"log":false});</script></body>
+</body>
 
 </html>

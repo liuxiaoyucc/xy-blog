@@ -29,8 +29,6 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0">
-<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="大熊的个人博客" type="application/atom+xml">
 </head>
 
@@ -478,14 +476,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-27
+                    2020-06-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.3k
                 </div>
                 
 
@@ -515,7 +513,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                &gt; Composer 是 PHP 用来管理依赖（dependency）关系的工具。你可以在自己的项目中声明所依赖的外部工具库（libraries），Composer 会帮你安装这些依赖的库文件
+                <meta name="referrer" content="no-referrer" />
+> Composer 是 PHP 用来管理依赖（dependency）关系的工具。你可以在自己的项目中声明所依赖的外部工具库（libraries），Composer 会帮你安装这些依赖的库文件
 
 <p align="center">
     <a href="https://www.phpcomposer.com/" target="_blank" rel="noopener noreferrer">
@@ -524,17 +523,17 @@
 </p>
 
 <p>或许你还没听说过Composer,  亦或听说过 <del>没听过,两万五千里</del> 而没有使用过, 没关系, 跟着我一起, 用起来</p>
-<span id="more"></span>
+<a id="more"></a>
 
 <h2 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://getcomposer.org/">Composer官网</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.phpcomposer.com/">Composer中文网</a></li>
+<li><a href="https://getcomposer.org/" target="_blank" rel="noopener">Composer官网</a></li>
+<li><a href="https://www.phpcomposer.com/" target="_blank" rel="noopener">Composer中文网</a></li>
 </ul>
 <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
 <li>PHP</li>
 </ul>
 <p>这是必须的吧, 啊哈哈哈, 如果还没有安装php, 我建议你先不要看下去了</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>随便打开一个上面提供的网址, 找到下载页, 或者直接点击<a target="_blank" rel="noopener" href="https://getcomposer.org/Composer-Setup.exe">Composer-Setup.exe</a>开始下载exe文件</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>随便打开一个上面提供的网址, 找到下载页, 或者直接点击<a href="https://getcomposer.org/Composer-Setup.exe" target="_blank" rel="noopener">Composer-Setup.exe</a>开始下载exe文件</p>
 <p>双击Composer-Setup.exe开始安装</p>
 <ol>
 <li>这里勾上developer mode可以自定义安装目录, 也可以不勾选, Next</li>
@@ -562,28 +561,25 @@
 <p><img src="https://user-images.githubusercontent.com/33248133/71994695-2c5b5680-3274-11ea-98e7-4a4bc1d532a4.PNG" alt="composer-v"></p>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>我们先从一个空项目说起</p>
 <p>随便在哪里新建一个空的目录</p>
-<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><h4 id="从composer-json开始"><a href="#从composer-json开始" class="headerlink" title="从composer.json开始"></a>从composer.json开始</h4><h5 id="新建composer-json文件"><a href="#新建composer-json文件" class="headerlink" title="新建composer.json文件"></a>新建composer.json文件</h5><p>新建composer.json文件,输入下面内容, <a target="_blank" rel="noopener" href="http://www.querylist.cc/"><code>querylist</code></a>是一个php的内容采集框架,后面我会写一篇关于它的使用方式, 这里我们使用它来演示composer</p>
-<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>
-	<span class="token property">"require"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-		<span class="token property">"jaeger/querylist"</span><span class="token operator">:</span> <span class="token string">"4.0.*"</span>
-	<span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><h4 id="从composer-json开始"><a href="#从composer-json开始" class="headerlink" title="从composer.json开始"></a>从composer.json开始</h4><h5 id="新建composer-json文件"><a href="#新建composer-json文件" class="headerlink" title="新建composer.json文件"></a>新建composer.json文件</h5><p>新建composer.json文件,输入下面内容, <a href="http://www.querylist.cc/" target="_blank" rel="noopener"><code>querylist</code></a>是一个php的内容采集框架,后面我会写一篇关于它的使用方式, 这里我们使用它来演示composer</p>
+<pre><code class="json">{
+    &quot;require&quot;: {
+        &quot;jaeger/querylist&quot;: &quot;4.0.*&quot;
+    }
+}</code></pre>
 <h5 id="composer-install"><a href="#composer-install" class="headerlink" title="composer install"></a>composer install</h5><p>在项目目录下执行<code>composer install</code> , composer会读取composer.json中的内容,来自动下载安装相关依赖</p>
 <p><img src="https://user-images.githubusercontent.com/33248133/71997841-7eeb4180-3279-11ea-8356-eb892fa78d22.gif" alt="演示动图"></p>
 <h5 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h5><p>等待安装完成后我们会在项目根目录下看到一个vendor目录, 和一个composer.lock文件</p>
-<h4 id="从composer-require开始"><a href="#从composer-require开始" class="headerlink" title="从composer require开始"></a>从composer require开始</h4><h5 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h5><pre class="line-numbers language-php" data-language="php"><code class="language-php">composer <span class="token keyword">require</span> jaeger<span class="token operator">/</span>querylist <span class="token number">4.0</span><span class="token operator">.</span><span class="token operator">*</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<h4 id="从composer-require开始"><a href="#从composer-require开始" class="headerlink" title="从composer require开始"></a>从composer require开始</h4><h5 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h5><pre><code class="php">composer require jaeger/querylist 4.0.*</code></pre>
 <h5 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h5><p>使用这种方式, composer会自动生成一个composer.json文件, 并将jaeger/querylist写入到其中, 然后根据composer.json下载相关依赖, 命令执行完毕后, 项目根目录下的结构, 和前面的方式是一样的</p>
 <h4 id="锁文件composer-lock"><a href="#锁文件composer-lock" class="headerlink" title="锁文件composer.lock"></a>锁文件<code>composer.lock</code></h4><h5 id="生成"><a href="#生成" class="headerlink" title="生成"></a>生成</h5><p>每次安装新的依赖时, Composer会将其相关信息, 自动写入lock文件中, 包括对应版本</p>
 <h5 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h5><p>如果多人协同项目的话, 其他人在执行composer install时, 会先从lock文件中寻找该依赖和相应版本, 保证了所有人的版本一致, 可以理解为lock文件, ‘<strong>锁定</strong>‘ 了各依赖的版本</p>
 <h5 id="更新依赖版本"><a href="#更新依赖版本" class="headerlink" title="更新依赖版本"></a>更新依赖版本</h5><p>注意, 当执行<strong><code>composer update</code></strong> 时,  composer会获取依赖的最新版本, 并更新lock文件, 如果你只想更新特定的某个包, 那么可以在命令后指明要更新的包,像这样</p>
-<pre class="line-numbers language-json" data-language="json"><code class="language-json">composer update jaeger/querylist # 后面可以继续添加多个<span class="token punctuation">,</span> 会一并更新<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre><code class="json">composer update jaeger/querylist # 后面可以继续添加多个, 会一并更新</code></pre>
 <p>下面是lock中, 我们刚刚装好的依赖的部分信息, 你可以自己动手打开lock文件看下全部</p>
 <p><img src="https://user-images.githubusercontent.com/33248133/72072870-c3361a80-3329-11ea-96d3-b269196385eb.PNG" alt="composer-lock中的部分依赖信息"></p>
 <h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><h4 id="autoload-php"><a href="#autoload-php" class="headerlink" title="autoload.php"></a>autoload.php</h4><p>vendor目录生成后, Composer会帮我们准备一个自动加载文件, <strong>autoload.php</strong>, 我们只需引入这个文件, Composer会帮我们处理一切</p>
-<img src="https://user-images.githubusercontent.com/33248133/72047325-3ffad180-32f5-11ea-8ce3-c0c5e536275b.png" alt="autoload.php位置" style="zoom:80%;">
+<img src="https://user-images.githubusercontent.com/33248133/72047325-3ffad180-32f5-11ea-8ce3-c0c5e536275b.png" alt="autoload.php位置" style="zoom:80%;" />
 
 
 
@@ -592,47 +588,37 @@
 <h4 id="普通项目引入"><a href="#普通项目引入" class="headerlink" title="普通项目引入"></a>普通项目引入</h4><h5 id="入口文件"><a href="#入口文件" class="headerlink" title="入口文件"></a>入口文件</h5><p>我们在刚才的项目目录下新建一个可执行php文件, 命名为Index.php,</p>
 <h5 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h5><p>写入如下代码</p>
 <p>这段代码抓取了我的个人博客首页的文章title和链接, 后面会有专门一篇文章介绍QueryList的使用, 很方便</p>
-<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
-<span class="token keyword">require</span> <span class="token string single-quoted-string">'vendor/autoload.php'</span><span class="token punctuation">;</span>
-<span class="token keyword">Use</span> <span class="token package">QL<span class="token punctuation">\</span>QueryList</span><span class="token punctuation">;</span>
+<pre><code class="php">&lt;?php
+require &#39;vendor/autoload.php&#39;;
+Use QL\QueryList;
 
-<span class="token variable">$url</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'http://blog.pulsating.cn'</span><span class="token punctuation">;</span>
-<span class="token variable">$rules</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
-	<span class="token string single-quoted-string">'title'</span><span class="token operator">=&gt;</span> <span class="token punctuation">[</span><span class="token string single-quoted-string">'.article-title'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'text'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-	<span class="token string single-quoted-string">'url'</span><span class="token operator">=&gt;</span> <span class="token punctuation">[</span><span class="token string single-quoted-string">'.article-title'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'href'</span><span class="token punctuation">]</span>
-<span class="token punctuation">]</span><span class="token punctuation">;</span>
+$url = &#39;http://blog.pulsating.cn&#39;;
+$rules = [
+    &#39;title&#39;=&gt; [&#39;.article-title&#39;, &#39;text&#39;],
+    &#39;url&#39;=&gt; [&#39;.article-title&#39;, &#39;href&#39;]
+];
 
-<span class="token variable">$result</span> <span class="token operator">=</span> <span class="token class-name static-context">QueryList</span><span class="token operator">::</span><span class="token function">rules</span><span class="token punctuation">(</span><span class="token variable">$rules</span><span class="token punctuation">)</span><span class="token operator">-&gt;</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token variable">$url</span><span class="token punctuation">)</span><span class="token operator">-&gt;</span><span class="token function">queryData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+$result = QueryList::rules($rules)-&gt;get($url)-&gt;queryData();
 
-<span class="token function">print_r</span><span class="token punctuation">(</span><span class="token variable">$result</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
+print_r($result);</code></pre>
 <p>执行Index.php, 可以看到已经成功的使用了querylist依赖</p>
 <p><img src="https://user-images.githubusercontent.com/33248133/72077886-ff21ad80-3332-11ea-970b-daf9b7442fe6.png" alt="执行结果"></p>
-<h4 id="在CodeIgniter中引入"><a href="#在CodeIgniter中引入" class="headerlink" title="在CodeIgniter中引入"></a>在CodeIgniter中引入</h4><h5 id="修改config-php"><a href="#修改config-php" class="headerlink" title="修改config.php"></a>修改config.php</h5><p>将<code>$config['composer_autoload']</code>的值改为true, CI会自动在application/vendor/目录下寻找autoload.php文件并加载</p>
-<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token comment">// application/config/config.php</span>
+<h4 id="在CodeIgniter中引入"><a href="#在CodeIgniter中引入" class="headerlink" title="在CodeIgniter中引入"></a>在CodeIgniter中引入</h4><h5 id="修改config-php"><a href="#修改config-php" class="headerlink" title="修改config.php"></a>修改config.php</h5><p>将<code>$config[&#39;composer_autoload&#39;]</code>的值改为true, CI会自动在application/vendor/目录下寻找autoload.php文件并加载</p>
+<pre><code class="php">// application/config/config.php
 
-<span class="token variable">$config</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'composer_autoload'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token constant boolean">TRUE</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+$config[&#39;composer_autoload&#39;] = TRUE;</code></pre>
 <p>或者也可以这样, 将值写成具体路径</p>
-<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token variable">$config</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'composer_autoload'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'vendor/autoload.php'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
+<pre><code class="php">$config[&#39;composer_autoload&#39;] = &#39;vendor/autoload.php&#39;;</code></pre>
 <h5 id="controller中使用"><a href="#controller中使用" class="headerlink" title="controller中使用"></a>controller中使用</h5><p>直接在controller中的class外部use, 然后就可以使用QueryList了, 后续代码和上面相同</p>
-<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">use</span> <span class="token package">QL<span class="token punctuation">\</span>QueryList</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
+<pre><code class="php">use QL\QueryList;</code></pre>
 <h2 id="结束-1"><a href="#结束-1" class="headerlink" title="结束"></a>结束</h2><ul>
 <li>不推荐手写composer.json文件, 推荐使用require的方式下载依赖, 手写很容易出错</li>
 </ul>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://packagist.org/">packagist</a> 是 Composer 主要的一个包信息存储库, 你可以分享自己的package到上面, 也可以在里面找其他人分享的package使用</li>
+<li><a href="https://packagist.org/" target="_blank" rel="noopener">packagist</a> 是 Composer 主要的一个包信息存储库, 你可以分享自己的package到上面, 也可以在里面找其他人分享的package使用</li>
 </ul>
 <ul>
-<li><a target="_blank" rel="noopener" href="http://www.querylist.cc/">QueryList</a> 文中的QueryList官网</li>
+<li><a href="http://www.querylist.cc/" target="_blank" rel="noopener">QueryList</a> 文中的QueryList官网</li>
 </ul>
 
                 
@@ -950,10 +936,13 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            之前有写过sphinx的简单使用, 初次接触sphinx的同学可以先了解下, windows和linux都有
+                            
+
+
+之前有写过sphinx的简单使用, 初次接触sphinx的同学可以先了解下, windows和linux都有
 
 Linux下安装sphinx及配置
-Windows下安装sphinx及配置本文记录以下如何在sphinx的配置文件sphinx.
+Windows下安装sphinx及配置本文记录以下如何在sphinx的配置文件sphi
                         
                     </div>
                     <div class="publish-info">
@@ -1227,7 +1216,7 @@ Windows下安装sphinx及配置本文记录以下如何在sphinx的配置文件s
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2021</span>
+                <span id="year">2019-2022</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">大熊</a>
@@ -1236,7 +1225,7 @@ Windows下安装sphinx及配置本文记录以下如何在sphinx的配置文件s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">28.7k</span>&nbsp;字
+                class="white-color">31k</span>&nbsp;字
             
             
             
@@ -1462,6 +1451,6 @@ $(function () {
             document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ好哦！",st=setTimeout(function(){document.title=OriginTitile},3e3))
         })
     </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.9},"log":false});</script></body>
+</body>
 
 </html>

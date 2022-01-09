@@ -29,8 +29,6 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0">
-<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="大熊的个人博客" type="application/atom+xml">
 </head>
 
@@ -474,14 +472,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-27
+                    2020-01-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    306
+                    309
                 </div>
                 
 
@@ -511,57 +509,36 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
+                <meta name="referrer" content="no-referrer" />
+
+<blockquote>
 <p><strong>max_allowed_packet</strong> 限制着你的mysql serve接收的数据包大小, 如果insert或者update时数据过大,超出max_allowed_packet的限制,mysql会抛出错误导致操作失败,那么我们来看下如何查看和设置max_allowed_packet</p>
 </blockquote>
-<span id="more"></span>
-<h2 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h2><pre class="line-numbers language-none"><code class="language-none">mysql&gt; show global variables like 'max_allowed_packet';
+<a id="more"></a>
+<h2 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h2><pre><code>mysql&gt; show global variables like &#39;max_allowed_packet&#39;;
 +--------------------+----------+
 | Variable_name      | Value    |
 +--------------------+----------+
 | max_allowed_packet | 16777216 |
 +--------------------+----------+
-1 row in set, 1 warning (0.00 sec)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>可以看到当前max_allowed_packet设置为16M (1024 * 1024 * 16)</p>
+1 row in set, 1 warning (0.00 sec)</code></pre><p>可以看到当前max_allowed_packet设置为16M (1024 * 1024 * 16)</p>
 <h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2><ul>
-<li><p>通过mysql命令修改(临时,重启mysql会重置为原始大小)</p>
-<pre class="line-numbers language-none"><code class="language-none">mysql&gt; set global max_allowed_packet=32*1024*1024;
+<li>通过mysql命令修改(临时,重启mysql会重置为原始大小)<pre><code>mysql&gt; set global max_allowed_packet=32*1024*1024;
 ERROR 2006 (HY000): MySQL server has gone away
 No connection. Trying to reconnect...
 Connection id:    6
 Current database: mine
-
-Query OK, 0 rows affected (0.01 sec)
-
-mysql&gt; show global variables like 'max_allowed_packet';
-+--------------------+----------+
-| Variable_name      | Value    |
-+--------------------+----------+
-| max_allowed_packet | 33554432 |
-+--------------------+----------+
-1 row in set, 1 warning (0.00 sec)
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>可以看到现在的value值已经变为33554432,也就是32M</p>
-</li>
-<li><p>修改mysql配置文件(不会失效,直到再次修改配置文件)</p>
-<ol>
-<li>windows下,找到mysql安装目录下<strong>my.ini</strong>文件</li>
-<li>找到这一行<strong>max_allowed_packet=16M</strong>将16M修改为你想要的大小,这里改为8M,保存</li>
-<li>重启mysql服务,查看当前max_allowed_packet大小,发现已经成功修改为8M<pre class="line-numbers language-none"><code class="language-none">mysql&gt; show global variables like 'max_allowed_packet';
-ERROR 2006 (HY000): MySQL server has gone away
-No connection. Trying to reconnect...
-Connection id:    2
-Current database: mine
-
-+--------------------+---------+
-| Variable_name      | Value   |
-+--------------------+---------+
-| max_allowed_packet | 8388608 |
-+--------------------+---------+
-1 row in set, 1 warning (0.01 sec)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-</li>
+</code></pre></li>
 </ul>
+<p>Query OK, 0 rows affected (0.01 sec)</p>
+<p>mysql&gt; show global variables like ‘max_allowed_packet’;<br>+——————–+———-+<br>| Variable_name      | Value    |<br>+——————–+———-+<br>| max_allowed_packet | 33554432 |<br>+——————–+———-+<br>1 row in set, 1 warning (0.00 sec)</p>
+<pre><code>可以看到现在的value值已经变为33554432,也就是32M
+
+* 修改mysql配置文件(不会失效,直到再次修改配置文件)
+    1. windows下,找到mysql安装目录下__my.ini__文件
+    2. 找到这一行__max_allowed_packet=16M__将16M修改为你想要的大小,这里改为8M,保存
+    3. 重启mysql服务,查看当前max_allowed_packet大小,发现已经成功修改为8M</code></pre><p>mysql&gt; show global variables like ‘max_allowed_packet’;<br>ERROR 2006 (HY000): MySQL server has gone away<br>No connection. Trying to reconnect…<br>Connection id:    2<br>Current database: mine</p>
+<p>+——————–+———+<br>| Variable_name      | Value   |<br>+——————–+———+<br>| max_allowed_packet | 8388608 |<br>+——————–+———+<br>1 row in set, 1 warning (0.01 sec)<br>```</p>
 
                 
             </div>
@@ -818,6 +795,8 @@ Current database: mine
                     <div class="summary block-with-text">
                         
                             
+
+
 下班路上突然想起来圣诞节那天看到个微博热搜, 煮红酒, 突然间就好想试一下呀, 刚好家里还剩下的红酒, 说干就干, 吃过晚饭之后就到超市准备水果啦! 紧跟潮流!
 
                         
@@ -1142,7 +1121,7 @@ Current database: mine
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2021</span>
+                <span id="year">2019-2022</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">大熊</a>
@@ -1151,7 +1130,7 @@ Current database: mine
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">28.7k</span>&nbsp;字
+                class="white-color">31k</span>&nbsp;字
             
             
             
@@ -1377,6 +1356,6 @@ $(function () {
             document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ好哦！",st=setTimeout(function(){document.title=OriginTitile},3e3))
         })
     </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.9},"log":false});</script></body>
+</body>
 
 </html>

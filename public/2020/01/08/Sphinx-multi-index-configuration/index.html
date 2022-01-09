@@ -29,8 +29,6 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0">
-<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="大熊的个人博客" type="application/atom+xml">
 </head>
 
@@ -486,14 +484,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-27
+                    2020-01-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    556
+                    555
                 </div>
                 
 
@@ -523,15 +521,18 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>之前有写过sphinx的简单使用, 初次接触sphinx的同学可以先了解下, windows和linux都有</strong></p>
+                <meta name="referrer" content="no-referrer" />
+
+
+<p><strong>之前有写过sphinx的简单使用, 初次接触sphinx的同学可以先了解下, windows和linux都有</strong></p>
 <ul>
 <li><a href="http://blog.pulsating.cn/2019/11/12/Sphinx-Linux-install/">Linux下安装sphinx及配置</a></li>
-<li><a target="_blank" rel="noopener" href="http://pulsating.cn/2019/11/12/install-Sphinx-in-Windows-and-use-Sphinxapi-in-php/">Windows下安装sphinx及配置</a><br>本文记录以下如何在sphinx的配置文件<code>sphinx.conf</code>中, 配置多个索引, 并启动服务<span id="more"></span>
+<li><a href="http://pulsating.cn/2019/11/12/install-Sphinx-in-Windows-and-use-Sphinxapi-in-php/" target="_blank" rel="noopener">Windows下安装sphinx及配置</a><br>本文记录以下如何在sphinx的配置文件<code>sphinx.conf</code>中, 配置多个索引, 并启动服务<a id="more"></a>
 
 </li>
 </ul>
 <h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><h4 id="原配置文件"><a href="#原配置文件" class="headerlink" title="原配置文件"></a>原配置文件</h4><p>找到sphinx.conf配置文件, 假设当前已经有一个索引已经配置ok,  那么你的文件打开后应该类似这样的,其中数据源为article_source,对应文章表, 索引名称为article,对应article_source</p>
-<pre class="line-numbers language-none"><code class="language-none">source article_source
+<pre><code>source article_source
 {
         type                    = mysql
         sql_host                = SQLHOST
@@ -575,11 +576,9 @@ searchd
         binlog_path             = /sphinx/data
 }
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>现在我们有一个新表, 假设为音乐表, 我们需要根据歌曲名称, 和歌词来匹配对应的歌曲, 供用户去搜索, 也需要使用sphinx, 那么我们应该如何做呢?</p>
+</code></pre><p>现在我们有一个新表, 假设为音乐表, 我们需要根据歌曲名称, 和歌词来匹配对应的歌曲, 供用户去搜索, 也需要使用sphinx, 那么我们应该如何做呢?</p>
 <h4 id="构建新数据源"><a href="#构建新数据源" class="headerlink" title="构建新数据源"></a>构建新数据源</h4><p>打开sphinx.conf文件,  在article_source数据源的下方, 声明下新的音乐数据源</p>
-<pre class="line-numbers language-none"><code class="language-none">source music_source
+<pre><code>source music_source
 {
         type                    = mysql
         sql_host                = SQLHOST
@@ -591,29 +590,21 @@ searchd
         sql_query               = \
         SELECT id, name, lyric \
                 FROM music
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="配置index"><a href="#配置index" class="headerlink" title="配置index"></a>配置index</h4><p>在index article下方, 构建音乐数据源的索引</p>
-<pre class="line-numbers language-none"><code class="language-none">index music
+}</code></pre><h4 id="配置index"><a href="#配置index" class="headerlink" title="配置index"></a>配置index</h4><p>在index article下方, 构建音乐数据源的索引</p>
+<pre><code>index music
 {
         source                  = music_source # 对应上面source的名称
         path                    = /sphinx/music_data
         min_word_len            = 1
         ngram_len               = 1
         ngram_chars             = U+3000..U+2FA1F
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>这里要注意一下, 两个索引的path不能在同一个目录下, 也有可能是我操作有误, 放在同一目录下面一直报错</strong></p>
+}</code></pre><p><strong>这里要注意一下, 两个索引的path不能在同一个目录下, 也有可能是我操作有误, 放在同一目录下面一直报错</strong></p>
 <p>至此, 配置文件就配置好了</p>
 <h2 id="重新构建索引"><a href="#重新构建索引" class="headerlink" title="重新构建索引"></a>重新构建索引</h2><h4 id="停止searchd服务"><a href="#停止searchd服务" class="headerlink" title="停止searchd服务"></a>停止searchd服务</h4><p>构建索引时需要停掉运行中的searchd服务, 不然会失败, 原索引如果正在使用中, 请谨慎停止, 或者研究一下<code>--rotate</code> 参数</p>
 <p><strong><code>--rotate</code> 用于轮换索引，在不停止服务的时候（searchd运行时）增加索引；searchd运行时不加会报错。</strong></p>
 <p><strong>停止searchd命令:</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">searchd -c source.conf --stop<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-<h4 id="重建索引"><a href="#重建索引" class="headerlink" title="重建索引"></a>重建索引</h4><p><strong>命令:</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">indexer -c sphinx.conf -all<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h4 id="启动searchd服务"><a href="#启动searchd服务" class="headerlink" title="启动searchd服务"></a>启动searchd服务</h4><pre class="line-numbers language-none"><code class="language-none">searchd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>searchd -c source.conf --stop</code></pre><h4 id="重建索引"><a href="#重建索引" class="headerlink" title="重建索引"></a>重建索引</h4><p><strong>命令:</strong></p>
+<pre><code>indexer -c sphinx.conf -all</code></pre><h4 id="启动searchd服务"><a href="#启动searchd服务" class="headerlink" title="启动searchd服务"></a>启动searchd服务</h4><pre><code>searchd</code></pre>
                 
             </div>
             <hr/>
@@ -876,12 +867,15 @@ searchd
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            &gt; Composer 是 PHP 用来管理依赖（dependency）关系的工具。你可以在自己的项目中声明所依赖的外部工具库（libraries），Composer 会帮你安装这些依赖的库文件
+                            
+> Composer 是 PHP 用来管理依赖（dependency）关系的工具。你可以在自己的项目中声明所依赖的外部工具库（libraries），Composer 会帮你安装这些依赖的库文件
 
 
     
         
     
+
+
                         
                     </div>
                     <div class="publish-info">
@@ -943,6 +937,8 @@ searchd
                     <div class="summary block-with-text">
                         
                             
+
+
 有些时候我们在执行一些长时间的任务的时候, 使用浏览器运行是很不友好的, 看不到实时输出, 时间过长浏览器还会超时, 这时候就需要在命令行中来执行
 
                         
@@ -1214,7 +1210,7 @@ searchd
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2021</span>
+                <span id="year">2019-2022</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">大熊</a>
@@ -1223,7 +1219,7 @@ searchd
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">28.7k</span>&nbsp;字
+                class="white-color">31k</span>&nbsp;字
             
             
             
@@ -1449,6 +1445,6 @@ $(function () {
             document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ好哦！",st=setTimeout(function(){document.title=OriginTitile},3e3))
         })
     </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.9},"log":false});</script></body>
+</body>
 
 </html>

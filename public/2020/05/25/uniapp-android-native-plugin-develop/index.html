@@ -29,8 +29,6 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0">
-<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="大熊的个人博客" type="application/atom+xml">
 </head>
 
@@ -498,14 +496,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-27
+                    2022-01-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.3k
+                    2.5k
                 </div>
                 
 
@@ -535,7 +533,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                这是我第一次接触原生Android开发, 第一次使用Android Studio, 感觉很吃力, 目前还有很多地方不明所以, 索性最后还是成功了, 所以先写一篇文章记录下开发uni-app android原生插件及在uni-app中集成使用的过程, 文章会结合两个具体实例来完成, 供大家参考
+                <meta name="referrer" content="no-referrer" />
+这是我第一次接触原生Android开发, 第一次使用Android Studio, 感觉很吃力, 目前还有很多地方不明所以, 索性最后还是成功了, 所以先写一篇文章记录下开发uni-app android原生插件及在uni-app中集成使用的过程, 文章会结合两个具体实例来完成, 供大家参考
 
 
 
@@ -545,17 +544,17 @@
 </li>
 <li><p>Android SDK</p>
 </li>
-<li><p><a target="_blank" rel="noopener" href="https://developer.android.google.cn/studio/index.html">Android Studio</a> </p>
+<li><p><a href="https://developer.android.google.cn/studio/index.html" target="_blank" rel="noopener">Android Studio</a> </p>
 <p>目前用的最新版3.6.3</p>
 </li>
-<li><p><a target="_blank" rel="noopener" href="https://nativesupport.dcloud.net.cn/AppDocs/download/android">App离线SDK</a></p>
+<li><p><a href="https://nativesupport.dcloud.net.cn/AppDocs/download/android" target="_blank" rel="noopener">App离线SDK</a></p>
 <p>建议使用最新版, 最好同时使用对应版本的HbuilderX</p>
 </li>
 <li><p>科学上网</p>
 <p>想想办法</p>
 </li>
 </ul>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h4 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h4><p>uni原生插件, 是为了补足uni-app项目的功能, 或者进一步提高APP性能, 基于开源项目<a target="_blank" rel="noopener" href="https://weex.apache.org/cn/guide/index.html">weex</a>架构</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h4 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h4><p>uni原生插件, 是为了补足uni-app项目的功能, 或者进一步提高APP性能, 基于开源项目<a href="https://weex.apache.org/cn/guide/index.html" target="_blank" rel="noopener">weex</a>架构</p>
 <h4 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h4><p>根据不同需求, uni原生插件可分为两个模式</p>
 <ul>
 <li>Module模式<ul>
@@ -610,279 +609,262 @@
 <ol start="3">
 <li>运行成功可以在你连接的手机上看到运行起来的app, 有这样三个部分, 分别对应着项目中的三个库, 也可以说是三个插件</li>
 </ol>
-<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/c563ebca5dc4b336408ac42482cb237.png" style="zoom:30%;">
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/c563ebca5dc4b336408ac42482cb237.png" style="zoom:30%;" />
 
 
 
-<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/1590385607.jpg" style="zoom:50%;">
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/1590385607.jpg" style="zoom:50%;" />
 
 
 
 <h4 id="生成本地打包资源"><a href="#生成本地打包资源" class="headerlink" title="生成本地打包资源"></a>生成本地打包资源</h4><p>左上角代码视图调整到Android, 依次打开app/assets/apps/__UNI__BCEC007/www目录, 我们看到的是编译后的uni-app项目, 那么要如何编译呢?</p>
-<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/1590386478.jpg" style="zoom:50%;">
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/1590386478.jpg" style="zoom:50%;" />
 
 
 
 <p>我们将代码视图调整为Project, 看到有个名为<strong><code>uniapp示例工程源码</code></strong>的目录, 展开后看到了我们熟悉的uni-app项目结构</p>
-<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/1590386524%281%29.jpg" style="zoom:50%;">
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/1590386524%281%29.jpg" style="zoom:50%;" />
 
 
 
 <p>将其unipluginDemo项目使用HbuilderX打开, 打开manifest.json重新获取一下AppID</p>
 <p><img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/1590387148.jpg" alt="image-20200525141333374"></p>
 <p>依次点击发行-&gt;原生app本地打包, 生成本地打包app资源</p>
-<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/1590387076.jpg" style="zoom:80%;">
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/1590387076.jpg" style="zoom:80%;" />
 
 
 
 <p>等待控制台提示导出成功, 打开unpackage/resources目录可以看到app资源已经生成好了</p>
-<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525141745073.png" alt="image-20200525141745073" style="zoom:67%;">
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525141745073.png" alt="image-20200525141745073" style="zoom:67%;" />
 
 
 
 <p>将以AppID命名的目录复制, 放到上面第1步提到的<code>app/assets/apps</code>目录下, 并修改<code>app/assets/data/dcloud_control.xml</code>中的appid为你自己的appid, 点击运行, 现在运行的就是刚刚编译好的app资源, 原有的__UNI__BCEC007目录可以删掉啦</p>
-<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525144028783.png" alt="image-20200525144028783" style="zoom: 67%;">
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525144028783.png" alt="image-20200525144028783" style="zoom: 67%;" />
 
 
 
 <p>app内的扩展module下的三个按钮的点击事件, 分别调用了<code>uniplugin_module\src\main\java\io\dcloud\uniplugin\TestModule.java</code>内的三个方法</p>
-<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525145104711.png" alt="image-20200525145104711" style="zoom: 67%;">
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525145104711.png" alt="image-20200525145104711" style="zoom: 67%;" />
 
 
 
 <h2 id="插件开发"><a href="#插件开发" class="headerlink" title="插件开发"></a>插件开发</h2><p>前面使用的是官方提供的示例项目及原生插件, 现在需要自己动手开发一个插件</p>
 <h4 id="创建插件"><a href="#创建插件" class="headerlink" title="创建插件"></a>创建插件</h4><p>点击Android Studio File-&gt;New-&gt;New Module</p>
-<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525150337879.png" alt="image-20200525150337879" style="zoom:80%;">
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525150337879.png" alt="image-20200525150337879" style="zoom:80%;" />
 
 
 
 <p>选择Android Library, 点击Next</p>
-<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525150521090.png" alt="image-20200525150521090" style="zoom:50%;">
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525150521090.png" alt="image-20200525150521090" style="zoom:50%;" />
 
 
 
 <p>自定义库名, 模块名, 包名, 语言选择Java, Minimum SDK选择API 19, 新手可以和图中保持一致, 避免出错, 点击Finish</p>
-<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525151005406.png" alt="image-20200525151005406" style="zoom:50%;">
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525151005406.png" alt="image-20200525151005406" style="zoom:50%;" />
 
 <p>等待Build成功, 可以看到左侧项目管理器可以看到创建的插件</p>
-<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525151357167.png" alt="image-20200525151357167" style="zoom: 67%;">
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525151357167.png" alt="image-20200525151357167" style="zoom: 67%;" />
 
 
 
 <h4 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h4><p>打开openfile的<code>build.gradle</code>, 将<code>dependencies</code>节点下内容删除, 替换成下面内容</p>
-<pre class="line-numbers language-json" data-language="json"><code class="language-json">dependencies <span class="token punctuation">{</span>
-    implementation fileTree(dir<span class="token operator">:</span> 'libs'<span class="token punctuation">,</span> include<span class="token operator">:</span> <span class="token punctuation">[</span>'*.jar'<span class="token punctuation">]</span>)
-    
-    compileOnly 'com.android.support<span class="token operator">:</span>recyclerview-v7<span class="token operator">:</span><span class="token number">27.1</span>.<span class="token number">0</span>'
-    compileOnly 'com.android.support<span class="token operator">:</span>support-v4<span class="token operator">:</span><span class="token number">27.1</span>.<span class="token number">0</span>'
-    compileOnly 'com.android.support<span class="token operator">:</span>appcompat-v7<span class="token operator">:</span><span class="token number">27.1</span>.<span class="token number">0</span>'
-    compileOnly 'com.alibaba<span class="token operator">:</span>fastjson<span class="token operator">:</span><span class="token number">1.1</span>.<span class="token number">46</span>.android'
-    compileOnly fileTree(dir<span class="token operator">:</span> '../app/libs'<span class="token punctuation">,</span> include<span class="token operator">:</span> <span class="token punctuation">[</span>'uniapp-release.aar'<span class="token punctuation">]</span>)
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code class="json">dependencies {
+    implementation fileTree(dir: &#39;libs&#39;, include: [&#39;*.jar&#39;])
 
+    compileOnly &#39;com.android.support:recyclerview-v7:27.1.0&#39;
+    compileOnly &#39;com.android.support:support-v4:27.1.0&#39;
+    compileOnly &#39;com.android.support:appcompat-v7:27.1.0&#39;
+    compileOnly &#39;com.alibaba:fastjson:1.1.46.android&#39;
+    compileOnly fileTree(dir: &#39;../app/libs&#39;, include: [&#39;uniapp-release.aar&#39;])
+}</code></pre>
 <p>在dependencies同级添加<code>repositories</code>节点</p>
-<pre class="line-numbers language-json" data-language="json"><code class="language-json">repositories <span class="token punctuation">{</span>
-    flatDir <span class="token punctuation">{</span>
-        dirs 'libs'
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<pre><code class="json">repositories {
+    flatDir {
+        dirs &#39;libs&#39;
+    }
+}
+</code></pre>
 <p>点击AS右上角Sync Now, 等待同步成功</p>
 <h4 id="创建Module类"><a href="#创建Module类" class="headerlink" title="创建Module类"></a>创建Module类</h4><p>在<code>com.bigbear.openfile</code>下新建Java Class, </p>
-<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525153835150.png" alt="image-20200525153835150" style="zoom: 67%;">
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525153835150.png" alt="image-20200525153835150" style="zoom: 67%;" />
 
 <p>填写类名, 继承WXModule, 点击OK</p>
-<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525154358654.png" alt="image-20200525154358654" style="zoom:67%;">
+<img src="https://ccliuxy-image.oss-cn-beijing.aliyuncs.com/image-20200525154358654.png" alt="image-20200525154358654" style="zoom:67%;" />
 
 
 
 <p>编写一个init函数, 测试一下能否正常使用. 代码如下:</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>bigbear<span class="token punctuation">.</span>openfile</span><span class="token punctuation">;</span>
+<pre><code class="java">package com.bigbear.openfile;
 
-<span class="token keyword">import</span> <span class="token namespace">android<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Log</span><span class="token punctuation">;</span>
+import android.util.Log;
 
-<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>alibaba<span class="token punctuation">.</span>fastjson<span class="token punctuation">.</span></span><span class="token class-name">JSONObject</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>taobao<span class="token punctuation">.</span>weex<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">JSMethod</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>taobao<span class="token punctuation">.</span>weex<span class="token punctuation">.</span>bridge<span class="token punctuation">.</span></span><span class="token class-name">JSCallback</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>taobao<span class="token punctuation">.</span>weex<span class="token punctuation">.</span>common<span class="token punctuation">.</span></span><span class="token class-name">WXModule</span><span class="token punctuation">;</span>
+import com.alibaba.fastjson.JSONObject;
+import com.taobao.weex.annotation.JSMethod;
+import com.taobao.weex.bridge.JSCallback;
+import com.taobao.weex.common.WXModule;
 
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OpenFileModule</span> <span class="token keyword">extends</span> <span class="token class-name">WXModule</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">String</span> TAG <span class="token operator">=</span> <span class="token string">"BIGBEAR"</span><span class="token punctuation">;</span>
+public class OpenFileModule extends WXModule {
+    public static String TAG = &quot;BIGBEAR&quot;;
 
-    <span class="token annotation punctuation">@JSMethod</span><span class="token punctuation">(</span>uiThread <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token class-name">JSONObject</span> options<span class="token punctuation">,</span> <span class="token class-name">JSCallback</span> callback<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">e</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">"testinit: "</span> <span class="token operator">+</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>callback <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token class-name">JSONObject</span> data <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JSONObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            data<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"code"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            callback<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-
-
+    @JSMethod(uiThread = true)
+    public void init(JSONObject options, JSCallback callback) {
+        Log.e(TAG, &quot;testinit: &quot; + options);
+        if(callback != null) {
+            JSONObject data = new JSONObject();
+            data.put(&quot;code&quot;, 0);
+            callback.invoke(data);
+        }
+    }
+}
+</code></pre>
 <h4 id="注册插件"><a href="#注册插件" class="headerlink" title="注册插件"></a>注册插件</h4><p>打开<code>app/assets/dcloud_uniplugins.json</code>文件, 在<code>nativePlugins</code>节点下新增</p>
-<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>
-   <span class="token property">"hooksClass"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
-   <span class="token property">"plugins"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-     <span class="token punctuation">{</span>
-       <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"module"</span><span class="token punctuation">,</span>
-       <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"OpenFile"</span><span class="token punctuation">,</span>
-       <span class="token property">"class"</span><span class="token operator">:</span> <span class="token string">"com.bigbear.openfile.OpenFileModule"</span>
-     <span class="token punctuation">}</span>
-   <span class="token punctuation">]</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<pre><code class="json">{
+   &quot;hooksClass&quot;: &quot;&quot;,
+   &quot;plugins&quot;: [
+     {
+       &quot;type&quot;: &quot;module&quot;,
+       &quot;name&quot;: &quot;OpenFile&quot;,
+       &quot;class&quot;: &quot;com.bigbear.openfile.OpenFileModule&quot;
+     }
+   ]
+}</code></pre>
 <h4 id="原生工程中调用插件方法进行调试"><a href="#原生工程中调用插件方法进行调试" class="headerlink" title="原生工程中调用插件方法进行调试"></a>原生工程中调用插件方法进行调试</h4><p>新建一个uni-app项目, 或者使用现有的项目, 在页面中引入插件, 并添加一个按钮触发init方法</p>
-<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
-	&lt;view&gt;
-		&lt;button type="primary" @click="testInit"&gt;testInit&lt;/button&gt;
-	&lt;/view&gt;
+<pre><code class="vue">&lt;template&gt;
+    &lt;view&gt;
+        &lt;button type=&quot;primary&quot; @click=&quot;testInit&quot;&gt;testInit&lt;/button&gt;
+    &lt;/view&gt;
 &lt;/template&gt;
 
 &lt;script&gt;
-	// 引入 module 
-	const OpenFile = uni.requireNativePlugin("OpenFile")
-	export default {
-		onLoad() {
-			
-		},
-		methods: {
-			testInit() {
-				OpenFile.init({a:1, b:2}, res=&gt; { //调用插件中刚编写的init方法
-					console.log(res);
-				})
-			}
-		}
-	}
-&lt;/script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    // 引入 module 
+    const OpenFile = uni.requireNativePlugin(&quot;OpenFile&quot;)
+    export default {
+        onLoad() {
 
+        },
+        methods: {
+            testInit() {
+                OpenFile.init({a:1, b:2}, res=&gt; { //调用插件中刚编写的init方法
+                    console.log(res);
+                })
+            }
+        }
+    }
+&lt;/script&gt;</code></pre>
 <p><a href="#生成本地打包资源">生成本地打包APP资源</a>, 并且将其放入原生工程目录下, 可参考前面说过的步骤完成, 记得保证<code>dcloud_control.xml</code>中的appid和uniapp项目的appid一致</p>
 <p><strong>在app的build.gradle中添加插件</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">implementation project(':openfile')<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>点击RUN 按钮运行app, 点击测试按钮, 可以在logcat中看见我们打印出的传递过来的参数</p>
+<pre><code>implementation project(&#39;:openfile&#39;)</code></pre><p>点击RUN 按钮运行app, 点击测试按钮, 可以在logcat中看见我们打印出的传递过来的参数</p>
 <p>logcat中的日志很乱, 筛选一下方便查看</p>
 <p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200601104329137.png" alt="image-20200601104329137"></p>
 <h4 id="openfile功能"><a href="#openfile功能" class="headerlink" title="openfile功能"></a>openfile功能</h4><p>这个功能想必大部分人都用过, 就是在使用 微信, QQ打开文件的时候, 我们想使用其他应用打开, 方便我们编辑或查看文档, 那么你会见到这个弹窗 </p>
-<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200601105021393.png" alt="image-20200601105021393" style="zoom: 33%;">
+<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200601105021393.png" alt="image-20200601105021393" style="zoom: 33%;" />
 
 <p>那么, 我们要做的, 就是将你自己开发的uni-app项目, 添加到这个列表中</p>
 <h5 id="AndroidManifest-xml"><a href="#AndroidManifest-xml" class="headerlink" title="AndroidManifest.xml"></a>AndroidManifest.xml</h5><p>打开openfile下的<code>AndroidManifest.xml</code>文件, 修改成下面的样子</p>
-<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>manifest</span> <span class="token attr-name"><span class="token namespace">xmlns:</span>android</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.android.com/apk/res/android<span class="token punctuation">"</span></span>
-    <span class="token attr-name">package</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.bigbear.openfile<span class="token punctuation">"</span></span> <span class="token punctuation">&gt;</span></span>
+<pre><code class="xml">&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    package=&quot;com.bigbear.openfile&quot; &gt;
 
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>application</span>
-        <span class="token attr-name"><span class="token namespace">android:</span>allowBackup</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>
-        <span class="token attr-name"><span class="token namespace">android:</span>label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@string/app_name<span class="token punctuation">"</span></span>
-        <span class="token attr-name"><span class="token namespace">android:</span>supportsRtl</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>activity</span> <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.bigbear.openfile.OpenFileActivity<span class="token punctuation">"</span></span>
-            <span class="token attr-name"><span class="token namespace">android:</span>theme</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@style/Theme.AppCompat.Dialog<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>intent-filter</span><span class="token punctuation">&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>action</span> <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>android.intent.action.VIEW<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>action</span> <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>android.intent.action.MAIN<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>action</span> <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>android.intent.action.SEND<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+    &lt;application
+        android:allowBackup=&quot;true&quot;
+        android:label=&quot;@string/app_name&quot;
+        android:supportsRtl=&quot;true&quot;&gt;
+        &lt;activity android:name=&quot;com.bigbear.openfile.OpenFileActivity&quot;
+            android:theme=&quot;@style/Theme.AppCompat.Dialog&quot;&gt;
+            &lt;intent-filter&gt;
+                &lt;action android:name=&quot;android.intent.action.VIEW&quot; /&gt;
+                &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;
+                &lt;action android:name=&quot;android.intent.action.SEND&quot;/&gt;
 
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>category</span> <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>android.intent.category.LAUNCHER<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>category</span> <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>android.intent.category.DEFAULT<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+                &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;
+                &lt;category android:name=&quot;android.intent.category.DEFAULT&quot; /&gt;
 
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>category</span> <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>android.intent.category.BROWSABLE<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+                &lt;category android:name=&quot;android.intent.category.BROWSABLE&quot; /&gt;
 
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>data</span> <span class="token attr-name"><span class="token namespace">android:</span>scheme</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>data</span> <span class="token attr-name"><span class="token namespace">android:</span>scheme</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
-
-				
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>data</span> <span class="token attr-name"><span class="token namespace">android:</span>scheme</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>data</span> <span class="token attr-name"><span class="token namespace">android:</span>scheme</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>content<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
-
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>data</span> <span class="token attr-name"><span class="token namespace">android:</span>mimeType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/plain<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span> <span class="token comment">&lt;!--txt--&gt;</span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>data</span> <span class="token attr-name"><span class="token namespace">android:</span>mimeType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/xml<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>data</span> <span class="token attr-name"><span class="token namespace">android:</span>mimeType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/csv<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
-
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>data</span> <span class="token attr-name"><span class="token namespace">android:</span>mimeType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>application/msword<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span> <span class="token comment">&lt;!--doc--&gt;</span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>data</span> <span class="token attr-name"><span class="token namespace">android:</span>mimeType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>application/vnd.openxmlformats-officedocument.wordprocessingml.document<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span> <span class="token comment">&lt;!--docx--&gt;</span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>data</span> <span class="token attr-name"><span class="token namespace">android:</span>mimeType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>application/vnd.ms-powerpoint<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span> <span class="token comment">&lt;!--ppt--&gt;</span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>data</span> <span class="token attr-name"><span class="token namespace">android:</span>mimeType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>application/vnd.openxmlformats-officedocument.presentationml.presentation<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span> <span class="token comment">&lt;!--pptx--&gt;</span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>data</span> <span class="token attr-name"><span class="token namespace">android:</span>mimeType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>application/vnd.ms-excel<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span><span class="token comment">&lt;!--xls--&gt;</span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>data</span> <span class="token attr-name"><span class="token namespace">android:</span>mimeType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span><span class="token comment">&lt;!--xlsx--&gt;</span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>data</span> <span class="token attr-name"><span class="token namespace">android:</span>mimeType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>application/json<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>data</span> <span class="token attr-name"><span class="token namespace">android:</span>mimeType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>application/pdf<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span> <span class="token comment">&lt;!--pdf--&gt;</span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>data</span> <span class="token attr-name"><span class="token namespace">android:</span>mimeType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>application/xml<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>data</span> <span class="token attr-name"><span class="token namespace">android:</span>mimeType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>application/vnd.ms-works<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span> <span class="token comment">&lt;!--wps--&gt;</span>
-
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>intent-filter</span><span class="token punctuation">&gt;</span></span>
-
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>activity</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>application</span><span class="token punctuation">&gt;</span></span>
+                &lt;data android:scheme=&quot;http&quot;/&gt;
+                &lt;data android:scheme=&quot;https&quot;/&gt;
 
 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>manifest</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                &lt;data android:scheme=&quot;file&quot;/&gt;
+                &lt;data android:scheme=&quot;content&quot;/&gt;
 
+                &lt;data android:mimeType=&quot;text/plain&quot; /&gt; &lt;!--txt--&gt;
+                &lt;data android:mimeType=&quot;text/xml&quot; /&gt;
+                &lt;data android:mimeType=&quot;text/csv&quot; /&gt;
+
+                &lt;data android:mimeType=&quot;application/msword&quot; /&gt; &lt;!--doc--&gt;
+                &lt;data android:mimeType=&quot;application/vnd.openxmlformats-officedocument.wordprocessingml.document&quot; /&gt; &lt;!--docx--&gt;
+                &lt;data android:mimeType=&quot;application/vnd.ms-powerpoint&quot; /&gt; &lt;!--ppt--&gt;
+                &lt;data android:mimeType=&quot;application/vnd.openxmlformats-officedocument.presentationml.presentation&quot; /&gt; &lt;!--pptx--&gt;
+                &lt;data android:mimeType=&quot;application/vnd.ms-excel&quot; /&gt;&lt;!--xls--&gt;
+                &lt;data android:mimeType=&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot; /&gt;&lt;!--xlsx--&gt;
+                &lt;data android:mimeType=&quot;application/json&quot; /&gt;
+                &lt;data android:mimeType=&quot;application/pdf&quot; /&gt; &lt;!--pdf--&gt;
+                &lt;data android:mimeType=&quot;application/xml&quot; /&gt;
+                &lt;data android:mimeType=&quot;application/vnd.ms-works&quot; /&gt; &lt;!--wps--&gt;
+
+            &lt;/intent-filter&gt;
+
+        &lt;/activity&gt;
+    &lt;/application&gt;
+
+
+&lt;/manifest&gt;</code></pre>
 <h5 id="OpenFileActivity"><a href="#OpenFileActivity" class="headerlink" title="OpenFileActivity"></a>OpenFileActivity</h5><p>在<code>com.bigbear.openfile</code>下新建<code>OpenFileActivity.java</code>, 在<code>onCreate</code>中获取其他应用打开你的应用时传递过来的文件路径, 然后通过scheme唤起你的uni-app应用</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>bigbear<span class="token punctuation">.</span>openfile</span><span class="token punctuation">;</span>
+<pre><code class="java">package com.bigbear.openfile;
 
-<span class="token keyword">import</span> <span class="token namespace">android<span class="token punctuation">.</span>content<span class="token punctuation">.</span></span><span class="token class-name">Intent</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">android<span class="token punctuation">.</span>net<span class="token punctuation">.</span></span><span class="token class-name">Uri</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">android<span class="token punctuation">.</span>os<span class="token punctuation">.</span></span><span class="token class-name">Bundle</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">android<span class="token punctuation">.</span>os<span class="token punctuation">.</span></span><span class="token class-name">Environment</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">android<span class="token punctuation">.</span>support<span class="token punctuation">.</span>v7<span class="token punctuation">.</span>app<span class="token punctuation">.</span></span><span class="token class-name">AppCompatActivity</span><span class="token punctuation">;</span>
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Environment;
+import android.support.v7.app.AppCompatActivity;
 
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OpenFileActivity</span> <span class="token keyword">extends</span> <span class="token class-name">AppCompatActivity</span> <span class="token punctuation">{</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onCreate</span><span class="token punctuation">(</span><span class="token class-name">Bundle</span> savedInstanceState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span>savedInstanceState<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"----------*******************************onCreate**************************-------------"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"----------*******************************openfile**************************-------------"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+public class OpenFileActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        System.out.println(&quot;----------*******************************onCreate**************************-------------&quot;);
+        System.out.println(&quot;----------*******************************openfile**************************-------------&quot;);
 
-        <span class="token class-name">Intent</span> intent <span class="token operator">=</span> <span class="token function">getIntent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">Uri</span> uri <span class="token operator">=</span> intent<span class="token punctuation">.</span><span class="token function">getData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">assert</span> uri <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-        <span class="token class-name">String</span> path <span class="token operator">=</span> uri<span class="token punctuation">.</span><span class="token function">getPath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">String</span> _uri<span class="token punctuation">;</span>
+        Intent intent = getIntent();
+        Uri uri = intent.getData();
+        assert uri != null;
+        String path = uri.getPath();
+        String _uri;
 
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token string">"content"</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>uri<span class="token punctuation">.</span><span class="token function">getScheme</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> path <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">"/external/"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">//wechat</span>
-                path <span class="token operator">=</span> <span class="token class-name">Environment</span><span class="token punctuation">.</span><span class="token function">getExternalStorageDirectory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getAbsolutePath</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> path<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"/external"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                _uri <span class="token operator">=</span> <span class="token string">"file://"</span> <span class="token operator">+</span> path<span class="token punctuation">;</span>
-            <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">"/external_files/"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">//qq</span>
-                path <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"/external_files"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                _uri <span class="token operator">=</span> <span class="token string">"file://"</span> <span class="token operator">+</span> path<span class="token punctuation">;</span>
-            <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
-                _uri <span class="token operator">=</span> uri <span class="token operator">+</span> <span class="token string">""</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
+        if (&quot;content&quot;.equals(uri.getScheme()) &amp;&amp; path != null ) {
+            if (path.startsWith(&quot;/external/&quot;)) { //wechat
+                path = Environment.getExternalStorageDirectory().getAbsolutePath() + path.replace(&quot;/external&quot;, &quot;&quot;);
+                _uri = &quot;file://&quot; + path;
+            }else if (path.startsWith(&quot;/external_files/&quot;)) { //qq
+                path = path.replace(&quot;/external_files&quot;, &quot;&quot;);
+                _uri = &quot;file://&quot; + path;
+            }else {
+                _uri = uri + &quot;&quot;;
+            }
 
-        <span class="token punctuation">}</span><span class="token keyword">else</span>  <span class="token punctuation">{</span>
-            _uri <span class="token operator">=</span> uri <span class="token operator">+</span> <span class="token string">""</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+        }else  {
+            _uri = uri + &quot;&quot;;
+        }
 
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>_uri<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">Uri</span> open_uri <span class="token operator">=</span> <span class="token class-name">Uri</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">"abc://"</span><span class="token operator">+</span> _uri<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//这里的abc是你给uniapp项目设置的scheme</span>
-        <span class="token class-name">Intent</span> _intent <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Intent</span><span class="token punctuation">(</span><span class="token class-name">Intent</span><span class="token punctuation">.</span>ACTION_VIEW<span class="token punctuation">,</span> open_uri<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">startActivity</span><span class="token punctuation">(</span>_intent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System.out.println(_uri);
+        Uri open_uri = Uri.parse(&quot;abc://&quot;+ _uri); //这里的abc是你给uniapp项目设置的scheme
+        Intent _intent = new Intent(Intent.ACTION_VIEW, open_uri);
+        startActivity(_intent);
 
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"----------***************************************************"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System.out.println(&quot;----------***************************************************&quot;);
 
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-
-
+    }
+}</code></pre>
 <p>重新运行, 在微信中或者qq中找一个文件, 选择用其他应用打开, 可以看到, 我们的测试app已经出现在了列表中</p>
-<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200601111732541.png" alt="image-20200601111732541" style="zoom:33%;">
+<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200601111732541.png" alt="image-20200601111732541" style="zoom:33%;" />
 
 <p>选择HBuilder-integrate-AS打开, 应用会自动打开跳转到我们在代码中写的scheme的应用中, 同时logcat中看下打印出的内容, 我们也已经获取到了文件的链接</p>
 <p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200601111935162.png" alt="image-20200601111935162"></p>
 <h4 id="集成插件到uniapp"><a href="#集成插件到uniapp" class="headerlink" title="集成插件到uniapp"></a>集成插件到uniapp</h4><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><p><a target="_blank" rel="noopener" href="https://nativesupport.dcloud.net.cn/NativePlugin/README">uni-app原生插件开发文档</a></p>
+<li><p><a href="https://nativesupport.dcloud.net.cn/NativePlugin/README" target="_blank" rel="noopener">uni-app原生插件开发文档</a></p>
 </li>
-<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/37974829">Android SDK下载安装及配置教程</a></p>
+<li><p><a href="https://zhuanlan.zhihu.com/p/37974829" target="_blank" rel="noopener">Android SDK下载安装及配置教程</a></p>
 </li>
 </ul>
 
@@ -1152,7 +1134,8 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            &gt; 叶子结点 就是出度为0的结点 就是没有子结点的结点
+                            
+> 叶子结点 就是出度为0的结点 就是没有子结点的结点
                         
                     </div>
                     <div class="publish-info">
@@ -1475,7 +1458,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2021</span>
+                <span id="year">2019-2022</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">大熊</a>
@@ -1484,7 +1467,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">28.7k</span>&nbsp;字
+                class="white-color">31k</span>&nbsp;字
             
             
             
@@ -1710,6 +1693,6 @@ $(function () {
             document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ好哦！",st=setTimeout(function(){document.title=OriginTitile},3e3))
         })
     </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.9},"log":false});</script></body>
+</body>
 
 </html>

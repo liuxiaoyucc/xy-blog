@@ -29,8 +29,6 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0">
-<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="大熊的个人博客" type="application/atom+xml">
 </head>
 
@@ -486,7 +484,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-27
+                    2020-01-07
                 </div>
                 
 
@@ -523,22 +521,24 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ul>
+                <meta name="referrer" content="no-referrer" />
+
+<ul>
 <li><strong>source</strong>：数据源，数据是从什么地方来的。</li>
 <li><strong>index</strong>：索引，当有数据源之后，从数据源处构建索引。索引实际上就是相当于一个字典检索。有了整本字典内容以后，才会有字典检索。</li>
 <li><strong>searchd</strong>：提供搜索查询服务。它一般是以deamon的形式运行在后台的。</li>
 <li><strong>indexer</strong>：构建索引的服务。当要重新构建索引的时候，就是调用indexer这个命令。</li>
 </ul>
-<span id="more"></span>
+<a id="more"></a>
 
-<pre class="line-numbers language-none"><code class="language-none">// 数据源src1
+<pre><code>// 数据源src1
 source src1
 {
     // 说明数据源的类型。数据源的类型可以是：mysql，pgsql，mssql，xmlpipe，odbc，python
     // 有人会奇怪，python是一种语言怎么可以成为数据源呢？
     // python作为一种语言，可以操作任意其他的数据来源来获取数据，更多数据请看：（http://www.coreseek.cn/products-install/python/）
     type            = mysql
-    
+
     // 下面是sql数据库特有的端口，用户名，密码，数据库名等。
     sql_host        = localhost
     sql_user        = test
@@ -567,7 +567,7 @@ source src1
 
     // odbc的dsn串
     # odbc_dsn      = DBQ=C:\data;DefaultDir=C:\data;Driver={Microsoft Text Driver (*.txt; *.csv)};
-    
+
     // sql某一列的缓冲大小，一般是针对字符串来说的。
     // 为什么要有这么一种缓冲呢？
     // 有的字符串，虽然长度很长，但是实际上并没有使用那么长的字符，所以在Sphinx并不会收录所有的字符，而是给每个属性一个缓存作为长度限制。
@@ -589,7 +589,7 @@ source src1
     // sql_joined_field是增加一个字段，这个字段是从其他表查询中查询出来的。
     // 这里封号后面的查询语句是有要求的，如果是query，则返回id和查询字段，如果是payload-query，则返回id，查询字段和权重。
     // 并且这里的后一个查询需要按照id进行升序排列。
-    # sql_joined_field  = tags from query; SELECT docid, CONCAT('tag',tagid) FROM tags ORDER BY docid ASC
+    # sql_joined_field  = tags from query; SELECT docid, CONCAT(&#39;tag&#39;,tagid) FROM tags ORDER BY docid ASC
     # sql_joined_field  = wtags from payload-query; SELECT docid, tag, tagweight FROM tags ORDER BY docid ASC
 
     // 外部文件字段，意思就是一个表中，有一个字段存的是外部文件地址，但是实际的字段内容在文件中。比如这个字段叫做content_file_path。
@@ -609,13 +609,13 @@ source src1
 
     // uint无符号整型属性
     sql_attr_uint       = group_id
-    
+
     // bool属性
     # sql_attr_bool     = is_deleted
-    
+
     // 长整型属性
     # sql_attr_bigint       = my_bigint_id
-    
+
     // 时间戳属性，经常被用于做排序
     sql_attr_timestamp  = date_added
 
@@ -658,7 +658,7 @@ source src1
 
     // 参考sql_query_post的说明。
     # sql_query_post_index  = REPLACE INTO counters ( id, val ) \
-    #   VALUES ( 'max_indexed_id', $maxid )
+    #   VALUES ( &#39;max_indexed_id&#39;, $maxid )
 
     // 命令行获取信息查询。
     // 什么意思呢？
@@ -762,10 +762,10 @@ index test1
     charset_type        = sbcs
 
     // 字符表和大小写转换规则。对于Coreseek，这个字段无效。
-    # 'sbcs' default value is
+    # &#39;sbcs&#39; default value is
     # charset_table     = 0..9, A..Z-&gt;a..z, _, a..z, U+A8-&gt;U+B8, U+B8, U+C0..U+DF-&gt;U+E0..U+FF, U+E0..U+FF
     #
-    # 'utf-8' default value is
+    # &#39;utf-8&#39; default value is
     # charset_table     = 0..9, A..Z-&gt;a..z, _, a..z, U+410..U+42F-&gt;U+430..U+44F, U+430..U+44F
 
     // 忽略字符表。在忽略字符表中的前后词会被连起来当做一个单独关键词处理。
@@ -1047,11 +1047,8 @@ searchd
     # watchdog              = 1
     // 兼容模式
     # compat_sphinxql_magics    = 1
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<p><br><br><br><br> </p>
-<h5 id="转载自-轩脉刃de刀光剑影"><a href="#转载自-轩脉刃de刀光剑影" class="headerlink" title="转载自:  轩脉刃de刀光剑影"></a>转载自:  <a target="_blank" rel="noopener" href="http://www.cnblogs.com/yjf512/p/3598332.html">轩脉刃de刀光剑影</a></h5>
+}</code></pre><p><br><br><br><br> </p>
+<h5 id="转载自-轩脉刃de刀光剑影"><a href="#转载自-轩脉刃de刀光剑影" class="headerlink" title="转载自:  轩脉刃de刀光剑影"></a>转载自:  <a href="http://www.cnblogs.com/yjf512/p/3598332.html" target="_blank" rel="noopener">轩脉刃de刀光剑影</a></h5>
                 
             </div>
             <hr/>
@@ -1314,7 +1311,9 @@ searchd
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                              之前记录过一篇Sphinx在Windows上的安装步骤,这篇当然就是Linux系统的安装步骤啦
+                            
+
+&emsp;&emsp;之前记录过一篇Sphinx在Windows上的安装步骤,这篇当然就是Linux系统的安装步骤啦
                         
                     </div>
                     <div class="publish-info">
@@ -1368,12 +1367,12 @@ searchd
                         <span class="chip bg-color">Sphinx</span>
                     </a>
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
-                    </a>
-                    
                     <a href="/tags/Sphinxapi/">
                         <span class="chip bg-color">Sphinxapi</span>
+                    </a>
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>
@@ -1387,7 +1386,7 @@ searchd
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/12/install-Sphinx-in-Windows-and-use-Sphinxapi-in-php/">
+                <a href="/2019/11/12/Install-Sphinx-in-Windows-and-use-Sphinxapi-in-php/">
                     <div class="card-image">
                         
                         
@@ -1399,9 +1398,11 @@ searchd
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                              最近一个项目需要实现这样一个需求:mysql数据库一张表中存了百万张菜品图片,需要根据菜品名称或描述,模糊匹配出符合条件的菜品图片,并展示出来
+                            
 
-select * from table_name where column like '%
+&emsp;&emsp;最近一个项目需要实现这样一个需求:mysql数据库一张表中存了百万张菜品图片,需要根据菜品名称或描述,模糊匹配出符合条件的菜品图片,并展示出来
+
+select * from table_name where co
                         
                     </div>
                     <div class="publish-info">
@@ -1683,7 +1684,7 @@ select * from table_name where column like '%
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2021</span>
+                <span id="year">2019-2022</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">大熊</a>
@@ -1692,7 +1693,7 @@ select * from table_name where column like '%
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">28.7k</span>&nbsp;字
+                class="white-color">31k</span>&nbsp;字
             
             
             
@@ -1918,6 +1919,6 @@ $(function () {
             document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ好哦！",st=setTimeout(function(){document.title=OriginTitile},3e3))
         })
     </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.9},"log":false});</script></body>
+</body>
 
 </html>

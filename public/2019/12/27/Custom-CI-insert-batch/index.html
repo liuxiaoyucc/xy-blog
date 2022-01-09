@@ -29,8 +29,6 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0">
-<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="大熊的个人博客" type="application/atom+xml">
 </head>
 
@@ -482,14 +480,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-27
+                    2020-01-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    539
+                    551
                 </div>
                 
 
@@ -519,67 +517,68 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>在CI中, 有时我们想将很多条数据, 批量插入到数据库中, 我们知道有<a target="_blank" rel="noopener" href="https://codeigniter.org.cn/user_guide/database/query_builder.html">insert_batch()</a>这个函数, 但是如果insert_batch时, 遇到了mysql中的UNIQUE约束, 就会导致插入失败, 并回滚, 那么我们该如何让其跳过冲突的列, 并继续执行下面的数据呢?<br> <span id="more"></span></p>
+                <meta name="referrer" content="no-referrer" />
+
+<blockquote>
+<p>在CI中, 有时我们想将很多条数据, 批量插入到数据库中, 我们知道有<a href="https://codeigniter.org.cn/user_guide/database/query_builder.html" target="_blank" rel="noopener">insert_batch()</a>这个函数, 但是如果insert_batch时, 遇到了mysql中的UNIQUE约束, 就会导致插入失败, 并回滚, 那么我们该如何让其跳过冲突的列, 并继续执行下面的数据呢?<br> <a id="more"></a></p>
 </blockquote>
 <p>既然insert_batch()满足不了我们的需求, 那我们就自己造一个, 首先我们找到insert_batch()函数的位置, 看下源码,</p>
-<pre class="line-numbers language-none"><code class="language-none"># CI_VERSION = 3.1.11, 这个版本可以在system/core/CodeIgniter.php中查看
+<pre><code># CI_VERSION = 3.1.11, 这个版本可以在system/core/CodeIgniter.php中查看
 # 位置在 system/database/DB_query_builder.php insert_batch()
 /**
  * Insert_Batch
  *
  * Compiles batch insert strings and runs the queries
  *
- * @param	string	$table	Table to insert into
- * @param	array	$set 	An associative array of insert values
- * @param	bool	$escape	Whether to escape values and identifiers
- * @return	int	Number of rows inserted or FALSE on failure
+ * @param    string    $table    Table to insert into
+ * @param    array    $set     An associative array of insert values
+ * @param    bool    $escape    Whether to escape values and identifiers
+ * @return    int    Number of rows inserted or FALSE on failure
  */
 public function insert_batch($table, $set = NULL, $escape = NULL, $batch_size = 100)
 {
-	if ($set === NULL)
-	{
-		if (empty($this-&gt;qb_set))
-		{
-			return ($this-&gt;db_debug) ? $this-&gt;display_error('db_must_use_set') : FALSE;
-		}
-	}
-	else
-	{
-		if (empty($set))
-		{
-			return ($this-&gt;db_debug) ? $this-&gt;display_error('insert_batch() called with no data') : FALSE;
-		}
+    if ($set === NULL)
+    {
+        if (empty($this-&gt;qb_set))
+        {
+            return ($this-&gt;db_debug) ? $this-&gt;display_error(&#39;db_must_use_set&#39;) : FALSE;
+        }
+    }
+    else
+    {
+        if (empty($set))
+        {
+            return ($this-&gt;db_debug) ? $this-&gt;display_error(&#39;insert_batch() called with no data&#39;) : FALSE;
+        }
 
-		$this-&gt;set_insert_batch($set, '', $escape);
-	}
+        $this-&gt;set_insert_batch($set, &#39;&#39;, $escape);
+    }
 
-	if (strlen($table) === 0)
-	{
-		if ( ! isset($this-&gt;qb_from[0]))
-		{
-			return ($this-&gt;db_debug) ? $this-&gt;display_error('db_must_set_table') : FALSE;
-		}
+    if (strlen($table) === 0)
+    {
+        if ( ! isset($this-&gt;qb_from[0]))
+        {
+            return ($this-&gt;db_debug) ? $this-&gt;display_error(&#39;db_must_set_table&#39;) : FALSE;
+        }
 
-		$table = $this-&gt;qb_from[0];
-	}
+        $table = $this-&gt;qb_from[0];
+    }
 
-	// Batch this baby
-	$affected_rows = 0;
-	for ($i = 0, $total = count($this-&gt;qb_set); $i &lt; $total; $i += $batch_size)
-	{
-		if ($this-&gt;query($this-&gt;_insert_batch($this-&gt;protect_identifiers($table, TRUE, $escape, FALSE), $this-&gt;qb_keys, array_slice($this-&gt;qb_set, $i, $batch_size))))
-		{
-			$affected_rows += $this-&gt;affected_rows();
-		}
-	}
+    // Batch this baby
+    $affected_rows = 0;
+    for ($i = 0, $total = count($this-&gt;qb_set); $i &lt; $total; $i += $batch_size)
+    {
+        if ($this-&gt;query($this-&gt;_insert_batch($this-&gt;protect_identifiers($table, TRUE, $escape, FALSE), $this-&gt;qb_keys, array_slice($this-&gt;qb_set, $i, $batch_size))))
+        {
+            $affected_rows += $this-&gt;affected_rows();
+        }
+    }
 
-	$this-&gt;_reset_write();
-	return $affected_rows;
+    $this-&gt;_reset_write();
+    return $affected_rows;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>可以看到, _insert_batch函数生成了sql语句, 最终由query函数执行, 并返回影响条数, 现在我们使用<strong>IGNORE</strong>关键字, 来改写一下sql语句那里就ok了, 为了不影响源码, 我们在insert_batch()下面新写一个insert_ignore_batch函数, 前面都省略, 直接从for循环这里开始</p>
-<pre class="line-numbers language-none"><code class="language-none">/*
+</code></pre><p>可以看到, _insert_batch函数生成了sql语句, 最终由query函数执行, 并返回影响条数, 现在我们使用<strong>IGNORE</strong>关键字, 来改写一下sql语句那里就ok了, 为了不影响源码, 我们在insert_batch()下面新写一个insert_ignore_batch函数, 前面都省略, 直接从for循环这里开始</p>
+<pre><code>/*
 * insert_batch() using INSERT IGNORE INTO instead of INSERT INTO
 * @ xyliu
 */
@@ -592,19 +591,17 @@ public function insert_ignore_batch($table, $set = NULL, $escape = NULL, $batch_
     for ($i = 0, $total = count($this-&gt;qb_set); $i &lt; $total; $i = $i + 100)
     {
         $sql = $this-&gt;_insert_batch($this-&gt;protect_identifiers($table, TRUE, $escape, FALSE), $this-&gt;qb_keys, array_slice($this-&gt;qb_set, $i, $batch_size));
-        $sql = str_replace('INSERT INTO','INSERT IGNORE INTO',$sql); //忽略错误
+        $sql = str_replace(&#39;INSERT INTO&#39;,&#39;INSERT IGNORE INTO&#39;,$sql); //忽略错误
         if ($this-&gt;query($sql)) {
-        	$affected_rows += $this-&gt;affected_rows();
+            $affected_rows += $this-&gt;affected_rows();
         }
     }
 
     $this-&gt;_reset_write();
     return $affected_rows;;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>我们在使用的时候可以直接像使用insert_batch()那样使用insert_ignore_batch</p>
-<pre class="line-numbers language-none"><code class="language-none">$this-&gt;db-&gt;insert_ignore_batch();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</code></pre><p>我们在使用的时候可以直接像使用insert_batch()那样使用insert_ignore_batch</p>
+<pre><code>$this-&gt;db-&gt;insert_ignore_batch();</code></pre>
                 
             </div>
             <hr/>
@@ -851,7 +848,7 @@ public function insert_ignore_batch($table, $set = NULL, $escape = NULL, $batch_
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/01/06/sweet-and-sour-spareribs/">
+                <a href="/2020/01/06/Sweet-and-sour-spareribs/">
                     <div class="card-image">
                         
                         
@@ -864,6 +861,8 @@ public function insert_ignore_batch($table, $set = NULL, $escape = NULL, $batch_
                     <div class="summary block-with-text">
                         
                             
+
+
 每个周末, 都要想办法犒劳一下自己, 的胃, 刚好畅大人想吃糖醋排骨, 得! 那就来吧, 没想到以前一做就砸, 这次竟然成功了, 牛B, 记录一下
 
                         
@@ -927,6 +926,8 @@ public function insert_ignore_batch($table, $set = NULL, $escape = NULL, $batch_
                     <div class="summary block-with-text">
                         
                             
+
+
 下班路上突然想起来圣诞节那天看到个微博热搜, 煮红酒, 突然间就好想试一下呀, 刚好家里还剩下的红酒, 说干就干, 吃过晚饭之后就到超市准备水果啦! 紧跟潮流!
 
                         
@@ -1194,7 +1195,7 @@ public function insert_ignore_batch($table, $set = NULL, $escape = NULL, $batch_
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2021</span>
+                <span id="year">2019-2022</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">大熊</a>
@@ -1203,7 +1204,7 @@ public function insert_ignore_batch($table, $set = NULL, $escape = NULL, $batch_
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">28.7k</span>&nbsp;字
+                class="white-color">31k</span>&nbsp;字
             
             
             
@@ -1429,6 +1430,6 @@ $(function () {
             document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ好哦！",st=setTimeout(function(){document.title=OriginTitile},3e3))
         })
     </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.9},"log":false});</script></body>
+</body>
 
 </html>

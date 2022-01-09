@@ -29,8 +29,6 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0">
-<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="大熊的个人博客" type="application/atom+xml">
 </head>
 
@@ -486,14 +484,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-27
+                    2020-01-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    583
+                    623
                 </div>
                 
 
@@ -523,37 +521,38 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
+                <meta name="referrer" content="no-referrer" />
+
+<blockquote>
 <p><code>Imagemagick</code>是一个强大的图像处理库,号称命令行上的photoshop</p>
 </blockquote>
 <ul>
-<li><a target="_blank" rel="noopener" href="http://www.pulsating.cn/2019/11/15/Use-GD-library-to-implement-image-merge/">使用GD扩展实现和本篇文章相同的效果</a></li>
-<li><a target="_blank" rel="noopener" href="http://pulsating.cn/2019/11/12/install-imagick-extend-and-imagemagick-in-windows-php5.6/">php的imagick扩展和imagemagick的安装教程</a></li>
+<li><a href="http://www.pulsating.cn/2019/11/15/Use-GD-library-to-implement-image-merge/" target="_blank" rel="noopener">使用GD扩展实现和本篇文章相同的效果</a></li>
+<li><a href="http://pulsating.cn/2019/11/12/install-imagick-extend-and-imagemagick-in-windows-php5.6/" target="_blank" rel="noopener">php的imagick扩展和imagemagick的安装教程</a></li>
 </ul>
-<h5 id="1-问题场景"><a href="#1-问题场景" class="headerlink" title="1. 问题场景"></a>1. 问题场景</h5><p>  在进行手上的一个海报项目时,遇到了这样一个需求:<br>  如图,在用户制作一张海报后,最后保存的时候,图片主体<code>body</code>是用户制作的海报,<code>footer</code>是由左右两张二维码组成的,左边为公众号的带参数二维码,右侧是用户自定义的二维码,美工提供一张通用的footer模版,程序来负责动态将二维码替换上去,最终拼接成下面图片示例的样子</p>
-<span id="more"></span>
+<h5 id="1-问题场景"><a href="#1-问题场景" class="headerlink" title="1. 问题场景"></a>1. 问题场景</h5><p>&emsp;&emsp;在进行手上的一个海报项目时,遇到了这样一个需求:<br>&emsp;&emsp;如图,在用户制作一张海报后,最后保存的时候,图片主体<code>body</code>是用户制作的海报,<code>footer</code>是由左右两张二维码组成的,左边为公众号的带参数二维码,右侧是用户自定义的二维码,美工提供一张通用的footer模版,程序来负责动态将二维码替换上去,最终拼接成下面图片示例的样子</p>
+<a id="more"></a>
 
 <p><img src="https://upload-images.jianshu.io/upload_images/14618365-5507c013705956a1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="海报示例"></p>
-<h5 id="2-为什么使用imagemagick"><a href="#2-为什么使用imagemagick" class="headerlink" title="2. 为什么使用imagemagick"></a>2. 为什么使用imagemagick</h5><p>  整个项目后台使用的是PHP语言,既然涉及到图片处理,第一个想到的肯定是大名鼎鼎的<code>GD</code>库扩展,在使用gd库尝试后,因为性能的原因,可能是我使用的方式不对,合成一张图片的时间长的忍受不了,又果断放弃了,后面又想到使用<code>imagemagick</code>这个工具,试着使用iamgemagick来重写一遍,果然,速度快了许多</p>
-<h5 id="3-实现思路"><a href="#3-实现思路" class="headerlink" title="3. 实现思路"></a>3. 实现思路</h5><p>  a. 将body和footer上下拼接起来<br>  b. 分别将获取的两个二维码图片根据坐标置入左下和右下<br><strong>注:我觉得先进行b步骤,再拼接,效率可能会高一丢丢,但是我也懒得测了,就没有改动</strong></p>
+<h5 id="2-为什么使用imagemagick"><a href="#2-为什么使用imagemagick" class="headerlink" title="2. 为什么使用imagemagick"></a>2. 为什么使用imagemagick</h5><p>&emsp;&emsp;整个项目后台使用的是PHP语言,既然涉及到图片处理,第一个想到的肯定是大名鼎鼎的<code>GD</code>库扩展,在使用gd库尝试后,因为性能的原因,可能是我使用的方式不对,合成一张图片的时间长的忍受不了,又果断放弃了,后面又想到使用<code>imagemagick</code>这个工具,试着使用iamgemagick来重写一遍,果然,速度快了许多</p>
+<h5 id="3-实现思路"><a href="#3-实现思路" class="headerlink" title="3. 实现思路"></a>3. 实现思路</h5><p>&emsp;&emsp;a. 将body和footer上下拼接起来<br>&emsp;&emsp;b. 分别将获取的两个二维码图片根据坐标置入左下和右下<br><strong>注:我觉得先进行b步骤,再拼接,效率可能会高一丢丢,但是我也懒得测了,就没有改动</strong></p>
 <h5 id="4-代码部分"><a href="#4-代码部分" class="headerlink" title="4. 代码部分"></a>4. 代码部分</h5><p>直接使用的是imagemagick的命令行指令,没有使用imagick扩展,已上线稳定使用</p>
-<pre class="line-numbers language-none"><code class="language-none">public function merge_img($file_name, $ad_file_name, $user_qrcode,$template_id)
+<pre><code>public function merge_img($file_name, $ad_file_name, $user_qrcode,$template_id)
     {
         $body = $file_name;//这个是body的路径
-        $footer = APPPATH . '../static/img/footer.png';//footer是一张模板图
-        $qrcode = APPPATH . '../' . $user_qrcode;//右下角用户自定义的二维码
+        $footer = APPPATH . &#39;../static/img/footer.png&#39;;//footer是一张模板图
+        $qrcode = APPPATH . &#39;../&#39; . $user_qrcode;//右下角用户自定义的二维码
         $param_qrcode = $this-&gt;param_qrcode($template_id);//左下角的带参数二维码,param_qrcode()方法返回其路径
 
-        $cmd = 'convert -append '.$header.' '.$footer.' '.$ad_file_name.'';//1.将body和footer拼接,因为body和footer是固定等宽的,所以直接拼接,+append为横向拼接,-append为纵向拼接
+        $cmd = &#39;convert -append &#39;.$header.&#39; &#39;.$footer.&#39; &#39;.$ad_file_name.&#39;&#39;;//1.将body和footer拼接,因为body和footer是固定等宽的,所以直接拼接,+append为横向拼接,-append为纵向拼接
         $result = exec($cmd);//执行
 
-        $cmd = 'composite -geometry +634+1093 '.$qrcode.' '.$ad_file_name.' '.$ad_file_name.'';//将用户二维码置入右下角,'+634+1093'为置入位置的坐标
+        $cmd = &#39;composite -geometry +634+1093 &#39;.$qrcode.&#39; &#39;.$ad_file_name.&#39; &#39;.$ad_file_name.&#39;&#39;;//将用户二维码置入右下角,&#39;+634+1093&#39;为置入位置的坐标
         $result = exec($cmd);
 
-        $cmd = 'composite -geometry +27+1093 '.$param_qrcode.' '.$ad_file_name.' '.$ad_file_name.'';//将带参数二维码置入左下角
+        $cmd = &#39;composite -geometry +27+1093 &#39;.$param_qrcode.&#39; &#39;.$ad_file_name.&#39; &#39;.$ad_file_name.&#39;&#39;;//将带参数二维码置入左下角
         $result = exec($cmd);
-    }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+    }</code></pre>
                 
             </div>
             <hr/>
@@ -817,6 +816,8 @@
                     <div class="summary block-with-text">
                         
                             
+
+
 记录一下动态绑定及使用ref的方法
 
                         
@@ -1173,7 +1174,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2021</span>
+                <span id="year">2019-2022</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">大熊</a>
@@ -1182,7 +1183,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">28.7k</span>&nbsp;字
+                class="white-color">31k</span>&nbsp;字
             
             
             
@@ -1408,6 +1409,6 @@ $(function () {
             document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ好哦！",st=setTimeout(function(){document.title=OriginTitile},3e3))
         })
     </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.9},"log":false});</script></body>
+</body>
 
 </html>

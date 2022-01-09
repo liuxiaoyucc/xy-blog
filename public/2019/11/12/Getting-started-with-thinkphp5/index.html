@@ -29,8 +29,6 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0">
-<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="大熊的个人博客" type="application/atom+xml">
 </head>
 
@@ -482,14 +480,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-27
+                    2020-01-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    730
+                    732
                 </div>
                 
 
@@ -519,13 +517,15 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><code>thinkphp</code>基于<strong><code>MVC</code></strong>的方式来组织,MVC是一种经典的程序设计理念,此模式将你的项目分成三个部分,<code>模型层(model)</code>,<code>视图层(view)</code>,`控制层(controller),MVC为这三个三次的首字母缩写</p>
+                <meta name="referrer" content="no-referrer" />
+
+<p><code>thinkphp</code>基于<strong><code>MVC</code></strong>的方式来组织,MVC是一种经典的程序设计理念,此模式将你的项目分成三个部分,<code>模型层(model)</code>,<code>视图层(view)</code>,`控制层(controller),MVC为这三个三次的首字母缩写</p>
 <ol>
-<li>下载ThinkPHP框架<br>官网下载:<a target="_blank" rel="noopener" href="http://www.thinkphp.cn/">http://www.thinkphp.cn/</a><br>thinkphp有核心包和完整包之分,我这里选择的是最新版5.0.21的完整版<br><strong>* 核心包</strong>:仅包含thinkphp运行的最主要文件,不包含扩展类,示例,文档<br><strong>* 完整包</strong>:核心包的基础上增加了扩展类,示例及文档</li>
+<li>下载ThinkPHP框架<br>官网下载:<a href="http://www.thinkphp.cn/" target="_blank" rel="noopener">http://www.thinkphp.cn/</a><br>thinkphp有核心包和完整包之分,我这里选择的是最新版5.0.21的完整版<br><strong>* 核心包</strong>:仅包含thinkphp运行的最主要文件,不包含扩展类,示例,文档<br><strong>* 完整包</strong>:核心包的基础上增加了扩展类,示例及文档</li>
 </ol>
 <p>下载后将文件解压到你的localhost根目录下,我的路径是:<code>D:\phpStudy\WWW</code>,然后重命名目录名为myphpstudy,方便我们使用<br><img src="https://upload-images.jianshu.io/upload_images/14618365-5ed1a4c8d854e68b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="重命名"><br>接下来在浏览器地址栏输入:<code>http://localhost/mythinkphp/public/</code>,显示出如下内容,说明你的thinkphp框架可以正常使用了.</p>
 <p>2.目录结构</p>
-<pre class="line-numbers language-none"><code class="language-none">project  应用部署目录
+<pre><code>project  应用部署目录
 ├─application           应用目录（可设置）
 │  ├─common             公共模块目录（可更改）
 │  ├─index              模块目录(可更改)
@@ -570,23 +570,20 @@
 ├─composer.json         composer 定义文件
 ├─LICENSE.txt           授权说明文件
 ├─README.md             README 文件
-├─think                 命令行入口文件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ol start="3">
+├─think                 命令行入口文件</code></pre><ol start="3">
 <li>Hello World<br>这时你可以将框架目录导入到你的IDE中了,方便我们编辑代码,下面我们来试着输出Hello World 吧!<br>找到并打开如图所示的文件位置,将其中代码进行修改<br><img src="https://upload-images.jianshu.io/upload_images/14618365-5505dd971cf24493.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="入口"></li>
 </ol>
 <p>修改后的代码</p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+<pre><code>&lt;?php
 namespace app\index\controller;
 
 class Index
 {
     public function index()
     {
-        return "Hello World";
+        return &quot;Hello World&quot;;
     }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>这时我们去浏览器地址栏输入<code>http://localhost/mythinkphp/public/</code>就可以看到我们改动后的内容了,是不是很简单呢!<br><img src="https://upload-images.jianshu.io/upload_images/14618365-4d4be39dc00c9209.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Hello World"></p>
+}</code></pre><p>这时我们去浏览器地址栏输入<code>http://localhost/mythinkphp/public/</code>就可以看到我们改动后的内容了,是不是很简单呢!<br><img src="https://upload-images.jianshu.io/upload_images/14618365-4d4be39dc00c9209.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Hello World"></p>
 
                 
             </div>
@@ -847,13 +844,15 @@ class Index
                     <div class="summary block-with-text">
                         
                             
+
+
 Imagemagick是一个强大的图像处理库,号称命令行上的photoshop
 
 
 使用GD扩展实现和本篇文章相同的效果
 php的imagick扩展和imagemagick的安装教程
 
-1. 问题场景  在进行手上的一个海报项目时,遇到了
+1. 问题场景&emsp;&emsp;在进行手上
                         
                     </div>
                     <div class="publish-info">
@@ -922,7 +921,9 @@ php的imagick扩展和imagemagick的安装教程
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            2018-11-27日更新:  由于没有找到生成.bmp格式图片的好办法,改为使用.wbmp格式,转换和读取都改为.wbmp格式,原来的bmp2hex函数逻辑没有变化,改名为wbmp2hex,并不再使用ImageCreateFromBMP函
+                            
+
+2018-11-27日更新:&emsp;&emsp;由于没有找到生成.bmp格式图片的好办法,改为使用.wbmp格式,转换和读取都改为.wbmp格式,原来的bmp2hex函数逻辑没有变化,改名为wbmp2hex,并不再使用ImageCr
                         
                     </div>
                     <div class="publish-info">
@@ -941,12 +942,12 @@ php的imagick扩展和imagemagick的安装教程
                                     PHP
                                 </a>
                             
-                            <a href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/GD/" class="post-category">
-                                    GD
-                                </a>
-                            
                             <a href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="post-category">
                                     图像处理
+                                </a>
+                            
+                            <a href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/GD/" class="post-category">
+                                    GD
                                 </a>
                             
                             
@@ -1208,7 +1209,7 @@ php的imagick扩展和imagemagick的安装教程
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2021</span>
+                <span id="year">2019-2022</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">大熊</a>
@@ -1217,7 +1218,7 @@ php的imagick扩展和imagemagick的安装教程
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">28.7k</span>&nbsp;字
+                class="white-color">31k</span>&nbsp;字
             
             
             
@@ -1443,6 +1444,6 @@ $(function () {
             document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ好哦！",st=setTimeout(function(){document.title=OriginTitile},3e3))
         })
     </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.9},"log":false});</script></body>
+</body>
 
 </html>

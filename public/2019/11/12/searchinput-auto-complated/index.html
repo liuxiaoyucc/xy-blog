@@ -29,8 +29,6 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0">
-<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="大熊的个人博客" type="application/atom+xml">
 </head>
 
@@ -494,14 +492,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-27
+                    2020-01-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    1.6k
                 </div>
                 
 
@@ -531,178 +529,174 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>  本地实现了一个搜索框自动补全的小功能,在JQuery UI的autocomplete插件的基础上,加入了自己的业务代码,贴出来回顾一下,同时可以给大家一个参考</p>
-<span id="more"></span>
+                <meta name="referrer" content="no-referrer" />
 
-<p>  首先贴出的是JQuery Ui 的自动补全插件部分的代码,后面的功能都是在其基础上追加的,直接拷贝到你的本地就可以直观的看到运行效果,也可以到官网上面体验和查看,为了方便,我这里是直接引入的JS链接<a target="_blank" rel="noopener" href="https://jqueryui.com/download/">点击下载JQuery UI的源码</a></p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;!doctype html&gt;
-&lt;html lang="en"&gt;
+
+<p>&emsp;&emsp;本地实现了一个搜索框自动补全的小功能,在JQuery UI的autocomplete插件的基础上,加入了自己的业务代码,贴出来回顾一下,同时可以给大家一个参考</p>
+<a id="more"></a>
+
+<p>&emsp;&emsp;首先贴出的是JQuery Ui 的自动补全插件部分的代码,后面的功能都是在其基础上追加的,直接拷贝到你的本地就可以直观的看到运行效果,也可以到官网上面体验和查看,为了方便,我这里是直接引入的JS链接<a href="https://jqueryui.com/download/" target="_blank" rel="noopener">点击下载JQuery UI的源码</a></p>
+<pre><code>&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
-  &lt;meta charset="utf-8"&gt;
-  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
   &lt;title&gt;jQuery UI Autocomplete - Default functionality&lt;/title&gt;
-  &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"&gt;
-  &lt;link rel="stylesheet" href="/resources/demos/style.css"&gt;
-  &lt;script src="https://code.jquery.com/jquery-1.12.4.js"&gt;&lt;/script&gt;
-  &lt;script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"&gt;&lt;/script&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css&quot;&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;/resources/demos/style.css&quot;&gt;
+  &lt;script src=&quot;https://code.jquery.com/jquery-1.12.4.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://code.jquery.com/ui/1.12.1/jquery-ui.js&quot;&gt;&lt;/script&gt;
   &lt;script&gt;
   $( function() {
     var availableTags = [//这里要改成根据用户的输入,自动更换词库的形式
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
+      &quot;ActionScript&quot;,
+      &quot;AppleScript&quot;,
+      &quot;Asp&quot;,
+      &quot;BASIC&quot;,
+      &quot;C&quot;,
+      &quot;C++&quot;,
+      &quot;Clojure&quot;,
+      &quot;COBOL&quot;,
+      &quot;ColdFusion&quot;,
+      &quot;Erlang&quot;,
+      &quot;Fortran&quot;,
+      &quot;Groovy&quot;,
+      &quot;Haskell&quot;,
+      &quot;Java&quot;,
+      &quot;JavaScript&quot;,
+      &quot;Lisp&quot;,
+      &quot;Perl&quot;,
+      &quot;PHP&quot;,
+      &quot;Python&quot;,
+      &quot;Ruby&quot;,
+      &quot;Scala&quot;,
+      &quot;Scheme&quot;
     ];
-    $( "#tags" ).autocomplete({//调用补全功能
+    $( &quot;#tags&quot; ).autocomplete({//调用补全功能
       source: availableTags
     });
   } );
   &lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
- 
-&lt;div class="ui-widget"&gt;
-  &lt;label for="tags"&gt;Tags: &lt;/label&gt;
-  &lt;input id="tags"&gt;
+
+&lt;div class=&quot;ui-widget&quot;&gt;
+  &lt;label for=&quot;tags&quot;&gt;Tags: &lt;/label&gt;
+  &lt;input id=&quot;tags&quot;&gt;
 &lt;/div&gt;
- 
- 
+
+
 &lt;/body&gt;
-&lt;/html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>运行截图</p>
+&lt;/html&gt;</code></pre><p>运行截图</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/14618365-228044e216af0634.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="jquery-ui的自动补全功能截图"></p>
 <p><strong>下面说下我追加的部分功能及实现思路,有可以改进的地方还请指教:</strong></p>
 <ol>
 <li><p>首先,数据源要根据用户输入的内容实时更新.<br>输入框的值随着用户的输入会一直变动.所以,输入框下方的推荐补全的内容要输入的值进行变动,这里使用onkeyup属性来监听键盘动作,并传递此时input的value值到js函数中.</p>
-<pre class="line-numbers language-none"><code class="language-none">//html
-&lt;input type="search" class="" id="tags" placeholder="搜索" required="" onkeyup="catch_keyword(this.value)"&gt;
+<pre><code> //html
+ &lt;input type=&quot;search&quot; class=&quot;&quot; id=&quot;tags&quot; placeholder=&quot;搜索&quot; required=&quot;&quot; onkeyup=&quot;catch_keyword(this.value)&quot;&gt;
 
-//js代码
-function catch_keyword(word) {//这里接受并log出value
-    console.log(word);
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+ //js代码
+ function catch_keyword(word) {//这里接受并log出value
+     console.log(word);
+ }</code></pre></li>
 <li><p>第2步,考虑到数据库中需要模糊检索的字段都是中文的菜品名称.所以,当用户输入字母的时候,进行了一下过滤,当输入的内容中存在字母时,不提交给后台处理</p>
-<pre class="line-numbers language-none"><code class="language-none">//字符串判断函数
-//判断一个字符串是否混有字母,全中文返回true
-function isChn(str) {
-    var reg = /^[\u4E00-\u9FA5]+$/;
-    if (!reg.test(str)) {
-        return false;
-    } else {
-        return true;
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+<pre><code> //字符串判断函数
+ //判断一个字符串是否混有字母,全中文返回true
+ function isChn(str) {
+     var reg = /^[\u4E00-\u9FA5]+$/;
+     if (!reg.test(str)) {
+         return false;
+     } else {
+         return true;
+     }
+ }</code></pre></li>
 <li><p>发现当字符串中含有空格的时候,上面的字符串判断函数,返回的内容不符合预期,然后加入了一个去除字符串中所有空格的功能</p>
-<pre class="line-numbers language-none"><code class="language-none">//去掉字符串中任意位置的空格,返回去除空格后的字符串
-function Trim(str, is_global) {
-    var result;
-    result = str.replace(/(^\s+)|(\s+$)/g, "");
-    if (is_global.toLowerCase() == "g") {
-        result = result.replace(/\s/g, "");
-    }
-    return result;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+<pre><code> //去掉字符串中任意位置的空格,返回去除空格后的字符串
+ function Trim(str, is_global) {
+     var result;
+     result = str.replace(/(^\s+)|(\s+$)/g, &quot;&quot;);
+     if (is_global.toLowerCase() == &quot;g&quot;) {
+         result = result.replace(/\s/g, &quot;&quot;);
+     }
+     return result;
+ }</code></pre></li>
 <li><p>处理结束用户的输入后,就是提交到后台,然后返回数据源了,也就是availableTags;这里我把availableTags声明为全局变量.并且用同步的Ajax方式取回数据,然后赋值给availableTags,然后在监听键盘的函数中,使用返回的数据调用自动补全功能.</p>
-<pre class="line-numbers language-none"><code class="language-none">//请求后端获取数据源
-function get_source(word = null) {
-    var url = "&lt;?php echo base_url('admin/Demo/source');?&gt;?keyword=" + word;
-    $.get({
-        type: 'GET',
-        url: url,
-        async: false,//改为同步
-        dataType: 'json',
-        success: function (response) {
-            console.log('1');
-            availableTags = response;
-        }
-    });
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-</li>
+<pre><code> //请求后端获取数据源
+ function get_source(word = null) {
+     var url = &quot;&lt;?php echo base_url(&#39;admin/Demo/source&#39;);?&gt;?keyword=&quot; + word;
+     $.get({
+         type: &#39;GET&#39;,
+         url: url,
+         async: false,//改为同步
+         dataType: &#39;json&#39;,
+         success: function (response) {
+             console.log(&#39;1&#39;);
+             availableTags = response;
+         }
+     });
+ }
+</code></pre></li>
 </ol>
-<p> 这里更新下最开始的接收监听键盘后的value值的函数</p>
-<pre class="line-numbers language-none"><code class="language-none">//捕捉键入的关键字
+<pre><code>
+&amp;emsp;这里更新下最开始的接收监听键盘后的value值的函数
+</code></pre><pre><code>//捕捉键入的关键字
 function catch_keyword(word = null) {
-    if (isChn(Trim(word, 'g'))) {//去掉空格后检查字符串,如果符合,继续请求后台
+    if (isChn(Trim(word, &#39;g&#39;))) {//去掉空格后检查字符串,如果符合,继续请求后台
         get_source(word);
-        $("#tags").autocomplete({
+        $(&quot;#tags&quot;).autocomplete({
             source: availableTags //数据源
         });
     }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}</code></pre><pre><code>
+5. 到这里,这个功能已经基本结束了,在测试过程中发现了一个小问题,__每次第一次获取用户输入的时候,自动补全功能没有触发,在用户继续输入后,才触发成功__,经过调试,我在页面加载完成后,初始化一下自动补全插件,解决了这个问题
 
-<ol start="5">
-<li>到这里,这个功能已经基本结束了,在测试过程中发现了一个小问题,<strong>每次第一次获取用户输入的时候,自动补全功能没有触发,在用户继续输入后,才触发成功</strong>,经过调试,我在页面加载完成后,初始化一下自动补全插件,解决了这个问题</li>
-</ol>
-<p><strong>附: 完整代码</strong><br>不知道如何在markdown中添加下载链接,只好把完整代码放上来啦!</p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;!doctype html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="utf-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
-    &lt;title&gt;&lt;/title&gt;
-    &lt;link rel="stylesheet" href="/jquery-weui-build/dist/lib/weui.min.css"&gt;
-    &lt;link rel="stylesheet" href="/jquery-weui-build/dist/css/jquery-weui.css"&gt;
-    &lt;link rel="stylesheet" href="/jquery-weui-build/demos/css/demos.css"&gt;
-    &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"&gt;
+__附: 完整代码__
+不知道如何在markdown中添加下载链接,只好把完整代码放上来啦!</code></pre><!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="/jquery-weui-build/dist/lib/weui.min.css">
+    <link rel="stylesheet" href="/jquery-weui-build/dist/css/jquery-weui.css">
+    <link rel="stylesheet" href="/jquery-weui-build/demos/css/demos.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-    &lt;script src="https://code.jquery.com/jquery-1.12.4.js"&gt;&lt;/script&gt;
-    &lt;script src="/static/jquery-weui-build/dist/lib/fastclick.js"&gt;&lt;/script&gt;
-    &lt;script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"&gt;&lt;/script&gt;
+<pre><code>&lt;script src=&quot;https://code.jquery.com/jquery-1.12.4.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/static/jquery-weui-build/dist/lib/fastclick.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://code.jquery.com/ui/1.12.1/jquery-ui.js&quot;&gt;&lt;/script&gt;
 
-
-    &lt;script&gt;
-        $(function () {
-            FastClick.attach(document.body);
-        });
-    &lt;/script&gt;
-    &lt;script src="/jquery-weui-build/dist/js/jquery-weui.js"&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-
-&lt;div class="ui-widget"&gt;
-
-
-    &lt;div class="weui-search-bar" id="searchBar"&gt;
-        &lt;form class="weui-search-bar__form" action="#"&gt;
-            &lt;div class="weui-search-bar__box"&gt;
-                &lt;i class="weui-icon-search"&gt;&lt;/i&gt;
-                &lt;input type="search" class="weui-search-bar__input" id="tags" placeholder="搜索" required=""
-                       onkeyup="catch_keyword(this.value)"&gt;
-                &lt;a href="javascript:" class="weui-icon-clear" id="searchClear"&gt;&lt;/a&gt;
-            &lt;/div&gt;
-            &lt;label class="weui-search-bar__label" id="searchText"
-                   style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);"&gt;
-                &lt;i class="weui-icon-search"&gt;&lt;/i&gt;
-                &lt;span&gt;搜索&lt;/span&gt;
-            &lt;/label&gt;
-        &lt;/form&gt;
-        &lt;a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel"&gt;取消&lt;/a&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
 
 &lt;script&gt;
+    $(function () {
+        FastClick.attach(document.body);
+    });
+&lt;/script&gt;
+&lt;script src=&quot;/jquery-weui-build/dist/js/jquery-weui.js&quot;&gt;&lt;/script&gt;</code></pre><link rel="alternate" href="/atom.xml" title="大熊的个人博客" type="application/atom+xml">
+</head>
+<body>
+
+<div class="ui-widget">
+
+
+<pre><code>&lt;div class=&quot;weui-search-bar&quot; id=&quot;searchBar&quot;&gt;
+    &lt;form class=&quot;weui-search-bar__form&quot; action=&quot;#&quot;&gt;
+        &lt;div class=&quot;weui-search-bar__box&quot;&gt;
+            &lt;i class=&quot;weui-icon-search&quot;&gt;&lt;/i&gt;
+            &lt;input type=&quot;search&quot; class=&quot;weui-search-bar__input&quot; id=&quot;tags&quot; placeholder=&quot;搜索&quot; required=&quot;&quot;
+                   onkeyup=&quot;catch_keyword(this.value)&quot;&gt;
+            &lt;a href=&quot;javascript:&quot; class=&quot;weui-icon-clear&quot; id=&quot;searchClear&quot;&gt;&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;label class=&quot;weui-search-bar__label&quot; id=&quot;searchText&quot;
+               style=&quot;transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);&quot;&gt;
+            &lt;i class=&quot;weui-icon-search&quot;&gt;&lt;/i&gt;
+            &lt;span&gt;搜索&lt;/span&gt;
+        &lt;/label&gt;
+    &lt;/form&gt;
+    &lt;a href=&quot;javascript:&quot; class=&quot;weui-search-bar__cancel-btn&quot; id=&quot;searchCancel&quot;&gt;取消&lt;/a&gt;
+&lt;/div&gt;</code></pre></div>
+
+<script>
     var availableTags = [];//数据源
 
     //先初始化自动补全功能
@@ -744,7 +738,7 @@ function catch_keyword(word = null) {
 
     //请求后端获取数据源
     function get_source(word = null) {
-        var url = "&lt;?php echo base_url('admin/Demo/source');?&gt;?keyword=" + word;
+        var url = "<?php echo base_url('admin/Demo/source');?>?keyword=" + word;
         $.get({
             type: 'GET',
             url: url,
@@ -757,10 +751,12 @@ function catch_keyword(word = null) {
         });
     }
 
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</script>
+</body>
+</html>
+
+<p>```</p>
+
                 
             </div>
             <hr/>
@@ -786,7 +782,7 @@ function catch_keyword(word = null) {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://blog.pulsating.cn/2019/11/12/searchinput-auto-complated/">http://blog.pulsating.cn/2019/11/12/searchinput-auto-complated/</a>
+                    <a href="http://blog.pulsating.cn/2019/11/12/Searchinput-auto-complated/">http://blog.pulsating.cn/2019/11/12/Searchinput-auto-complated/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1011,7 +1007,7 @@ function catch_keyword(word = null) {
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/11/12/image-lazy-load-and-preview/">
+                <a href="/2019/11/12/Image-lazy-load-and-preview/">
                     <div class="card-image">
                         
                         
@@ -1024,9 +1020,11 @@ function catch_keyword(word = null) {
                     <div class="summary block-with-text">
                         
                             
+
+
 作者是个前端菜鸟,只能靠着东拼西凑才能生存下来这样子
 
-上次写了一个实现搜索框自动补全的小功能的文章,今天这个在其基础上,加入了几个新功能,两者卡可以结合使用,也可以分开独自使用,没有影响的,想了解的同学,可以先去了解一下,[传送门],下
+上次写了一个实现搜索框自动补全的小功能的文章,今天这个在其基础上,加入了几个新功能,两者卡可以结合使用,也可以分开独自使用,没有影响的,想了解的同学,可以先去了解一下,[传送门]
                         
                     </div>
                     <div class="publish-info">
@@ -1107,7 +1105,9 @@ function catch_keyword(word = null) {
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1. 下载ADB2. adb shell "dumpsys window|grep mCurrentFocus  获取app包名3. 操作需测试的app4. adb shell dumpsys gfxinfo ‘app的包名’  &gt;F
+                            
+
+1. 下载ADB2. adb shell &quot;dumpsys window|grep mCurrentFocus  获取app包名3. 操作需测试的app4. adb shell dumpsys gfxinfo ‘app的包名’
                         
                     </div>
                     <div class="publish-info">
@@ -1373,7 +1373,7 @@ function catch_keyword(word = null) {
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2021</span>
+                <span id="year">2019-2022</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">大熊</a>
@@ -1382,7 +1382,7 @@ function catch_keyword(word = null) {
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">28.7k</span>&nbsp;字
+                class="white-color">31k</span>&nbsp;字
             
             
             
@@ -1608,6 +1608,6 @@ $(function () {
             document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ好哦！",st=setTimeout(function(){document.title=OriginTitile},3e3))
         })
     </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.9},"log":false});</script></body>
+</body>
 
 </html>

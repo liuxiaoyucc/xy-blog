@@ -29,8 +29,6 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0">
-<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="大熊的个人博客" type="application/atom+xml">
 </head>
 
@@ -482,14 +480,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-27
+                    2020-01-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    196
+                    230
                 </div>
                 
 
@@ -519,34 +517,36 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre class="line-numbers language-none"><code class="language-none">&lt;script&gt;
+                <meta name="referrer" content="no-referrer" />
+
+<pre><code>&lt;script&gt;
     var browser = {
         versions: function() {
             var u = navigator.userAgent,
                 app = navigator.appVersion;
             return {
-                trident: u.indexOf('Trident') &gt; -1, //IE内核
-                presto: u.indexOf('Presto') &gt; -1, //opera内核
-                webKit: u.indexOf('AppleWebKit') &gt; -1, //苹果、谷歌内核
-                gecko: u.indexOf('Gecko') &gt; -1 &amp;&amp; u.indexOf('KHTML') == -1, //火狐内核
+                trident: u.indexOf(&#39;Trident&#39;) &gt; -1, //IE内核
+                presto: u.indexOf(&#39;Presto&#39;) &gt; -1, //opera内核
+                webKit: u.indexOf(&#39;AppleWebKit&#39;) &gt; -1, //苹果、谷歌内核
+                gecko: u.indexOf(&#39;Gecko&#39;) &gt; -1 &amp;&amp; u.indexOf(&#39;KHTML&#39;) == -1, //火狐内核
                 mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
                 ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
-                android: u.indexOf('Android') &gt; -1 || u.indexOf('Adr') &gt; -1, //android终端
-                iPhone: u.indexOf('iPhone') &gt; -1, //是否为iPhone或者QQHD浏览器
-                iPad: u.indexOf('iPad') &gt; -1, //是否iPad
-                webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部
-                weixin: u.indexOf('MicroMessenger') &gt; -1, //是否微信 （2015-01-22新增）
-                qq: u.match(/\sQQ/i) == " qq", //是否QQ
-                eleme: u.indexOf('Needle') &gt; -1//是否饿了么
+                android: u.indexOf(&#39;Android&#39;) &gt; -1 || u.indexOf(&#39;Adr&#39;) &gt; -1, //android终端
+                iPhone: u.indexOf(&#39;iPhone&#39;) &gt; -1, //是否为iPhone或者QQHD浏览器
+                iPad: u.indexOf(&#39;iPad&#39;) &gt; -1, //是否iPad
+                webApp: u.indexOf(&#39;Safari&#39;) == -1, //是否web应该程序，没有头部与底部
+                weixin: u.indexOf(&#39;MicroMessenger&#39;) &gt; -1, //是否微信 （2015-01-22新增）
+                qq: u.match(/\sQQ/i) == &quot; qq&quot;, //是否QQ
+                eleme: u.indexOf(&#39;Needle&#39;) &gt; -1//是否饿了么
             };
         }(),
         language: (navigator.browserLanguage || navigator.language).toLowerCase()
     };
-    console.log(browser['versions']['eleme']);
-    if (browser['versions']['eleme']){
+    console.log(browser[&#39;versions&#39;][&#39;eleme&#39;]);
+    if (browser[&#39;versions&#39;][&#39;eleme&#39;]){
         show();
     }
-&lt;/script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;/script&gt;</code></pre>
                 
             </div>
             <hr/>
@@ -858,7 +858,7 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/12/image-lazy-load-and-preview/">
+                <a href="/2019/11/12/Image-lazy-load-and-preview/">
                     <div class="card-image">
                         
                         
@@ -871,9 +871,11 @@
                     <div class="summary block-with-text">
                         
                             
+
+
 作者是个前端菜鸟,只能靠着东拼西凑才能生存下来这样子
 
-上次写了一个实现搜索框自动补全的小功能的文章,今天这个在其基础上,加入了几个新功能,两者卡可以结合使用,也可以分开独自使用,没有影响的,想了解的同学,可以先去了解一下,[传送门],下
+上次写了一个实现搜索框自动补全的小功能的文章,今天这个在其基础上,加入了几个新功能,两者卡可以结合使用,也可以分开独自使用,没有影响的,想了解的同学,可以先去了解一下,[传送门]
                         
                     </div>
                     <div class="publish-info">
@@ -1159,7 +1161,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2021</span>
+                <span id="year">2019-2022</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">大熊</a>
@@ -1168,7 +1170,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">28.7k</span>&nbsp;字
+                class="white-color">31k</span>&nbsp;字
             
             
             
@@ -1394,6 +1396,6 @@ $(function () {
             document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ好哦！",st=setTimeout(function(){document.title=OriginTitile},3e3))
         })
     </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.9},"log":false});</script></body>
+</body>
 
 </html>

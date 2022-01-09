@@ -29,8 +29,6 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0">
-<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="大熊的个人博客" type="application/atom+xml">
 </head>
 
@@ -474,12 +472,12 @@
                                 PHP
                             </a>
                         
-                            <a href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/GD/" class="post-category">
-                                GD
-                            </a>
-                        
                             <a href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="post-category">
                                 图像处理
+                            </a>
+                        
+                            <a href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/GD/" class="post-category">
+                                GD
                             </a>
                         
                     </div>
@@ -498,21 +496,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-10
+                    2022-01-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    2.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    10 分
                 </div>
                 
 
@@ -535,12 +533,14 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>2018-11-27日更新:</strong><br>  由于没有找到生成<code>.bmp</code>格式图片的好办法,改为使用<code>.wbmp</code>格式,转换和读取都改为<code>.wbmp</code>格式,原来的<code>bmp2hex</code>函数逻辑没有变化,改名为<code>wbmp2hex</code>,并不再使用<code>ImageCreateFromBMP</code>函数,可以收藏一下这个函数还是有用的,最新的代码我也提供了下载在文章末尾</p>
-<span id="more"></span>
+                <meta name="referrer" content="no-referrer" />
+
+<p><strong>2018-11-27日更新:</strong><br>&emsp;&emsp;由于没有找到生成<code>.bmp</code>格式图片的好办法,改为使用<code>.wbmp</code>格式,转换和读取都改为<code>.wbmp</code>格式,原来的<code>bmp2hex</code>函数逻辑没有变化,改名为<code>wbmp2hex</code>,并不再使用<code>ImageCreateFromBMP</code>函数,可以收藏一下这个函数还是有用的,最新的代码我也提供了下载在文章末尾</p>
+<a id="more"></a>
 
 
 <h4 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段:"></a>准备阶段:</h4><ul>
-<li><p><strong>pctoLCD2002</strong><br>网上找到的一款取模软件,可以读取<code>.bmp</code>图片并生成字模,当然我们还是要用代码来完成,这个只是起到了一个对照作用,我将它放在了我的网盘下供大家下载<br>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/12X9Jbctz7wp8_wOWJCmYdw">点我下载pctoLCD2002</a> 密码：<code>2lyl</code></p>
+<li><p><strong>pctoLCD2002</strong><br>网上找到的一款取模软件,可以读取<code>.bmp</code>图片并生成字模,当然我们还是要用代码来完成,这个只是起到了一个对照作用,我将它放在了我的网盘下供大家下载<br>链接：<a href="https://pan.baidu.com/s/12X9Jbctz7wp8_wOWJCmYdw" target="_blank" rel="noopener">点我下载pctoLCD2002</a> 密码：<code>2lyl</code></p>
 </li>
 <li><p><strong>PHP GD扩展</strong><br>强大的PHP图像生成和处理扩展</p>
 </li>
@@ -577,44 +577,36 @@
 <p><img src="https://upload-images.jianshu.io/upload_images/14618365-949d42ff637fec24.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>但是这还不是我最后想要的格式,需要处理一下:</p>
 <ul>
 <li>去掉开始处和结束处的文件路径</li>
-<li>去掉所有的标点符号<code>,</code>和<code>'{' '}'</code></li>
+<li>去掉所有的标点符号<code>,</code>和<code>&#39;{&#39; &#39;}&#39;</code></li>
 <li>去掉十六进制的标识部分,所有的<code>0x</code></li>
 </ul>
 <p>最后得到一串连贯的字符串,类似:</p>
-<pre class="line-numbers language-none"><code class="language-none">0000000000000007F8000000000000000000000000003FFC00000000000000000000000000000003FF80000000<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>这就是我们最终需要的部分了!下面我们用代码来实现这个功能:</p>
+<pre><code>0000000000000007F8000000000000000000000000003FFC00000000000000000000000000000003FF80000000</code></pre><p>这就是我们最终需要的部分了!下面我们用代码来实现这个功能:</p>
 <h4 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决:"></a>问题解决:</h4><h5 id="一-实现过程及思路"><a href="#一-实现过程及思路" class="headerlink" title="一. 实现过程及思路"></a>一. 实现过程及思路</h5><h6 id="0-生成单色位图"><a href="#0-生成单色位图" class="headerlink" title="0. 生成单色位图"></a>0. 生成单色位图</h6><p>卡在这里好久,钻进了死胡同,其实.wbmp的图片完全符合我的要求:<br>GD库就可以将<code>jpg/png</code>转换成<code>wbmp</code>格式,使用时可以调节<code>threshold</code>参数,解释如下,我理解为精度不知道准不准确,也没有查到阀值到底是什么意思…</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/14618365-a133d36f74a84e72.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="threshold"></p>
 <p>生成<code>.wbmp</code>格式图片代码示例:</p>
-<pre class="line-numbers language-none"><code class="language-none">$filename = 'static/img/1.jpg';
-$path = 'static/img/11.wbmp';
-$image = getimagesize($filename);
-jpeg2wbmp($filename, $path, $image[1], $image[0], 5);//threshold == 5时,和给的软件转换后结果完全一致<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>图片样式:</p>
+<pre><code>        $filename = &#39;static/img/1.jpg&#39;;
+        $path = &#39;static/img/11.wbmp&#39;;
+        $image = getimagesize($filename);
+        jpeg2wbmp($filename, $path, $image[1], $image[0], 5);//threshold == 5时,和给的软件转换后结果完全一致</code></pre><p>图片样式:</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/14618365-1db851391b978ca4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=".wbmp格式"></p>
 <h6 id="1-读取-wbmp格式图片-原读取-bmp格式"><a href="#1-读取-wbmp格式图片-原读取-bmp格式" class="headerlink" title="1. 读取.wbmp格式图片(原读取.bmp格式)"></a>1. 读取.wbmp格式图片(原读取.bmp格式)</h6><p>使用gd库的imagecreatefromwbmp函数:</p>
-<pre class="line-numbers language-none"><code class="language-none">$filename = 'static/img/11.wbmp';
-$im = imagecreatefromwbmp($filename);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>安装好GD库扩展后,我发现gd库只能读取.wbmp文件,并不支持.bmp文件,我的gd库版本信息如下<code>gd_info()</code>,经过一番google,找到了一个可以使用的读取.bmp的函数<code>ImageCreateFromBMP()</code>,感谢前辈</p>
+<pre><code>        $filename = &#39;static/img/11.wbmp&#39;;
+        $im = imagecreatefromwbmp($filename);</code></pre><p>安装好GD库扩展后,我发现gd库只能读取.wbmp文件,并不支持.bmp文件,我的gd库版本信息如下<code>gd_info()</code>,经过一番google,找到了一个可以使用的读取.bmp的函数<code>ImageCreateFromBMP()</code>,感谢前辈</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/14618365-e4ddf9d0efeb1393.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="gd_info()"></p>
 <h6 id="2-逐个像素读取"><a href="#2-逐个像素读取" class="headerlink" title="2. 逐个像素读取"></a>2. 逐个像素读取</h6><p>可以读取.wbmp格式了,我们该如何能得出每个像素的颜色值呢?<br>通过查看gd库文档过程,我发现一个函数<code>imagecolorat()</code>,可以根据传入的位置,获取每个像素的索引值<br>使用示例:</p>
-<pre class="line-numbers language-none"><code class="language-none">// 取得一点的颜色
-$file_name = '';//wbmp图片路径
-$im = imagecreatefromwbmp($file_name);//读取wbmp格式
-$start_x = 5;//行,从0开始
-$start_y = 10;//列,从0开始
-$color_index = imagecolorat($im, $start_x, $start_y);
-print_r($color_index);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h6 id="3-获取图片宽高"><a href="#3-获取图片宽高" class="headerlink" title="3. 获取图片宽高"></a>3. 获取图片宽高</h6><p>第2步中可以获取每个像素中的值了,但是我们总不能每个点都手动传入,这时我们就需要获取图片的宽高了</p>
+<pre><code>        // 取得一点的颜色
+        $file_name = &#39;&#39;;//wbmp图片路径
+        $im = imagecreatefromwbmp($file_name);//读取wbmp格式
+        $start_x = 5;//行,从0开始
+        $start_y = 10;//列,从0开始
+        $color_index = imagecolorat($im, $start_x, $start_y);
+        print_r($color_index);</code></pre><h6 id="3-获取图片宽高"><a href="#3-获取图片宽高" class="headerlink" title="3. 获取图片宽高"></a>3. 获取图片宽高</h6><p>第2步中可以获取每个像素中的值了,但是我们总不能每个点都手动传入,这时我们就需要获取图片的宽高了</p>
 <p>gd库中有获取图片宽高的函数<code>imagesx()</code>和<code>imagesy()</code>,代码示例:</p>
-<pre class="line-numbers language-none"><code class="language-none">$im = imagecreatefromwbmp($file_name);//读取bmp格式,非gd库
-$width = imagesx($im);
-$height = imagesy($im);
-echo $width.'*'.$height;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>到这里,最主要的部分都已经可以获取到了,后面就是逻辑部分了(代码中可以看到具体实现方式):</p>
+<pre><code>        $im = imagecreatefromwbmp($file_name);//读取bmp格式,非gd库
+        $width = imagesx($im);
+        $height = imagesy($im);
+        echo $width.&#39;*&#39;.$height;</code></pre><p>到这里,最主要的部分都已经可以获取到了,后面就是逻辑部分了(代码中可以看到具体实现方式):</p>
 <ul>
 <li>根据图片的宽高,逐行逐点读取每个像素的值,每8位组合成1个字节,然后取模,再转为16进制</li>
 <li>检测每一行的最后是否满足8个像素,不足则用0补满</li>
@@ -622,58 +614,58 @@ echo $width.'*'.$height;<span aria-hidden="true" class="line-numbers-rows"><span
 </ul>
 <h5 id="二-源码"><a href="#二-源码" class="headerlink" title="二. 源码"></a>二. 源码</h5><p><strong>整个过程可以大概分为三步完成,你可以根据自己的需求参考或者直接copy使用,如果对你有帮助,希望可以点个赞,转载请注明本篇文章链接地址及作者,谢谢!</strong></p>
 <ul>
-<li>将普通<code>jpg/png</code>格式转为<code>.wbmp</code><pre class="line-numbers language-none"><code class="language-none">$filename = 'static/img/1.jpg';
-$path = 'static/img/11.wbmp';
-$image = getimagesize($filename);
-jpeg2wbmp($filename, $path, $image[1], $image[0], 5);//threshold == 5时,和给的软件转换后结果完全一致<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>读取<code>.wbmp</code>格式图片<pre class="line-numbers language-none"><code class="language-none">$filename = 'static/img/11.wbmp';
-$im = imagecreatefromwbmp($filename);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li>将<code>.wbmp</code>转为<code>hex_str</code><pre class="line-numbers language-none"><code class="language-none">/**
-     * @param $im
-     * @return string
-     * Commented by liu
-     */
-    public function wbmp2hex($im)
-    {
-        $width = imagesx($im);
-        $height = imagesy($im);
-        $num = $width % 8;
+<li><p>将普通<code>jpg/png</code>格式转为<code>.wbmp</code></p>
+<pre><code>      $filename = &#39;static/img/1.jpg&#39;;
+      $path = &#39;static/img/11.wbmp&#39;;
+      $image = getimagesize($filename);
+      jpeg2wbmp($filename, $path, $image[1], $image[0], 5);//threshold == 5时,和给的软件转换后结果完全一致</code></pre></li>
+<li><p>读取<code>.wbmp</code>格式图片</p>
+<pre><code>      $filename = &#39;static/img/11.wbmp&#39;;
+      $im = imagecreatefromwbmp($filename);</code></pre></li>
+<li><p>将<code>.wbmp</code>转为<code>hex_str</code></p>
+<pre><code>/**
+   * @param $im
+   * @return string
+   * Commented by liu
+   */
+  public function wbmp2hex($im)
+  {
+      $width = imagesx($im);
+      $height = imagesy($im);
+      $num = $width % 8;
 
-        $hex_str = '';
-        for ($start_y = 0; $start_y &lt; $height; $start_y++) {
-            $binary_str = '';
-            for ($start_x = 0; $start_x &lt; $width; $start_x++) {
-                $color_index = imagecolorat($im, $start_x, $start_y);//指定像素的索引值
+      $hex_str = &#39;&#39;;
+      for ($start_y = 0; $start_y &lt; $height; $start_y++) {
+          $binary_str = &#39;&#39;;
+          for ($start_x = 0; $start_x &lt; $width; $start_x++) {
+              $color_index = imagecolorat($im, $start_x, $start_y);//指定像素的索引值
 
-                $binary_str .= $color_index == 1 ? 1 : 0;
-                if ((1 + $start_x) % 8 == 0 &amp;&amp; $start_x != 0) {//每隔8位转换1次
-                    $hex = (string)dechex(bindec($binary_str));
-                    $hex = strlen($hex) == 1 ? '0' . $hex : $hex;//补0
-                    $hex_str .= $hex;
-                    $binary_str = '';
-                }
-            }
+              $binary_str .= $color_index == 1 ? 1 : 0;
+              if ((1 + $start_x) % 8 == 0 &amp;&amp; $start_x != 0) {//每隔8位转换1次
+                  $hex = (string)dechex(bindec($binary_str));
+                  $hex = strlen($hex) == 1 ? &#39;0&#39; . $hex : $hex;//补0
+                  $hex_str .= $hex;
+                  $binary_str = &#39;&#39;;
+              }
+          }
 
-            //这时如果$binary_str不为空,说明需要向后补0
-            if ($num) {
-                for ($i = 0; $i &lt; 8 - $num; $i++) {
-                    $binary_str .= 0;
-                }
-                $hex = (string)dechex(bindec($binary_str));
-                $hex = strlen($hex) == 1 ? '0' . $hex : $hex;//补0
-                $hex_str .= $hex;
-            }
-        }
+          //这时如果$binary_str不为空,说明需要向后补0
+          if ($num) {
+              for ($i = 0; $i &lt; 8 - $num; $i++) {
+                  $binary_str .= 0;
+              }
+              $hex = (string)dechex(bindec($binary_str));
+              $hex = strlen($hex) == 1 ? &#39;0&#39; . $hex : $hex;//补0
+              $hex_str .= $hex;
+          }
+      }
 
-        $hex_str = strtoupper($hex_str);//转为大写
-        return $hex_str;
-    }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-</li>
+      $hex_str = strtoupper($hex_str);//转为大写
+      return $hex_str;
+  }</code></pre></li>
 </ul>
 <p>最后附上读取<code>.bmp</code>格式图片的函数:</p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;?php
+<pre><code>&lt;?php
 
 /**
  * Commented by liu
@@ -697,62 +689,62 @@ class Image_api
     function ImageCreateFromBMP($filename)
     {
         //Ouverture du fichier en mode binaire
-        if (!$f1 = fopen($filename, "rb"))
+        if (!$f1 = fopen($filename, &quot;rb&quot;))
             return FALSE;
 
         //1 : Chargement des ent�tes FICHIER
-        $FILE = unpack("vfile_type/Vfile_size/Vreserved/Vbitmap_offset", fread($f1, 14));
-        if ($FILE['file_type'] != 19778)
+        $FILE = unpack(&quot;vfile_type/Vfile_size/Vreserved/Vbitmap_offset&quot;, fread($f1, 14));
+        if ($FILE[&#39;file_type&#39;] != 19778)
             return FALSE;
 
         //2 : Chargement des ent�tes BMP
-        $BMP = unpack('Vheader_size/Vwidth/Vheight/vplanes/vbits_per_pixel' .
-            '/Vcompression/Vsize_bitmap/Vhoriz_resolution' .
-            '/Vvert_resolution/Vcolors_used/Vcolors_important', fread($f1, 40));
-        $BMP['colors'] = pow(2, $BMP['bits_per_pixel']);
-        if ($BMP['size_bitmap'] == 0)
-            $BMP['size_bitmap'] = $FILE['file_size'] - $FILE['bitmap_offset'];
-        $BMP['bytes_per_pixel'] = $BMP['bits_per_pixel'] / 8;
-        $BMP['bytes_per_pixel2'] = ceil($BMP['bytes_per_pixel']);
-        $BMP['decal'] = ($BMP['width'] * $BMP['bytes_per_pixel'] / 4);
-        $BMP['decal'] -= floor($BMP['width'] * $BMP['bytes_per_pixel'] / 4);
-        $BMP['decal'] = 4 - (4 * $BMP['decal']);
-        if ($BMP['decal'] == 4)
-            $BMP['decal'] = 0;
+        $BMP = unpack(&#39;Vheader_size/Vwidth/Vheight/vplanes/vbits_per_pixel&#39; .
+            &#39;/Vcompression/Vsize_bitmap/Vhoriz_resolution&#39; .
+            &#39;/Vvert_resolution/Vcolors_used/Vcolors_important&#39;, fread($f1, 40));
+        $BMP[&#39;colors&#39;] = pow(2, $BMP[&#39;bits_per_pixel&#39;]);
+        if ($BMP[&#39;size_bitmap&#39;] == 0)
+            $BMP[&#39;size_bitmap&#39;] = $FILE[&#39;file_size&#39;] - $FILE[&#39;bitmap_offset&#39;];
+        $BMP[&#39;bytes_per_pixel&#39;] = $BMP[&#39;bits_per_pixel&#39;] / 8;
+        $BMP[&#39;bytes_per_pixel2&#39;] = ceil($BMP[&#39;bytes_per_pixel&#39;]);
+        $BMP[&#39;decal&#39;] = ($BMP[&#39;width&#39;] * $BMP[&#39;bytes_per_pixel&#39;] / 4);
+        $BMP[&#39;decal&#39;] -= floor($BMP[&#39;width&#39;] * $BMP[&#39;bytes_per_pixel&#39;] / 4);
+        $BMP[&#39;decal&#39;] = 4 - (4 * $BMP[&#39;decal&#39;]);
+        if ($BMP[&#39;decal&#39;] == 4)
+            $BMP[&#39;decal&#39;] = 0;
 
         //3 : Chargement des couleurs de la palette
         $PALETTE = array();
-        if ($BMP['colors'] &lt; 16777216) {
-            $PALETTE = unpack('V' . $BMP['colors'], fread($f1, $BMP['colors'] * 4));
+        if ($BMP[&#39;colors&#39;] &lt; 16777216) {
+            $PALETTE = unpack(&#39;V&#39; . $BMP[&#39;colors&#39;], fread($f1, $BMP[&#39;colors&#39;] * 4));
         }
 
-        //4 : Cr�ation de l'image
-        $IMG = fread($f1, $BMP['size_bitmap']);
+        //4 : Cr�ation de l&#39;image
+        $IMG = fread($f1, $BMP[&#39;size_bitmap&#39;]);
         $VIDE = chr(0);
 
-        $res = imagecreatetruecolor($BMP['width'], $BMP['height']);
+        $res = imagecreatetruecolor($BMP[&#39;width&#39;], $BMP[&#39;height&#39;]);
         $P = 0;
-        $Y = $BMP['height'] - 1;
+        $Y = $BMP[&#39;height&#39;] - 1;
         while ($Y &gt;= 0) {
             $X = 0;
-            while ($X &lt; $BMP['width']) {
-                if ($BMP['bits_per_pixel'] == 24)
-                    $COLOR = unpack("V", substr($IMG, $P, 3) . $VIDE);
-                elseif ($BMP['bits_per_pixel'] == 16) {
-                    $COLOR = unpack("n", substr($IMG, $P, 2));
+            while ($X &lt; $BMP[&#39;width&#39;]) {
+                if ($BMP[&#39;bits_per_pixel&#39;] == 24)
+                    $COLOR = unpack(&quot;V&quot;, substr($IMG, $P, 3) . $VIDE);
+                elseif ($BMP[&#39;bits_per_pixel&#39;] == 16) {
+                    $COLOR = unpack(&quot;n&quot;, substr($IMG, $P, 2));
                     $COLOR[1] = $PALETTE[$COLOR[1] + 1];
-                } elseif ($BMP['bits_per_pixel'] == 8) {
-                    $COLOR = unpack("n", $VIDE . substr($IMG, $P, 1));
+                } elseif ($BMP[&#39;bits_per_pixel&#39;] == 8) {
+                    $COLOR = unpack(&quot;n&quot;, $VIDE . substr($IMG, $P, 1));
                     $COLOR[1] = $PALETTE[$COLOR[1] + 1];
-                } elseif ($BMP['bits_per_pixel'] == 4) {
-                    $COLOR = unpack("n", $VIDE . substr($IMG, floor($P), 1));
+                } elseif ($BMP[&#39;bits_per_pixel&#39;] == 4) {
+                    $COLOR = unpack(&quot;n&quot;, $VIDE . substr($IMG, floor($P), 1));
                     if (($P * 2) % 2 == 0)
                         $COLOR[1] = ($COLOR[1] &gt;&gt; 4);
                     else
                         $COLOR[1] = ($COLOR[1] &amp; 0x0F);
                     $COLOR[1] = $PALETTE[$COLOR[1] + 1];
-                } elseif ($BMP['bits_per_pixel'] == 1) {
-                    $COLOR = unpack("n", $VIDE . substr($IMG, floor($P), 1));
+                } elseif ($BMP[&#39;bits_per_pixel&#39;] == 1) {
+                    $COLOR = unpack(&quot;n&quot;, $VIDE . substr($IMG, floor($P), 1));
                     if (($P * 8) % 8 == 0)
                         $COLOR[1] = $COLOR[1] &gt;&gt; 7;
                     elseif (($P * 8) % 8 == 1)
@@ -774,10 +766,10 @@ class Image_api
                     return FALSE;
                 imagesetpixel($res, $X, $Y, $COLOR[1]);
                 $X++;
-                $P += $BMP['bytes_per_pixel'];
+                $P += $BMP[&#39;bytes_per_pixel&#39;];
             }
             $Y--;
-            $P += $BMP['decal'];
+            $P += $BMP[&#39;decal&#39;];
         }
 
         //Fermeture du fichier
@@ -785,8 +777,7 @@ class Image_api
         return $res;
     }
 
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+}</code></pre>
                 
             </div>
             <hr/>
@@ -1122,7 +1113,9 @@ class Image_api
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                              之前记录过一篇Sphinx在Windows上的安装步骤,这篇当然就是Linux系统的安装步骤啦
+                            
+
+&emsp;&emsp;之前记录过一篇Sphinx在Windows上的安装步骤,这篇当然就是Linux系统的安装步骤啦
                         
                     </div>
                     <div class="publish-info">
@@ -1176,12 +1169,12 @@ class Image_api
                         <span class="chip bg-color">Sphinx</span>
                     </a>
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
-                    </a>
-                    
                     <a href="/tags/Sphinxapi/">
                         <span class="chip bg-color">Sphinxapi</span>
+                    </a>
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>
@@ -1412,7 +1405,7 @@ class Image_api
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2021</span>
+                <span id="year">2019-2022</span>
             
             <span id="year">2019</span>
             <a href="/about" target="_blank">大熊</a>
@@ -1421,7 +1414,7 @@ class Image_api
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">28.7k</span>&nbsp;字
+                class="white-color">31k</span>&nbsp;字
             
             
             
@@ -1647,6 +1640,6 @@ $(function () {
             document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ好哦！",st=setTimeout(function(){document.title=OriginTitile},3e3))
         })
     </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.9},"log":false});</script></body>
+</body>
 
 </html>
