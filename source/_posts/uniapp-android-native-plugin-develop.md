@@ -221,7 +221,7 @@ app内的扩展module下的三个按钮的点击事件, 分别调用了`uniplugi
 
 打开openfile的`build.gradle`, 将`dependencies`节点下内容删除, 替换成下面内容
 
-```
+```json
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     
@@ -235,7 +235,7 @@ dependencies {
 
 在dependencies同级添加`repositories`节点
 
-```
+```json
 repositories {
     flatDir {
         dirs 'libs'
@@ -262,7 +262,7 @@ repositories {
 
 编写一个init函数, 测试一下能否正常使用. 代码如下:
 
-```
+```java
 package com.bigbear.openfile;
 
 import android.util.Log;
@@ -296,7 +296,7 @@ public class OpenFileModule extends WXModule {
 
 打开`app/assets/dcloud_uniplugins.json`文件, 在`nativePlugins`节点下新增
 
-```
+```json
 {
    "hooksClass": "",
    "plugins": [
@@ -308,6 +308,184 @@ public class OpenFileModule extends WXModule {
    ]
 }
 ```
+
+#### 原生工程中调用插件方法进行调试
+
+新建一个uni-app项目, 或者使用现有的项目, 在页面中引入插件, 并添加一个按钮触发init方法
+
+```vue
+<template>
+	<view>
+		<button type="primary" @click="testInit">testInit</button>
+	</view>
+</template>
+
+<script>
+	// 引入 module 
+	const OpenFile = uni.requireNativePlugin("OpenFile")
+	export default {
+		onLoad() {
+			
+		},
+		methods: {
+			testInit() {
+				OpenFile.init({a:1, b:2}, res=> { //调用插件中刚编写的init方法
+					console.log(res);
+				})
+			}
+		}
+	}
+</script>
+```
+
+[生成本地打包APP资源](#生成本地打包资源), 并且将其放入原生工程目录下, 可参考前面说过的步骤完成, 记得保证`dcloud_control.xml`中的appid和uniapp项目的appid一致
+
+__在app的build.gradle中添加插件__
+
+```
+implementation project(':openfile')
+```
+
+点击RUN 按钮运行app, 点击测试按钮, 可以在logcat中看见我们打印出的传递过来的参数
+
+logcat中的日志很乱, 筛选一下方便查看
+
+![image-20200601104329137](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200601104329137.png)
+
+
+
+#### openfile功能
+
+这个功能想必大部分人都用过, 就是在使用 微信, QQ打开文件的时候, 我们想使用其他应用打开, 方便我们编辑或查看文档, 那么你会见到这个弹窗 
+
+<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200601105021393.png" alt="image-20200601105021393" style="zoom: 33%;" />
+
+那么, 我们要做的, 就是将你自己开发的uni-app项目, 添加到这个列表中
+
+##### AndroidManifest.xml
+
+打开openfile下的`AndroidManifest.xml`文件, 修改成下面的样子
+
+```xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bigbear.openfile" >
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+        <activity android:name="com.bigbear.openfile.OpenFileActivity"
+            android:theme="@style/Theme.AppCompat.Dialog">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.SEND"/>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+
+				
+                <data android:scheme="file"/>
+                <data android:scheme="content"/>
+
+                <data android:mimeType="text/plain" /> <!--txt-->
+                <data android:mimeType="text/xml" />
+                <data android:mimeType="text/csv" />
+
+                <data android:mimeType="application/msword" /> <!--doc-->
+                <data android:mimeType="application/vnd.openxmlformats-officedocument.wordprocessingml.document" /> <!--docx-->
+                <data android:mimeType="application/vnd.ms-powerpoint" /> <!--ppt-->
+                <data android:mimeType="application/vnd.openxmlformats-officedocument.presentationml.presentation" /> <!--pptx-->
+                <data android:mimeType="application/vnd.ms-excel" /><!--xls-->
+                <data android:mimeType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" /><!--xlsx-->
+                <data android:mimeType="application/json" />
+                <data android:mimeType="application/pdf" /> <!--pdf-->
+                <data android:mimeType="application/xml" />
+                <data android:mimeType="application/vnd.ms-works" /> <!--wps-->
+
+            </intent-filter>
+
+        </activity>
+    </application>
+
+
+</manifest>
+```
+
+##### OpenFileActivity
+
+在`com.bigbear.openfile`下新建`OpenFileActivity.java`, 在`onCreate`中获取其他应用打开你的应用时传递过来的文件路径, 然后通过scheme唤起你的uni-app应用
+
+```java
+package com.bigbear.openfile;
+
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Environment;
+import android.support.v7.app.AppCompatActivity;
+
+public class OpenFileActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        System.out.println("----------*******************************onCreate**************************-------------");
+        System.out.println("----------*******************************openfile**************************-------------");
+
+        Intent intent = getIntent();
+        Uri uri = intent.getData();
+        assert uri != null;
+        String path = uri.getPath();
+        String _uri;
+
+        if ("content".equals(uri.getScheme()) && path != null ) {
+            if (path.startsWith("/external/")) { //wechat
+                path = Environment.getExternalStorageDirectory().getAbsolutePath() + path.replace("/external", "");
+                _uri = "file://" + path;
+            }else if (path.startsWith("/external_files/")) { //qq
+                path = path.replace("/external_files", "");
+                _uri = "file://" + path;
+            }else {
+                _uri = uri + "";
+            }
+
+        }else  {
+            _uri = uri + "";
+        }
+
+        System.out.println(_uri);
+        Uri open_uri = Uri.parse("abc://"+ _uri); //这里的abc是你给uniapp项目设置的scheme
+        Intent _intent = new Intent(Intent.ACTION_VIEW, open_uri);
+        startActivity(_intent);
+
+        System.out.println("----------***************************************************");
+
+    }
+}
+```
+
+
+
+
+
+重新运行, 在微信中或者qq中找一个文件, 选择用其他应用打开, 可以看到, 我们的测试app已经出现在了列表中
+
+<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200601111732541.png" alt="image-20200601111732541" style="zoom:33%;" />
+
+选择HBuilder-integrate-AS打开, 应用会自动打开跳转到我们在代码中写的scheme的应用中, 同时logcat中看下打印出的内容, 我们也已经获取到了文件的链接
+
+![image-20200601111935162](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200601111935162.png)
+
+
+
+#### 集成插件到uniapp
+
+
 
 
 

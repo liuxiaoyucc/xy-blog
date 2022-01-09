@@ -1,472 +1,546 @@
-<!DOCTYPE html>
-<html lang=zh>
-<head>
-  <meta charset="utf-8">
-  
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="Cache-Control" content="no-transform" />
-  <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="format-detection" content="telephone=no,email=no,adress=no">
-  <!-- Color theme for statusbar -->
-  <meta name="theme-color" content="#000000" />
-  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
-  <meta http-equiv="window-target" content="_top" />
-  
-  
-  <title>PHP 单色位图取模 | 大熊BIGBEAR的个人博客</title>
-  <meta name="description" content="2018-11-27日更新:&amp;emsp;&amp;emsp;由于没有找到生成.bmp格式图片的好办法,改为使用.wbmp格式,转换和读取都改为.wbmp格式,原来的bmp2hex函数逻辑没有变化,改名为wbmp2hex,并不再使用ImageCreateFromBMP函数,可以收藏一下这个函数还是有用的,最新的代码我也提供了下载在文章末尾">
-<meta name="keywords" content="大熊BIGBEAR,PHP,GD,pctoLCD2002,bmp,位图">
-<meta property="og:type" content="article">
-<meta property="og:title" content="PHP 单色位图取模">
-<meta property="og:url" content="http:&#x2F;&#x2F;www.pulsating.cn&#x2F;2019&#x2F;11&#x2F;12&#x2F;PHP-monochrome-bitmap-module&#x2F;index.html">
-<meta property="og:site_name" content="大熊的个人博客">
-<meta property="og:description" content="2018-11-27日更新:&amp;emsp;&amp;emsp;由于没有找到生成.bmp格式图片的好办法,改为使用.wbmp格式,转换和读取都改为.wbmp格式,原来的bmp2hex函数逻辑没有变化,改名为wbmp2hex,并不再使用ImageCreateFromBMP函数,可以收藏一下这个函数还是有用的,最新的代码我也提供了下载在文章末尾">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-b6d0e5ed3d0f89b6.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
-<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-036a928b957300bc.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
-<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-675d730990fe5b64.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
-<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-58921a2bee3a6c6c.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
-<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-d9a0e2dae4a0f54b.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
-<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-3e9e397592bf5c44.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
-<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-949d42ff637fec24.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
-<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-a133d36f74a84e72.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
-<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-1db851391b978ca4.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
-<meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-e4ddf9d0efeb1393.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
-<meta property="og:updated_time" content="2020-01-08T03:25:56.016Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;14618365-b6d0e5ed3d0f89b6.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1240">
-  <!-- Canonical links -->
-  <link rel="canonical" href="http://www.pulsating.cn/2019/11/12/PHP-monochrome-bitmap-module/index.html">
-  
-    <link rel="alternate" href="/atom.xml" title="大熊的个人博客" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/fav.png" type="image/x-icon">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
-  
-  
-  
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
-  
-	  
-<script data-ad-client="ca-pub-2287074960345236" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!DOCTYPE HTML>
+<html lang="zh-CN">
 
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="PHP 单色位图取模, 大熊">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>PHP 单色位图取模 | 大熊的个人博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="大熊的个人博客" type="application/atom+xml">
 </head>
 
 
-<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
-  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-  <div class="slimContent">
-    <div class="navbar-header">
-      
-      
-      <div class="profile-block text-center">
-        <a id="avatar" href="https://github.com/liuxiaoyucc" target="_blank">
-          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
-        </a>
-        <h2 id="name" class="hidden-xs hidden-sm">xy&amp;cc</h2>
-        <h3 id="title" class="hidden-xs hidden-sm hidden-md">程序猿和他的畅夫人</h3>
-        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> SuZhou, China</small>
-      </div>
-      
-      <div class="search" id="search-form-wrap">
 
-    <form class="search-form sidebar-form">
-        <div class="input-group">
-            <input type="text" class="search-form-input form-control" placeholder="搜索" />
-            <span class="input-group-btn">
-                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
-            </span>
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">大熊的个人博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">大熊的个人博客</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
         </div>
-    </form>
-    <div class="ins-search">
-  <div class="ins-search-mask"></div>
-  <div class="ins-search-container">
-    <div class="ins-input-wrapper">
-      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
-      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
     </div>
-    <div class="ins-section-wrapper">
-      <div class="ins-section-container"></div>
-    </div>
-  </div>
-</div>
 
+    
 
-</div>
-      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
-      <ul class="nav navbar-nav main-nav menu-highlight">
+    <ul class="menu-list mobile-menu-list">
         
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
         
-        <li class="menu-item menu-item-home">
-          <a href="/.">
-            
-            <i class="icon icon-home-fill"></i>
-            
-            <span class="menu-title">首页</span>
-          </a>
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
         </li>
         
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives">
-            
-            <i class="icon icon-archives-fill"></i>
-            
-            <span class="menu-title">归档</span>
-          </a>
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/liuxiaoyucc" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
         </li>
-        
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories">
-            
-            <i class="icon icon-folder"></i>
-            
-            <span class="menu-title">分类</span>
-          </a>
-        </li>
-        
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags">
-            
-            <i class="icon icon-tags"></i>
-            
-            <span class="menu-title">标签</span>
-          </a>
-        </li>
-        
-        
-        <li class="menu-item menu-item-repository">
-          <a href="/repository">
-            
-            <i class="icon icon-project"></i>
-            
-            <span class="menu-title">项目</span>
-          </a>
-        </li>
-        
-        
-        <li class="menu-item menu-item-links">
-          <a href="/links">
-            
-            <i class="icon icon-friendship"></i>
-            
-            <span class="menu-title">友链</span>
-          </a>
-        </li>
-        
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about">
-            
-            <i class="icon icon-cup-fill"></i>
-            
-            <span class="menu-title">关于</span>
-          </a>
-        </li>
-        
-        
-        <li class="menu-item menu-item-charitable">
-          <a href="/charitable">
-            
-            <i class="icon icon-eye-fill"></i>
-            
-            <span class="menu-title">404公益</span>
-          </a>
-        </li>
-        
-      </ul>
-      
-	
-    <ul class="social-links">
-    	
-        <li><a href="https://github.com/liuxiaoyucc" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
-        
-        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
-        
-        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
-        
-        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
-        
-        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
         
     </ul>
+</div>
 
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/liuxiaoyucc" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
     </nav>
-
-
-  </div>
 
 </header>
 
-  
-    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
-  <div class="slimContent">
     
-      <div class="widget">
-    <h3 class="widget-title">公告</h3>
-    <div class="widget-body">
-        <div id="board">
-            <div class="content">
-                <p>控制早晨, 方能控制人生!</p>
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">PHP 单色位图取模</h1>
+                </div>
             </div>
         </div>
     </div>
 </div>
-    
-      
-  <div class="widget">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/opencv/">opencv</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><span class="category-list-count">30</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Blog/">Blog</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Blog/Hexo/">Hexo</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/">Mysql</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/Mysql%E5%9F%BA%E7%A1%80/">Mysql基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/Sphinx/">Sphinx</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/">PHP</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/CI/">CI</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/Composer/">Composer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/GD/">GD</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/ThinkPHP/">ThinkPHP</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/uni-app/">uni-app</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/uni-app/Android/">Android</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/uni-app/Android/WEEX/">WEEX</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/">JavaScript</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/JQuery-UI/">JQuery UI</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/JQuery-UI/autocomplete/">autocomplete</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/">Vue</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/WEEX/">WEEX</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/uni-app/">uni-app</a><span class="category-list-count">1</span></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">图像处理</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E6%97%A5%E5%B8%B8/">日常</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E6%9D%82/">杂</a><span class="category-list-count">1</span></li></ul></li></ul>
-    </div>
-  </div>
 
 
-    
-      
-  <div class="widget">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Andriod/" rel="tag">Andriod</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CI/" rel="tag">CI</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Composer/" rel="tag">Composer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECHO-JS/" rel="tag">ECHO JS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GD/" rel="tag">GD</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Imagemagick/" rel="tag">Imagemagick</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JQuery/" rel="tag">JQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery-WEUI/" rel="tag">Jquery WEUI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Js/" rel="tag">Js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql%E5%9F%BA%E7%A1%80/" rel="tag">Mysql基础</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/" rel="tag">PHP</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SPA/" rel="tag">SPA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sphinx/" rel="tag">Sphinx</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sphinxapi/" rel="tag">Sphinxapi</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkPHP/" rel="tag">ThinkPHP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WEEX/" rel="tag">WEEX</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WeUI/" rel="tag">WeUI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/" rel="tag">adb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/article/" rel="tag">article</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bmp/" rel="tag">bmp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/imagick/" rel="tag">imagick</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opencv/" rel="tag">opencv</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pctoLCD2002/" rel="tag">pctoLCD2002</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/uni-app/" rel="tag">uni-app</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%8D%E5%9B%BE/" rel="tag">位图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E7%86%8ABIGBEAR/" rel="tag">大熊BIGBEAR</a><span class="tag-list-count">26</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BB%BA%E7%AB%99/" rel="tag">建站</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%87%92%E5%8A%A0%E8%BD%BD/" rel="tag">懒加载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BE%8E%E9%A3%9F/" rel="tag">美食</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" rel="tag">随手记</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A3%9F%E8%B0%B1/" rel="tag">食谱</a><span class="tag-list-count">2</span></li></ul>
-    </div>
-  </div>
 
 
-    
-      
-  <div class="widget">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget-body tagcloud">
-      <a href="/tags/Andriod/" style="font-size: 13px;">Andriod</a> <a href="/tags/Android/" style="font-size: 13px;">Android</a> <a href="/tags/CI/" style="font-size: 13.17px;">CI</a> <a href="/tags/Composer/" style="font-size: 13px;">Composer</a> <a href="/tags/ECHO-JS/" style="font-size: 13px;">ECHO JS</a> <a href="/tags/GD/" style="font-size: 13.17px;">GD</a> <a href="/tags/Imagemagick/" style="font-size: 13.17px;">Imagemagick</a> <a href="/tags/JQuery/" style="font-size: 13px;">JQuery</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/Jquery-WEUI/" style="font-size: 13px;">Jquery WEUI</a> <a href="/tags/Js/" style="font-size: 13.17px;">Js</a> <a href="/tags/Linux/" style="font-size: 13px;">Linux</a> <a href="/tags/Mysql/" style="font-size: 13.67px;">Mysql</a> <a href="/tags/Mysql%E5%9F%BA%E7%A1%80/" style="font-size: 13.5px;">Mysql基础</a> <a href="/tags/PHP/" style="font-size: 13.83px;">PHP</a> <a href="/tags/SPA/" style="font-size: 13px;">SPA</a> <a href="/tags/Sphinx/" style="font-size: 13.33px;">Sphinx</a> <a href="/tags/Sphinxapi/" style="font-size: 13.17px;">Sphinxapi</a> <a href="/tags/ThinkPHP/" style="font-size: 13px;">ThinkPHP</a> <a href="/tags/Vue/" style="font-size: 13.17px;">Vue</a> <a href="/tags/WEEX/" style="font-size: 13.17px;">WEEX</a> <a href="/tags/WeUI/" style="font-size: 13px;">WeUI</a> <a href="/tags/adb/" style="font-size: 13px;">adb</a> <a href="/tags/article/" style="font-size: 13px;">article</a> <a href="/tags/bmp/" style="font-size: 13px;">bmp</a> <a href="/tags/imagick/" style="font-size: 13.17px;">imagick</a> <a href="/tags/opencv/" style="font-size: 13px;">opencv</a> <a href="/tags/pctoLCD2002/" style="font-size: 13px;">pctoLCD2002</a> <a href="/tags/uni-app/" style="font-size: 13.17px;">uni-app</a> <a href="/tags/%E4%BD%8D%E5%9B%BE/" style="font-size: 13px;">位图</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13.33px;">前端</a> <a href="/tags/%E5%A4%A7%E7%86%8ABIGBEAR/" style="font-size: 14px;">大熊BIGBEAR</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 13px;">建站</a> <a href="/tags/%E6%87%92%E5%8A%A0%E8%BD%BD/" style="font-size: 13px;">懒加载</a> <a href="/tags/%E6%8E%92%E5%BA%8F/" style="font-size: 13px;">排序</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 13px;">教程</a> <a href="/tags/%E7%BE%8E%E9%A3%9F/" style="font-size: 13.17px;">美食</a> <a href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" style="font-size: 13.17px;">随手记</a> <a href="/tags/%E9%A3%9F%E8%B0%B1/" style="font-size: 13.17px;">食谱</a>
-    </div>
-  </div>
+<main class="post-container content">
 
     
-      
-  <div class="widget">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">20</span></li></ul>
-    </div>
-  </div>
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
 
+    #articleContent :focus {
+        outline: none;
+    }
 
-    
-      
-  <div class="widget">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget-body">
-      <ul class="recent-post-list list-unstyled ">
-        
-          <li>
-            
-            <div class="item-thumb">
-              <a href="/2020/05/25/uniapp-android-native-plugin-develop/" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
 
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%A4%A7%E7%86%8ABIGBEAR/">
+                                <span class="chip bg-color">大熊BIGBEAR</span>
+                            </a>
+                        
+                            <a href="/tags/PHP/">
+                                <span class="chip bg-color">PHP</span>
+                            </a>
+                        
+                            <a href="/tags/GD/">
+                                <span class="chip bg-color">GD</span>
+                            </a>
+                        
+                            <a href="/tags/pctoLCD2002/">
+                                <span class="chip bg-color">pctoLCD2002</span>
+                            </a>
+                        
+                            <a href="/tags/bmp/">
+                                <span class="chip bg-color">bmp</span>
+                            </a>
+                        
+                            <a href="/tags/%E4%BD%8D%E5%9B%BE/">
+                                <span class="chip bg-color">位图</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/" class="post-category">
+                                大熊BIGBEAR
+                            </a>
+                        
+                            <a href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/" class="post-category">
+                                PHP
+                            </a>
+                        
+                            <a href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/GD/" class="post-category">
+                                GD
+                            </a>
+                        
+                            <a href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="post-category">
+                                图像处理
+                            </a>
+                        
+                    </div>
+                    
+                </div>
             </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/opencv/">opencv</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/uni-app/">uni-app</a>
-              </p>
-              <p class="item-title">
-                <a href="/2020/05/25/uniapp-android-native-plugin-develop/" class="title">Uni-App Android Native Plugin Develop</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2020-05-25T01:54:02.000Z" itemprop="datePublished">2020-05-25</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-thumb">
-              <a href="/2020/04/06/ES6-import-and-export/" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
 
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/">前端</a>
-              </p>
-              <p class="item-title">
-                <a href="/2020/04/06/ES6-import-and-export/" class="title">ES6中的import和export使用方法</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2020-04-06T05:35:09.000Z" itemprop="datePublished">2020-04-06</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-thumb">
-              <a href="/2020/01/08/Install-and-use-Composer/" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-11-12
+                </div>
+                
 
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/">PHP</a>
-              </p>
-              <p class="item-title">
-                <a href="/2020/01/08/Install-and-use-Composer/" class="title">Composer的安装及使用</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2020-01-08T15:00:03.000Z" itemprop="datePublished">2020-01-08</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-thumb">
-              <a href="/2020/01/08/Sphinx-multi-index-configuration/" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-03-10
+                </div>
+                
 
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/">Mysql</a>
-              </p>
-              <p class="item-title">
-                <a href="/2020/01/08/Sphinx-multi-index-configuration/" class="title">sphinx配置多索引</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2020-01-08T09:50:52.000Z" itemprop="datePublished">2020-01-08</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-thumb">
-              <a href="/2020/01/07/Run-CI-method-in-cli/" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.2k
+                </div>
+                
 
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    9 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/">PHP</a>
-              </p>
-              <p class="item-title">
-                <a href="/2020/01/07/Run-CI-method-in-cli/" class="title">使用命令行执行CI控制器中的函数</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2020-01-07T15:29:56.000Z" itemprop="datePublished">2020-01-07</time>
-              </p>
-            </div>
-          </li>
-          
-      </ul>
-    </div>
-  </div>
-  
-
-    
-  </div>
-</aside>
-
-  
-  
-<main class="main" role="main">
-  <div class="content">
-  <article id="post-PHP-monochrome-bitmap-module" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-    
-    <div class="article-header">
-      
-        
-  
-    <h1 class="article-title" itemprop="name">
-      PHP 单色位图取模
-    </h1>
-  
-
-      
-      <div class="article-meta">
-        <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2019/11/12/PHP-monochrome-bitmap-module/" class="article-date">
-	  <time datetime="2019-11-12T15:24:09.000Z" itemprop="datePublished">2019-11-12</time>
-	</a>
-</span>
-        
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/">大熊BIGBEAR</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/">PHP</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/GD/">GD</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">图像处理</a>
-  </span>
+        </div>
+        <hr class="clearfix">
 
         
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/GD/" rel="tag">GD</a>, <a class="article-tag-link" href="/tags/PHP/" rel="tag">PHP</a>, <a class="article-tag-link" href="/tags/bmp/" rel="tag">bmp</a>, <a class="article-tag-link" href="/tags/pctoLCD2002/" rel="tag">pctoLCD2002</a>, <a class="article-tag-link" href="/tags/%E4%BD%8D%E5%9B%BE/" rel="tag">位图</a>, <a class="article-tag-link" href="/tags/%E5%A4%A7%E7%86%8ABIGBEAR/" rel="tag">大熊BIGBEAR</a>
-  </span>
-
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/11/12/PHP-monochrome-bitmap-module/#comments" class="article-comment-link">评论</a></span>
-        
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.2k(字)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 9(分)</span>
-	
-
-      </div>
-    </div>
-    <div class="article-entry marked-body" itemprop="articleBody">
-      
-        <meta name="referrer" content="no-referrer" />
-
-<p><strong>2018-11-27日更新:</strong><br>&emsp;&emsp;由于没有找到生成<code>.bmp</code>格式图片的好办法,改为使用<code>.wbmp</code>格式,转换和读取都改为<code>.wbmp</code>格式,原来的<code>bmp2hex</code>函数逻辑没有变化,改名为<code>wbmp2hex</code>,并不再使用<code>ImageCreateFromBMP</code>函数,可以收藏一下这个函数还是有用的,最新的代码我也提供了下载在文章末尾</p>
-<a id="more"></a>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><strong>2018-11-27日更新:</strong><br>  由于没有找到生成<code>.bmp</code>格式图片的好办法,改为使用<code>.wbmp</code>格式,转换和读取都改为<code>.wbmp</code>格式,原来的<code>bmp2hex</code>函数逻辑没有变化,改名为<code>wbmp2hex</code>,并不再使用<code>ImageCreateFromBMP</code>函数,可以收藏一下这个函数还是有用的,最新的代码我也提供了下载在文章末尾</p>
+<span id="more"></span>
 
 
 <h4 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段:"></a>准备阶段:</h4><ul>
-<li><p><strong>pctoLCD2002</strong><br>网上找到的一款取模软件,可以读取<code>.bmp</code>图片并生成字模,当然我们还是要用代码来完成,这个只是起到了一个对照作用,我将它放在了我的网盘下供大家下载<br>链接：<a href="https://pan.baidu.com/s/12X9Jbctz7wp8_wOWJCmYdw" target="_blank" rel="noopener">点我下载pctoLCD2002</a> 密码：<code>2lyl</code></p>
+<li><p><strong>pctoLCD2002</strong><br>网上找到的一款取模软件,可以读取<code>.bmp</code>图片并生成字模,当然我们还是要用代码来完成,这个只是起到了一个对照作用,我将它放在了我的网盘下供大家下载<br>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/12X9Jbctz7wp8_wOWJCmYdw">点我下载pctoLCD2002</a> 密码：<code>2lyl</code></p>
 </li>
 <li><p><strong>PHP GD扩展</strong><br>强大的PHP图像生成和处理扩展</p>
 </li>
@@ -503,30 +577,43 @@
 <p><img src="https://upload-images.jianshu.io/upload_images/14618365-949d42ff637fec24.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>但是这还不是我最后想要的格式,需要处理一下:</p>
 <ul>
 <li>去掉开始处和结束处的文件路径</li>
-<li>去掉所有的标点符号<code>,</code>和<code>&#39;{&#39; &#39;}&#39;</code></li>
+<li>去掉所有的标点符号<code>,</code>和<code>'{' '}'</code></li>
 <li>去掉十六进制的标识部分,所有的<code>0x</code></li>
 </ul>
 <p>最后得到一串连贯的字符串,类似:</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0000000000000007</span>F8000000000000000000000000003FFC00000000000000000000000000000003FF80000000</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">0000000000000007F8000000000000000000000000003FFC00000000000000000000000000000003FF80000000<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>这就是我们最终需要的部分了!下面我们用代码来实现这个功能:</p>
 <h4 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决:"></a>问题解决:</h4><h5 id="一-实现过程及思路"><a href="#一-实现过程及思路" class="headerlink" title="一. 实现过程及思路"></a>一. 实现过程及思路</h5><h6 id="0-生成单色位图"><a href="#0-生成单色位图" class="headerlink" title="0. 生成单色位图"></a>0. 生成单色位图</h6><p>卡在这里好久,钻进了死胡同,其实.wbmp的图片完全符合我的要求:<br>GD库就可以将<code>jpg/png</code>转换成<code>wbmp</code>格式,使用时可以调节<code>threshold</code>参数,解释如下,我理解为精度不知道准不准确,也没有查到阀值到底是什么意思…</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/14618365-a133d36f74a84e72.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="threshold"></p>
 <p>生成<code>.wbmp</code>格式图片代码示例:</p>
-<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$file</span>name = <span class="string">'static/img/1.jpg'</span>;</span><br><span class="line"><span class="symbol">$pat</span>h = <span class="string">'static/img/11.wbmp'</span>;</span><br><span class="line"><span class="symbol">$image</span> = getimagesize(<span class="symbol">$file</span>name);</span><br><span class="line">jpeg2wbmp(<span class="symbol">$file</span>name, <span class="symbol">$pat</span>h, <span class="symbol">$image</span>[<span class="number">1</span>], <span class="symbol">$image</span>[<span class="number">0</span>], <span class="number">5</span>);<span class="comment">//threshold == 5时,和给的软件转换后结果完全一致</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">$filename = 'static/img/1.jpg';
+$path = 'static/img/11.wbmp';
+$image = getimagesize($filename);
+jpeg2wbmp($filename, $path, $image[1], $image[0], 5);//threshold == 5时,和给的软件转换后结果完全一致<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>图片样式:</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/14618365-1db851391b978ca4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=".wbmp格式"></p>
 <h6 id="1-读取-wbmp格式图片-原读取-bmp格式"><a href="#1-读取-wbmp格式图片-原读取-bmp格式" class="headerlink" title="1. 读取.wbmp格式图片(原读取.bmp格式)"></a>1. 读取.wbmp格式图片(原读取.bmp格式)</h6><p>使用gd库的imagecreatefromwbmp函数:</p>
-<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$file</span>name = <span class="string">'static/img/11.wbmp'</span>;</span><br><span class="line"><span class="symbol">$im</span> = imagecreatefromwbmp(<span class="symbol">$file</span>name);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">$filename = 'static/img/11.wbmp';
+$im = imagecreatefromwbmp($filename);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>安装好GD库扩展后,我发现gd库只能读取.wbmp文件,并不支持.bmp文件,我的gd库版本信息如下<code>gd_info()</code>,经过一番google,找到了一个可以使用的读取.bmp的函数<code>ImageCreateFromBMP()</code>,感谢前辈</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/14618365-e4ddf9d0efeb1393.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="gd_info()"></p>
 <h6 id="2-逐个像素读取"><a href="#2-逐个像素读取" class="headerlink" title="2. 逐个像素读取"></a>2. 逐个像素读取</h6><p>可以读取.wbmp格式了,我们该如何能得出每个像素的颜色值呢?<br>通过查看gd库文档过程,我发现一个函数<code>imagecolorat()</code>,可以根据传入的位置,获取每个像素的索引值<br>使用示例:</p>
-<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 取得一点的颜色</span></span><br><span class="line"><span class="symbol">$file</span>_name = <span class="string">''</span>;<span class="comment">//wbmp图片路径</span></span><br><span class="line"><span class="symbol">$im</span> = imagecreatefromwbmp(<span class="symbol">$file</span>_name);<span class="comment">//读取wbmp格式</span></span><br><span class="line"><span class="symbol">$start</span>_x = <span class="number">5</span>;<span class="comment">//行,从0开始</span></span><br><span class="line"><span class="symbol">$start</span>_y = <span class="number">10</span>;<span class="comment">//列,从0开始</span></span><br><span class="line"><span class="symbol">$color</span>_index = imagecolorat(<span class="symbol">$im</span>, <span class="symbol">$start</span>_x, <span class="symbol">$start</span>_y);</span><br><span class="line">print_r(<span class="symbol">$color</span>_index);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">// 取得一点的颜色
+$file_name = '';//wbmp图片路径
+$im = imagecreatefromwbmp($file_name);//读取wbmp格式
+$start_x = 5;//行,从0开始
+$start_y = 10;//列,从0开始
+$color_index = imagecolorat($im, $start_x, $start_y);
+print_r($color_index);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <h6 id="3-获取图片宽高"><a href="#3-获取图片宽高" class="headerlink" title="3. 获取图片宽高"></a>3. 获取图片宽高</h6><p>第2步中可以获取每个像素中的值了,但是我们总不能每个点都手动传入,这时我们就需要获取图片的宽高了</p>
 <p>gd库中有获取图片宽高的函数<code>imagesx()</code>和<code>imagesy()</code>,代码示例:</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$im = imagecreatefromwbmp($file_name);<span class="comment">//读取bmp格式,非gd库</span></span><br><span class="line">$width = imagesx($im);</span><br><span class="line">$height = imagesy($im);</span><br><span class="line"><span class="keyword">echo</span> $width.<span class="string">'*'</span>.$height;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">$im = imagecreatefromwbmp($file_name);//读取bmp格式,非gd库
+$width = imagesx($im);
+$height = imagesy($im);
+echo $width.'*'.$height;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>到这里,最主要的部分都已经可以获取到了,后面就是逻辑部分了(代码中可以看到具体实现方式):</p>
 <ul>
 <li>根据图片的宽高,逐行逐点读取每个像素的值,每8位组合成1个字节,然后取模,再转为16进制</li>
@@ -535,236 +622,1031 @@
 </ul>
 <h5 id="二-源码"><a href="#二-源码" class="headerlink" title="二. 源码"></a>二. 源码</h5><p><strong>整个过程可以大概分为三步完成,你可以根据自己的需求参考或者直接copy使用,如果对你有帮助,希望可以点个赞,转载请注明本篇文章链接地址及作者,谢谢!</strong></p>
 <ul>
-<li>将普通<code>jpg/png</code>格式转为<code>.wbmp</code><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$file</span>name = <span class="string">'static/img/1.jpg'</span>;</span><br><span class="line"><span class="symbol">$pat</span>h = <span class="string">'static/img/11.wbmp'</span>;</span><br><span class="line"><span class="symbol">$image</span> = getimagesize(<span class="symbol">$file</span>name);</span><br><span class="line">jpeg2wbmp(<span class="symbol">$file</span>name, <span class="symbol">$pat</span>h, <span class="symbol">$image</span>[<span class="number">1</span>], <span class="symbol">$image</span>[<span class="number">0</span>], <span class="number">5</span>);<span class="comment">//threshold == 5时,和给的软件转换后结果完全一致</span></span><br></pre></td></tr></table></figure></li>
-<li>读取<code>.wbmp</code>格式图片<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$file</span>name = <span class="string">'static/img/11.wbmp'</span>;</span><br><span class="line"><span class="symbol">$im</span> = imagecreatefromwbmp(<span class="symbol">$file</span>name);</span><br></pre></td></tr></table></figure></li>
-<li>将<code>.wbmp</code>转为<code>hex_str</code><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> $im</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> string</span></span><br><span class="line"><span class="comment">     * Commented by liu</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">wbmp2hex</span><span class="params">($im)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        $width = imagesx($im);</span><br><span class="line">        $height = imagesy($im);</span><br><span class="line">        $num = $width % <span class="number">8</span>;</span><br><span class="line"></span><br><span class="line">        $hex_str = <span class="string">''</span>;</span><br><span class="line">        <span class="keyword">for</span> ($start_y = <span class="number">0</span>; $start_y &lt; $height; $start_y++) &#123;</span><br><span class="line">            $binary_str = <span class="string">''</span>;</span><br><span class="line">            <span class="keyword">for</span> ($start_x = <span class="number">0</span>; $start_x &lt; $width; $start_x++) &#123;</span><br><span class="line">                $color_index = imagecolorat($im, $start_x, $start_y);<span class="comment">//指定像素的索引值</span></span><br><span class="line"></span><br><span class="line">                $binary_str .= $color_index == <span class="number">1</span> ? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">if</span> ((<span class="number">1</span> + $start_x) % <span class="number">8</span> == <span class="number">0</span> &amp;&amp; $start_x != <span class="number">0</span>) &#123;<span class="comment">//每隔8位转换1次</span></span><br><span class="line">                    $hex = (string)dechex(bindec($binary_str));</span><br><span class="line">                    $hex = strlen($hex) == <span class="number">1</span> ? <span class="string">'0'</span> . $hex : $hex;<span class="comment">//补0</span></span><br><span class="line">                    $hex_str .= $hex;</span><br><span class="line">                    $binary_str = <span class="string">''</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//这时如果$binary_str不为空,说明需要向后补0</span></span><br><span class="line">            <span class="keyword">if</span> ($num) &#123;</span><br><span class="line">                <span class="keyword">for</span> ($i = <span class="number">0</span>; $i &lt; <span class="number">8</span> - $num; $i++) &#123;</span><br><span class="line">                    $binary_str .= <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                $hex = (string)dechex(bindec($binary_str));</span><br><span class="line">                $hex = strlen($hex) == <span class="number">1</span> ? <span class="string">'0'</span> . $hex : $hex;<span class="comment">//补0</span></span><br><span class="line">                $hex_str .= $hex;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        $hex_str = strtoupper($hex_str);<span class="comment">//转为大写</span></span><br><span class="line">        <span class="keyword">return</span> $hex_str;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<li>将普通<code>jpg/png</code>格式转为<code>.wbmp</code><pre class="line-numbers language-none"><code class="language-none">$filename = 'static/img/1.jpg';
+$path = 'static/img/11.wbmp';
+$image = getimagesize($filename);
+jpeg2wbmp($filename, $path, $image[1], $image[0], 5);//threshold == 5时,和给的软件转换后结果完全一致<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>读取<code>.wbmp</code>格式图片<pre class="line-numbers language-none"><code class="language-none">$filename = 'static/img/11.wbmp';
+$im = imagecreatefromwbmp($filename);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>将<code>.wbmp</code>转为<code>hex_str</code><pre class="line-numbers language-none"><code class="language-none">/**
+     * @param $im
+     * @return string
+     * Commented by liu
+     */
+    public function wbmp2hex($im)
+    {
+        $width = imagesx($im);
+        $height = imagesy($im);
+        $num = $width % 8;
+
+        $hex_str = '';
+        for ($start_y = 0; $start_y &lt; $height; $start_y++) {
+            $binary_str = '';
+            for ($start_x = 0; $start_x &lt; $width; $start_x++) {
+                $color_index = imagecolorat($im, $start_x, $start_y);//指定像素的索引值
+
+                $binary_str .= $color_index == 1 ? 1 : 0;
+                if ((1 + $start_x) % 8 == 0 &amp;&amp; $start_x != 0) {//每隔8位转换1次
+                    $hex = (string)dechex(bindec($binary_str));
+                    $hex = strlen($hex) == 1 ? '0' . $hex : $hex;//补0
+                    $hex_str .= $hex;
+                    $binary_str = '';
+                }
+            }
+
+            //这时如果$binary_str不为空,说明需要向后补0
+            if ($num) {
+                for ($i = 0; $i &lt; 8 - $num; $i++) {
+                    $binary_str .= 0;
+                }
+                $hex = (string)dechex(bindec($binary_str));
+                $hex = strlen($hex) == 1 ? '0' . $hex : $hex;//补0
+                $hex_str .= $hex;
+            }
+        }
+
+        $hex_str = strtoupper($hex_str);//转为大写
+        return $hex_str;
+    }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 </li>
 </ul>
 <p>最后附上读取<code>.bmp</code>格式图片的函数:</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Commented by liu</span></span><br><span class="line"><span class="comment"> * Create on 2018/11/23 17:51</span></span><br><span class="line"><span class="comment"> * Class Image_api</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Image_api</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span> <span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * ImageCreateFromBMP函数,读取bmp格式图片</span></span><br><span class="line"><span class="comment">     * 注:phpGD扩展中没有ImageCreateFromBMP函数,只有ImageCreateFromWBMP</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> $filename</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> bool|resource</span></span><br><span class="line"><span class="comment">     * Commented by liu</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">ImageCreateFromBMP</span><span class="params">($filename)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//Ouverture du fichier en mode binaire</span></span><br><span class="line">        <span class="keyword">if</span> (!$f1 = fopen($filename, <span class="string">"rb"</span>))</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">FALSE</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//1 : Chargement des ent�tes FICHIER</span></span><br><span class="line">        $FILE = unpack(<span class="string">"vfile_type/Vfile_size/Vreserved/Vbitmap_offset"</span>, fread($f1, <span class="number">14</span>));</span><br><span class="line">        <span class="keyword">if</span> ($FILE[<span class="string">'file_type'</span>] != <span class="number">19778</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">FALSE</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//2 : Chargement des ent�tes BMP</span></span><br><span class="line">        $BMP = unpack(<span class="string">'Vheader_size/Vwidth/Vheight/vplanes/vbits_per_pixel'</span> .</span><br><span class="line">            <span class="string">'/Vcompression/Vsize_bitmap/Vhoriz_resolution'</span> .</span><br><span class="line">            <span class="string">'/Vvert_resolution/Vcolors_used/Vcolors_important'</span>, fread($f1, <span class="number">40</span>));</span><br><span class="line">        $BMP[<span class="string">'colors'</span>] = pow(<span class="number">2</span>, $BMP[<span class="string">'bits_per_pixel'</span>]);</span><br><span class="line">        <span class="keyword">if</span> ($BMP[<span class="string">'size_bitmap'</span>] == <span class="number">0</span>)</span><br><span class="line">            $BMP[<span class="string">'size_bitmap'</span>] = $FILE[<span class="string">'file_size'</span>] - $FILE[<span class="string">'bitmap_offset'</span>];</span><br><span class="line">        $BMP[<span class="string">'bytes_per_pixel'</span>] = $BMP[<span class="string">'bits_per_pixel'</span>] / <span class="number">8</span>;</span><br><span class="line">        $BMP[<span class="string">'bytes_per_pixel2'</span>] = ceil($BMP[<span class="string">'bytes_per_pixel'</span>]);</span><br><span class="line">        $BMP[<span class="string">'decal'</span>] = ($BMP[<span class="string">'width'</span>] * $BMP[<span class="string">'bytes_per_pixel'</span>] / <span class="number">4</span>);</span><br><span class="line">        $BMP[<span class="string">'decal'</span>] -= floor($BMP[<span class="string">'width'</span>] * $BMP[<span class="string">'bytes_per_pixel'</span>] / <span class="number">4</span>);</span><br><span class="line">        $BMP[<span class="string">'decal'</span>] = <span class="number">4</span> - (<span class="number">4</span> * $BMP[<span class="string">'decal'</span>]);</span><br><span class="line">        <span class="keyword">if</span> ($BMP[<span class="string">'decal'</span>] == <span class="number">4</span>)</span><br><span class="line">            $BMP[<span class="string">'decal'</span>] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//3 : Chargement des couleurs de la palette</span></span><br><span class="line">        $PALETTE = <span class="keyword">array</span>();</span><br><span class="line">        <span class="keyword">if</span> ($BMP[<span class="string">'colors'</span>] &lt; <span class="number">16777216</span>) &#123;</span><br><span class="line">            $PALETTE = unpack(<span class="string">'V'</span> . $BMP[<span class="string">'colors'</span>], fread($f1, $BMP[<span class="string">'colors'</span>] * <span class="number">4</span>));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//4 : Cr�ation de l'image</span></span><br><span class="line">        $IMG = fread($f1, $BMP[<span class="string">'size_bitmap'</span>]);</span><br><span class="line">        $VIDE = chr(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        $res = imagecreatetruecolor($BMP[<span class="string">'width'</span>], $BMP[<span class="string">'height'</span>]);</span><br><span class="line">        $P = <span class="number">0</span>;</span><br><span class="line">        $Y = $BMP[<span class="string">'height'</span>] - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> ($Y &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            $X = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> ($X &lt; $BMP[<span class="string">'width'</span>]) &#123;</span><br><span class="line">                <span class="keyword">if</span> ($BMP[<span class="string">'bits_per_pixel'</span>] == <span class="number">24</span>)</span><br><span class="line">                    $COLOR = unpack(<span class="string">"V"</span>, substr($IMG, $P, <span class="number">3</span>) . $VIDE);</span><br><span class="line">                <span class="keyword">elseif</span> ($BMP[<span class="string">'bits_per_pixel'</span>] == <span class="number">16</span>) &#123;</span><br><span class="line">                    $COLOR = unpack(<span class="string">"n"</span>, substr($IMG, $P, <span class="number">2</span>));</span><br><span class="line">                    $COLOR[<span class="number">1</span>] = $PALETTE[$COLOR[<span class="number">1</span>] + <span class="number">1</span>];</span><br><span class="line">                &#125; <span class="keyword">elseif</span> ($BMP[<span class="string">'bits_per_pixel'</span>] == <span class="number">8</span>) &#123;</span><br><span class="line">                    $COLOR = unpack(<span class="string">"n"</span>, $VIDE . substr($IMG, $P, <span class="number">1</span>));</span><br><span class="line">                    $COLOR[<span class="number">1</span>] = $PALETTE[$COLOR[<span class="number">1</span>] + <span class="number">1</span>];</span><br><span class="line">                &#125; <span class="keyword">elseif</span> ($BMP[<span class="string">'bits_per_pixel'</span>] == <span class="number">4</span>) &#123;</span><br><span class="line">                    $COLOR = unpack(<span class="string">"n"</span>, $VIDE . substr($IMG, floor($P), <span class="number">1</span>));</span><br><span class="line">                    <span class="keyword">if</span> (($P * <span class="number">2</span>) % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">                        $COLOR[<span class="number">1</span>] = ($COLOR[<span class="number">1</span>] &gt;&gt; <span class="number">4</span>);</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                        $COLOR[<span class="number">1</span>] = ($COLOR[<span class="number">1</span>] &amp; <span class="number">0x0F</span>);</span><br><span class="line">                    $COLOR[<span class="number">1</span>] = $PALETTE[$COLOR[<span class="number">1</span>] + <span class="number">1</span>];</span><br><span class="line">                &#125; <span class="keyword">elseif</span> ($BMP[<span class="string">'bits_per_pixel'</span>] == <span class="number">1</span>) &#123;</span><br><span class="line">                    $COLOR = unpack(<span class="string">"n"</span>, $VIDE . substr($IMG, floor($P), <span class="number">1</span>));</span><br><span class="line">                    <span class="keyword">if</span> (($P * <span class="number">8</span>) % <span class="number">8</span> == <span class="number">0</span>)</span><br><span class="line">                        $COLOR[<span class="number">1</span>] = $COLOR[<span class="number">1</span>] &gt;&gt; <span class="number">7</span>;</span><br><span class="line">                    <span class="keyword">elseif</span> (($P * <span class="number">8</span>) % <span class="number">8</span> == <span class="number">1</span>)</span><br><span class="line">                        $COLOR[<span class="number">1</span>] = ($COLOR[<span class="number">1</span>] &amp; <span class="number">0x40</span>) &gt;&gt; <span class="number">6</span>;</span><br><span class="line">                    <span class="keyword">elseif</span> (($P * <span class="number">8</span>) % <span class="number">8</span> == <span class="number">2</span>)</span><br><span class="line">                        $COLOR[<span class="number">1</span>] = ($COLOR[<span class="number">1</span>] &amp; <span class="number">0x20</span>) &gt;&gt; <span class="number">5</span>;</span><br><span class="line">                    <span class="keyword">elseif</span> (($P * <span class="number">8</span>) % <span class="number">8</span> == <span class="number">3</span>)</span><br><span class="line">                        $COLOR[<span class="number">1</span>] = ($COLOR[<span class="number">1</span>] &amp; <span class="number">0x10</span>) &gt;&gt; <span class="number">4</span>;</span><br><span class="line">                    <span class="keyword">elseif</span> (($P * <span class="number">8</span>) % <span class="number">8</span> == <span class="number">4</span>)</span><br><span class="line">                        $COLOR[<span class="number">1</span>] = ($COLOR[<span class="number">1</span>] &amp; <span class="number">0x8</span>) &gt;&gt; <span class="number">3</span>;</span><br><span class="line">                    <span class="keyword">elseif</span> (($P * <span class="number">8</span>) % <span class="number">8</span> == <span class="number">5</span>)</span><br><span class="line">                        $COLOR[<span class="number">1</span>] = ($COLOR[<span class="number">1</span>] &amp; <span class="number">0x4</span>) &gt;&gt; <span class="number">2</span>;</span><br><span class="line">                    <span class="keyword">elseif</span> (($P * <span class="number">8</span>) % <span class="number">8</span> == <span class="number">6</span>)</span><br><span class="line">                        $COLOR[<span class="number">1</span>] = ($COLOR[<span class="number">1</span>] &amp; <span class="number">0x2</span>) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">elseif</span> (($P * <span class="number">8</span>) % <span class="number">8</span> == <span class="number">7</span>)</span><br><span class="line">                        $COLOR[<span class="number">1</span>] = ($COLOR[<span class="number">1</span>] &amp; <span class="number">0x1</span>);</span><br><span class="line">                    $COLOR[<span class="number">1</span>] = $PALETTE[$COLOR[<span class="number">1</span>] + <span class="number">1</span>];</span><br><span class="line">                &#125; <span class="keyword">else</span></span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">FALSE</span>;</span><br><span class="line">                imagesetpixel($res, $X, $Y, $COLOR[<span class="number">1</span>]);</span><br><span class="line">                $X++;</span><br><span class="line">                $P += $BMP[<span class="string">'bytes_per_pixel'</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            $Y--;</span><br><span class="line">            $P += $BMP[<span class="string">'decal'</span>];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//Fermeture du fichier</span></span><br><span class="line">        fclose($f1);</span><br><span class="line">        <span class="keyword">return</span> $res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&lt;?php
 
-      
+/**
+ * Commented by liu
+ * Create on 2018/11/23 17:51
+ * Class Image_api
+ */
+
+class Image_api
+{
+    function __construct (){
+
+    }
+
+    /**
+     * ImageCreateFromBMP函数,读取bmp格式图片
+     * 注:phpGD扩展中没有ImageCreateFromBMP函数,只有ImageCreateFromWBMP
+     * @param $filename
+     * @return bool|resource
+     * Commented by liu
+     */
+    function ImageCreateFromBMP($filename)
+    {
+        //Ouverture du fichier en mode binaire
+        if (!$f1 = fopen($filename, "rb"))
+            return FALSE;
+
+        //1 : Chargement des ent�tes FICHIER
+        $FILE = unpack("vfile_type/Vfile_size/Vreserved/Vbitmap_offset", fread($f1, 14));
+        if ($FILE['file_type'] != 19778)
+            return FALSE;
+
+        //2 : Chargement des ent�tes BMP
+        $BMP = unpack('Vheader_size/Vwidth/Vheight/vplanes/vbits_per_pixel' .
+            '/Vcompression/Vsize_bitmap/Vhoriz_resolution' .
+            '/Vvert_resolution/Vcolors_used/Vcolors_important', fread($f1, 40));
+        $BMP['colors'] = pow(2, $BMP['bits_per_pixel']);
+        if ($BMP['size_bitmap'] == 0)
+            $BMP['size_bitmap'] = $FILE['file_size'] - $FILE['bitmap_offset'];
+        $BMP['bytes_per_pixel'] = $BMP['bits_per_pixel'] / 8;
+        $BMP['bytes_per_pixel2'] = ceil($BMP['bytes_per_pixel']);
+        $BMP['decal'] = ($BMP['width'] * $BMP['bytes_per_pixel'] / 4);
+        $BMP['decal'] -= floor($BMP['width'] * $BMP['bytes_per_pixel'] / 4);
+        $BMP['decal'] = 4 - (4 * $BMP['decal']);
+        if ($BMP['decal'] == 4)
+            $BMP['decal'] = 0;
+
+        //3 : Chargement des couleurs de la palette
+        $PALETTE = array();
+        if ($BMP['colors'] &lt; 16777216) {
+            $PALETTE = unpack('V' . $BMP['colors'], fread($f1, $BMP['colors'] * 4));
+        }
+
+        //4 : Cr�ation de l'image
+        $IMG = fread($f1, $BMP['size_bitmap']);
+        $VIDE = chr(0);
+
+        $res = imagecreatetruecolor($BMP['width'], $BMP['height']);
+        $P = 0;
+        $Y = $BMP['height'] - 1;
+        while ($Y &gt;= 0) {
+            $X = 0;
+            while ($X &lt; $BMP['width']) {
+                if ($BMP['bits_per_pixel'] == 24)
+                    $COLOR = unpack("V", substr($IMG, $P, 3) . $VIDE);
+                elseif ($BMP['bits_per_pixel'] == 16) {
+                    $COLOR = unpack("n", substr($IMG, $P, 2));
+                    $COLOR[1] = $PALETTE[$COLOR[1] + 1];
+                } elseif ($BMP['bits_per_pixel'] == 8) {
+                    $COLOR = unpack("n", $VIDE . substr($IMG, $P, 1));
+                    $COLOR[1] = $PALETTE[$COLOR[1] + 1];
+                } elseif ($BMP['bits_per_pixel'] == 4) {
+                    $COLOR = unpack("n", $VIDE . substr($IMG, floor($P), 1));
+                    if (($P * 2) % 2 == 0)
+                        $COLOR[1] = ($COLOR[1] &gt;&gt; 4);
+                    else
+                        $COLOR[1] = ($COLOR[1] &amp; 0x0F);
+                    $COLOR[1] = $PALETTE[$COLOR[1] + 1];
+                } elseif ($BMP['bits_per_pixel'] == 1) {
+                    $COLOR = unpack("n", $VIDE . substr($IMG, floor($P), 1));
+                    if (($P * 8) % 8 == 0)
+                        $COLOR[1] = $COLOR[1] &gt;&gt; 7;
+                    elseif (($P * 8) % 8 == 1)
+                        $COLOR[1] = ($COLOR[1] &amp; 0x40) &gt;&gt; 6;
+                    elseif (($P * 8) % 8 == 2)
+                        $COLOR[1] = ($COLOR[1] &amp; 0x20) &gt;&gt; 5;
+                    elseif (($P * 8) % 8 == 3)
+                        $COLOR[1] = ($COLOR[1] &amp; 0x10) &gt;&gt; 4;
+                    elseif (($P * 8) % 8 == 4)
+                        $COLOR[1] = ($COLOR[1] &amp; 0x8) &gt;&gt; 3;
+                    elseif (($P * 8) % 8 == 5)
+                        $COLOR[1] = ($COLOR[1] &amp; 0x4) &gt;&gt; 2;
+                    elseif (($P * 8) % 8 == 6)
+                        $COLOR[1] = ($COLOR[1] &amp; 0x2) &gt;&gt; 1;
+                    elseif (($P * 8) % 8 == 7)
+                        $COLOR[1] = ($COLOR[1] &amp; 0x1);
+                    $COLOR[1] = $PALETTE[$COLOR[1] + 1];
+                } else
+                    return FALSE;
+                imagesetpixel($res, $X, $Y, $COLOR[1]);
+                $X++;
+                $P += $BMP['bytes_per_pixel'];
+            }
+            $Y--;
+            $P += $BMP['decal'];
+        }
+
+        //Fermeture du fichier
+        fclose($f1);
+        return $res;
+    }
+
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">大熊</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://blog.pulsating.cn/2019/11/12/PHP-monochrome-bitmap-module/">http://blog.pulsating.cn/2019/11/12/PHP-monochrome-bitmap-module/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">大熊</a>
+                    !
+                </span>
+            </div>
+        
     </div>
 
-    <div class="article-footer">
-      <blockquote class="mt-2x">
-  <ul class="post-copyright list-unstyled">
-    
-    <li class="post-copyright-link hidden-xs">
-      <strong>本文链接：</strong>
-      <a href="http://www.pulsating.cn/2019/11/12/PHP-monochrome-bitmap-module/" title="PHP 单色位图取模" target="_blank" rel="external">http://www.pulsating.cn/2019/11/12/PHP-monochrome-bitmap-module/</a>
-    </li>
-    
-    <li class="post-copyright-license">
-      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
-    </li>
-  </ul>
-</blockquote>
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
 
 
-<div class="panel panel-default panel-badger">
-  <div class="panel-body">
-    <figure class="media">
-      <div class="media-left">
-        <a href="https://github.com/liuxiaoyucc" target="_blank" class="img-burn thumb-sm visible-lg">
-          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
-        </a>
-      </div>
-      <div class="media-body">
-        <h3 class="media-heading"><a href="https://github.com/liuxiaoyucc" target="_blank"><span class="text-dark">xy&amp;cc</span><small class="ml-1x">程序猿和他的畅夫人</small></a></h3>
-        <div>程序猿和他的畅夫人</div>
-      </div>
-    </figure>
-  </div>
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%A4%A7%E7%86%8ABIGBEAR/">
+                                    <span class="chip bg-color">大熊BIGBEAR</span>
+                                </a>
+                            
+                                <a href="/tags/PHP/">
+                                    <span class="chip bg-color">PHP</span>
+                                </a>
+                            
+                                <a href="/tags/GD/">
+                                    <span class="chip bg-color">GD</span>
+                                </a>
+                            
+                                <a href="/tags/pctoLCD2002/">
+                                    <span class="chip bg-color">pctoLCD2002</span>
+                                </a>
+                            
+                                <a href="/tags/bmp/">
+                                    <span class="chip bg-color">bmp</span>
+                                </a>
+                            
+                                <a href="/tags/%E4%BD%8D%E5%9B%BE/">
+                                    <span class="chip bg-color">位图</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
 </div>
 
-
-    </div>
-
-  </article>
-
-
-
-
-  
-    
-  <section id="comments">
-  	
-           
-    
-  </section>
-
-
-  
-</div>
-
-  <nav class="bar bar-footer clearfix" data-stick-bottom>
-  <div class="bar-inner">
-  
-  <ul class="pager pull-left">
-    
-    <li class="prev">
-      <a href="/2019/11/12/Getting-started-with-thinkphp5/" title="ThinkPHP5框架搭建"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
-    
-    <li class="next">
-      <a href="/2019/11/12/Sphinx-Linux-install/" title="Sphinx Linux 下安装过程"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
-    </li>
-    
-    
-  </ul>
-  
-  
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
-  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
-    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
-  </div> -->
-  
-  
-  <div class="bar-right">
-    
-    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="wechat,weibo,qq,qzone"></div>
-    
-  </div>
-  </div>
-</nav>
-  
-<!-- Modal -->
-<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content donate">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <div class="modal-body">
-        <div class="donate-box">
-          <div class="donate-head">
-            <p>感谢您的支持，我会继续努力的!</p>
-          </div>
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
-              <div class="donate-payimg">
-                <img src="/images/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
-              </div>
-              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
-              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+                </div>
             </div>
-            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
-              <div class="donate-payimg">
-                <img src="/images/wechatpayimg.jpg" alt="扫码支持" title="扫一扫" />
-              </div>
-              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
-              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="donate-footer">
-            <ul class="nav nav-tabs nav-justified" role="tablist">
-              <li role="presentation" class="active">
-                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
-              </li>
-              <li role="presentation" class="">
-                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
-              </li>
-            </ul>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/11/12/Getting-started-with-thinkphp5/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="ThinkPHP5框架搭建">
+                        
+                        <span class="card-title">ThinkPHP5框架搭建</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-12
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/" class="post-category">
+                                    大熊BIGBEAR
+                                </a>
+                            
+                            <a href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/" class="post-category">
+                                    PHP
+                                </a>
+                            
+                            <a href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/ThinkPHP/" class="post-category">
+                                    ThinkPHP
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ThinkPHP/">
+                        <span class="chip bg-color">ThinkPHP</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A4%A7%E7%86%8ABIGBEAR/">
+                        <span class="chip bg-color">大熊BIGBEAR</span>
+                    </a>
+                    
+                    <a href="/tags/PHP/">
+                        <span class="chip bg-color">PHP</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/11/12/Sphinx-Linux-install/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Sphinx Linux 下安装过程">
+                        
+                        <span class="card-title">Sphinx Linux 下安装过程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                              之前记录过一篇Sphinx在Windows上的安装步骤,这篇当然就是Linux系统的安装步骤啦
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/" class="post-category">
+                                    大熊BIGBEAR
+                                </a>
+                            
+                            <a href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/" class="post-category">
+                                    PHP
+                                </a>
+                            
+                            <a href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/" class="post-category">
+                                    Mysql
+                                </a>
+                            
+                            <a href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Mysql/Sphinx/" class="post-category">
+                                    Sphinx
+                                </a>
+                            
+                            <a href="/categories/%E5%A4%A7%E7%86%8ABIGBEAR/Linux/" class="post-category">
+                                    Linux
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%A4%A7%E7%86%8ABIGBEAR/">
+                        <span class="chip bg-color">大熊BIGBEAR</span>
+                    </a>
+                    
+                    <a href="/tags/PHP/">
+                        <span class="chip bg-color">PHP</span>
+                    </a>
+                    
+                    <a href="/tags/Mysql/">
+                        <span class="chip bg-color">Mysql</span>
+                    </a>
+                    
+                    <a href="/tags/Sphinx/">
+                        <span class="chip bg-color">Sphinx</span>
+                    </a>
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/tags/Sphinxapi/">
+                        <span class="chip bg-color">Sphinxapi</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
 </div>
 
 
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 大熊的个人博客<br />'
+            + '文章作者: 大熊<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
 
 </main>
 
-  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
-	
-	
-    <ul class="social-links">
-    	
-        <li><a href="https://github.com/liuxiaoyucc" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
-        
-        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
-        
-        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
-        
-        <li><a href="/%E6%9A%82%E6%97%A0" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
-        
-        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
-        
-    </ul>
 
-    <div class="copyright">
-    	
-        <div class="publishby">
-        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
-        	</br>
-        	<a href="http://www.beian.miit.gov.cn/" target="_blank" rel="noopener" style="font-size: 10px">黑ICP备19000767号</a>
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2021</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">大熊</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">28.7k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
         </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/liuxiaoyucc" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2199842341@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2199842341" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2199842341" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
     </div>
 </footer>
-  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-<script>
-window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
-</script>
-<script src="/js/plugin.min.js"></script>
-<script src="/js/application.js"></script>
 
-    <script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: '文章',
-            PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
-            UNTITLED: '(未命名)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
     };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
 </script>
-<script src="/js/insight.js"></script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
 
 
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
 
+    <!-- Baidu Analytics -->
 
+    <!-- Baidu Push -->
 
-   
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
 
-
-
-
-   
     
-  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
-  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
-  <script type="text/javascript">
-  var gitalk = new Gitalk({
-    clientID: '3f444cd96c55b018da3b',
-    clientSecret: '196107507bfaec3f322d25041c3a9411e1d9ea4f',
-    repo: 'xy-blog',
-    owner: 'liuxiaoyucc',
-    admin: ['liuxiaoyucc'],
-    id: md5(location.pathname),
-    distractionFreeMode: true
-  })
-  gitalk.render('comments')
-  </script>
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
 
-      
+    
 
+    
 
+	
+    
 
+    
 
+    
 
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
 
+    <script type="text/javascript">
+        var OriginTitile=document.title,st;
+        document.addEventListener("visibilitychange",function(){
+            document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ好哦！",st=setTimeout(function(){document.title=OriginTitile},3e3))
+        })
+    </script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.9},"log":false});</script></body>
 
-  <script type="text/javascript" src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
-</body>
 </html>

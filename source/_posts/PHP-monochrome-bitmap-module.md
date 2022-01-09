@@ -1,5 +1,6 @@
 ---
 title: PHP 单色位图取模
+cover: true
 categories:
   - - 大熊BIGBEAR
     - PHP
