@@ -8,12 +8,19 @@ translate_title: 'on'
 ---
 
 
+---
+layout: cv
+title: Xiaoyu Liu's CV
+---
+
 
 ## 联系我
-- mail:liuxiaoyu0810@qq.com
-- tel:16605123405
-- pages:https://liuxiaoyucc.github.io/cv/
-- gitee:https://gitee.com/yuxiaoliu
+
+- mail: ccliuxy@gmail.com
+- tel: 16605123405
+- pages: https://liuxiaoyucc.github.io/cv/
+- gitee: https://gitee.com/yuxiaoliu
+- blog: http://blog.pulsating.cn/
 
 
 
@@ -24,33 +31,47 @@ translate_title: 'on'
 
 ## 关于我
 
-- 2年工作经验 `2017.6 - 现在`
+- 4年工作经验 `2017.6 - 现在`
 - php工程师 `2017.9 - 现在`
+- 跨端应用开发 `2019 - 现在`
 
 ## 工作经历
 
 ### __无锡NTT-DATA数据有限公司__ `2017.3 - 2017.7`
 _实习生_
-- JUnit单元测试(日语相关)
-- Zend FrameWork框架开发库存管理系统(熟悉Zend框架)
+- 单元测试(日语相关)
+- PHP Zend FrameWork框架上手(熟悉Zend框架)
 - perl基础
 
 ### __苏州小宇宙信息科技有限公司__ `2017.9 - 现在`
 _php工程师_
 - 云打印开放平台开发及维护,Api+后台
-- 对接第三方支付接口,包括不限于达达,蜂鸟
-- 外卖大优惠等功能型服务号开发,用户数50w+,PV在8k左右 *
-- 外卖海报(饿了么商户平台+微信公众号+小程序) Sphinx全文检索
-- 印题宝 前端页面交互 + 后端Api + 后台 *
+- 对接第三方支付接口,例如达达,蜂鸟
+- 功能型服务号开发, 外卖大优惠(外卖红包)
+- 外卖海报(饿了么商户平台+微信公众号+小程序)
+- windows客户端软件 (客服后台, 聊天)
+- 印题宝全端, 已上线安卓及iOS市场
 
 ## 开源项目
-- 图片转单色位图 (bitmap) [github地址](https://github.com/liuxiaoyucc/uni-app-moments)
-- 仿微信朋友圈 (uni-app) [github地址](https://github.com/liuxiaoyucc/uni-app-moments)
+
+- 图片转单色位图 (bitmap) [文章地址](http://blog.pulsating.cn/2019/11/12/PHP-monochrome-bitmap-module/)
+- 移动端聊天app (第三方, 包括环信, goeasy, tim) [github](https://github.com/liuxiaoyucc/uni-huanxin-im)
+- 京东日常助手(抓包, 模拟请求) [github](https://github.com/liuxiaoyucc/jd-helper)
+- 网易云音乐demo (github)[https://github.com/liuxiaoyucc/cloudmusic]
 
 ## 技能
-- 编程语言:PHP JavaScript Java 
-- 框架:Zend Framework CI VueJs uni-app JQ
-- 数据库:MYSQL Redis
-- 系统:LINUX
-- 版本控制:Git SVN
-- IDE:PhpStrom HbuilderX
+
+* php后端
+* 小程序开发
+* 微信公众号开发
+* hybrid app开发
+* windows客户端
+* php crawler
+
+## 爱好
+
+* 读书
+* 美食
+
+
+
