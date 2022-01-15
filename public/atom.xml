@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.pulsating.cn/"/>
-  <updated>2022-01-09T15:42:49.669Z</updated>
+  <updated>2022-01-15T13:34:16.438Z</updated>
   <id>http://blog.pulsating.cn/</id>
   
   <author>
@@ -15,6 +15,45 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>热托蒂, 冬日回魂</title>
+    <link href="http://blog.pulsating.cn/2022/01/15/hot-toddy-in-snow-winter/"/>
+    <id>http://blog.pulsating.cn/2022/01/15/hot-toddy-in-snow-winter/</id>
+    <published>2022-01-15T12:52:14.000Z</published>
+    <updated>2022-01-15T13:34:16.438Z</updated>
+    
+    <summary type="html">
+    
+      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
+
+
+
+&lt;blockquote&gt;
+&lt;p&gt;今天下了好大的雪哇, 风贼冷, 来一杯热鸡尾酒吧, 红茶热托蒂, 帮你抵御寒冷的冬天&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://blog.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="日常" scheme="http://blog.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E6%97%A5%E5%B8%B8/"/>
+    
+      <category term="鸡尾酒" scheme="http://blog.pulsating.cn/categories/%E9%B8%A1%E5%B0%BE%E9%85%92/"/>
+    
+    
+      <category term="大熊BIGBEAR" scheme="http://blog.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
+    
+      <category term="日常" scheme="http://blog.pulsating.cn/tags/%E6%97%A5%E5%B8%B8/"/>
+    
+      <category term="美食" scheme="http://blog.pulsating.cn/tags/%E7%BE%8E%E9%A3%9F/"/>
+    
+      <category term="食谱" scheme="http://blog.pulsating.cn/tags/%E9%A3%9F%E8%B0%B1/"/>
+    
+      <category term="鸡尾酒" scheme="http://blog.pulsating.cn/tags/%E9%B8%A1%E5%B0%BE%E9%85%92/"/>
+    
+  </entry>
   
   <entry>
     <title>2022年的第一个周末</title>
@@ -152,9 +191,9 @@
       <category term="Vue" scheme="http://blog.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/"/>
     
     
-      <category term="Js" scheme="http://blog.pulsating.cn/tags/Js/"/>
-    
       <category term="Vue" scheme="http://blog.pulsating.cn/tags/Vue/"/>
+    
+      <category term="Js" scheme="http://blog.pulsating.cn/tags/Js/"/>
     
   </entry>
   
@@ -163,7 +202,7 @@
     <link href="http://blog.pulsating.cn/2020/10/07/JS-Enent-Loop/"/>
     <id>http://blog.pulsating.cn/2020/10/07/JS-Enent-Loop/</id>
     <published>2020-10-07T02:59:19.000Z</published>
-    <updated>2022-01-09T13:55:48.192Z</updated>
+    <updated>2022-01-09T15:42:26.589Z</updated>
     
     <summary type="html">
     
@@ -650,55 +689,15 @@ export const obj2 = {};
       <category term="WEEX" scheme="http://blog.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%89%8D%E7%AB%AF/JavaScript/Vue/WEEX/"/>
     
     
+      <category term="Vue" scheme="http://blog.pulsating.cn/tags/Vue/"/>
+    
       <category term="Js" scheme="http://blog.pulsating.cn/tags/Js/"/>
     
       <category term="随手记" scheme="http://blog.pulsating.cn/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/"/>
     
-      <category term="Vue" scheme="http://blog.pulsating.cn/tags/Vue/"/>
-    
       <category term="uni-app" scheme="http://blog.pulsating.cn/tags/uni-app/"/>
     
       <category term="WEEX" scheme="http://blog.pulsating.cn/tags/WEEX/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用imagemagick实现两张或多张图片图片拼接 覆盖</title>
-    <link href="http://blog.pulsating.cn/2019/11/12/Using-imagemagick-to-achieve-the-splicing-of-two-or-more-pictures/"/>
-    <id>http://blog.pulsating.cn/2019/11/12/Using-imagemagick-to-achieve-the-splicing-of-two-or-more-pictures/</id>
-    <published>2019-11-12T15:40:50.000Z</published>
-    <updated>2020-01-07T15:19:57.986Z</updated>
-    
-    <summary type="html">
-    
-      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;Imagemagick&lt;/code&gt;是一个强大的图像处理库,号称命令行上的photoshop&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.pulsating.cn/2019/11/15/Use-GD-library-to-implement-image-merge/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;使用GD扩展实现和本篇文章相同的效果&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://pulsating.cn/2019/11/12/install-imagick-extend-and-imagemagick-in-windows-php5.6/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;php的imagick扩展和imagemagick的安装教程&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h5 id=&quot;1-问题场景&quot;&gt;&lt;a href=&quot;#1-问题场景&quot; class=&quot;headerlink&quot; title=&quot;1. 问题场景&quot;&gt;&lt;/a&gt;1. 问题场景&lt;/h5&gt;&lt;p&gt;&amp;emsp;&amp;emsp;在进行手上的一个海报项目时,遇到了这样一个需求:&lt;br&gt;&amp;emsp;&amp;emsp;如图,在用户制作一张海报后,最后保存的时候,图片主体&lt;code&gt;body&lt;/code&gt;是用户制作的海报,&lt;code&gt;footer&lt;/code&gt;是由左右两张二维码组成的,左边为公众号的带参数二维码,右侧是用户自定义的二维码,美工提供一张通用的footer模版,程序来负责动态将二维码替换上去,最终拼接成下面图片示例的样子&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="大熊BIGBEAR" scheme="http://blog.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
-    
-      <category term="PHP" scheme="http://blog.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/PHP/"/>
-    
-      <category term="图像处理" scheme="http://blog.pulsating.cn/categories/%E5%A4%A7%E7%86%8ABIGBEAR/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-    
-      <category term="大熊BIGBEAR" scheme="http://blog.pulsating.cn/tags/%E5%A4%A7%E7%86%8ABIGBEAR/"/>
-    
-      <category term="PHP" scheme="http://blog.pulsating.cn/tags/PHP/"/>
-    
-      <category term="imagick" scheme="http://blog.pulsating.cn/tags/imagick/"/>
-    
-      <category term="Imagemagick" scheme="http://blog.pulsating.cn/tags/Imagemagick/"/>
     
   </entry>
   
