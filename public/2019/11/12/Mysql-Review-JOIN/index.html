@@ -29,6 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="大熊的个人博客" type="application/atom+xml">
 </head>
 
@@ -480,7 +482,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2019-12-20
+                    2021-02-27
                 </div>
                 
 
@@ -517,12 +519,11 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <!-- <meta name="referrer" content="no-referrer" /> -->
-
-<h4 id="1-为什么要使用联结"><a href="#1-为什么要使用联结" class="headerlink" title="1. 为什么要使用联结?"></a>1. 为什么要使用联结?</h4><pre><code>联结可以利用一条SELECT语句检索出存储在多个关系表上的数据,也就是联结多个表返回一组数据.</code></pre><h4 id="2-一个创建联结的简单例子"><a href="#2-一个创建联结的简单例子" class="headerlink" title="2. 一个创建联结的简单例子"></a>2. 一个创建联结的简单例子</h4><pre><code>SELECT vend_name,prod_name,prod_price //检索出这三列数据
+                <h4 id="1-为什么要使用联结"><a href="#1-为什么要使用联结" class="headerlink" title="1. 为什么要使用联结?"></a>1. 为什么要使用联结?</h4><pre><code>联结可以利用一条SELECT语句检索出存储在多个关系表上的数据,也就是联结多个表返回一组数据.</code></pre><h4 id="2-一个创建联结的简单例子"><a href="#2-一个创建联结的简单例子" class="headerlink" title="2. 一个创建联结的简单例子"></a>2. 一个创建联结的简单例子</h4><pre class="line-numbers language-none"><code class="language-none">SELECT vend_name,prod_name,prod_price //检索出这三列数据
 FROM vendors,products //从这两个表中
 WHERE vendors.vend_id = product.vend_id //条件是两个表中的vend_id相等
-ORDER BY vend_name,prod_name; //通过vend_name,prod_name排序</code></pre><p>创建联结语句时,一定要注意的WHERE子句,如果没有WHERE子句,第一个表中的每一行都i将于第二个表中的行配对,从而产生大量不希望检索出的结果,也就是<strong>笛卡儿积</strong>(没有联结条件的表关系返回的结果)</p>
+ORDER BY vend_name,prod_name; //通过vend_name,prod_name排序<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>创建联结语句时,一定要注意的WHERE子句,如果没有WHERE子句,第一个表中的每一行都i将于第二个表中的行配对,从而产生大量不希望检索出的结果,也就是<strong>笛卡儿积</strong>(没有联结条件的表关系返回的结果)</p>
 <p><strong><em>应该保证所有联结都有WHERE子句,并且保证WHERE子句的正确性</em></strong></p>
 
                 
@@ -1127,7 +1128,7 @@ ORDER BY vend_name,prod_name; //通过vend_name,prod_name排序</code></pre><p>�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">31.5k</span>&nbsp;字
+                class="white-color">30.2k</span>&nbsp;字
             
             
             
@@ -1353,6 +1354,6 @@ $(function () {
             document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ好哦！",st=setTimeout(function(){document.title=OriginTitile},3e3))
         })
     </script>
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.9},"log":false});</script></body>
 
 </html>
