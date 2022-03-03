@@ -1,0 +1,95 @@
+{
+  "main": {
+    "id": "b713ee2ef303cb21",
+    "type": "split",
+    "children": [
+      {
+        "id": "5f59a111d751b856",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "source/_posts/php-html-to-image-use-mpdf-and-imagick and GD.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d81f3f03ec80b549",
+    "type": "split",
+    "children": [
+      {
+        "id": "fbaad9270cac567e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ca3290b49c032a30",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "043b43fe9afe990b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "47726a564d1a58e0",
+    "type": "split",
+    "children": [
+      {
+        "id": "f94bb4bc6d1fa805",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "db1d454c14dc5b60",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "source/_posts/php-html-to-image-use-mpdf-and-imagick and GD.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "5f59a111d751b856",
+  "lastOpenFiles": [
+    "source/_posts/php-html-to-image-use-mpdf-and-imagick and GD.md",
+    "source/_posts/hot-toddy-in-snow-winter.md",
+    "source/_posts/Mysql-table-import-and-export.md"
+  ]
+}

@@ -1,115 +1,155 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://blog.pulsating.cn/2022/01/15/hot-toddy-in-snow-winter/</loc>
-    <lastmod>2022-01-15</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2019/11/12/PHP-monochrome-bitmap-module/</loc>
-    <lastmod>2022-01-09</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2022/01/09/First-Weekend-of-2022/</loc>
-    <lastmod>2022-01-09</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2020/10/07/JS-Enent-Loop/</loc>
-    <lastmod>2022-01-09</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2021/03/09/Ali-H5-Pay-for-PHP/</loc>
-    <lastmod>2022-01-09</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2020/10/12/vue%E5%8F%98%E5%8C%96%E4%BE%A6%E6%B5%8B%E5%8E%9F%E7%90%86/</loc>
-    <lastmod>2022-01-09</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2020/05/25/uniapp-android-native-plugin-develop/</loc>
-    <lastmod>2022-01-09</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2020/06/20/mysql-select-leaf-node-from-tree-structure-data/</loc>
-    <lastmod>2022-01-09</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2021/03/04/Wechat-H5-Pay-for-PHP/</loc>
-    <lastmod>2022-01-09</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2020/01/08/Install-and-use-Composer/</loc>
-    <lastmod>2020-06-01</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2020/04/06/ES6-import-and-export/</loc>
-    <lastmod>2020-06-01</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2020/01/08/Sphinx-multi-index-configuration/</loc>
-    <lastmod>2020-01-08</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2020/01/07/Run-CI-method-in-cli/</loc>
-    <lastmod>2020-01-07</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2019/12/27/Custom-CI-insert-batch/</loc>
-    <lastmod>2020-01-07</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2019/11/12/Create-personal-blog-use-hexo/</loc>
-    <lastmod>2020-01-07</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2019/11/12/Using-imagemagick-to-achieve-the-splicing-of-two-or-more-pictures/</loc>
-    <lastmod>2020-01-07</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2020/01/06/Sweet-and-sour-spareribs/</loc>
-    <lastmod>2020-01-07</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2019/11/12/Sphinx-sphinx.conf-analysis/</loc>
-    <lastmod>2020-01-07</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2019/11/12/Sphinx-Linux-install/</loc>
-    <lastmod>2020-01-07</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2019/11/12/Searchinput-auto-complated/</loc>
-    <lastmod>2020-01-07</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2019/11/12/Mysql-Review-common-sql/</loc>
-    <lastmod>2020-01-07</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2019/12/26/Mysql-max_allowed_packet-setting/</loc>
-    <lastmod>2020-01-07</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2019/12/27/Late-boiled-wine/</loc>
-    <lastmod>2020-01-07</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2019/11/12/Install-Sphinx-in-Windows-and-use-Sphinxapi-in-php/</loc>
-    <lastmod>2020-01-07</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2019/11/12/Install-imagick-extend-and-imagemagick-in-windows-php5.6/</loc>
-    <lastmod>2020-01-07</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2019/11/12/Image-lazy-load-and-preview/</loc>
-    <lastmod>2020-01-07</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2019/11/12/Getting-started-with-thinkphp5/</loc>
-    <lastmod>2020-01-07</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2019/11/13/Vue-dynamically-binds-ref/</loc>
-    <lastmod>2020-01-07</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2019/11/22/First-letter-sort-use-JS/</loc>
-    <lastmod>2020-01-07</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2019/11/12/Determine-the-device-or-platform-used-by-UserAgent/</loc>
-    <lastmod>2020-01-07</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2019/11/12/Check-android-mobile-refresh-rate-in-real-time/</loc>
-    <lastmod>2020-01-07</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2019/12/20/Mysql-table-import-and-export/</loc>
-    <lastmod>2019-12-26</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2019/11/12/Mysql-Review-JOIN/</loc>
-    <lastmod>2019-12-20</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2019/11/12/Mysql-Review-engine/</loc>
-    <lastmod>2019-12-20</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2019/11/12/Mysql-Review-terminology/</loc>
-    <lastmod>2019-12-20</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2019/11/12/Mysql-Review-function/</loc>
-    <lastmod>2019-12-20</lastmod>
-  </url>  <url>
-    <loc>http://blog.pulsating.cn/2019/11/15/Use-GD-library-to-implement-image-merge/</loc>
-    <lastmod>2019-12-20</lastmod>
+    <loc>http://blog.pulsating.cn/2022/02/26/php-html-to-image-use-mpdf-and-imagick%20and%20GD/</loc>
+    <lastmod>2022-03-03</lastmod>
   </url>
-</urlset>
+  <url>
+    <loc>http://blog.pulsating.cn/2019/12/20/Mysql-table-import-and-export/</loc>
+    <lastmod>2022-03-03</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2022/01/15/hot-toddy-in-snow-winter/</loc>
+    <lastmod>2022-03-03</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2019/11/12/PHP-monochrome-bitmap-module/</loc>
+    <lastmod>2022-02-26</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2022/01/09/First-Weekend-of-2022/</loc>
+    <lastmod>2022-02-26</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2021/03/09/Ali-H5-Pay-for-PHP/</loc>
+    <lastmod>2021-03-10</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2021/03/04/Wechat-H5-Pay-for-PHP/</loc>
+    <lastmod>2021-03-05</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2020/10/12/vue%E5%8F%98%E5%8C%96%E4%BE%A6%E6%B5%8B%E5%8E%9F%E7%90%86/</loc>
+    <lastmod>2021-03-04</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2020/05/25/uniapp-android-native-plugin-develop/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2019/11/12/searchinput-auto-complated/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2020/01/06/sweet-and-sour-spareribs/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2020/06/20/mysql-select-leaf-node-from-tree-structure-data/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2019/11/12/install-Sphinx-in-Windows-and-use-Sphinxapi-in-php/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2019/11/12/install-imagick-extend-and-imagemagick-in-windows-php5.6/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2019/11/12/image-lazy-load-and-preview/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2019/11/13/Vue-dynamically-binds-ref/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2019/11/12/create-personal-blog-use-hexo/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2019/11/12/Using-imagemagick-to-achieve-the-splicing-of-two-or-more-pictures/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2019/11/15/Use-GD-library-to-implement-image-merge/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2019/11/12/Sphinx-sphinx.conf-analysis/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2019/11/12/Sphinx-Linux-install/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2020/01/08/Sphinx-multi-index-configuration/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2020/01/07/Run-CI-method-in-cli/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2019/11/12/Mysql-Review-terminology/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2019/12/26/Mysql-max_allowed_packet-setting/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2019/11/12/Mysql-Review-engine/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2019/11/12/Mysql-Review-function/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2019/12/27/Late-boiled-wine/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2019/11/12/Mysql-Review-JOIN/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2019/11/12/Mysql-Review-common-sql/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2020/01/08/Install-and-use-Composer/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2020/10/07/JS-Enent-Loop/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2019/11/22/First-letter-sort-use-JS/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2019/11/12/Getting-started-with-thinkphp5/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2019/11/12/Determine-the-device-or-platform-used-by-UserAgent/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2020/04/06/ES6-import-and-export/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2019/11/12/Check-android-mobile-refresh-rate-in-real-time/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://blog.pulsating.cn/2019/12/27/Custom-CI-insert-batch/</loc>
+    <lastmod>2021-02-27</lastmod>
+  </url>
+</urlset> 
