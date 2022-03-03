@@ -33,7 +33,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4629c910-dcec-4924-a911-110ea040b52b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/themes/hexo-theme-matery/source/libs/others/busuanzi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +61,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/themes/hexo-theme-matery/source" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../longcai/game_for_peace" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -90,6 +90,9 @@
       <workItem from="1615163918501" duration="32000" />
       <workItem from="1615279056268" duration="2696000" />
       <workItem from="1615338379184" duration="10191000" />
+      <workItem from="1615422779441" duration="1552000" />
+      <workItem from="1615509857482" duration="161000" />
+      <workItem from="1617261182520" duration="78000" />
     </task>
     <servers />
   </component>
@@ -109,6 +112,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="785" y="404" key="FileChooserDialogImpl" timestamp="1615430455388">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="785" y="404" key="FileChooserDialogImpl/0.30.1920.1050@0.30.1920.1050" timestamp="1615430455388" />
     <state x="551" y="304" key="SettingsEditor" timestamp="1614820557429">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
